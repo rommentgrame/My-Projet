@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:39:16.342Z",
+  "lastUpdated": "2026-02-24T19:39:18.007Z",
   "projects": [
     {
       "id": "tzs37v5c5mm10eajd",
@@ -182,7 +182,7 @@
   ],
   "slots": {
     "primary": "e4ut61zolmm10e17v",
-    "secondary": null,
+    "secondary": "tzs37v5c5mm10eajd",
     "pleasure": null
   },
   "completedProjects": [
