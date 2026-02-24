@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:49:58.948Z",
+  "lastUpdated": "2026-02-24T20:50:02.103Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -242,7 +242,7 @@
         {
           "id": "jqelvcilqmm12bi53",
           "text": "Crée le plateau",
-          "done": true
+          "done": false
         },
         {
           "id": "6rdfv3oe1mm12bu50",
@@ -277,7 +277,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T20:28:39.317Z",
-      "updatedAt": "2026-02-24T20:49:58.439Z"
+      "updatedAt": "2026-02-24T20:50:01.596Z"
     }
   ],
   "slots": {
