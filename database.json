@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:43:04.129Z",
+  "lastUpdated": "2026-02-24T20:43:18.703Z",
   "projects": [
+    {
+      "id": "44x3z4z0imm12oejy",
+      "name": "crée mon jeux vidéo",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#0ea5e9",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T20:43:05.518Z",
+      "updatedAt": "2026-02-24T20:43:05.518Z"
+    },
     {
       "id": "fanakirugmm12o3kc",
       "name": "Crée une petit musique",
