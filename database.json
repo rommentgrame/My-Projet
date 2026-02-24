@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:40:07.941Z",
+  "lastUpdated": "2026-02-24T19:40:15.253Z",
   "projects": [
+    {
+      "id": "poql73mwcmm10fjcd",
+      "name": "RERE",
+      "description": "",
+      "icon": "🎵",
+      "color": "#84cc16",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T19:40:12.589Z",
+      "updatedAt": "2026-02-24T19:40:12.589Z"
+    },
     {
       "id": "yh3aexau9mm10fchd",
       "name": "TESTE",
