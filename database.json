@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:43:30.705Z",
+  "lastUpdated": "2026-02-24T20:43:50.046Z",
   "projects": [
+    {
+      "id": "557co21summ12p1ff",
+      "name": "Création entreprise (Montage Vidéo et Sound Design)",
+      "description": "",
+      "icon": "💼",
+      "color": "#10b981",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T20:43:35.163Z",
+      "updatedAt": "2026-02-24T20:43:35.163Z"
+    },
     {
       "id": "y9i4i2onimm12otcv",
       "name": "Crée mon livre sur la dyslexie ",
