@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:35:07.387Z",
+  "lastUpdated": "2026-02-24T19:35:13.832Z",
   "projects": [
     {
       "id": "kcoy61b0omm102cjb",
@@ -10,7 +10,7 @@
       "color": "#ec4899",
       "tasks": [],
       "tags": [],
-      "priority": "medium",
+      "priority": "critical",
       "dueDate": "",
       "notes": "",
       "links": [],
@@ -21,7 +21,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T19:29:57.239Z",
-      "updatedAt": "2026-02-24T19:35:06.884Z"
+      "updatedAt": "2026-02-24T19:35:13.330Z"
     }
   ],
   "slots": {
