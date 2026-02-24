@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:34:57.701Z",
+  "lastUpdated": "2026-02-24T19:35:00.811Z",
   "projects": [
     {
       "id": "kcoy61b0omm102cjb",
@@ -18,6 +18,11 @@
           "id": "9jespcfnbmm108rzh",
           "text": "teste",
           "done": false
+        },
+        {
+          "id": "38m7uguxcmm108udi",
+          "text": "teste",
+          "done": false
         }
       ],
       "tags": [],
@@ -32,7 +37,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T19:29:57.239Z",
-      "updatedAt": "2026-02-24T19:34:57.197Z"
+      "updatedAt": "2026-02-24T19:35:00.294Z"
     }
   ],
   "slots": {
