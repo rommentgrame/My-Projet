@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:43:50.046Z",
+  "lastUpdated": "2026-02-24T20:45:00.633Z",
   "projects": [
+    {
+      "id": "07k6r1daemm12qm2l",
+      "name": "KORA -Skateboard & Robot Elec & Intelligent",
+      "description": "",
+      "icon": "🚀",
+      "color": "#f43f5e",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T20:44:48.573Z",
+      "updatedAt": "2026-02-24T20:44:48.573Z"
+    },
     {
       "id": "557co21summ12p1ff",
       "name": "Création entreprise (Montage Vidéo et Sound Design)",
