@@ -1,0 +1,16 @@
+{
+  "version": "2.1",
+  "lastUpdated": "",
+  "projects": [],
+  "slots": { "primary": null, "secondary": null, "pleasure": null },
+  "completedProjects": [],
+  "habits": [],
+  "habitLog": {},
+  "settings": {
+    "accent": "#7c3aed",
+    "compact": false,
+    "habitsCollapsed": false,
+    "slotNames": { "primary": "Primaire", "secondary": "Secondaire", "pleasure": "Plaisir" },
+    "timerDefault": { "mode": "countdown", "h": 0, "m": 25, "s": 0 }
+  }
+}
