@@ -1,28 +1,7 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:33:19.617Z",
+  "lastUpdated": "2026-02-24T19:33:29.328Z",
   "projects": [
-    {
-      "id": "hoynbaq86mm102mtv",
-      "name": "Teste",
-      "description": "Teste",
-      "icon": "🎹",
-      "color": "#4f46e5",
-      "tasks": [],
-      "tags": [],
-      "priority": "medium",
-      "dueDate": "",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 2,
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-24T19:30:10.579Z",
-      "updatedAt": "2026-02-24T19:33:01.960Z"
-    },
     {
       "id": "kcoy61b0omm102cjb",
       "name": "Teste",
@@ -48,9 +27,32 @@
   "slots": {
     "primary": "kcoy61b0omm102cjb",
     "secondary": null,
-    "pleasure": "hoynbaq86mm102mtv"
+    "pleasure": null
   },
-  "completedProjects": [],
+  "completedProjects": [
+    {
+      "id": "4k7bxhvwymm0zvos1",
+      "name": "teste",
+      "description": "teste",
+      "icon": "🔥",
+      "color": "#6366f1",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-02-24T19:24:46.513Z",
+      "updatedAt": "2026-02-24T19:24:46.513Z",
+      "completedAt": "2026-02-24T19:29:29.477Z"
+    }
+  ],
   "habits": [
     {
       "id": "zh6m3pod5mm1021k7",
