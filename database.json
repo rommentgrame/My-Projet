@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:48:20.493Z",
+  "lastUpdated": "2026-02-24T20:48:28.217Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -252,7 +252,7 @@
         {
           "id": "c3xkcq251mm12v571",
           "text": "Trouver une idée",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -267,7 +267,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T20:28:39.317Z",
-      "updatedAt": "2026-02-24T20:48:19.981Z"
+      "updatedAt": "2026-02-24T20:48:27.715Z"
     }
   ],
   "slots": {
