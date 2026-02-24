@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:58:21.596Z",
+  "lastUpdated": "2026-02-24T20:28:35.203Z",
   "projects": [
     {
       "id": "hoynbaq86mm102mtv",
@@ -22,27 +22,6 @@
       "completed": false,
       "createdAt": "2026-02-24T19:30:10.579Z",
       "updatedAt": "2026-02-24T19:33:01.960Z"
-    },
-    {
-      "id": "kcoy61b0omm102cjb",
-      "name": "Teste",
-      "description": "",
-      "icon": "🏆",
-      "color": "#ec4899",
-      "tasks": [],
-      "tags": [],
-      "priority": "medium",
-      "dueDate": "",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-24T19:29:57.239Z",
-      "updatedAt": "2026-02-24T19:29:57.240Z"
     }
   ],
   "slots": {
