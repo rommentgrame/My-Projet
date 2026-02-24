@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:50:02.103Z",
+  "lastUpdated": "2026-02-24T20:50:05.015Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -262,7 +262,7 @@
         {
           "id": "tf205e8nmmm12x4s8",
           "text": "Créé un cahier des charge",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -277,7 +277,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T20:28:39.317Z",
-      "updatedAt": "2026-02-24T20:50:01.596Z"
+      "updatedAt": "2026-02-24T20:50:04.512Z"
     }
   ],
   "slots": {
