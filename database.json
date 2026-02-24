@@ -1,7 +1,57 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:39:07.463Z",
+  "lastUpdated": "2026-02-24T19:39:16.342Z",
   "projects": [
+    {
+      "id": "tzs37v5c5mm10eajd",
+      "name": "Musique",
+      "description": "",
+      "icon": "🎵",
+      "color": "#a855f7",
+      "tasks": [
+        {
+          "id": "yt7j7zgr7mm10eajd",
+          "text": "Concept",
+          "done": false
+        },
+        {
+          "id": "7134c03e0mm10eajd",
+          "text": "Enregistrement",
+          "done": false
+        },
+        {
+          "id": "4svm1q611mm10eajd",
+          "text": "Mixage",
+          "done": false
+        },
+        {
+          "id": "l3r2topssmm10eajd",
+          "text": "Artwork",
+          "done": false
+        },
+        {
+          "id": "j1oh49xc1mm10eajd",
+          "text": "Publication",
+          "done": false
+        }
+      ],
+      "tags": [
+        "music",
+        "créatif"
+      ],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T19:39:14.521Z",
+      "updatedAt": "2026-02-24T19:39:14.521Z"
+    },
     {
       "id": "e4ut61zolmm10e17v",
       "name": "Recherche",
