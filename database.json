@@ -1,7 +1,60 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:32:09.560Z",
-  "projects": [],
+  "lastUpdated": "2026-02-24T20:33:20.947Z",
+  "projects": [
+    {
+      "id": "uen9e3xv2mm125u6t",
+      "name": "Echec électronique",
+      "description": "Faire un échiquier électronique (IA, LED, capteur, En ligne, 1V1 et etc...)",
+      "icon": "🎲",
+      "color": "#f97316",
+      "tasks": [
+        {
+          "id": "k0uwjvzwqmm12afkf",
+          "text": "Faire le schéma des composant",
+          "done": false
+        },
+        {
+          "id": "svukzfd93mm12atca",
+          "text": "Commencer le schéma électronique et choisir la taille de la carte",
+          "done": false
+        },
+        {
+          "id": "m7c3qjlenmm12b2rv",
+          "text": "Faire le codage et teste du système",
+          "done": false
+        },
+        {
+          "id": "e087yy8wmmm12bddd",
+          "text": "Crée le schéma du plateau",
+          "done": false
+        },
+        {
+          "id": "jqelvcilqmm12bi53",
+          "text": "Crée le plateau",
+          "done": false
+        },
+        {
+          "id": "6rdfv3oe1mm12bu50",
+          "text": "Faire l'assemblage",
+          "done": false
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T20:28:39.317Z",
+      "updatedAt": "2026-02-24T20:28:39.317Z"
+    }
+  ],
   "slots": {
     "primary": null,
     "secondary": null,
