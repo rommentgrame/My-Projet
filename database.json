@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:31:51.648Z",
+  "lastUpdated": "2026-02-24T19:31:57.844Z",
   "projects": [
     {
       "id": "hoynbaq86mm102mtv",
@@ -47,8 +47,8 @@
   ],
   "slots": {
     "primary": "kcoy61b0omm102cjb",
-    "secondary": "hoynbaq86mm102mtv",
-    "pleasure": null
+    "secondary": null,
+    "pleasure": "hoynbaq86mm102mtv"
   },
   "completedProjects": [
     {
