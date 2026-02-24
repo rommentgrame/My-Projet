@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:47:11.837Z",
+  "lastUpdated": "2026-02-24T20:47:49.061Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -26,7 +26,7 @@
     {
       "id": "3giqxf3yymm12qypv",
       "name": "Crée un drone ",
-      "description": "Faire une configuration de drone qui est ultra puissant",
+      "description": "🛹 1️⃣ DOUBLE MODE : SKATEBOARD + ROBOT\n🔹 Mode Skateboard Normal\n* Surface totalement plate lorsque le module est rétracté\n* Trappes renforcées supportant le poids du rider\n* Centre de gravité bas\n* Aucune gêne sous les pieds\n* Activation robot impossible si quelqu’un est dessus (sécurité pression)\n🔹 Mode Robot\n* Déploiement automatique :\n   1. Trappes s’ouvrent\n   2. Tête sort\n   3. Bras se déploient\n* Stabilisation automatique avant manipulation\n* Passage automatique en vitesse réduite\n🤖 2️⃣ BRAS MODULAIRES TYPE “COUTEAU SUISSE”\nChaque bras dispose d’un module rotatif d’outils intégré.\n🔹 Palette d’outils intégrée dans chaque bras\nChaque bras possède :\n* Pince de préhension précise (avec capteur de pression)\n* Tournevis motorisé\n* Mini fer à souder haute précision\n* Outil de coupe \n* Support interchangeable rapide\n* Micro pince fine pour composants électroniques\n🔁 Système de rotation d’outils\n* Tourelle rotative interne\n* Sélection automatique via IA\n* Changement en quelques secondes\n* Protection thermique pour le fer à souder\n🔥 3️⃣ FER À SOUDER HAUTE PRÉCISION\nFonction atelier mobile :\n* Pointe fine interchangeable\n* Température contrôlée électroniquement\n* Stabilisation du bras pendant soudure\n* Capteur thermique intégré\n* Mode micro-soudure composants électroniques\n* Refroidissement sécurisé avant rétractation\n⚠️ Important : Soudure uniquement à l’arrêt pour sécurité et stabilité.\n🧠 4️⃣ INTELLIGENCE DE MANIPULATION\nLes bras peuvent :\n* Prendre un objet derrière la planche\n* Le déposer sur le deck\n* Le repositionner\n* Le stabiliser pendant déplacement\n* Maintenir un objet pendant que l’autre bras travaille\nCoordination IA des deux bras :\n* Mouvement synchronisé\n* Compensation automatique d’équilibre\n👁 5️⃣ ANALYSE ENVIRONNEMENTALE\n* Vision 360°\n* Détection profondeur\n* Identification outil nécessaire\n* Ajustement précision selon tâche\n* Mode travail fin (micro électronique)\n👤 6️⃣ SUIVI UTILISATEUR + ASSISTANT MOBILE\n* Suit son propriétaire\n* Transporte outils ou pièces\n* Devient atelier roulant\n* Obéit à commande vocale\nExemple :\n“Prépare la soudure”\nLe robot :\n1. Stabilise\n2. Sélectionne le fer\n3. Monte en température\n4. Attend validation\n📡 7️⃣ CONTRÔLE LONGUE DISTANCE\n* Radio longue portée (LoRa)\n* 433 MHz\n* 4G / 5G\n* Retour vidéo en direct\n* Mode mission autonome à distance\nPortée réaliste :\n* 5 à 15 km en LoRa\n* Illimité via réseau mobile\n🔋 8️⃣ GESTION ÉNERGÉTIQUE PROFESSIONNELLE\n* Batterie propulsion séparée\n* Batterie robot séparée\n* Gestion thermique active\n* Mode économie automatique\n* Indicateur autonomie restante\n🛡 9️⃣ SÉCURITÉ\n* Arrêt d’urgence\n* Blocage thermique fer à souder\n* Détection chute\n* Verrouillage propriétaire\n* Rétraction automatique si instabilité\n💡 10️⃣ FONCTIONS AVANCÉES SUPPLÉMENTAIRES\n* Mode station atelier\n* Éclairage bras haute précision\n* Enregistrement vidéo manipulation\n* Diagnostic système automatique\n* Auto-maintenance logicielle\n* Projection LED au sol\n* GPS + anti-vol\n⚙️ RÉALITÉ TECHNIQUE\nCe projet devient :\n* Robot mobile autonome\n* Atelier électronique roulant\n* Drone assistant\n* Skateboard électrique utilisable normalement\nMais il faudra :\n* Conception mécanique très précise\n* Calcul centre de gravité\n* Gestion thermique sérieuse\n* Isolation électrique stricte",
       "icon": "🦋",
       "color": "#22c55e",
       "tasks": [],
@@ -42,7 +42,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T20:45:04.963Z",
-      "updatedAt": "2026-02-24T20:45:04.963Z"
+      "updatedAt": "2026-02-24T20:47:48.555Z"
     },
     {
       "id": "07k6r1daemm12qm2l",
