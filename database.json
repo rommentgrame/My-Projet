@@ -1,7 +1,13 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:29:26.372Z",
-  "projects": [
+  "lastUpdated": "2026-02-24T19:29:30.041Z",
+  "projects": [],
+  "slots": {
+    "primary": null,
+    "secondary": null,
+    "pleasure": null
+  },
+  "completedProjects": [
     {
       "id": "4k7bxhvwymm0zvos1",
       "name": "teste",
@@ -19,17 +25,12 @@
       "pomodoroCount": 0,
       "pinned": false,
       "archived": false,
-      "completed": false,
+      "completed": true,
       "createdAt": "2026-02-24T19:24:46.513Z",
-      "updatedAt": "2026-02-24T19:24:46.513Z"
+      "updatedAt": "2026-02-24T19:24:46.513Z",
+      "completedAt": "2026-02-24T19:29:29.477Z"
     }
   ],
-  "slots": {
-    "primary": "4k7bxhvwymm0zvos1",
-    "secondary": null,
-    "pleasure": null
-  },
-  "completedProjects": [],
   "habits": [],
   "habitLog": {},
   "settings": {
