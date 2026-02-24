@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:50:33.286Z",
+  "lastUpdated": "2026-02-24T20:50:51.934Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -134,7 +134,13 @@
       "description": "",
       "icon": "🎹",
       "color": "#f43f5e",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "gob55vomimm12ye1w",
+          "text": "tese",
+          "done": false
+        }
+      ],
       "tags": [],
       "priority": "medium",
       "dueDate": "",
@@ -147,7 +153,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T20:42:51.276Z",
-      "updatedAt": "2026-02-24T20:42:51.276Z"
+      "updatedAt": "2026-02-24T20:50:51.428Z"
     },
     {
       "id": "mnkko02c3mm12nshu",
