@@ -1,7 +1,57 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:38:39.529Z",
+  "lastUpdated": "2026-02-24T19:39:04.721Z",
   "projects": [
+    {
+      "id": "e4ut61zolmm10e17v",
+      "name": "Recherche",
+      "description": "",
+      "icon": "🔬",
+      "color": "#8b5cf6",
+      "tasks": [
+        {
+          "id": "ohxgpnb9rmm10e17v",
+          "text": "Sujet",
+          "done": false
+        },
+        {
+          "id": "yc5o5890tmm10e17v",
+          "text": "Sources",
+          "done": false
+        },
+        {
+          "id": "22bk3dwfomm10e17v",
+          "text": "Analyse",
+          "done": false
+        },
+        {
+          "id": "dmzju0krsmm10e17v",
+          "text": "Rédaction",
+          "done": false
+        },
+        {
+          "id": "khwqvgkpxmm10e17v",
+          "text": "Révision",
+          "done": false
+        }
+      ],
+      "tags": [
+        "research",
+        "pro"
+      ],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T19:39:02.443Z",
+      "updatedAt": "2026-02-24T19:39:02.443Z"
+    },
     {
       "id": "7ss4oeumimm109xk6",
       "name": "Musique",
