@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:50:54.890Z",
+  "lastUpdated": "2026-02-24T20:51:12.965Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -283,7 +283,7 @@
   "slots": {
     "primary": "uen9e3xv2mm125u6t",
     "secondary": "fieo9co7wmm12iafi",
-    "pleasure": "fanakirugmm12o3kc"
+    "pleasure": null
   },
   "completedProjects": [],
   "habits": [
