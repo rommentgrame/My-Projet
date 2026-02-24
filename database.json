@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:39:41.131Z",
+  "lastUpdated": "2026-02-24T19:40:07.941Z",
   "projects": [
+    {
+      "id": "yh3aexau9mm10fchd",
+      "name": "TESTE",
+      "description": "",
+      "icon": "🎓",
+      "color": "#84cc16",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T19:40:03.697Z",
+      "updatedAt": "2026-02-24T19:40:03.697Z"
+    },
     {
       "id": "7ss4oeumimm109xk6",
       "name": "Musique",
