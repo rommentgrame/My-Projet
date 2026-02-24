@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:52:13.196Z",
+  "lastUpdated": "2026-02-24T20:52:05.793Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -286,7 +286,14 @@
     "pleasure": null
   },
   "completedProjects": [],
-  "habits": [],
+  "habits": [
+    {
+      "id": "zh6m3pod5mm1021k7",
+      "name": "Teste",
+      "color": "#22c55e",
+      "createdAt": "2026-02-24T19:29:43.015Z"
+    }
+  ],
   "habitLog": {
     "2026-02-24": {
       "zh6m3pod5mm1021k7": true
@@ -306,6 +313,6 @@
       "m": 25,
       "s": 0
     },
-    "habitsCollapsed": false
+    "habitsCollapsed": true
   }
 }
