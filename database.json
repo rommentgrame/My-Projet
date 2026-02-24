@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T19:38:32.162Z",
+  "lastUpdated": "2026-02-24T19:38:39.529Z",
   "projects": [
     {
       "id": "7ss4oeumimm109xk6",
@@ -74,10 +74,10 @@
       "loggedHours": 0,
       "pomodoroCount": 3,
       "pinned": false,
-      "archived": true,
+      "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T19:29:57.239Z",
-      "updatedAt": "2026-02-24T19:38:31.659Z"
+      "updatedAt": "2026-02-24T19:38:39.027Z"
     }
   ],
   "slots": {
