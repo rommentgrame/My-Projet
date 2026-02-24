@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:37:09.561Z",
+  "lastUpdated": "2026-02-24T20:40:55.056Z",
   "projects": [
+    {
+      "id": "fieo9co7wmm12iafi",
+      "name": "Faire l’IA IXA",
+      "description": "C'est une IA intelligente que je peux utiliser à l'infini facilement et qui peut faire ce que je veux, comme analyser des documents, en créer. Faire des comptes rendus, me parler. M'apprendre des documents de façon simple avec des cartes mentales, quiz, flashcards et autres.",
+      "icon": "💡",
+      "color": "#0ea5e9",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "2026-03-20",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T20:38:20.238Z",
+      "updatedAt": "2026-02-24T20:38:20.238Z"
+    },
     {
       "id": "uen9e3xv2mm125u6t",
       "name": "Echec électronique",
