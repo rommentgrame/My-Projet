@@ -1,7 +1,28 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:45:00.633Z",
+  "lastUpdated": "2026-02-24T20:45:33.739Z",
   "projects": [
+    {
+      "id": "3giqxf3yymm12qypv",
+      "name": "Crée un drone ",
+      "description": "Faire une configuration de drone qui est ultra puissant",
+      "icon": "🦋",
+      "color": "#22c55e",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-24T20:45:04.963Z",
+      "updatedAt": "2026-02-24T20:45:04.963Z"
+    },
     {
       "id": "07k6r1daemm12qm2l",
       "name": "KORA -Skateboard & Robot Elec & Intelligent",
