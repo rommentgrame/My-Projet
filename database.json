@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "lastUpdated": "2026-02-24T20:49:30.589Z",
+  "lastUpdated": "2026-02-24T20:49:36.792Z",
   "projects": [
     {
       "id": "opp21owzpmm12stf7",
@@ -257,7 +257,7 @@
         {
           "id": "o1kgcae9vmm12wna4",
           "text": "Modélisation 3D des piècs et du plateau",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -272,7 +272,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-24T20:28:39.317Z",
-      "updatedAt": "2026-02-24T20:49:30.076Z"
+      "updatedAt": "2026-02-24T20:49:36.288Z"
     }
   ],
   "slots": {
