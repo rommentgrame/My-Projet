@@ -938,69 +938,71 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 </style>
 </head>
 <body>
-<!-- ══════ LOGIN SCREEN ══════ -->
-<div id="login-screen" class="login-screen" style="display:none">
+
+<!-- ══════════════════════════════════════════
+   SCREENS — 3 états : setup / login / token
+   Contrôlés UNIQUEMENT par showScreen(name)
+══════════════════════════════════════════════ -->
+
+<!-- ① Première connexion (créer un compte) -->
+<div id="screen-setup" class="login-screen" style="display:none">
   <div class="login-grid"></div>
   <div id="login-orbs"></div>
   <div class="login-card">
     <div class="login-card-inner">
-
-      <!-- Logo & title -->
       <div class="login-logo-wrap">
-        <div class="login-logo-ring">
-          <div class="login-logo-icon-inner">🗂</div>
-        </div>
+        <div class="login-logo-ring"><div class="login-logo-icon-inner">🗂</div></div>
         <div class="login-app-name">ProjectFlow</div>
         <div class="login-subtitle-text">
-          <div class="login-lock-dot" id="login-lock-dot"></div>
-          <span id="login-subtitle">Espace de travail sécurisé</span>
+          <div class="login-lock-dot warning"></div>
+          <span>Première connexion — créez votre accès</span>
         </div>
       </div>
-
-      <!-- Form -->
+      <div class="login-setup-banner" style="margin-bottom:16px">
+        <span>🔐</span>
+        <span><strong>Bienvenue !</strong><br>Choisissez un nom et un mot de passe. Vous serez le <em>seul</em> à pouvoir accéder à cette application.</span>
+      </div>
       <div class="login-form">
-        <div id="login-error" class="login-error"></div>
-
-        <div id="login-setup-banner" class="login-setup-banner" style="display:none">
-          <span>🔐</span>
-          <span><strong>Première connexion</strong><br>Créez votre mot de passe. Une fois défini, vous serez le <em>seul</em> à pouvoir accéder à cette application.</span>
+        <div id="setup-error" class="login-error"></div>
+        <div class="login-field-wrap">
+          <span class="login-field-icon">👤</span>
+          <input class="login-input" id="setup-username" placeholder="Votre prénom ou pseudo" autocomplete="username" onkeydown="if(event.key==='Enter')document.getElementById('setup-password').focus()">
         </div>
-
-        <div id="login-username-wrap" style="display:none">
-          <div class="login-field-wrap">
-            <span class="login-field-icon">👤</span>
-            <input class="login-input" id="login-username" placeholder="Votre prénom ou pseudo" autocomplete="username">
-          </div>
-        </div>
-
         <div class="login-field-wrap">
           <span class="login-field-icon">🔑</span>
-          <input class="login-input" type="password" id="login-password" placeholder="Mot de passe" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+          <input class="login-input" type="password" id="setup-password" placeholder="Choisir un mot de passe (min 6 car.)" autocomplete="new-password" onkeydown="if(event.key==='Enter')document.getElementById('setup-confirm').focus()">
         </div>
-
-        <div id="login-confirm-wrap" style="display:none">
-          <div class="login-field-wrap">
-            <span class="login-field-icon">🔒</span>
-            <input class="login-input" type="password" id="login-confirm" placeholder="Confirmer le mot de passe" autocomplete="new-password" onkeydown="if(event.key==='Enter')doLogin()">
-          </div>
+        <div class="login-field-wrap">
+          <span class="login-field-icon">🔒</span>
+          <input class="login-input" type="password" id="setup-confirm" placeholder="Confirmer le mot de passe" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSetup()">
         </div>
-
-        <div id="login-attempts" class="login-attempts" style="display:none"></div>
-
-        <button class="login-btn-main" onclick="doLogin()" id="login-btn">🔐 Déverrouiller</button>
-
-        <div class="login-hint" id="login-hint"></div>
+        <button class="login-btn-main" onclick="doSetup()" id="setup-btn">✨ Créer mon accès privé</button>
       </div>
-
-      <!-- Security footer -->
       <div class="login-security-badge">
-        <span>🔒 SHA-256</span>
-        <span style="opacity:0.3">·</span>
-        <span>💾 Local uniquement</span>
-        <span style="opacity:0.3">·</span>
+        <span>🔒 SHA-256</span><span style="opacity:0.3">·</span>
+        <span>💾 Local uniquement</span><span style="opacity:0.3">·</span>
         <span>🚫 Utilisateur unique</span>
       </div>
+    </div>
+  </div>
+</div>
 
+<!-- ② Connexion (compte existant) -->
+<div id="screen-login" class="login-screen" style="display:none">
+  <div class="login-grid"></d          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Nom du dépôt</div>
+          <div class="login-field-wrap">
+            <span class="login-field-icon">📁</span>
+            <input class="login-input" id="setup-repo" placeholder="nom-du-repo" autocomplete="off" onkeydown="if(event.key==='Enter')saveTokenSetup()">
+          </div>
+        </div>
+        <button class="login-btn-main" onclick="saveTokenSetup()" id="setup-btn">✅ Enregistrer et ouvrir l'app</button>
+        <button onclick="skipTokenSetup()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:6px;text-align:center;transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
+          ⏭ Passer — utiliser l'app en local sans sync
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1346,15 +1348,17 @@ const getCat = id => state.categories.find(c=>c.id===id);
 // Once account is created, NO NEW ACCOUNT can EVER be created.
 // Wrong password → attempt counter → 30s lockout after 5 fails.
 
-const LS_AUTH_KEY   = 'pf_auth_v1';
-const LS_LOCK_KEY   = 'pf_lock_v1';   // { attempts, until }
-const MAX_ATTEMPTS  = 5;
-const LOCKOUT_MS    = 30_000;
+const LS_AUTH_KEY = 'pf_auth_v1';
+const LS_LOCK_KEY = 'pf_lock_v1';
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MS   = 30_000;
+// Both salts supported so old accounts still work
+const SALTS = ['pf_salt_projectflow_2024', 'pf_salt_2024'];
 
-async function hashPwd(pwd) {
-  const enc = new TextEncoder().encode(pwd + 'pf_salt_projectflow_2024');
+async function hashPwd(pwd, salt) {
+  const enc = new TextEncoder().encode(pwd + salt);
   const buf = await crypto.subtle.digest('SHA-256', enc);
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 }
 
 function getAuth() {
@@ -1364,109 +1368,137 @@ function getLock() {
   try { return JSON.parse(localStorage.getItem(LS_LOCK_KEY)) || { attempts:0, until:0 }; } catch(e) { return { attempts:0, until:0 }; }
 }
 function saveLock(l) { localStorage.setItem(LS_LOCK_KEY, JSON.stringify(l)); }
+function clearLock() { localStorage.removeItem(LS_LOCK_KEY); }
+function isLocked() { return getLock().until > Date.now(); }
 
-function isLocked() {
-  const l = getLock();
-  return l.until > Date.now();
-}
 function recordFailedAttempt() {
   const l = getLock();
   l.attempts = (l.attempts || 0) + 1;
-  if (l.attempts >= MAX_ATTEMPTS) {
-    l.until = Date.now() + LOCKOUT_MS;
-    l.attempts = 0;
-  }
+  if (l.attempts >= MAX_ATTEMPTS) { l.until = Date.now() + LOCKOUT_MS; l.attempts = 0; }
   saveLock(l);
+  return getLock();
 }
-function clearLock() { localStorage.removeItem(LS_LOCK_KEY); }
 
+// ── MAIN LOGIN HANDLER ────────────────────────────────────────────────────
 async function doLogin() {
-  const auth = getAuth();
-  const password = document.getElementById('login-password')?.value;
-  if (!password) { showLoginError('Saisissez votre mot de passe'); return; }
+  const auth     = getAuth();
+  const password = document.getElementById('login-password')?.value || '';
+  if (!password) { showLoginError('Entrez votre mot de passe'); return; }
 
-  // Check lockout
   if (isLocked()) {
     const secs = Math.ceil((getLock().until - Date.now()) / 1000);
-    showLoginError(`Trop de tentatives. Réessayez dans ${secs}s`);
+    showLoginError('Trop de tentatives — réessayez dans ' + secs + 's');
     return;
   }
 
   const btn = document.getElementById('login-btn');
-  if (btn) { btn.classList.add('loading'); btn.textContent = ''; }
+  if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
 
   if (!auth) {
-    // ── FIRST TIME SETUP ──
-    const username = document.getElementById('login-username')?.value.trim();
-    const confirm  = document.getElementById('login-confirm')?.value;
-    if (!username) { showLoginError("Choisissez un nom"); resetBtn(); return; }
-    if (password.length < 6) { showLoginError('Minimum 6 caractères'); resetBtn(); return; }
-    if (password !== confirm) { showLoginError('Les mots de passe ne correspondent pas'); resetBtn(); return; }
+    // ── PREMIÈRE FOIS : création du compte ──
+    const username = document.getElementById('login-username')?.value.trim() || '';
+    const confirm  = document.getElementById('login-confirm')?.value || '';
+    if (!username)             { showLoginError('Choisissez un prénom/pseudo');          resetBtn(); return; }
+    if (password.length < 6)   { showLoginError('Minimum 6 caractères');                resetBtn(); return; }
+    if (password !== confirm)  { showLoginError('Les mots de passe ne correspondent pas'); resetBtn(); return; }
 
-    const hash = await hashPwd(password);
-    // Store account — this is the ONE AND ONLY account ever
+    const hash = await hashPwd(password, SALTS[0]);
     localStorage.setItem(LS_AUTH_KEY, JSON.stringify({
-      username, hash, createdAt: new Date().toISOString(), single: true
+      username, hash, salt: SALTS[0], createdAt: new Date().toISOString()
     }));
     clearLock();
     launchApp(username);
 
   } else {
-    // ── RETURNING USER — only valid hash gets in ──
-    const hash = await hashPwd(password);
-    if (hash !== auth.hash) {
-      recordFailedAttempt();
-      const l = getLock();
-      const remaining = MAX_ATTEMPTS - (l.attempts || 0);
+    // ── CONNEXION : vérifie avec le bon sel (ancien ou nouveau) ──
+    const saltToUse = auth.salt || SALTS[0];
+    const hash = await hashPwd(password, saltToUse);
+
+    // Essaie aussi l'autre sel si ça ne marche pas (migration anciens comptes)
+    let ok = hash === auth.hash;
+    if (!ok) {
+      for (const s of SALTS) {
+        if (s === saltToUse) continue;
+        const h2 = await hashPwd(password, s);
+        if (h2 === auth.hash) {
+          ok = true;
+          // Migre vers le nouveau sel
+          const updated = { ...auth, hash: await hashPwd(password, SALTS[0]), salt: SALTS[0] };
+          localStorage.setItem(LS_AUTH_KEY, JSON.stringify(updated));
+          break;
+        }
+      }
+    }
+
+    if (!ok) {
+      const l = recordFailedAttempt();
       if (l.until > Date.now()) {
-        showLoginError(`❌ Compte verrouillé 30 secondes`);
+        showLoginError('❌ Compte verrouillé 30 secondes');
         startLockCountdown();
       } else {
-        showLoginError(`Mot de passe incorrect — ${remaining > 0 ? remaining + ' essai(s) restant(s)' : ''}`);
+        const rem = MAX_ATTEMPTS - (l.attempts || 0);
+        showLoginError('Mot de passe incorrect — ' + rem + ' essai(s) restant(s)');
         updateAttemptsUI();
       }
+      // Après 3 échecs affiche le lien de réinitialisation
+      const totalFails = getLock().attempts || 0;
+      if (totalFails >= 3 || l.until > Date.now()) showResetLink();
       resetBtn();
       document.getElementById('login-password').value = '';
       document.getElementById('login-password').focus();
       return;
     }
+
     clearLock();
     launchApp(auth.username);
   }
 }
 
 function resetBtn() {
-  const btn = document.getElementById('login-btn');
-  if (!btn) return;
-  btn.classList.remove('loading');
+  const btn  = document.getElementById('login-btn');
   const auth = getAuth();
-  btn.textContent = auth ? '🔐 Déverrouiller' : '✨ Créer mon accès';
+  if (!btn) return;
+  btn.disabled = false; btn.style.opacity = '1';
+  btn.textContent = auth ? "🔐 Déverrouiller" : "✨ Créer mon accès privé";
+}
+
+function showResetLink() {
+  let el = document.getElementById('login-reset-link');
+  if (el) { el.style.display = 'block'; return; }
+  el = document.createElement('div');
+  el.id = 'login-reset-link';
+  el.style.cssText = 'text-align:center;margin-top:6px';
+  el.innerHTML = '<button onclick="confirmReset()" style="background:none;border:none;cursor:pointer;color:#f87171;font-size:11px;text-decoration:underline">Mot de passe oublié ? Réinitialiser l\'accès →</button>';
+  const form = document.getElementById('login-form');
+  if (form) form.appendChild(el);
+}
+
+function confirmReset() {
+  if (!confirm('\u26a0\ufe0f Réinitialiser l\'accès ?\n\nVos DONNÉES (projets) seront conservées.\nSeul le mot de passe sera effacé — vous devrez en créer un nouveau.')) return;
+  localStorage.removeItem(LS_AUTH_KEY);
+  localStorage.removeItem(LS_LOCK_KEY);
+  showLoginScreen();
 }
 
 function startLockCountdown() {
   const el = document.getElementById('login-attempts');
   if (!el) return;
   const tick = () => {
-    const l = getLock();
-    const secs = Math.ceil((l.until - Date.now()) / 1000);
-    if (secs <= 0) { el.style.display = 'none'; el.textContent = ''; updateAttemptsUI(); return; }
+    const secs = Math.ceil((getLock().until - Date.now()) / 1000);
+    if (secs <= 0) { el.style.display = 'none'; updateAttemptsUI(); return; }
     el.style.display = 'flex';
-    el.textContent = `🔒 Verrouillé — réessayez dans ${secs}s`;
+    el.textContent = '🔒 Verrouillé — réessayez dans ' + secs + 's';
     setTimeout(tick, 1000);
   };
   tick();
 }
 
 function updateAttemptsUI() {
-  const l = getLock();
+  const l  = getLock();
   const el = document.getElementById('login-attempts');
   if (!el) return;
-  if (l.attempts > 0) {
-    el.style.display = 'flex';
-    el.textContent = `⚠️ ${l.attempts}/${MAX_ATTEMPTS} tentative(s) incorrecte(s)`;
-  } else {
-    el.style.display = 'none';
-  }
+  if (l.attempts > 0) { el.style.display = 'flex'; el.textContent = '⚠️ ' + l.attempts + '/' + MAX_ATTEMPTS + ' tentatives incorrectes'; }
+  else { el.style.display = 'none'; }
 }
 
 function showLoginError(msg) {
@@ -1475,35 +1507,32 @@ function showLoginError(msg) {
   el.textContent = msg;
   el.style.display = 'block';
   el.style.animation = 'none';
-  void el.offsetWidth; // reflow for re-trigger
+  void el.offsetWidth;
   el.style.animation = 'loginErrShake 0.3s ease';
-  setTimeout(() => { if (el) el.style.display = 'none'; }, 4000);
+  setTimeout(() => { if (el) el.style.display = 'none'; }, 4500);
 }
 
+// ── LAUNCH APP ────────────────────────────────────────────────────────────
 function launchApp(username) {
   document.getElementById('login-screen').style.display = 'none';
   const lbl = document.getElementById('user-label');
   if (lbl) lbl.textContent = username;
 
-  // Check if GitHub token already saved
   const ghStr = localStorage.getItem(LS_GITHUB_KEY);
   if (!ghStr) {
-    // First time: show token setup screen before the app
-    showTokenSetup(username);
+    showTokenSetup();
   } else {
     document.getElementById('app').style.display = 'flex';
     loadAndRender();
   }
 }
 
-function showTokenSetup(username) {
+function showTokenSetup() {
   document.getElementById('token-setup-screen').style.display = 'flex';
-  // Reuse the orb background
   spawnLoginOrbs();
 }
 
 function skipTokenSetup() {
-  // User chose to skip — save empty so we don't ask again
   localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token:'', owner:'', repo:'' }));
   document.getElementById('token-setup-screen').style.display = 'none';
   document.getElementById('app').style.display = 'flex';
@@ -1511,115 +1540,108 @@ function skipTokenSetup() {
 }
 
 async function saveTokenSetup() {
-  const token = document.getElementById('setup-token').value.trim();
-  const owner = document.getElementById('setup-owner').value.trim();
-  const repo  = document.getElementById('setup-repo').value.trim();
+  const token = (document.getElementById('setup-token')?.value || '').trim();
+  const owner = (document.getElementById('setup-owner')?.value || '').trim();
+  const repo  = (document.getElementById('setup-repo')?.value  || '').trim();
+  const err   = document.getElementById('setup-error');
+  const btn   = document.getElementById('setup-btn');
 
   if (!token || !owner || !repo) {
-    const err = document.getElementById('setup-error');
-    err.textContent = 'Remplissez les 3 champs pour continuer.';
-    err.style.display = 'block';
-    return;
+    err.textContent = 'Remplissez les 3 champs.'; err.style.display = 'block'; return;
   }
-
-  // Test the token quickly
-  const btn = document.getElementById('setup-btn');
   btn.textContent = '⏳ Vérification...'; btn.disabled = true;
+  err.style.display = 'none';
 
   try {
-    const r = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+    const r = await fetch('https://api.github.com/repos/' + owner + '/' + repo, {
       headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
     });
     if (!r.ok) throw new Error('Dépôt introuvable ou token invalide (code ' + r.status + ')');
   } catch(e) {
-    const err = document.getElementById('setup-error');
-    err.textContent = '❌ ' + e.message;
-    err.style.display = 'block';
+    err.textContent = '❌ ' + e.message; err.style.display = 'block';
     btn.textContent = '✅ Enregistrer et continuer'; btn.disabled = false;
     return;
   }
 
-  // Save and go
   Object.assign(github, { token, owner, repo });
   localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token, owner, repo }));
   document.getElementById('token-setup-screen').style.display = 'none';
   document.getElementById('app').style.display = 'flex';
   loadAndRender();
-  toast('🔗 GitHub connecté avec succès !', 'success');
+  setTimeout(() => toast('🔗 GitHub connecté !', 'success'), 800);
   btn.textContent = '✅ Enregistrer et continuer'; btn.disabled = false;
 }
 
+// ── SHOW LOGIN SCREEN ─────────────────────────────────────────────────────
 function showLoginScreen() {
   const auth = getAuth();
   document.getElementById('app').style.display = 'none';
   document.getElementById('login-screen').style.display = 'flex';
-
-  // Spawn background orbs
   spawnLoginOrbs();
+
+  // Clean up reset link if any
+  const rl = document.getElementById('login-reset-link');
+  if (rl) rl.style.display = 'none';
 
   const dot = document.getElementById('login-lock-dot');
 
   if (auth) {
-    // ── RETURNING: only password field ──
-    document.getElementById('login-subtitle').textContent = `Bon retour, ${auth.username} !`;
-    document.getElementById('login-username-wrap').style.display = 'none';
-    document.getElementById('login-confirm-wrap').style.display = 'none';
-    document.getElementById('login-setup-banner').style.display = 'none';
+    // ── Utilisateur existant : seulement le mot de passe ──
+    document.getElementById('login-subtitle').textContent  = 'Bon retour, ' + auth.username + ' !';
+    document.getElementById('login-username-wrap').style.display  = 'none';
+    document.getElementById('login-confirm-wrap').style.display   = 'none';
+    document.getElementById('login-setup-banner').style.display   = 'none';
     document.getElementById('login-btn').textContent = '🔐 Déverrouiller';
-    document.getElementById('login-hint').textContent = 'Accès protégé — vous êtes le seul utilisateur';
-    if (dot) { dot.className = 'login-lock-dot'; }
-    // Show attempts if any pending
+    document.getElementById('login-hint').textContent = 'Accès protégé — utilisateur unique';
+    if (dot) dot.className = 'login-lock-dot';
     updateAttemptsUI();
     if (isLocked()) startLockCountdown();
     setTimeout(() => document.getElementById('login-password')?.focus(), 150);
   } else {
-    // ── FIRST TIME SETUP ──
-    document.getElementById('login-subtitle').textContent = 'Création de votre accès';
-    document.getElementById('login-username-wrap').style.display = 'block';
-    document.getElementById('login-confirm-wrap').style.display = 'block';
-    document.getElementById('login-setup-banner').style.display = 'flex';
-    document.getElementById('login-btn').textContent = '✨ Créer mon accès privé';
-    document.getElementById('login-hint').textContent = 'Ce mot de passe sera le seul moyen d\'accéder à cette app';
-    if (dot) { dot.className = 'login-lock-dot warning'; }
+    // ── Première fois : créer un compte ──
+    document.getElementById("login-subtitle").textContent  = "Première connexion — créez votre accès";
+    document.getElementById('login-username-wrap').style.display  = 'block';
+    document.getElementById('login-confirm-wrap').style.display   = 'block';
+    document.getElementById('login-setup-banner').style.display   = 'flex';
+    document.getElementById("login-btn").textContent = "✨ Créer mon accès privé";
+    document.getElementById('login-hint').textContent = 'Vous serez le seul à pouvoir vous connecter';
+    if (dot) dot.className = 'login-lock-dot warning';
     setTimeout(() => document.getElementById('login-username')?.focus(), 150);
   }
+  // Clear password field on every open
+  const pwd = document.getElementById('login-password');
+  if (pwd) pwd.value = '';
 }
 
 function spawnLoginOrbs() {
-  const container = document.getElementById('login-orbs');
+  const container = document.getElementById('login-orbs') || document.getElementById('token-orbs');
   if (!container || container.childElementCount > 0) return;
-  const colors = ['rgba(124,58,237,0.15)', 'rgba(79,70,229,0.12)', 'rgba(14,165,233,0.1)', 'rgba(167,139,250,0.1)'];
+  const colors = ['rgba(124,58,237,0.15)','rgba(79,70,229,0.12)','rgba(14,165,233,0.1)','rgba(167,139,250,0.1)'];
   for (let i = 0; i < 6; i++) {
-    const orb = document.createElement('div');
+    const orb  = document.createElement('div');
     const size = 30 + Math.random() * 60;
     orb.className = 'login-orb';
-    orb.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${Math.random() * 100}%;
-      background: radial-gradient(circle, ${colors[i % colors.length]}, transparent);
-      animation-duration: ${8 + Math.random() * 12}s;
-      animation-delay: ${Math.random() * 8}s;
-      filter: blur(8px);
-    `;
+    orb.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:' + (Math.random()*100) + '%;background:radial-gradient(circle,' + colors[i%colors.length] + ',transparent);animation-duration:' + (8+Math.random()*12) + 's;animation-delay:' + (Math.random()*8) + 's;filter:blur(8px);';
     container.appendChild(orb);
   }
 }
 
+// ── LOAD & RENDER ─────────────────────────────────────────────────────────
 async function loadAndRender() {
-  // BroadcastChannel
   try {
     broadcastChannel = new BroadcastChannel('projectflow_sync');
     broadcastChannel.onmessage = (e) => {
-      if (e.data?.type === 'state_update') { applyData(e.data.data); renderAll(); toast('🔄 Sync entre onglets', 'info'); }
+      if (e.data?.type === 'state_update') { applyData(e.data.data); renderAll(); toast('🔄 Sync entre onglets','info'); }
     };
   } catch(e) {}
 
-  // Load GitHub config
   const ghStr = localStorage.getItem(LS_GITHUB_KEY);
   if (ghStr) try { Object.assign(github, JSON.parse(ghStr)); } catch(e) {}
 
   let loaded = false;
-  if (github.token && github.owner && github.repo) loaded = await syncFromGitHub();
+  if (github.token && github.owner && github.repo) {
+    try { loaded = await syncFromGitHub(); } catch(e) {}
+  }
   if (!loaded) {
     try {
       const r = await fetch('./database.json?t=' + Date.now());
@@ -1627,21 +1649,22 @@ async function loadAndRender() {
     } catch(e) {}
   }
   if (!loaded) {
-    const ls = localStorage.getItem(LS_KEY);
-    if (ls) try { applyData(JSON.parse(ls)); } catch(e) {}
+    try {
+      const ls = localStorage.getItem(LS_KEY);
+      if (ls) applyData(JSON.parse(ls));
+    } catch(e) {}
     setSyncStatus('idle');
   }
 
   applyAccent(state.settings.accent || '#7c3aed');
-  document.getElementById('quote-text').textContent = QUOTES[new Date().getDay() % QUOTES.length];
+  try { document.getElementById('quote-text').textContent = QUOTES[new Date().getDay() % QUOTES.length]; } catch(e) {}
   renderFilterPriority();
   renderCategoryFilters();
   renderAll();
   renderHeaderStats();
   setMobileView('board');
 
-  // Auto-sync every 5min
-  setInterval(()=>{ if (github.token&&github.owner&&github.repo) saveData(); }, 5*60*1000);
+  setInterval(() => { if (github.token && github.owner && github.repo) saveData(); }, 5*60*1000);
   setInterval(updateSyncTime, 30000);
 }
 
