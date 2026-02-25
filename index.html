@@ -943,129 +943,47 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
    SCREENS — 3 états : setup / login / token
    Contrôlés UNIQUEMENT par showScreen(name)
 ══════════════════════════════════════════════ -->
-
-<!-- ① Première connexion (créer un compte) -->
-<div id="screen-setup" class="login-screen" style="display:none">
+<!-- ══════ LOGIN SCREEN ══════ -->
+<div id="screen-login" class="login-screen" style="display:none">
   <div class="login-grid"></div>
   <div id="login-orbs"></div>
   <div class="login-card">
     <div class="login-card-inner">
-      <div class="login-logo-wrap">
-        <div class="login-logo-ring"><div class="login-logo-icon-inner">🗂</div></div>
-        <div class="login-app-name">ProjectFlow</div>
-        <div class="login-subtitle-text">
-          <div class="login-lock-dot warning"></div>
-          <span>Première connexion — créez votre accès</span>
-        </div>
-      </div>
-      <div class="login-setup-banner" style="margin-bottom:16px">
-        <span>🔐</span>
-        <span><strong>Bienvenue !</strong><br>Choisissez un nom et un mot de passe. Vous serez le <em>seul</em> à pouvoir accéder à cette application.</span>
-      </div>
-      <div class="login-form">
-        <div id="setup-error" class="login-error"></div>
-        <div class="login-field-wrap">
-          <span class="login-field-icon">👤</span>
-          <input class="login-input" id="setup-username" placeholder="Votre prénom ou pseudo" autocomplete="username" onkeydown="if(event.key==='Enter')document.getElementById('setup-password').focus()">
-        </div>
-        <div class="login-field-wrap">
-          <span class="login-field-icon">🔑</span>
-          <input class="login-input" type="password" id="setup-password" placeholder="Choisir un mot de passe (min 6 car.)" autocomplete="new-password" onkeydown="if(event.key==='Enter')document.getElementById('setup-confirm').focus()">
-        </div>
-        <div class="login-field-wrap">
-          <span class="login-field-icon">🔒</span>
-          <input class="login-input" type="password" id="setup-confirm" placeholder="Confirmer le mot de passe" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSetup()">
-        </div>
-        <button class="login-btn-main" onclick="doSetup()" id="setup-btn">✨ Créer mon accès privé</button>
-      </div>
-      <div class="login-security-badge">
-        <span>🔒 SHA-256</span><span style="opacity:0.3">·</span>
-        <span>💾 Local uniquement</span><span style="opacity:0.3">·</span>
-        <span>🚫 Utilisateur unique</span>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ② Connexion (compte existant) -->
-<div id="screen-login" class="login-screen" style="display:none">
-  <div class="login-grid"></div>
-  <div class="login-card">
-    <div class="login-card-inner">
       <div class="login-logo-wrap">
-        <div class="login-logo-ring"><div class="login-logo-icon-inner">🗂</div></div>
+        <div class="login-logo-ring">
+          <div class="login-logo-icon-inner">🗂</div>
+        </div>
         <div class="login-app-name">ProjectFlow</div>
         <div class="login-subtitle-text">
           <div class="login-lock-dot" id="login-lock-dot"></div>
           <span id="login-welcome">Bon retour !</span>
         </div>
       </div>
+
       <div class="login-form">
         <div id="login-error" class="login-error"></div>
         <div id="login-attempts" class="login-attempts" style="display:none"></div>
         <div class="login-field-wrap">
           <span class="login-field-icon">🔑</span>
-          <input class="login-input" type="password" id="login-password" placeholder="Mot de passe" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+          <input class="login-input" type="password" id="login-password"
+            placeholder="Mot de passe" autocomplete="current-password"
+            onkeydown="if(event.key==='Enter')doLogin()">
         </div>
-        <button class="login-btn-main" onclick="doLogin()" id="login-btn">🔐 Déverrouiller</button>
-        <div class="login-hint" id="login-hint"></div>
-      </div>
-      <div class="login-security-badge">
-        <span>🔒 SHA-256</span><span style="opacity:0.3">·</span>
-        <span>💾 Local uniquement</span><span style="opacity:0.3">·</span>
-        <span>🚫 Utilisateur unique</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ③ Configuration token GitHub (une seule fois) -->
-<div id="screen-token" class="login-screen" style="display:none">
-  <div class="login-grid"></div>
-  <div class="login-card" style="max-width:460px">
-    <div class="login-card-inner">
-      <div class="login-logo-wrap">
-        <div style="font-size:44px;margin-bottom:14px">🔗</div>
-        <div class="login-app-name">Synchronisation GitHub</div>
-        <div class="login-subtitle-text">
-          <div class="login-lock-dot"></div>
-          <span>Configuration unique — jamais redemandée</span>
-        </div>
-      </div>
-      <div class="login-setup-banner" style="margin-bottom:16px">
-        <span>🛡️</span>
-        <span>Votre token sera stocké <strong>uniquement sur cet appareil</strong>. Il ne sera jamais écrit dans le code.</span>
-      </div>
-      <div id="token-error" class="login-error"></div>
-      <div class="login-form" style="gap:12px">
-        <div>
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Token GitHub (classic)</div>
-          <div class="login-field-wrap">
-            <span class="login-field-icon">🔑</span>
-            <input class="login-input" type="password" id="setup-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
-          </div>
-          <div style="font-size:10px;color:var(--text3);margin-top:3px">Settings → Developer settings → Personal access tokens → droits <code style="background:rgba(255,255,255,0.08);padding:1px 5px;border-radius:4px">repo</code></div>
-        </div>
-        <div>
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Utilisateur GitHub</div>
-          <div class="login-field-wrap">
-            <span class="login-field-icon">👤</span>
-            <input class="login-input" id="setup-owner" placeholder="votre-username-github" autocomplete="off">
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Nom du dépôt</div>
-          <div class="login-field-wrap">
-            <span class="login-field-icon">📁</span>
-            <input class="login-input" id="setup-repo" placeholder="nom-du-repo" autocomplete="off" onkeydown="if(event.key==='Enter')saveTokenSetup()">
-          </div>
-        </div>
-        <button class="login-btn-main" onclick="saveTokenSetup()" id="setup-btn">✅ Enregistrer et ouvrir l'app</button>
-        <button onclick="skipTokenSetup()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:6px;text-align:center;transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
-          ⏭ Passer — utiliser l'app en local sans sync
+        <button class="login-btn-main" onclick="doLogin()" id="login-btn">
+          🔐 Déverrouiller
         </button>
+        <div class="login-hint" id="login-hint">Configurez accès &amp; sync dans ⚙ Paramètres</div>
       </div>
+
+      <div class="login-security-badge">
+        <span>🔒 SHA-256</span>
+        <span style="opacity:0.3">·</span>
+        <span>💾 Local uniquement</span>
+        <span style="opacity:0.3">·</span>
+        <span>⚙ Paramètres pour configurer</span>
+      </div>
+
     </div>
   </div>
 </div>
@@ -1260,7 +1178,8 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 <!-- ══════════════════════════════════════════
    JAVASCRIPT
 ══════════════════════════════════════════════ -->
-<script>
+<script>'use strict';
+
 'use strict';
 
 // ── CONSTANTS ────────────────────────────────────────────────────────────────
@@ -1348,20 +1267,21 @@ const progress = p => p.tasks.length ? Math.round(p.tasks.filter(t=>t.done).leng
 const isOverdue = p => p.dueDate && new Date(p.dueDate) < new Date() && !p.completed && !p.archived;
 const getCat = id => state.categories.find(c=>c.id===id);
 
-// ── AUTH SYSTEM — SINGLE USER, LOCKED FOREVER ─────────────────────────────
-// Once account is created, NO NEW ACCOUNT can EVER be created.
-// Wrong password → attempt counter → 30s lockout after 5 fails.
 
-const LS_AUTH_KEY = 'pf_auth_v1';
-const LS_LOCK_KEY = 'pf_lock_v1';
+// ── AUTH — MOT DE PASSE OPTIONNEL ────────────────────────────────────────
+// • 1ère ouverture  → app directement, pas de login
+// • Mot de passe défini dans Paramètres → login à chaque visite suivante
+// • GitHub configuré dans Paramètres → sync auto
+// ─────────────────────────────────────────────────────────────────────────
+const LS_AUTH_KEY  = 'pf_auth_v1';
+const LS_LOCK_KEY  = 'pf_lock_v1';
 const MAX_ATTEMPTS = 5;
 const LOCKOUT_MS   = 30_000;
-// Both salts supported so old accounts still work
-const SALTS = ['pf_salt_projectflow_2024', 'pf_salt_2024'];
+const SALTS        = ['pf_salt_projectflow_2024', 'pf_salt_2024'];
 
 async function hashPwd(pwd, salt) {
   const enc = new TextEncoder().encode(pwd + salt);
-  const buf = await crypto.subtle.digest('SHA-256', enc);
+  const buf  = await crypto.subtle.digest('SHA-256', enc);
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 }
 
@@ -1369,125 +1289,100 @@ function getAuth() {
   try { return JSON.parse(localStorage.getItem(LS_AUTH_KEY)) || null; } catch(e) { return null; }
 }
 function getLock() {
-  try { return JSON.parse(localStorage.getItem(LS_LOCK_KEY)) || { attempts:0, until:0 }; } catch(e) { return { attempts:0, until:0 }; }
+  try { return JSON.parse(localStorage.getItem(LS_LOCK_KEY)) || {attempts:0,until:0}; } catch(e) { return {attempts:0,until:0}; }
 }
 function saveLock(l) { localStorage.setItem(LS_LOCK_KEY, JSON.stringify(l)); }
 function clearLock() { localStorage.removeItem(LS_LOCK_KEY); }
-function isLocked() { return getLock().until > Date.now(); }
+function isLocked()  { return getLock().until > Date.now(); }
 
-function recordFailedAttempt() {
+function recordFail() {
   const l = getLock();
-  l.attempts = (l.attempts || 0) + 1;
+  l.attempts = (l.attempts||0) + 1;
   if (l.attempts >= MAX_ATTEMPTS) { l.until = Date.now() + LOCKOUT_MS; l.attempts = 0; }
   saveLock(l);
   return getLock();
 }
 
-// ── MAIN LOGIN HANDLER ────────────────────────────────────────────────────
-// ── AUTH — STATE MACHINE ──────────────────────────────────────────────────
-// Screens: "setup" (first time) | "login" (returning) | "token" (github once)
-// Use showScreen(name) to navigate — never touch display manually elsewhere.
-
-function showScreen(name) {
-  ['screen-setup','screen-login','screen-token'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.style.display = (id === 'screen-' + name) ? 'flex' : 'none';
-  });
-  document.getElementById('app').style.display = 'none';
-  spawnLoginOrbs();
-}
-
-function hideScreens() {
-  ['screen-setup','screen-login','screen-token'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.style.display = 'none';
-  });
-}
-
-// Called by init() — decides which screen to show
+// ── SHOW LOGIN SCREEN ─────────────────────────────────────────────────────
 function showLoginScreen() {
   const auth = getAuth();
-  if (!auth) {
-    // No account yet — show SETUP form
-    showScreen('setup');
-  } else {
-    // Account exists — show LOGIN form
-    const dot = document.getElementById('login-lock-dot');
-    if (dot) dot.className = 'login-lock-dot';
-    const welcome = document.getElementById('login-welcome');
-    if (welcome) welcome.textContent = 'Bon retour, ' + auth.username + ' !';
-    const hint = document.getElementById('login-hint');
-    if (hint) hint.textContent = 'Accès protégé — utilisateur unique';
-    updateAttemptsUI();
-    if (isLocked()) startLockCountdown();
-    showScreen('login');
-    setTimeout(() => document.getElementById('login-password')?.focus(), 150);
-  }
+  if (!auth) { launchApp(); return; }  // pas de mot de passe → ouvre directement
+
+  document.getElementById('app').style.display        = 'none';
+  document.getElementById('screen-login').style.display = 'flex';
+  spawnLoginOrbs();
+
+  const welcomeEl = document.getElementById('login-welcome');
+  const pwdEl     = document.getElementById('login-password');
+  const hintEl    = document.getElementById('login-hint');
+  if (welcomeEl) welcomeEl.textContent = 'Bon retour, ' + (auth.username||'vous') + ' !';
+  if (hintEl)    hintEl.textContent    = 'Configurez accès & sync dans ⚙ Paramètres';
+  if (pwdEl)     { pwdEl.value = ''; setTimeout(() => pwdEl.focus(), 150); }
+  updateAttemptsUI();
+  if (isLocked()) startLockCountdown();
 }
 
-// ── FIRST TIME: create account ────────────────────────────────────────────
-async function doSetup() {
-  const username = (document.getElementById('setup-username')?.value || '').trim();
-  const password = document.getElementById('setup-password')?.value || '';
-  const confirm  = document.getElementById('setup-confirm')?.value  || '';
-  if (!username) { showError('setup-error', 'Choisissez un nom'); return; }
-  if (password.length < 6) { showError('setup-error', 'Minimum 6 caractères'); return; }
-  if (password !== confirm) { showError('setup-error', 'Les mots de passe ne correspondent pas'); return; }
-  const btn = document.getElementById('setup-btn');
-  if (btn) { btn.classList.add('loading'); btn.textContent = ''; }
-  const hash = await hashPwd(password);
-  localStorage.setItem(LS_AUTH_KEY, JSON.stringify({ username, hash, createdAt: new Date().toISOString(), single: true }));
-  clearLock();
-  if (btn) { btn.classList.remove('loading'); btn.textContent = '✨ Créer mon accès privé'; }
-  launchApp(username);
-}
-
-// ── RETURNING USER: login ─────────────────────────────────────────────────
+// ── HANDLE LOGIN SUBMIT ───────────────────────────────────────────────────
 async function doLogin() {
   const auth = getAuth();
-  if (!auth) { showLoginScreen(); return; } // safety: should never happen
+  if (!auth) { launchApp(); return; }
+
+  const pwd = document.getElementById('login-password')?.value || '';
+  if (!pwd) { showLoginError('Entrez votre mot de passe'); return; }
+
   if (isLocked()) {
     const secs = Math.ceil((getLock().until - Date.now()) / 1000);
-    showError('login-error', 'Compte verrouillé — réessayez dans ' + secs + 's');
+    showLoginError('Trop de tentatives — réessayez dans ' + secs + 's');
+    startLockCountdown();
     return;
   }
-  const password = document.getElementById('login-password')?.value || '';
-  if (!password) { showError('login-error', 'Saisissez votre mot de passe'); return; }
+
   const btn = document.getElementById('login-btn');
-  if (btn) { btn.classList.add('loading'); btn.textContent = ''; }
-  const hash = await hashPwd(password);
-  if (btn) { btn.classList.remove('loading'); btn.textContent = '🔐 Déverrouiller'; }
-  if (hash !== auth.hash) {
-    recordFailedAttempt();
-    const l = getLock();
+  if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
+
+  // Vérifie le mot de passe (essaie les deux sels pour compat)
+  const saltToUse = auth.salt || SALTS[0];
+  let ok = await hashPwd(pwd, saltToUse) === auth.hash;
+  if (!ok) {
+    for (const s of SALTS) {
+      if (s === saltToUse) continue;
+      if (await hashPwd(pwd, s) === auth.hash) {
+        ok = true;
+        // Migration silencieuse vers le sel courant
+        const newHash = await hashPwd(pwd, SALTS[0]);
+        localStorage.setItem(LS_AUTH_KEY, JSON.stringify({...auth, hash:newHash, salt:SALTS[0]}));
+        break;
+      }
+    }
+  }
+
+  if (!ok) {
+    const l = recordFail();
     if (l.until > Date.now()) {
-      showError('login-error', '❌ Trop de tentatives — verrouillé 30s');
+      showLoginError('❌ Compte verrouillé 30 secondes');
       startLockCountdown();
     } else {
-      const left = MAX_ATTEMPTS - (l.attempts || 0);
-      showError('login-error', 'Mot de passe incorrect' + (left > 0 ? ' (' + left + ' essai(s) restant(s))' : ''));
+      showLoginError('Mot de passe incorrect — ' + (MAX_ATTEMPTS-(l.attempts||0)) + ' essai(s) restant(s)');
       updateAttemptsUI();
     }
-    document.getElementById('login-password').value = '';
-    document.getElementById('login-password').focus();
+    if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+    const pwdEl = document.getElementById('login-password');
+    if (pwdEl) { pwdEl.value = ''; pwdEl.focus(); }
     return;
   }
+
   clearLock();
-  launchApp(auth.username);
+  launchApp();
 }
 
-function showError(id, msg) {
-  const el = document.getElementById(id);
+function showLoginError(msg) {
+  const el = document.getElementById('login-error');
   if (!el) return;
-  el.textContent = msg;
-  el.style.display = 'block';
-  el.style.animation = 'none';
-  void el.offsetWidth;
+  el.textContent = msg; el.style.display = 'block';
+  el.style.animation = 'none'; void el.offsetWidth;
   el.style.animation = 'loginErrShake 0.3s ease';
   setTimeout(() => { if (el) el.style.display = 'none'; }, 4500);
 }
-// alias for old code using showLoginError
-function showLoginError(msg) { showError('login-error', msg); }
 
 function startLockCountdown() {
   const el = document.getElementById('login-attempts');
@@ -1496,68 +1391,28 @@ function startLockCountdown() {
     const secs = Math.ceil((getLock().until - Date.now()) / 1000);
     if (secs <= 0) { el.style.display = 'none'; updateAttemptsUI(); return; }
     el.style.display = 'flex';
-    el.textContent = '🔒 Verrouillé — réessayez dans ' + secs + 's';
+    el.textContent   = '🔒 Verrouillé — ' + secs + 's';
     setTimeout(tick, 1000);
   };
   tick();
 }
 
 function updateAttemptsUI() {
-  const l  = getLock();
+  const l = getLock();
   const el = document.getElementById('login-attempts');
   if (!el) return;
-  if (l.attempts > 0) { el.style.display = 'flex'; el.textContent = '⚠️ ' + l.attempts + '/' + MAX_ATTEMPTS + ' tentatives incorrectes'; }
-  else { el.style.display = 'none'; }
+  if (l.attempts > 0) { el.style.display='flex'; el.textContent='⚠️ '+l.attempts+'/'+MAX_ATTEMPTS+' tentatives'; }
+  else el.style.display = 'none';
 }
 
-// ── LAUNCH: after login, check if GitHub token needed ────────────────────
-function launchApp(username) {
-  hideScreens();
-  const lbl = document.getElementById('user-label');
-  if (lbl) lbl.textContent = username;
-  const ghStr = localStorage.getItem(LS_GITHUB_KEY);
-  if (!ghStr) {
-    showScreen('token');
-    setTimeout(() => document.getElementById('setup-token')?.focus(), 150);
-  } else {
-    document.getElementById('app').style.display = 'flex';
-    loadAndRender();
-  }
-}
-
-function skipTokenSetup() {
-  localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token:'', owner:'', repo:'' }));
-  hideScreens();
+// ── LAUNCH APP ────────────────────────────────────────────────────────────
+function launchApp() {
+  ['screen-login'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
   document.getElementById('app').style.display = 'flex';
   loadAndRender();
-}
-
-async function saveTokenSetup() {
-  const token = (document.getElementById('setup-token')?.value || '').trim();
-  const owner = (document.getElementById('setup-owner')?.value || '').trim();
-  const repo  = (document.getElementById('setup-repo')?.value  || '').trim();
-  if (!token || !owner || !repo) { showError('token-error', 'Remplissez les 3 champs.'); return; }
-  const btn = document.getElementById('setup-btn');
-  if (btn) { btn.textContent = '⏳ Vérification...'; btn.disabled = true; }
-  const errEl = document.getElementById('token-error');
-  if (errEl) errEl.style.display = 'none';
-  try {
-    const r = await fetch('https://api.github.com/repos/' + owner + '/' + repo, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (!r.ok) throw new Error('Dépôt introuvable ou token invalide (code ' + r.status + ')');
-  } catch(e) {
-    showError('token-error', '❌ ' + e.message);
-    if (btn) { btn.textContent = '✅ Enregistrer et ouvrir l\'app'; btn.disabled = false; }
-    return;
-  }
-  Object.assign(github, { token, owner, repo });
-  localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token, owner, repo }));
-  if (btn) { btn.textContent = '✅ Enregistrer et ouvrir l\'app'; btn.disabled = false; }
-  hideScreens();
-  document.getElementById('app').style.display = 'flex';
-  loadAndRender();
-  setTimeout(() => toast('🔗 GitHub connecté !', 'success'), 800);
 }
 
 function spawnLoginOrbs() {
@@ -1565,14 +1420,15 @@ function spawnLoginOrbs() {
   if (!container || container.childElementCount > 0) return;
   const colors = ['rgba(124,58,237,0.15)','rgba(79,70,229,0.12)','rgba(14,165,233,0.1)','rgba(167,139,250,0.1)'];
   for (let i = 0; i < 6; i++) {
-    const orb = document.createElement('div');
+    const orb  = document.createElement('div');
     const size = 30 + Math.random() * 60;
-    orb.className = 'login-orb';
-    orb.style.cssText = 'width:' + size + 'px;height:' + size + 'px;left:' + (Math.random()*100) + '%;background:radial-gradient(circle,' + colors[i%colors.length] + ',transparent);animation-duration:' + (8+Math.random()*12) + 's;animation-delay:' + (Math.random()*8) + 's;filter:blur(8px);';
+    orb.className  = 'login-orb';
+    orb.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;` +
+      `background:radial-gradient(circle,${colors[i%colors.length]},transparent);` +
+      `animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*8}s;filter:blur(8px);`;
     container.appendChild(orb);
   }
 }
-
 
 // ── LOAD & RENDER ─────────────────────────────────────────────────────────
 async function loadAndRender() {
@@ -1597,10 +1453,7 @@ async function loadAndRender() {
     } catch(e) {}
   }
   if (!loaded) {
-    try {
-      const ls = localStorage.getItem(LS_KEY);
-      if (ls) applyData(JSON.parse(ls));
-    } catch(e) {}
+    try { const ls = localStorage.getItem(LS_KEY); if (ls) applyData(JSON.parse(ls)); } catch(e) {}
     setSyncStatus('idle');
   }
 
@@ -1616,23 +1469,6 @@ async function loadAndRender() {
   setInterval(updateSyncTime, 30000);
 }
 
-function newProject(overrides={}) {
-  return {
-    id: uid(), name: '', description: '', icon: ICONS[Math.floor(Math.random()*ICONS.length)],
-    color: COLORS[Math.floor(Math.random()*COLORS.length)], tasks: [], tags: [],
-    priority: 'medium', dueDate: '', notes: '', links: [],
-    estimatedHours: 0, loggedHours: 0, pomodoroCount: 0,
-    categoryId: 'cat_general',
-    pinned: false, archived: false, completed: false,
-    createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
-    ...overrides
-  };
-}
-
-function newTask(text='') {
-  return { id: uid(), text, done: false, status: 'todo', priority: 'medium', rank: 0, subtasks: [], note: '', dueDate: '' };
-}
-
 // ── INIT ──────────────────────────────────────────────────────────────────
 async function init() {
   document.addEventListener('keydown', onKeyDown);
@@ -1640,27 +1476,17 @@ async function init() {
     if (openDropdown && !openDropdown.contains(e.target)) closeDropdown();
   });
   window.addEventListener('resize', onResize);
-  showLoginScreen();
+
+  const auth = getAuth();
+  if (auth) {
+    // Mot de passe configuré → écran de login
+    showLoginScreen();
+  } else {
+    // Première fois ou pas de mdp → ouvre directement
+    launchApp();
+  }
 }
 
-function applyData(d) {
-  if (!d) return;
-  if (Array.isArray(d.projects)) state.projects = d.projects;
-  if (d.slots) state.slots = { primary:null, secondary:null, pleasure:null, ...d.slots };
-  if (Array.isArray(d.completedProjects)) state.completedProjects = d.completedProjects;
-  if (d.settings) state.settings = { ...state.settings, ...d.settings };
-  if (Array.isArray(d.categories) && d.categories.length) state.categories = d.categories;
-  if (Array.isArray(d.habits)) state.habits = d.habits;
-  if (d.habitLog) state.habitLog = d.habitLog;
-  if (!state.settings.slotNames) state.settings.slotNames = { primary:'Primaire', secondary:'Secondaire', pleasure:'Plaisir' };
-  // Migrate old tasks to new format
-  state.projects.forEach(p => {
-    p.tasks = (p.tasks||[]).map(t => ({
-      status: t.done ? 'done' : 'todo', priority: 'medium', rank: 0, subtasks: [], note: '', dueDate: '', ...t
-    }));
-    if (!p.categoryId) p.categoryId = 'cat_general';
-  });
-}
 
 // ── SYNC & SAVE ───────────────────────────────────────────────────────────
 function dataSnapshot() {
@@ -2900,68 +2726,125 @@ function saveSlotNames() {
 
 // ── SETTINGS MODAL ───────────────────────────────────────────────────────
 function openSettings() {
-  openModal(`
+  const auth = getAuth();
+  showModal(`
     <div class="modal-header">
       <div class="modal-title">⚙ Paramètres</div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-      <!-- Sync section -->
+
+      <!-- ════ COMPTE & SÉCURITÉ ════ -->
+      <div class="settings-section">
+        <div class="settings-section-title">🔐 Compte & Sécurité</div>
+
+        ${auth
+          ? `<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:10px 14px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:10px;font-size:13px">
+               <span style="font-size:18px">🔒</span>
+               <span>Connecté en tant que <strong>${auth.username||'Utilisateur'}</strong></span>
+             </div>`
+          : `<div style="margin-bottom:14px;padding:10px 14px;background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.2);border-radius:10px;font-size:12px;color:#fb923c;line-height:1.6">
+               ⚠️ <strong>Aucun mot de passe défini.</strong><br>L'application s'ouvre sans connexion. Définissez un mot de passe ci-dessous pour la protéger.
+             </div>`
+        }
+
+        <div class="form-group">
+          <label class="form-label">Nom d'utilisateur</label>
+          <input class="input" id="sec-username" value="${auth?.username||''}" placeholder="Votre prénom ou pseudo">
+        </div>
+
+        ${auth ? `
+        <div class="form-group">
+          <label class="form-label">Mot de passe actuel <span style="color:var(--text3)">(requis pour modifier)</span></label>
+          <input class="input" type="password" id="sec-pwd-current" placeholder="••••••••">
+        </div>` : ''}
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">${auth ? 'Nouveau mot de passe' : 'Mot de passe'} <span style="color:var(--text3)">(min 6 car.)</span></label>
+            <input class="input" type="password" id="sec-pwd-new" placeholder="••••••••">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirmer</label>
+            <input class="input" type="password" id="sec-pwd-confirm" placeholder="••••••••">
+          </div>
+        </div>
+
+        <div id="sec-error" style="display:none;color:#f87171;font-size:12px;margin-bottom:8px;padding:8px 12px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px"></div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="saveAccountSettings()">${auth ? '🔑 Mettre à jour' : '🔐 Activer la protection'}</button>
+          ${auth ? `<button class="btn" style="color:#f87171" onclick="removePassword()">🔓 Désactiver le mot de passe</button>` : ''}
+        </div>
+      </div>
+
+      <!-- ════ GITHUB SYNC ════ -->
       <div class="settings-section">
         <div class="settings-section-title">🔄 Synchronisation GitHub</div>
         <div class="sync-status" style="margin-bottom:12px">
           <div class="sync-dot ${syncStatus}" id="modal-sync-dot"></div>
-          <span id="modal-sync-label" style="font-size:12px">${{idle:'Non configuré',syncing:'Synchronisation...',synced:'Synchronisé ✅',error:'Erreur de synchronisation ❌'}[syncStatus]||syncStatus}</span>
+          <span id="modal-sync-label" style="font-size:12px">${{idle:'Non configuré',syncing:'Synchronisation...',synced:'Synchronisé ✅',error:'Erreur ❌'}[syncStatus]||syncStatus}</span>
         </div>
         <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:12px;font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:12px">
-          📋 <strong>Comment ça marche :</strong><br>
-          1. Créez un repo GitHub avec les fichiers <code>index.html</code> et <code>database.json</code><br>
-          2. Activez <strong>GitHub Pages</strong> sur la branche <code>main</code><br>
-          3. Créez un <strong>token personnel</strong> (Settings → Developer settings → Tokens → avec scope <code>repo</code>)<br>
-          4. Remplissez les champs ci-dessous → vos données se synchronisent entre tous vos appareils !
+          📋 Créez un repo GitHub avec <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:4px">index.html</code> + <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:4px">database.json</code>, activez <strong>GitHub Pages</strong> sur <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:4px">main</code>, puis créez un <strong>token personnel</strong> (Settings → Developer → Tokens → scope <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:4px">repo</code>).
         </div>
-        <div class="form-group"><label class="form-label">GitHub Token (PAT)</label><input class="input" id="gh-token" type="password" value="${github.token}" placeholder="ghp_..."></div>
+        <div class="form-group">
+          <label class="form-label">GitHub Token (PAT)</label>
+          <input class="input" id="gh-token" type="password" value="${github.token}" placeholder="ghp_...">
+        </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Votre username</label><input class="input" id="gh-owner" value="${github.owner}" placeholder="mon-pseudo"></div>
-          <div class="form-group"><label class="form-label">Nom du repo</label><input class="input" id="gh-repo" value="${github.repo}" placeholder="projectflow"></div>
+          <div class="form-group">
+            <label class="form-label">Username GitHub</label>
+            <input class="input" id="gh-owner" value="${github.owner}" placeholder="mon-pseudo">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom du repo</label>
+            <input class="input" id="gh-repo" value="${github.repo}" placeholder="projectflow">
+          </div>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="btn btn-primary" style="flex:1" onclick="saveGitHubConfig()">💾 Enregistrer & synchroniser</button>
-          <button class="btn" onclick="testSync()">🔄 Tester</button>
+          <button class="btn btn-primary" style="flex:1" onclick="saveGitHubConfig()">💾 Enregistrer</button>
+          <button class="btn" onclick="testSync()">🔄 Tester la connexion</button>
         </div>
       </div>
-      <!-- Theme section -->
+
+      <!-- ════ THÈME ════ -->
       <div class="settings-section">
         <div class="settings-section-title">🎨 Couleur d'accent</div>
         <div class="color-swatches" id="settings-colors">
           ${COLORS.map(c=>`<div class="color-swatch${state.settings.accent===c?' active':''}" style="background:${c}" onclick="setAccent('${c}')"></div>`).join('')}
         </div>
       </div>
-      <!-- Timer defaults -->
+
+      <!-- ════ TIMER ════ -->
       <div class="settings-section">
         <div class="settings-section-title">⏱ Timer par défaut</div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Mode</label>
+          <div class="form-group">
+            <label class="form-label">Mode</label>
             <select class="input" id="def-timer-mode">
               <option value="countdown"${state.settings.timerDefault?.mode==='countdown'?' selected':''}>⏱ Compte à rebours</option>
               <option value="stopwatch"${state.settings.timerDefault?.mode==='stopwatch'?' selected':''}>⏲ Chronomètre</option>
               <option value="alarm"${state.settings.timerDefault?.mode==='alarm'?' selected':''}>⏰ Alarme</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Durée (min)</label>
+          <div class="form-group">
+            <label class="form-label">Durée (min)</label>
             <input type="number" class="input" id="def-timer-min" value="${state.settings.timerDefault?.m||25}" min="0" max="120">
           </div>
         </div>
       </div>
-      <!-- Export/Import -->
+
+      <!-- ════ DONNÉES ════ -->
       <div class="settings-section">
         <div class="settings-section-title">📁 Données</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <button class="btn" onclick="exportJSON()">📥 Exporter JSON</button>
           <label class="btn" style="cursor:pointer">📤 Importer JSON<input type="file" accept=".json" style="display:none" onchange="importJSON(event)"></label>
-          <button class="btn btn-danger" onclick="if(confirm('Effacer TOUTES les données ?')){localStorage.removeItem('pf_local_v2');localStorage.removeItem('pf_github');location.reload()}" style="margin-left:auto">🗑 Réinitialiser</button>
+          <button class="btn btn-danger" onclick="confirmResetData()" style="margin-left:auto">🗑 Réinitialiser</button>
         </div>
       </div>
+
     </div>
     <div class="modal-footer">
       <button class="btn" onclick="closeModal()">Fermer</button>
@@ -2970,97 +2853,100 @@ function openSettings() {
   `, true);
 }
 
+// ── ACCOUNT SETTINGS ─────────────────────────────────────────────────────
+async function saveAccountSettings() {
+  const auth       = getAuth();
+  const username   = (document.getElementById('sec-username')?.value||'').trim();
+  const pwdCurrent = document.getElementById('sec-pwd-current')?.value||'';
+  const pwdNew     = (document.getElementById('sec-pwd-new')?.value||'').trim();
+  const pwdConfirm = (document.getElementById('sec-pwd-confirm')?.value||'').trim();
+  const errEl      = document.getElementById('sec-error');
+
+  const showErr = (msg) => { errEl.textContent=msg; errEl.style.display='block'; };
+  errEl.style.display = 'none';
+
+  if (auth) {
+    // Modification — vérifie le mot de passe actuel
+    if (!pwdCurrent) { showErr('Entrez votre mot de passe actuel pour modifier.'); return; }
+    const saltToUse = auth.salt||SALTS[0];
+    let ok = await hashPwd(pwdCurrent, saltToUse) === auth.hash;
+    if (!ok) {
+      for (const s of SALTS) {
+        if (s!==saltToUse && await hashPwd(pwdCurrent, s)===auth.hash) { ok=true; break; }
+      }
+    }
+    if (!ok) { showErr('Mot de passe actuel incorrect.'); return; }
+    if (pwdNew && pwdNew.length<6) { showErr('Nouveau mot de passe : minimum 6 caractères.'); return; }
+    if (pwdNew && pwdNew!==pwdConfirm) { showErr('Les nouveaux mots de passe ne correspondent pas.'); return; }
+
+    const finalHash = pwdNew ? await hashPwd(pwdNew, SALTS[0]) : auth.hash;
+    localStorage.setItem(LS_AUTH_KEY, JSON.stringify({
+      username: username||auth.username, hash:finalHash, salt:SALTS[0], updatedAt:new Date().toISOString()
+    }));
+    const lbl = document.getElementById('user-label');
+    if (lbl) lbl.textContent = username||auth.username;
+    toast('✅ Compte mis à jour !', 'success');
+
+  } else {
+    // Première configuration
+    if (!username) { showErr('Choisissez un nom d\'utilisateur.'); return; }
+    if (!pwdNew)   { showErr('Choisissez un mot de passe.'); return; }
+    if (pwdNew.length<6) { showErr('Minimum 6 caractères.'); return; }
+    if (pwdNew!==pwdConfirm) { showErr('Les mots de passe ne correspondent pas.'); return; }
+    const hash = await hashPwd(pwdNew, SALTS[0]);
+    localStorage.setItem(LS_AUTH_KEY, JSON.stringify({
+      username, hash, salt:SALTS[0], createdAt:new Date().toISOString()
+    }));
+    const lbl = document.getElementById('user-label');
+    if (lbl) lbl.textContent = username;
+    clearLock();
+    toast('🔐 Protection activée ! Elle sera demandée à la prochaine visite.', 'success');
+  }
+
+  closeModal();
+}
+
+async function removePassword() {
+  if (!confirm('Désactiver la protection ?\n\nL\'application s\'ouvrira sans mot de passe.')) return;
+  localStorage.removeItem(LS_AUTH_KEY);
+  localStorage.removeItem(LS_LOCK_KEY);
+  toast('🔓 Protection désactivée.', 'info');
+  closeModal();
+}
+
+function confirmResetData() {
+  if (!confirm('⚠️ Effacer TOUTES les données (projets, habitudes, paramètres) ?\n\nLe mot de passe sera conservé.')) return;
+  localStorage.removeItem(LS_KEY);
+  localStorage.removeItem(LS_GITHUB_KEY);
+  location.reload();
+}
+
+// ── GITHUB CONFIG ─────────────────────────────────────────────────────────
 function saveGitHubConfig() {
-  github.token = document.getElementById('gh-token').value.trim();
-  github.owner = document.getElementById('gh-owner').value.trim();
-  github.repo = document.getElementById('gh-repo').value.trim();
-  github.sha = null;
-  localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token:github.token, owner:github.owner, repo:github.repo }));
-  toast('Config GitHub enregistrée. Synchronisation en cours...', 'info');
+  github.token = (document.getElementById('gh-token')?.value||'').trim();
+  github.owner = (document.getElementById('gh-owner')?.value||'').trim();
+  github.repo  = (document.getElementById('gh-repo')?.value||'').trim();
+  github.sha   = null;
+  localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({token:github.token, owner:github.owner, repo:github.repo}));
+  toast('GitHub enregistré — synchronisation en cours...', 'info');
   saveData();
 }
 
 async function testSync() {
-  if (!github.token || !github.owner || !github.repo) { toast('Remplissez les champs GitHub d\'abord !', 'error'); return; }
-  toast('Test de connexion GitHub...', 'info');
+  if (!github.token||!github.owner||!github.repo) { toast('Remplissez les 3 champs GitHub !', 'error'); return; }
+  toast('Test de connexion...', 'info');
   const ok = await syncFromGitHub();
-  if (ok) { renderAll(); toast('✅ Connexion GitHub OK ! Données chargées.', 'success'); }
-  else toast('❌ Échec de la connexion GitHub. Vérifiez vos identifiants.', 'error');
-}
-
-function setAccent(color) {
-  state.settings.accent = color;
-  applyAccent(color);
-  document.querySelectorAll('#settings-colors .color-swatch').forEach(s => s.classList.toggle('active', s.style.background===color));
-  scheduleSave();
-}
-
-function applyAccent(color) {
-  document.documentElement.style.setProperty('--accent', color);
-  const rgb = hexToRgb(color);
-  if (rgb) document.documentElement.style.setProperty('--accent-rgb', `${rgb.r},${rgb.g},${rgb.b}`);
-  // Compute accent2 (slightly shifted)
-  document.documentElement.style.setProperty('--accent2', shiftHue(color, -20));
+  if (ok) { renderAll(); toast('✅ GitHub connecté ! Données chargées.', 'success'); }
+  else toast('❌ Échec. Vérifiez token / username / repo.', 'error');
 }
 
 function saveSettings() {
-  const m = document.getElementById('def-timer-mode');
+  const m   = document.getElementById('def-timer-mode');
   const min = document.getElementById('def-timer-min');
   if (m) state.settings.timerDefault = { mode:m.value, h:0, m:+min.value||25, s:0 };
   scheduleSave(); closeModal(); toast('Paramètres sauvegardés ⚙');
 }
 
-function showExportMenu(event) {
-  closeDropdown();
-  const btn = event.currentTarget;
-  const dd = document.createElement('div');
-  dd.className = 'dropdown';
-  dd.innerHTML = `
-    <button class="dropdown-item" onclick="exportJSON();closeDropdown()">📄 Exporter JSON</button>
-    <button class="dropdown-item" onclick="exportCSV();closeDropdown()">📊 Exporter CSV</button>
-    <div class="dropdown-sep"></div>
-    <label class="dropdown-item" style="cursor:pointer">📤 Importer JSON<input type="file" accept=".json" style="display:none" onchange="importJSON(event);closeDropdown()"></label>
-  `;
-  btn.style.position = 'relative';
-  btn.appendChild(dd);
-  openDropdown = dd;
-}
-
-function exportJSON() {
-  const data = dataSnapshot();
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url;
-  a.download = `projectflow_${new Date().toISOString().split('T')[0]}.json`;
-  a.click(); URL.revokeObjectURL(url); toast('Export JSON 📥');
-}
-
-function exportCSV() {
-  const rows = [['Nom','Description','Priorité','Statut','Progression','Tâches totales','Tâches faites','Date limite','Tags','Créé le']];
-  state.projects.forEach(p => rows.push([p.name,p.description,p.priority,p.archived?'Archivé':'Actif',progress(p)+'%',p.tasks.length,p.tasks.filter(t=>t.done).length,p.dueDate||'',p.tags.join(';'),fmtDate(p.createdAt)]));
-  state.completedProjects.forEach(p => rows.push([p.name,p.description,p.priority,'Terminé','100%',p.tasks.length,p.tasks.filter(t=>t.done).length,p.dueDate||'',p.tags.join(';'),fmtDate(p.createdAt)]));
-  const csv = rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url;
-  a.download=`projectflow_${new Date().toISOString().split('T')[0]}.csv`;
-  a.click(); URL.revokeObjectURL(url); toast('Export CSV 📊');
-}
-
-function importJSON(event) {
-  const file = event.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      const data = JSON.parse(ev.target.result);
-      pushUndo(); applyData(data);
-      renderAll(); scheduleSave();
-      toast(`✅ Import réussi ! ${(data.projects||[]).length} projets chargés.`);
-    } catch(e) { toast('❌ Fichier JSON invalide.', 'error'); }
-  };
-  reader.readAsText(file);
-  event.target.value = '';
-}
 
 // ── CONFETTI ───────────────────────────────────────────────────────────────
 function shootConfetti() {
@@ -3572,6 +3458,7 @@ function updateSyncTime() {
 
 // ── START ─────────────────────────────────────────────────────────────────
 init();
+
 </script>
 </body>
 </html>
