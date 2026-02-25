@@ -1005,9 +1005,67 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   </div>
 </div>
 
-<div class="app-wrapper" id="app" style="display:none">
+<!-- ══════ TOKEN SETUP SCREEN (shown once after first login) ══════ -->
+<div id="token-setup-screen" class="login-screen" style="display:none">
+  <div class="login-grid"></div>
+  <div id="token-orbs"></div>
+  <div class="login-card">
+    <div class="login-card-inner">
+
+      <div class="login-logo-wrap">
+        <div style="font-size:44px;margin-bottom:14px">🔗</div>
+        <div class="login-app-name">Synchronisation GitHub</div>
+        <div class="login-subtitle-text">
+          <div class="login-lock-dot"></div>
+          <span>Configuration unique — jamais redemandée</span>
+        </div>
+      </div>
+
+      <div style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.25);border-radius:12px;padding:12px 14px;font-size:12px;color:rgba(167,139,250,0.9);margin-bottom:16px;line-height:1.6">
+        🛡️ Votre token sera stocké <strong>uniquement sur votre appareil</strong> dans le localStorage. Il ne sera jamais écrit dans le code du fichier.
+      </div>
+
+      <div id="setup-error" style="display:none;padding:10px 14px;border-radius:12px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;font-size:12px;margin-bottom:12px"></div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Token GitHub (classic)</div>
+          <div class="login-field-wrap">
+            <span class="login-field-icon">🔑</span>
+            <input class="login-input" type="password" id="setup-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+          </div>
+          <div style="font-size:10px;color:var(--text3);margin-top:4px">github.com → Settings → Developer settings → Personal access tokens → Tokens (classic) → droits <code style="background:rgba(255,255,255,0.06);padding:1px 4px;border-radius:4px">repo</code></div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Votre nom d'utilisateur GitHub</div>
+          <div class="login-field-wrap">
+            <span class="login-field-icon">👤</span>
+            <input class="login-input" id="setup-owner" placeholder="mon-username" autocomplete="off">
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Nom du dépôt</div>
+          <div class="login-field-wrap">
+            <span class="login-field-icon">📁</span>
+            <input class="login-input" id="setup-repo" placeholder="mon-repo" autocomplete="off" onkeydown="if(event.key==='Enter')saveTokenSetup()">
+          </div>
+        </div>
+
+        <button class="login-btn-main" onclick="saveTokenSetup()" id="setup-btn">✅ Enregistrer et continuer</button>
+
+        <button onclick="skipTokenSetup()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:4px;text-align:center;transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
+          Passer pour l'instant — utiliser uniquement en local →
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ══════ HEADER ══════ -->
+<div class="app-wrapper" id="app" style="display:none">
 <header class="app-header">
   <div class="logo">
     <div class="logo-icon">🗂</div>
@@ -1424,10 +1482,71 @@ function showLoginError(msg) {
 
 function launchApp(username) {
   document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
   const lbl = document.getElementById('user-label');
   if (lbl) lbl.textContent = username;
+
+  // Check if GitHub token already saved
+  const ghStr = localStorage.getItem(LS_GITHUB_KEY);
+  if (!ghStr) {
+    // First time: show token setup screen before the app
+    showTokenSetup(username);
+  } else {
+    document.getElementById('app').style.display = 'flex';
+    loadAndRender();
+  }
+}
+
+function showTokenSetup(username) {
+  document.getElementById('token-setup-screen').style.display = 'flex';
+  // Reuse the orb background
+  spawnLoginOrbs();
+}
+
+function skipTokenSetup() {
+  // User chose to skip — save empty so we don't ask again
+  localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token:'', owner:'', repo:'' }));
+  document.getElementById('token-setup-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
   loadAndRender();
+}
+
+async function saveTokenSetup() {
+  const token = document.getElementById('setup-token').value.trim();
+  const owner = document.getElementById('setup-owner').value.trim();
+  const repo  = document.getElementById('setup-repo').value.trim();
+
+  if (!token || !owner || !repo) {
+    const err = document.getElementById('setup-error');
+    err.textContent = 'Remplissez les 3 champs pour continuer.';
+    err.style.display = 'block';
+    return;
+  }
+
+  // Test the token quickly
+  const btn = document.getElementById('setup-btn');
+  btn.textContent = '⏳ Vérification...'; btn.disabled = true;
+
+  try {
+    const r = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!r.ok) throw new Error('Dépôt introuvable ou token invalide (code ' + r.status + ')');
+  } catch(e) {
+    const err = document.getElementById('setup-error');
+    err.textContent = '❌ ' + e.message;
+    err.style.display = 'block';
+    btn.textContent = '✅ Enregistrer et continuer'; btn.disabled = false;
+    return;
+  }
+
+  // Save and go
+  Object.assign(github, { token, owner, repo });
+  localStorage.setItem(LS_GITHUB_KEY, JSON.stringify({ token, owner, repo }));
+  document.getElementById('token-setup-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  loadAndRender();
+  toast('🔗 GitHub connecté avec succès !', 'success');
+  btn.textContent = '✅ Enregistrer et continuer'; btn.disabled = false;
 }
 
 function showLoginScreen() {
