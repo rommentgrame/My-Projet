@@ -6,8 +6,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#080b16">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="manifest" id="pwa-manifest">
 <title>ProjectFlow</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -609,54 +607,8 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 
 /* ══════════════════════════════════════════════
-   HABITS WIDGET
+   MOBILE SIDEBAR OVERLAY
 ══════════════════════════════════════════════ */
-.habits-widget {
-  background: var(--glass); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 20px;
-}
-.habits-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.habits-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
-.habit-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); }
-.habit-row:last-of-type { border-bottom: none; }
-.habit-check {
-  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border2);
-  background: transparent; cursor: pointer; display: flex; align-items: center;
-  justify-content: center; flex-shrink: 0; transition: all var(--transition);
-}
-.habit-check.done { border-color: #22c55e; background: #22c55e22; }
-.habit-check.done::after { content: '✓'; color: #4ade80; font-size: 12px; font-weight: 700; }
-.habit-name { flex: 1; font-size: 12px; color: var(--text2); }
-.habit-streak { font-size: 10px; color: var(--text3); display: flex; align-items: center; gap: 3px; }
-.streak-fire { filter: none; }
-.habit-del { background: none; border: none; cursor: pointer; color: var(--text3); font-size: 14px; opacity: 0; transition: opacity var(--transition); }
-.habit-row:hover .habit-del { opacity: 1; }
-.habit-dots { display: flex; gap: 3px; }
-.habit-dot { width: 6px; height: 6px; border-radius: 50%; }
-/* ══════════════════════════════════════════════
-   SYNC IMPROVEMENTS
-══════════════════════════════════════════════ */
-.sync-time { font-size: 10px; color: var(--text3); margin-top: 1px; }
-/* ══════════════════════════════════════════════
-   FOCUS MODE
-══════════════════════════════════════════════ */
-body.focus-mode .sidebar,
-body.focus-mode .app-header .header-center,
-body.focus-mode .app-header .header-actions > *:not(#focus-btn) { display: none !important; }
-body.focus-mode .main-area { padding: 24px 32px; }
-body.focus-mode .slots-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-/* ══════════════════════════════════════════════
-   MISC FIXES
-══════════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .slots-grid { grid-template-columns: 1fr; }
-  .form-row { flex-direction: column; }
-  .habits-widget { margin-bottom: 14px; }
-}
-@media (min-width: 641px) and (max-width: 900px) {
-  .slots-grid { grid-template-columns: 1fr 1fr; }
-}
-
 .sidebar-overlay {
   display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
   z-index: 250; backdrop-filter: blur(4px); animation: fadeIn 0.15s ease;
@@ -699,10 +651,191 @@ body.focus-mode .slots-grid { grid-template-columns: repeat(auto-fit, minmax(320
 @media (min-width: 641px) {
   .mobile-only { display: none; }
 }
+/* ══════════════════════════════════════════════
+   LOGIN SCREEN
+══════════════════════════════════════════════ */
+.login-screen {
+  position: fixed; inset: 0; z-index: 10000;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.login-screen::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(var(--accent-rgb),0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.login-card {
+  position: relative; z-index: 1;
+  background: #0e1326; border: 1px solid var(--border2);
+  border-radius: 24px; padding: 36px 32px; width: 100%; max-width: 400px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  animation: modalIn 0.4s cubic-bezier(0.34,1.2,0.64,1);
+}
+.login-logo { text-align: center; margin-bottom: 28px; }
+.login-logo-icon {
+  width: 60px; height: 60px; border-radius: 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; margin: 0 auto 12px;
+  box-shadow: 0 8px 30px rgba(var(--accent-rgb),0.5);
+}
+.login-logo-title { font-family: var(--font-display); font-size: 24px; font-weight: 800; letter-spacing: -0.03em; }
+.login-logo-sub { font-size: 12px; color: var(--text3); margin-top: 3px; }
+.login-form { display: flex; flex-direction: column; gap: 14px; }
+.login-divider { height: 1px; background: var(--border); margin: 4px 0; }
+.login-error { color: #f87171; font-size: 12px; text-align: center; padding: 8px; background: rgba(239,68,68,0.08); border-radius: 8px; display: none; }
+.login-lock-overlay {
+  position: fixed; inset: 0; z-index: 9500;
+  background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ══════════════════════════════════════════════
+   PORTAL DROPDOWN (fixed positioning - fixes z-index bug)
+══════════════════════════════════════════════ */
+.dropdown-portal {
+  position: fixed !important; z-index: 9900 !important;
+  background: #111828; border: 1px solid var(--border2); border-radius: var(--radius-sm);
+  padding: 5px; min-width: 180px; box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+  animation: dropIn 0.15s ease;
+}
+
+/* ══════════════════════════════════════════════
+   CATEGORIES
+══════════════════════════════════════════════ */
+.category-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 600;
+  border: 1px solid transparent; cursor: pointer; transition: all var(--transition);
+  white-space: nowrap;
+}
+.category-chip.active { filter: brightness(1.15); }
+.cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cat-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 7px; border-radius: 20px; font-size: 10px; font-weight: 600;
+}
+.cats-filter-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.sidebar-cat-section {
+  padding: 8px 12px 4px; border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.sidebar-cat-title { font-size: 10px; font-weight: 700; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+
+/* ══════════════════════════════════════════════
+   ENHANCED TASKS
+══════════════════════════════════════════════ */
+.task-item {
+  background: var(--glass); border: 1px solid var(--border);
+  border-radius: var(--radius-xs); margin-bottom: 5px;
+  transition: all var(--transition); overflow: hidden;
+}
+.task-item:hover { border-color: var(--border2); }
+.task-item-header { display: flex; align-items: center; gap: 8px; padding: 8px 10px; }
+.task-rank { font-family: var(--font-mono); font-size: 10px; color: var(--text3); width: 16px; text-align: center; flex-shrink: 0; }
+.task-status-btn {
+  width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border2);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all var(--transition); background: transparent;
+  font-size: 9px; font-weight: 700;
+}
+.task-status-btn.todo { border-color: var(--text3); }
+.task-status-btn.in_progress { border-color: #f97316; background: rgba(249,115,22,0.15); color: #fb923c; }
+.task-status-btn.done { border-color: #22c55e; background: rgba(34,197,94,0.2); color: #4ade80; }
+.task-main-text { flex: 1; font-size: 12px; min-width: 0; cursor: pointer; }
+.task-main-text.done { text-decoration: line-through; color: var(--text3); }
+.task-main-text.in_progress { color: var(--text); }
+.task-priority-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.task-expand-btn { background: none; border: none; cursor: pointer; color: var(--text3); font-size: 12px; padding: 0 2px; transition: transform var(--transition); }
+.task-expand-btn.open { transform: rotate(90deg); }
+.task-actions-row { display: flex; gap: 3px; flex-shrink: 0; }
+.task-actions-row button { background: none; border: none; cursor: pointer; color: var(--text3); font-size: 12px; padding: 1px 3px; opacity: 0; transition: opacity var(--transition); }
+.task-item-header:hover .task-actions-row button { opacity: 1; }
+.task-item-header:hover .task-actions-row button:hover { color: var(--text); }
+.task-detail { padding: 0 10px 10px 38px; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 0; display: none; }
+.task-detail.open { display: block; }
+.subtask-list { display: flex; flex-direction: column; gap: 3px; margin-bottom: 7px; }
+.subtask-row { display: flex; align-items: center; gap: 7px; padding: 4px 0; }
+.subtask-check {
+  width: 15px; height: 15px; border-radius: 4px; border: 1.5px solid var(--border2);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 8px; transition: all var(--transition);
+}
+.subtask-check.done { border-color: #22c55e; background: rgba(34,197,94,0.2); color: #4ade80; }
+.subtask-text { flex: 1; font-size: 11px; color: var(--text2); }
+.subtask-text.done { text-decoration: line-through; color: var(--text3); }
+.subtask-del { background: none; border: none; cursor: pointer; color: transparent; font-size: 12px; padding: 0; }
+.subtask-row:hover .subtask-del { color: var(--text3); }
+.task-note-field { font-size: 11px; color: var(--text3); background: rgba(0,0,0,0.2); border-radius: 6px; padding: 5px 8px; margin-top: 5px; border: 1px solid var(--border); width: 100%; }
+.task-meta-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 5px; }
+.task-due-badge { font-size: 10px; color: var(--text3); display: flex; align-items: center; gap: 3px; }
+/* Drag handle */
+.task-drag-handle { cursor: grab; color: var(--text3); font-size: 14px; padding: 0 2px; opacity: 0; }
+.task-item-header:hover .task-drag-handle { opacity: 1; }
+
+/* ══════════════════════════════════════════════
+   TOUCH DRAG (mobile)
+══════════════════════════════════════════════ */
+.touch-drag-ghost {
+  position: fixed; z-index: 9999; pointer-events: none;
+  opacity: 0.85; transform: scale(1.05) rotate(2deg);
+  transition: none; border-radius: var(--radius-sm);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.drag-valid-target { border-color: var(--accent) !important; background: rgba(var(--accent-rgb),0.08) !important; }
+
+/* ══════════════════════════════════════════════
+   IMPROVED MOBILE
+══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .slot-card { min-height: auto; }
+  .sp-tasks-scroll { max-height: 100px; }
+  .sp-actions { gap: 4px; }
+  .sp-actions .btn { font-size: 10px; padding: 5px 6px; }
+  .timer-widget { padding: 8px 10px; }
+  .timer-seg input { width: 34px; font-size: 16px; }
+  .login-card { padding: 28px 20px; }
+  .task-item-header { gap: 5px; padding: 7px 8px; }
+}
+@media (max-width: 380px) {
+  .slots-grid { gap: 8px; }
+  .sp-actions .btn span { display: none; }
+}
 </style>
 </head>
 <body>
-<div class="app-wrapper" id="app">
+<!-- ══════ LOGIN SCREEN ══════ -->
+<div id="login-screen" class="login-screen" style="display:none">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-icon">🗂</div>
+      <div class="login-logo-title">ProjectFlow</div>
+      <div class="login-logo-sub" id="login-subtitle">Votre espace de travail privé</div>
+    </div>
+    <div class="login-form">
+      <div id="login-error" class="login-error"></div>
+      <div id="login-username-wrap" class="form-group">
+        <label class="form-label">Nom d'utilisateur</label>
+        <input class="input" id="login-username" placeholder="Votre prénom ou pseudo" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mot de passe</label>
+        <input class="input" type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <div id="login-confirm-wrap" class="form-group" style="display:none">
+        <label class="form-label">Confirmer le mot de passe</label>
+        <input class="input" type="password" id="login-confirm" placeholder="••••••••" autocomplete="new-password" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <button class="btn btn-primary" onclick="doLogin()" id="login-btn" style="padding:12px;font-size:14px">
+        🔐 Se connecter
+      </button>
+      <div style="text-align:center;font-size:11px;color:var(--text3);margin-top:4px" id="login-hint"></div>
+    </div>
+  </div>
+</div>
+
+<div class="app-wrapper" id="app" style="display:none">
 
 <!-- ══════ HEADER ══════ -->
 <header class="app-header">
@@ -718,12 +851,13 @@ body.focus-mode .slots-grid { grid-template-columns: repeat(auto-fit, minmax(320
     <div class="header-stats" id="header-stats"></div>
   </div>
   <div class="header-actions">
-    <div id="sync-badge" class="sync-status" style="padding:4px 10px;flex-direction:column;gap:0">
-      <div style="display:flex;align-items:center;gap:6px">
+    <div id="sync-badge" class="sync-status" style="padding:4px 10px;flex-direction:column;gap:1px;cursor:pointer" onclick="openSettings()" title="Paramètres sync">
+      <div style="display:flex;align-items:center;gap:5px">
         <div class="sync-dot idle" id="sync-dot"></div>
         <span id="sync-label" style="font-size:11px">Local</span>
+        <span id="user-label" style="font-size:10px;color:var(--text3);border-left:1px solid var(--border);padding-left:5px;margin-left:2px"></span>
       </div>
-      <div class="sync-time" id="sync-time"></div>
+      <div style="font-size:9px;color:var(--text3)" id="sync-time"></div>
     </div>
     <button class="btn btn-icon" onclick="openSettings()" title="Paramètres">⚙</button>
     <button class="btn btn-icon" onclick="doUndo()" id="undo-btn" title="Annuler (Ctrl+Z)" style="opacity:0.4">↩</button>
@@ -751,6 +885,14 @@ body.focus-mode .slots-grid { grid-template-columns: repeat(auto-fit, minmax(320
           <button class="btn btn-icon" id="btn-templates" onclick="openTemplates()" title="Templates">📄</button>
           <button class="btn btn-icon" id="btn-archived" onclick="toggleArchived()" title="Archivés">📦</button>
         </div>
+      </div>
+      <!-- Category filter row -->
+      <div class="sidebar-cat-section" id="cat-filter-section">
+        <div class="sidebar-cat-title">
+          Catégories
+          <button onclick="openCategoryManager()" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px" title="Gérer">⚙</button>
+        </div>
+        <div class="cats-filter-row" id="cats-filter-row"></div>
       </div>
       <div class="search-wrap">
         <span class="search-icon">🔍</span>
@@ -804,11 +946,14 @@ body.focus-mode .slots-grid { grid-template-columns: repeat(auto-fit, minmax(320
     <!-- Active Projects View -->
     <div id="view-board">
       <!-- Habits Widget -->
-      <div class="habits-widget" id="habits-widget">
-        <div class="habits-header">
-          <div class="habits-title">🌿 Habitudes du jour <span id="habits-streak-badge" class="count-badge" style="display:none"></span></div>
+      <div style="background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:16px" id="habits-widget">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <div style="font-family:var(--font-display);font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px">
+            🌿 Habitudes du jour
+            <span class="count-badge" id="habits-streak-badge" style="display:none"></span>
+          </div>
           <div style="display:flex;gap:4px">
-            <button class="btn btn-icon" style="font-size:11px" onclick="addHabitPrompt()" title="Ajouter une habitude">+</button>
+            <button class="btn btn-icon" style="font-size:11px" onclick="addHabitPrompt()" title="Ajouter">+</button>
             <button class="btn btn-icon" style="font-size:11px" onclick="toggleHabitsWidget()" id="habits-collapse-btn" title="Réduire">−</button>
           </div>
         </div>
@@ -928,8 +1073,15 @@ let state = {
   projects: [],
   slots: { primary: null, secondary: null, pleasure: null },
   completedProjects: [],
-  habits: [], // new: daily habits tracker
-  habitLog: {}, // new: { 'YYYY-MM-DD': { habitId: true } }
+  categories: [
+    { id: 'cat_general', name: 'Général', color: '#6366f1', icon: '📁' },
+    { id: 'cat_tech', name: 'Tech / Dev', color: '#0ea5e9', icon: '💻' },
+    { id: 'cat_creative', name: 'Créatif', color: '#ec4899', icon: '🎨' },
+    { id: 'cat_learning', name: 'Apprentissage', color: '#22c55e', icon: '📚' },
+    { id: 'cat_perso', name: 'Personnel', color: '#f97316', icon: '🏠' },
+  ],
+  habits: [],
+  habitLog: {},
   settings: {
     accent: '#7c3aed',
     compact: false,
@@ -938,19 +1090,20 @@ let state = {
     habitsCollapsed: false
   }
 };
+let filterActive = { priority: '', tags: [], archived: false, category: '' };
 let undoStack = [];
-let timers = {};       // { projectId: { mode, h, m, s, running, elapsed, intervalId, totalSecs } }
+let timers = {};
 let github = { token: '', owner: '', repo: '', sha: null };
 let syncStatus = 'idle';
 let draggedId = null, dragFrom = null, dragOverZone = null;
-let filterActive = { priority: '', tags: [], archived: false };
 let mobileView = 'board';
 let openDropdown = null;
-// NOTE: variable renamed to activeModalBg — 'openModal' was conflicting with the showModal() function
 let activeModalBg = null;
 let saveTimeout = null;
 let lastSaveTime = null;
 let broadcastChannel = null;
+let touchDragId = null, touchGhost = null, touchDragOver = null;
+const LS_AUTH_KEY = 'pf_auth_v1';
 
 const uid = () => Math.random().toString(36).slice(2,11) + Date.now().toString(36);
 const fmtDate = d => d ? new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'short'}) : '';
@@ -960,6 +1113,125 @@ const clamp = (v,min,max) => Math.max(min, Math.min(max,v));
 const proj = id => state.projects.find(p => p.id === id) || state.completedProjects.find(p => p.id === id);
 const progress = p => p.tasks.length ? Math.round(p.tasks.filter(t=>t.done).length/p.tasks.length*100) : 0;
 const isOverdue = p => p.dueDate && new Date(p.dueDate) < new Date() && !p.completed && !p.archived;
+const getCat = id => state.categories.find(c=>c.id===id);
+
+// ── AUTH SYSTEM ────────────────────────────────────────────────────────────
+async function hashPwd(pwd) {
+  const enc = new TextEncoder().encode(pwd + 'pf_salt_2024');
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+function getAuth() {
+  try { return JSON.parse(localStorage.getItem(LS_AUTH_KEY)) || null; } catch(e) { return null; }
+}
+
+async function doLogin() {
+  const auth = getAuth();
+  const username = document.getElementById('login-username')?.value.trim();
+  const password = document.getElementById('login-password')?.value;
+  const confirm = document.getElementById('login-confirm')?.value;
+  const errEl = document.getElementById('login-error');
+
+  if (!password) { showLoginError('Saisissez un mot de passe'); return; }
+
+  if (!auth) {
+    // First time: create account
+    if (!username) { showLoginError('Choisissez un nom d\'utilisateur'); return; }
+    if (password.length < 4) { showLoginError('Mot de passe trop court (min 4 caractères)'); return; }
+    if (password !== confirm) { showLoginError('Les mots de passe ne correspondent pas'); return; }
+    const hash = await hashPwd(password);
+    localStorage.setItem(LS_AUTH_KEY, JSON.stringify({ username, hash, createdAt: new Date().toISOString() }));
+    launchApp(username);
+  } else {
+    // Login
+    const hash = await hashPwd(password);
+    if (hash !== auth.hash) { showLoginError('Mot de passe incorrect'); return; }
+    launchApp(auth.username);
+  }
+}
+
+function showLoginError(msg) {
+  const el = document.getElementById('login-error');
+  if (el) { el.textContent = msg; el.style.display = 'block'; setTimeout(()=>el.style.display='none', 3000); }
+}
+
+function launchApp(username) {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  // Add username display in header
+  const lbl = document.getElementById('user-label');
+  if (lbl) lbl.textContent = username;
+  loadAndRender();
+}
+
+function showLoginScreen() {
+  const auth = getAuth();
+  const loginScreen = document.getElementById('login-screen');
+  const app = document.getElementById('app');
+  app.style.display = 'none';
+
+  if (auth) {
+    // Returning user
+    document.getElementById('login-subtitle').textContent = `Bon retour, ${auth.username} !`;
+    document.getElementById('login-username-wrap').style.display = 'none';
+    document.getElementById('login-btn').textContent = '🔐 Se connecter';
+    document.getElementById('login-hint').textContent = 'Vos données sont protégées localement';
+    document.getElementById('login-password').placeholder = 'Votre mot de passe';
+  } else {
+    // New user
+    document.getElementById('login-subtitle').textContent = 'Créez votre espace privé';
+    document.getElementById('login-username-wrap').style.display = 'block';
+    document.getElementById('login-confirm-wrap').style.display = 'block';
+    document.getElementById('login-btn').textContent = '✨ Créer mon compte';
+    document.getElementById('login-hint').textContent = 'Compte local — personne d\'autre ne peut accéder à vos projets';
+  }
+  loginScreen.style.display = 'flex';
+  setTimeout(()=>{
+    const inp = auth ? document.getElementById('login-password') : document.getElementById('login-username');
+    if (inp) inp.focus();
+  }, 100);
+}
+
+async function loadAndRender() {
+  // BroadcastChannel
+  try {
+    broadcastChannel = new BroadcastChannel('projectflow_sync');
+    broadcastChannel.onmessage = (e) => {
+      if (e.data?.type === 'state_update') { applyData(e.data.data); renderAll(); toast('🔄 Sync entre onglets', 'info'); }
+    };
+  } catch(e) {}
+
+  // Load GitHub config
+  const ghStr = localStorage.getItem(LS_GITHUB_KEY);
+  if (ghStr) try { Object.assign(github, JSON.parse(ghStr)); } catch(e) {}
+
+  let loaded = false;
+  if (github.token && github.owner && github.repo) loaded = await syncFromGitHub();
+  if (!loaded) {
+    try {
+      const r = await fetch('./database.json?t=' + Date.now());
+      if (r.ok) { const d = await r.json(); applyData(d); loaded = true; setSyncStatus('synced'); }
+    } catch(e) {}
+  }
+  if (!loaded) {
+    const ls = localStorage.getItem(LS_KEY);
+    if (ls) try { applyData(JSON.parse(ls)); } catch(e) {}
+    setSyncStatus('idle');
+  }
+
+  applyAccent(state.settings.accent || '#7c3aed');
+  document.getElementById('quote-text').textContent = QUOTES[new Date().getDay() % QUOTES.length];
+  renderFilterPriority();
+  renderCategoryFilters();
+  renderAll();
+  renderHeaderStats();
+  setMobileView('board');
+
+  // Auto-sync every 5min
+  setInterval(()=>{ if (github.token&&github.owner&&github.repo) saveData(); }, 5*60*1000);
+  setInterval(updateSyncTime, 30000);
+}
 
 function newProject(overrides={}) {
   return {
@@ -967,91 +1239,25 @@ function newProject(overrides={}) {
     color: COLORS[Math.floor(Math.random()*COLORS.length)], tasks: [], tags: [],
     priority: 'medium', dueDate: '', notes: '', links: [],
     estimatedHours: 0, loggedHours: 0, pomodoroCount: 0,
+    categoryId: 'cat_general',
     pinned: false, archived: false, completed: false,
     createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
     ...overrides
   };
 }
 
+function newTask(text='') {
+  return { id: uid(), text, done: false, status: 'todo', priority: 'medium', rank: 0, subtasks: [], note: '', dueDate: '' };
+}
+
 // ── INIT ──────────────────────────────────────────────────────────────────
 async function init() {
-  // Setup PWA manifest inline
-  const manifest = { name:'ProjectFlow', short_name:'ProjectFlow', start_url:'./', display:'standalone', background_color:'#080b16', theme_color:'#080b16', icons:[{src:'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗂</text></svg>',sizes:'any',type:'image/svg+xml'}]};
-  const mbl = document.getElementById('pwa-manifest');
-  if (mbl) { const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'}); mbl.href = URL.createObjectURL(blob); }
-
-  // Setup BroadcastChannel for cross-tab sync
-  try {
-    broadcastChannel = new BroadcastChannel('projectflow_sync');
-    broadcastChannel.onmessage = (e) => {
-      if (e.data?.type === 'state_update') {
-        applyData(e.data.data);
-        renderAll();
-        toast('🔄 Sync entre onglets', 'info');
-      }
-    };
-  } catch(e) { broadcastChannel = null; }
-
-  // Load GitHub config from localStorage
-  const ghStr = localStorage.getItem(LS_GITHUB_KEY);
-  if (ghStr) try { Object.assign(github, JSON.parse(ghStr)); } catch(e) {}
-
-  // Try to load from database.json (GitHub Pages sync)
-  let loaded = false;
-  if (github.token && github.owner && github.repo) {
-    loaded = await syncFromGitHub();
-  }
-  if (!loaded) {
-    // Try fetching local database.json (same origin, GitHub Pages)
-    try {
-      const r = await fetch('./database.json?t=' + Date.now());
-      if (r.ok) {
-        const d = await r.json();
-        applyData(d); loaded = true;
-        setSyncStatus('synced');
-      }
-    } catch(e) {}
-  }
-  if (!loaded) {
-    // Fallback: localStorage
-    const ls = localStorage.getItem(LS_KEY);
-    if (ls) try { applyData(JSON.parse(ls)); } catch(e) {}
-    setSyncStatus('idle');
-  }
-
-  // Setup accent color
-  applyAccent(state.settings.accent || '#7c3aed');
-
-  // Quote of the day
-  document.getElementById('quote-text').textContent = QUOTES[new Date().getDay() % QUOTES.length];
-
-  // Init filter UI
-  renderFilterPriority();
-
-  // Initial render
-  renderAll();
-  renderHeaderStats();
-  renderHabits();
-
-  // Auto-sync GitHub every 5 minutes if configured
-  setInterval(() => {
-    if (github.token && github.owner && github.repo) saveData();
-  }, 5 * 60 * 1000);
-
-  // Keyboard shortcuts
   document.addEventListener('keydown', onKeyDown);
-
-  // Close dropdowns on click
   document.addEventListener('click', e => {
     if (openDropdown && !openDropdown.contains(e.target)) closeDropdown();
   });
-
-  // Mobile: show sidebar button
-  if (window.innerWidth <= 900) document.getElementById('btn-menu-sidebar').style.display = 'flex';
   window.addEventListener('resize', onResize);
-
-  // Set active mobile view
-  setMobileView('board');
+  showLoginScreen();
 }
 
 function applyData(d) {
@@ -1060,20 +1266,28 @@ function applyData(d) {
   if (d.slots) state.slots = { primary:null, secondary:null, pleasure:null, ...d.slots };
   if (Array.isArray(d.completedProjects)) state.completedProjects = d.completedProjects;
   if (d.settings) state.settings = { ...state.settings, ...d.settings };
+  if (Array.isArray(d.categories) && d.categories.length) state.categories = d.categories;
   if (Array.isArray(d.habits)) state.habits = d.habits;
   if (d.habitLog) state.habitLog = d.habitLog;
-  // Ensure slotNames
   if (!state.settings.slotNames) state.settings.slotNames = { primary:'Primaire', secondary:'Secondaire', pleasure:'Plaisir' };
+  // Migrate old tasks to new format
+  state.projects.forEach(p => {
+    p.tasks = (p.tasks||[]).map(t => ({
+      status: t.done ? 'done' : 'todo', priority: 'medium', rank: 0, subtasks: [], note: '', dueDate: '', ...t
+    }));
+    if (!p.categoryId) p.categoryId = 'cat_general';
+  });
 }
 
 // ── SYNC & SAVE ───────────────────────────────────────────────────────────
 function dataSnapshot() {
   return {
-    version: '2.1',
+    version: '3.0',
     lastUpdated: new Date().toISOString(),
     projects: state.projects,
     slots: state.slots,
     completedProjects: state.completedProjects,
+    categories: state.categories,
     habits: state.habits,
     habitLog: state.habitLog,
     settings: state.settings
@@ -1088,29 +1302,12 @@ function scheduleSave() {
 async function saveData() {
   const data = dataSnapshot();
   const json = JSON.stringify(data, null, 2);
-  // Always save to localStorage as backup
   try { localStorage.setItem(LS_KEY, json); } catch(e) {}
-  // Update last save time
-  lastSaveTime = new Date();
-  updateSyncTime();
-  // Broadcast to other tabs (cross-tab sync)
-  if (broadcastChannel) {
-    try { broadcastChannel.postMessage({ type: 'state_update', data }); } catch(e) {}
-  }
-  // GitHub save if configured
-  if (github.token && github.owner && github.repo) {
-    await saveToGitHub(json);
-  }
+  lastSaveTime = new Date(); updateSyncTime();
+  if (broadcastChannel) try { broadcastChannel.postMessage({ type:'state_update', data }); } catch(e) {}
+  if (github.token && github.owner && github.repo) await saveToGitHub(json);
 }
 
-function updateSyncTime() {
-  const el = document.getElementById('sync-time');
-  if (!el || !lastSaveTime) return;
-  const diff = Math.round((Date.now() - lastSaveTime) / 1000);
-  el.textContent = diff < 5 ? 'À l\'instant' : diff < 60 ? `Il y a ${diff}s` : `Il y a ${Math.round(diff/60)}min`;
-}
-// Refresh sync time display every 30s
-setInterval(updateSyncTime, 30000);
 
 async function saveToGitHub(json) {
   setSyncStatus('syncing');
@@ -1155,17 +1352,6 @@ async function syncFromGitHub() {
   } catch(e) { setSyncStatus('error'); return false; }
 }
 
-function setSyncStatus(s) {
-  syncStatus = s;
-  const dot = document.getElementById('sync-dot');
-  const lbl = document.getElementById('sync-label');
-  if (!dot) return;
-  dot.className = 'sync-dot ' + s;
-  const labels = { idle:'Local', syncing:'Sync...', synced:'Synchronisé ✓', error:'Erreur sync' };
-  lbl.textContent = labels[s] || s;
-  if (s === 'synced') { lastSaveTime = new Date(); updateSyncTime(); }
-}
-
 function pushUndo() {
   undoStack.push(JSON.parse(JSON.stringify({ projects:state.projects, slots:state.slots, completedProjects:state.completedProjects })));
   if (undoStack.length > 20) undoStack.shift();
@@ -1191,6 +1377,8 @@ function renderAll() {
   renderHeaderStats();
   updateAllProjectsOverview();
   renderQuickStats();
+  renderHabits();
+  renderCategoryFilters();
 }
 
 function renderHeaderStats() {
@@ -1209,6 +1397,22 @@ function renderHeaderStats() {
 }
 
 // ── BACKLOG ────────────────────────────────────────────────────────────────
+function renderCategoryFilters() {
+  const row = document.getElementById('cats-filter-row');
+  if (!row) return;
+  const chips = [{ id:'', name:'Tout', color:'var(--text3)', icon:'📋' }, ...state.categories].map(c =>
+    `<button class="category-chip${filterActive.category===c.id?' active':''}" 
+      style="background:${filterActive.category===c.id?(c.color||'var(--accent)')+'22':'transparent'};color:${filterActive.category===c.id?(c.color||'var(--accent)'):'var(--text3)'};border-color:${filterActive.category===c.id?(c.color||'var(--accent)')+'60':'var(--border)'};"
+      onclick="setCatFilter('${c.id}')">${c.icon} ${c.name}</button>`
+  ).join('');
+  row.innerHTML = chips;
+}
+
+function setCatFilter(id) {
+  filterActive.category = filterActive.category===id ? '' : id;
+  renderCategoryFilters(); renderBacklog();
+}
+
 function renderBacklog() {
   const search = document.getElementById('search-input').value.toLowerCase();
   const sortBy = document.getElementById('sort-select').value;
@@ -1223,6 +1427,7 @@ function renderBacklog() {
     if (search && !p.name.toLowerCase().includes(search) && !p.description.toLowerCase().includes(search) && !p.tags.some(t=>t.includes(search))) return false;
     if (filterActive.priority && p.priority !== filterActive.priority) return false;
     if (filterActive.tags.length && !filterActive.tags.some(t=>p.tags.includes(t))) return false;
+    if (filterActive.category && p.categoryId !== filterActive.category) return false;
     return true;
   });
 
@@ -1248,10 +1453,12 @@ function renderBacklog() {
     container.innerHTML = `<div class="sidebar-empty"><div class="empty-icon">${showArchived?'📦':'✨'}</div><p>${showArchived?'Aucun projet archivé':'Votre liste est vide !<br>Créez un projet ou choisissez un template.'}</p></div>`;
   } else {
     container.innerHTML = list.map(p => renderBacklogCard(p, slotIds.includes(p.id))).join('');
-    // Bind drag events
+    // Bind drag events (desktop + touch/mobile)
     container.querySelectorAll('.bl-card').forEach(el => {
       el.addEventListener('dragstart', e => { draggedId=el.dataset.id; dragFrom='backlog'; el.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
       el.addEventListener('dragend', () => { el.classList.remove('dragging'); clearDragOver(); });
+      // Touch drag for mobile
+      el.addEventListener('touchstart', onTouchDragStart, { passive: true });
     });
   }
 
@@ -1268,6 +1475,8 @@ function renderBacklogCard(p, inSlot) {
   const due = daysUntil(p.dueDate);
   const dueBadge = p.dueDate ? `<span class="badge ${due < 0 ? 'badge-due-late' : due <= 2 ? 'badge-due-urgent' : due <= 7 ? 'badge-due-soon' : 'badge-due-ok'}">📅 ${due < 0 ? Math.abs(due)+'j retard' : due===0?'Auj.':due===1?'Demain':due+'j'}</span>` : '';
   const compact = state.settings.compact;
+  const cat = getCat(p.categoryId);
+  const catBadge = cat ? `<span class="cat-badge" style="background:${cat.color}20;color:${cat.color}">${cat.icon} ${cat.name}</span>` : '';
   return `<div class="bl-card" data-id="${p.id}" draggable="true" style="border-left-color:${p.color};${inSlot?'opacity:0.65;':''}">
     ${overdue ? '<div class="bl-overdue">EN RETARD</div>' : ''}
     ${inSlot ? '<div class="bl-active-badge">actif</div>' : ''}
@@ -1279,10 +1488,11 @@ function renderBacklogCard(p, inSlot) {
         ${!compact ? `<div class="bl-meta">
           <span class="badge ${PRIO[p.priority].bgClass}">${PRIO[p.priority].dot} ${PRIO[p.priority].label}</span>
           ${dueBadge}
+          ${catBadge}
           ${p.tags.slice(0,2).map(t=>`<span class="tag-badge" style="background:${tagColor(t)}22;color:${tagColor(t)}">#${esc(t)}</span>`).join('')}
         </div>` : ''}
       </div>
-      <div class="bl-actions" style="position:relative">
+      <div class="bl-actions">
         <button class="btn btn-icon" style="font-size:11px;color:${p.color}" onclick="assignDropdown(event,'${p.id}')" title="Assigner">→</button>
         <button class="btn btn-icon" onclick="openCardMenu(event,'${p.id}')" title="Menu">⋮</button>
       </div>
@@ -1365,12 +1575,8 @@ function renderActiveProject(p, slotKey) {
     </div>
 
     <div class="sp-tasks">
-      <div class="sp-tasks-scroll" id="tasks-${p.id}">
-        ${tasks.map(t => `<div class="sp-task">
-          <button class="task-check${t.done?' done':''}" onclick="toggleTask('${p.id}','${t.id}')"></button>
-          <span class="task-text${t.done?' done':''}">${esc(t.text)}</span>
-          <button class="task-del" onclick="delTask('${p.id}','${t.id}')">×</button>
-        </div>`).join('')}
+      <div class="sp-tasks-scroll" id="tasks-${p.id}" style="max-height:160px;overflow-y:auto">
+        ${tasks.map((t,i) => renderEnhancedTask(t, p.id, i)).join('')}
         ${more > 0 ? `<div style="font-size:10px;color:var(--text3);text-align:center;padding:4px">+ ${more} de plus — <a href="#" onclick="openDetailProj('${p.id}');return false" style="color:var(--accent)">voir tout</a></div>` : ''}
       </div>
       <div class="sp-task-input">
@@ -1533,7 +1739,11 @@ function timerAlarm(projId) {
 function toggleTask(projId, taskId) {
   const p = state.projects.find(x=>x.id===projId); if (!p) return;
   const task = p.tasks.find(t=>t.id===taskId); if (!task) return;
-  task.done = !task.done; p.updatedAt = new Date().toISOString();
+  // Cycle: todo → in_progress → done → todo
+  const cycle = { todo:'in_progress', in_progress:'done', done:'todo' };
+  task.status = cycle[task.status] || 'todo';
+  task.done = task.status === 'done';
+  p.updatedAt = new Date().toISOString();
   renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave();
 }
 
@@ -1541,7 +1751,7 @@ function addTask(projId, inputSuffix) {
   const inp = document.getElementById('task-input-' + inputSuffix); if (!inp) return;
   const text = inp.value.trim(); if (!text) return;
   const p = state.projects.find(x=>x.id===projId); if (!p) return;
-  p.tasks.push({ id: uid(), text, done: false });
+  p.tasks.push(newTask(text));
   p.updatedAt = new Date().toISOString();
   inp.value = '';
   renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave();
@@ -1752,43 +1962,51 @@ function updateAllProjectsOverview() {
   }).join('');
 }
 
-// ── MENUS ─────────────────────────────────────────────────────────────────
+// ── MENUS (portal-based, fixed position to fix z-index overlap bug) ─────────
+function createPortalDropdown(anchorEl, itemsHTML) {
+  closeDropdown();
+  const rect = anchorEl.getBoundingClientRect();
+  const dd = document.createElement('div');
+  dd.className = 'dropdown dropdown-portal';
+  dd.innerHTML = itemsHTML;
+  // Position below and right-aligned to button
+  document.body.appendChild(dd);
+  const ddW = 190;
+  let left = rect.right - ddW;
+  let top = rect.bottom + 4;
+  // Keep within viewport
+  if (left < 8) left = 8;
+  if (top + 200 > window.innerHeight) top = rect.top - Math.min(200, top + 200 - window.innerHeight) - 4;
+  dd.style.left = left + 'px';
+  dd.style.top = top + 'px';
+  openDropdown = dd;
+}
+
 function openCardMenu(event, projId) {
   event.stopPropagation();
-  closeDropdown();
   const p = state.projects.find(x=>x.id===projId); if (!p) return;
-  const btn = event.currentTarget;
-  const dd = document.createElement('div');
-  dd.className = 'dropdown';
-  const items = [
+  createPortalDropdown(event.currentTarget, [
     { i:'👁', l:'Voir détails', fn:`openDetailProj('${projId}')` },
     { i:'✏', l:'Modifier', fn:`openEditProj('${projId}')` },
     { i:'📋', l:'Dupliquer', fn:`duplicateProject('${projId}')` },
     { i:'📌', l:p.pinned?'Désépingler':'Épingler', fn:`togglePin('${projId}')` },
+    { i:'🏷', l:'Changer catégorie', fn:`changeCategoryModal('${projId}')` },
     { i:'🏆', l:'Marquer terminé', fn:`completeProject('${projId}')` },
-    { sep:true },
+    null, // separator
     { i:'📦', l:p.archived?'Restaurer':'Archiver', fn:p.archived?`restoreProject('${projId}')`:`archiveProject('${projId}')` },
     { i:'🗑', l:'Supprimer', fn:`if(confirm('Supprimer ce projet ?'))deleteProject('${projId}')`, danger:true },
-  ];
-  dd.innerHTML = items.map(it => it.sep ? '<div class="dropdown-sep"></div>' : `<button class="dropdown-item${it.danger?' danger':''}" onclick="${it.fn};closeDropdown()">${it.i} ${it.l}</button>`).join('');
-  btn.style.position = 'relative';
-  btn.appendChild(dd);
-  openDropdown = dd;
+  ].map(it => it===null ? '<div class="dropdown-sep"></div>' :
+    `<button class="dropdown-item${it.danger?' danger':''}" onclick="${it.fn};closeDropdown()">${it.i} ${it.l}</button>`
+  ).join(''));
 }
 
 function assignDropdown(event, projId) {
-  event.stopPropagation(); closeDropdown();
-  const btn = event.currentTarget;
-  const dd = document.createElement('div');
-  dd.className = 'dropdown';
-  dd.innerHTML = Object.entries(SLOT_INFO).map(([k,m]) => {
+  event.stopPropagation();
+  createPortalDropdown(event.currentTarget, Object.entries(SLOT_INFO).map(([k,m]) => {
     const customLabel = state.settings.slotNames?.[k] || m.label;
     const isCurrent = state.slots[k] === projId;
     return `<button class="dropdown-item${isCurrent?' active':''}" onclick="assignToSlot('${projId}','${k}');closeDropdown()" style="${isCurrent?'color:var(--accent)':''}">${m.emoji} ${customLabel}${isCurrent?' ✓':''}</button>`;
-  }).join('');
-  btn.style.position = 'relative';
-  btn.appendChild(dd);
-  openDropdown = dd;
+  }).join(''));
 }
 
 function closeDropdown() {
@@ -1907,6 +2125,8 @@ function showModal(html, wide=false) {
   document.body.appendChild(bg);
   activeModalBg = bg;
 }
+// alias for backwards compat with any inline onclick="openModal..."
+const openModal = showModal;
 
 function closeModal() {
   const m = document.getElementById('active-modal');
@@ -1930,7 +2150,7 @@ function showEditModal(data, isNew_) {
   let d = data;
   function upd(k,v) { d[k]=v; refreshEditPreview(); }
 
-  showModal(`
+  openModal(`
     <div class="modal-header">
       <div class="modal-title">${isNew_?'✨ Nouveau projet':'✏ Modifier le projet'}</div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
@@ -1971,6 +2191,12 @@ function showEditModal(data, isNew_) {
           <textarea class="input" id="edit-desc" placeholder="Description courte..." oninput="editField('description',this.value)">${esc(d.description)}</textarea>
         </div>
         <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Catégorie</label>
+            <select class="input" id="edit-category" onchange="editField('categoryId',this.value)">
+              ${state.categories.map(c=>`<option value="${c.id}"${(d.categoryId||'cat_general')===c.id?' selected':''}>${c.icon} ${c.name}</option>`).join('')}
+            </select>
+          </div>
           <div class="form-group">
             <label class="form-label">Priorité</label>
             <select class="input" id="edit-priority" onchange="editField('priority',this.value)">
@@ -2064,18 +2290,31 @@ function showEditModal(data, isNew_) {
   function renderEditTasks() {
     const el = document.getElementById('edit-tasks-list'); if (!el) return;
     if (!d.tasks.length) { el.innerHTML = '<p style="color:var(--text3);font-size:12px;text-align:center;padding:16px">Aucune tâche</p>'; return; }
-    el.innerHTML = d.tasks.map((t,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--glass);border-radius:8px;margin-bottom:5px">
-      <button class="task-check${t.done?' done':''}" onclick="this.classList.toggle('done');editTaskDone(${i},this.classList.contains('done'))"></button>
-      <input style="flex:1;background:none;border:none;color:var(--text);font-family:var(--font);font-size:12px;outline:none;text-decoration:${t.done?'line-through':''};opacity:${t.done?0.4:1}" value="${esc(t.text)}" oninput="editTaskText(${i},this.value)">
-      <button onclick="removeEditTask(${i})" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px">×</button>
-    </div>`).join('');
+    el.innerHTML = d.tasks.map((t,i)=>{
+      const st = TASK_STATUS[t.status||'todo'];
+      const prioColor = TASK_PRIO_COLOR[t.priority||'medium'];
+      return `<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--glass);border-radius:8px;margin-bottom:5px">
+        <button class="task-status-btn ${t.status||'todo'}" onclick="cycleEditTaskStatus(${i})" style="border-color:${st.color};${(t.status==='in_progress'||t.status==='done')?'background:'+st.color+'22':''}" title="${st.label}"><span style="color:${st.color}">${st.icon}</span></button>
+        <span style="width:8px;height:8px;border-radius:50%;background:${prioColor};flex-shrink:0"></span>
+        <input style="flex:1;background:none;border:none;color:var(--text);font-family:var(--font);font-size:12px;outline:none;text-decoration:${t.done?'line-through':''};opacity:${t.done?0.4:1}" value="${esc(t.text)}" oninput="editTaskText(${i},this.value)">
+        ${(t.subtasks||[]).length?`<span style="font-size:9px;color:var(--text3)">${(t.subtasks||[]).filter(s=>s.done).length}/${(t.subtasks||[]).length}↳</span>`:''}
+        <button onclick="removeEditTask(${i})" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px">×</button>
+      </div>`;
+    }).join('');
+  }
+  function cycleEditTaskStatus(i) {
+    const t = d.tasks[i]; if(!t) return;
+    const cycle = { todo:'in_progress', in_progress:'done', done:'todo' };
+    t.status = cycle[t.status||'todo'];
+    t.done = t.status === 'done';
+    renderEditTasks();
   }
   function addEditTask() {
     const inp=document.getElementById('new-task-inp'); if(!inp||!inp.value.trim())return;
-    d.tasks.push({id:uid(),text:inp.value.trim(),done:false}); inp.value=''; renderEditTasks();
+    d.tasks.push(newTask(inp.value.trim())); inp.value=''; renderEditTasks();
   }
   function removeEditTask(i) { d.tasks.splice(i,1); renderEditTasks(); }
-  function editTaskDone(i,v) { d.tasks[i].done=v; renderEditTasks(); }
+  function editTaskDone(i,v) { d.tasks[i].done=v; }
   function editTaskText(i,v) { d.tasks[i].text=v; }
   function renderEditTags() {
     const el = document.getElementById('edit-tags-list'); if(!el)return;
@@ -2116,6 +2355,7 @@ function showEditModal(data, isNew_) {
   window.selectColor = selectColor;
   window.editField = editField;
   window.addEditTask = addEditTask;
+  window.cycleEditTaskStatus = cycleEditTaskStatus;
   window.removeEditTask = removeEditTask;
   window.editTaskDone = editTaskDone;
   window.editTaskText = editTaskText;
@@ -2140,7 +2380,7 @@ function openDetailProj(id) {
   const p = state.projects.find(x=>x.id===id) || state.completedProjects.find(x=>x.id===id);
   if (!p) return;
   const pct = progress(p);
-  showModal(`
+  openModal(`
     <div class="detail-banner" style="background:linear-gradient(135deg,${p.color}25,${p.color}08)">
       <div class="detail-banner-inner">
         <div class="detail-icon" style="background:${p.color}25">${p.icon}</div>
@@ -2200,7 +2440,7 @@ function openCompletedDetail(id) { openDetailProj(id); }
 // ── NOTES QUICK ────────────────────────────────────────────────────────────
 function openNotesQuick(projId) {
   const p = state.projects.find(x=>x.id===projId); if (!p) return;
-  showModal(`
+  openModal(`
     <div class="modal-header">
       <div class="modal-title">📝 Notes — ${esc(p.name)}</div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
@@ -2223,7 +2463,7 @@ function saveNotes(projId) {
 
 // ── TEMPLATES ────────────────────────────────────────────────────────────
 function openTemplates() {
-  showModal(`
+  openModal(`
     <div class="modal-header">
       <div class="modal-title">📄 Templates</div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
@@ -2249,7 +2489,7 @@ function useTemplate(i) {
 // ── SLOT NAMES ────────────────────────────────────────────────────────────
 function openSlotNamesEditor() {
   const n = state.settings.slotNames || {};
-  showModal(`
+  openModal(`
     <div class="modal-header">
       <div class="modal-title">✏ Nommer les slots</div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
@@ -2277,7 +2517,7 @@ function saveSlotNames() {
 
 // ── SETTINGS MODAL ───────────────────────────────────────────────────────
 function openSettings() {
-  showModal(`
+  openModal(`
     <div class="modal-header">
       <div class="modal-title">⚙ Paramètres</div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
@@ -2519,135 +2759,432 @@ function renderQuickStats() {
   </div>`).join('');
 }
 
-// ── HABITS SYSTEM ──────────────────────────────────────────────────────────
-const todayKey = () => new Date().toISOString().split('T')[0];
-
-function renderHabits() {
-  const body = document.getElementById('habits-body');
-  if (!body) return;
-  const widget = document.getElementById('habits-widget');
-  const collapsed = state.settings.habitsCollapsed;
-  const btn = document.getElementById('habits-collapse-btn');
-  if (btn) btn.textContent = collapsed ? '+' : '−';
-
-  if (collapsed) { body.style.display = 'none'; return; }
-  body.style.display = 'block';
-
-  const today = todayKey();
-  const log = state.habitLog[today] || {};
-  const done = state.habits.filter(h => log[h.id]).length;
-  const badge = document.getElementById('habits-streak-badge');
-
-  if (badge) {
-    if (state.habits.length > 0) {
-      badge.style.display = 'inline';
-      badge.textContent = `${done}/${state.habits.length}`;
-      badge.style.background = done === state.habits.length ? 'rgba(34,197,94,0.2)' : 'rgba(var(--accent-rgb),0.15)';
-      badge.style.color = done === state.habits.length ? '#4ade80' : 'var(--accent)';
-    } else {
-      badge.style.display = 'none';
-    }
-  }
-
-  if (!state.habits.length) {
-    body.innerHTML = `<div style="text-align:center;padding:12px;color:var(--text3);font-size:12px">Aucune habitude — <button onclick="addHabitPrompt()" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:12px">Ajouter →</button></div>`;
-    return;
-  }
-
-  body.innerHTML = state.habits.map(h => {
-    const isDone = !!log[h.id];
-    const streak = getHabitStreak(h.id);
-    // Last 7 days dots
-    const dots = Array.from({length:7},(_,i)=>{
-      const d = new Date(); d.setDate(d.getDate()-6+i);
-      const k = d.toISOString().split('T')[0];
-      const filled = !!(state.habitLog[k]||{})[h.id];
-      return `<div class="habit-dot" style="background:${filled?h.color||'var(--accent)':'rgba(255,255,255,0.1)'}"></div>`;
-    }).join('');
-    return `<div class="habit-row">
-      <button class="habit-check${isDone?' done':''}" onclick="toggleHabit('${h.id}')" style="${isDone?`border-color:${h.color||'#22c55e'};background:${h.color||'#22c55e'}22`:''}"></button>
-      <span class="habit-name" style="${isDone?'text-decoration:line-through;opacity:0.5':''}">${esc(h.name)}</span>
-      <div class="habit-dots">${dots}</div>
-      ${streak>0?`<div class="habit-streak"><span class="streak-fire">🔥</span>${streak}</div>`:''}
-      <button class="habit-del" onclick="deleteHabit('${h.id}')">×</button>
-    </div>`;
-  }).join('');
-}
-
-function getHabitStreak(habitId) {
-  let streak = 0;
-  const d = new Date();
-  // Don't count today if not done
-  d.setDate(d.getDate()-1);
-  while(true) {
-    const k = d.toISOString().split('T')[0];
-    if ((state.habitLog[k]||{})[habitId]) { streak++; d.setDate(d.getDate()-1); }
-    else break;
-    if (streak > 365) break;
-  }
-  // Add today if done
-  const today = todayKey();
-  if ((state.habitLog[today]||{})[habitId]) streak++;
-  return streak;
-}
-
-function toggleHabit(habitId) {
-  const today = todayKey();
-  if (!state.habitLog[today]) state.habitLog[today] = {};
-  state.habitLog[today][habitId] = !state.habitLog[today][habitId];
-  // Prune old logs (keep 90 days)
-  const cutoff = new Date(); cutoff.setDate(cutoff.getDate()-90);
-  Object.keys(state.habitLog).forEach(k => { if (new Date(k) < cutoff) delete state.habitLog[k]; });
-  renderHabits(); scheduleSave();
-  // Check if all done
-  const log = state.habitLog[today];
-  const allDone = state.habits.length > 0 && state.habits.every(h => log[h.id]);
-  if (allDone) { toast('🌿 Toutes les habitudes du jour complètes ! 🎉', 'success'); }
-}
-
-function addHabitPrompt() {
-  const colors = ['#22c55e','#0ea5e9','#a855f7','#f97316','#ec4899','#eab308','#06b6d4'];
+// ── CATEGORIES ──────────────────────────────────────────────────────────────
+function openCategoryManager() {
   showModal(`
     <div class="modal-header">
-      <div class="modal-title">🌿 Nouvelle habitude</div>
+      <div class="modal-title">🏷 Gérer les catégories</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="cat-manager-body"></div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="addCategoryPrompt()">+ Nouvelle catégorie</button>
+      <button class="btn" onclick="closeModal()">Fermer</button>
+    </div>
+  `);
+  renderCatManagerBody();
+}
+
+function renderCatManagerBody() {
+  const el = document.getElementById('cat-manager-body'); if(!el) return;
+  el.innerHTML = state.categories.map(c => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--glass);border:1px solid var(--border);border-radius:10px;margin-bottom:8px">
+      <div style="width:34px;height:34px;border-radius:9px;background:${c.color}25;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">${c.icon}</div>
+      <div style="flex:1">
+        <div style="font-weight:600;font-size:13px">${esc(c.name)}</div>
+        <div style="font-size:10px;color:var(--text3)">${state.projects.filter(p=>p.categoryId===c.id).length} projets</div>
+      </div>
+      <div style="display:flex;gap:4px">
+        <button class="btn btn-icon" onclick="editCategoryModal('${c.id}')" style="font-size:12px">✏</button>
+        <button class="btn btn-icon btn-danger" onclick="deleteCategory('${c.id}')" style="font-size:12px">🗑</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--text3);text-align:center;padding:20px">Aucune catégorie</p>';
+}
+
+function addCategoryPrompt() { editCategoryModal(null); }
+
+function editCategoryModal(catId) {
+  const cat = catId ? state.categories.find(c=>c.id===catId) : null;
+  const catIcons = ['📁','💻','🎨','📚','🏠','💼','🔬','🎵','🌍','⚽','🎯','🚀','🌱','❤️','🏋️','🎭'];
+  showModal(`
+    <div class="modal-header">
+      <div class="modal-title">${cat?'✏ Modifier':'+ Nouvelle'} catégorie</div>
+      <button class="btn btn-icon" onclick="${cat?'openCategoryManager()':'closeModal()'}">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Nom</label>
+        <input class="input" id="cat-name-inp" value="${esc(cat?.name||'')}" placeholder="Ex: Électronique, Littéraire...">
+      </div>
+      <div class="form-group"><label class="form-label">Icône</label>
+        <div style="display:flex;flex-wrap:wrap;gap:5px" id="cat-icon-grid">
+          ${catIcons.map(ic=>`<button class="icon-btn${(cat?.icon||catIcons[0])===ic?' active':''}" onclick="document.querySelectorAll('#cat-icon-grid .icon-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');document.getElementById('cat-icon-val').value='${ic}'">${ic}</button>`).join('')}
+        </div>
+        <input type="hidden" id="cat-icon-val" value="${cat?.icon||catIcons[0]}">
+      </div>
+      <div class="form-group"><label class="form-label">Couleur</label>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          ${COLORS.map(c=>`<div class="color-swatch${(cat?.color||COLORS[0])===c?' active':''}" style="background:${c}" onclick="document.querySelectorAll('.cat-color-swatch').forEach(s=>s.classList.remove('active'));this.classList.add('active');document.getElementById('cat-color-val').value='${c}'" class="cat-color-swatch color-swatch"></div>`).join('')}
+        </div>
+        <input type="hidden" id="cat-color-val" value="${cat?.color||COLORS[0]}">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="${cat?'openCategoryManager()':'closeModal()'}">Annuler</button>
+      <button class="btn btn-primary" onclick="saveCategory('${catId||''}')">💾 Sauvegarder</button>
+    </div>
+  `);
+}
+window.saveCategory = function(catId) {
+  const name = document.getElementById('cat-name-inp')?.value.trim();
+  const icon = document.getElementById('cat-icon-val')?.value || '📁';
+  const color = document.getElementById('cat-color-val')?.value || COLORS[0];
+  if (!name) return;
+  if (catId) {
+    const c = state.categories.find(x=>x.id===catId);
+    if (c) Object.assign(c, { name, icon, color });
+    toast('Catégorie modifiée ✏');
+  } else {
+    state.categories.push({ id: 'cat_'+uid(), name, icon, color });
+    toast(`Catégorie "${name}" créée 🏷`);
+  }
+  renderCategoryFilters(); renderBacklog(); scheduleSave(); closeModal();
+};
+function deleteCategory(catId) {
+  if (!confirm('Supprimer cette catégorie ? Les projets seront mis dans "Général"')) return;
+  state.categories = state.categories.filter(c=>c.id!==catId);
+  state.projects.forEach(p=>{ if(p.categoryId===catId) p.categoryId='cat_general'; });
+  renderCategoryFilters(); renderBacklog(); scheduleSave(); openCategoryManager();
+}
+function changeCategoryModal(projId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  showModal(`
+    <div class="modal-header">
+      <div class="modal-title">🏷 Changer la catégorie</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        ${state.categories.map(c=>`<button onclick="assignCategory('${projId}','${c.id}')" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:${p.categoryId===c.id?c.color+'20':'var(--glass)'};border:1px solid ${p.categoryId===c.id?c.color:'var(--border)'};border-radius:10px;cursor:pointer;text-align:left;transition:all 0.15s">
+          <span style="font-size:20px">${c.icon}</span>
+          <span style="font-weight:600;color:${p.categoryId===c.id?c.color:'var(--text)'}">${esc(c.name)}</span>
+          ${p.categoryId===c.id?'<span style="margin-left:auto;color:var(--accent)">✓</span>':''}
+        </button>`).join('')}
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn" onclick="closeModal()">Fermer</button></div>
+  `);
+}
+window.assignCategory = function(projId, catId) {
+  updateProj(projId, { categoryId: catId });
+  renderBacklog(); scheduleSave(); closeModal();
+  const cat = getCat(catId);
+  toast(`Catégorie → ${cat?.icon} ${cat?.name}`);
+};
+
+// ── ENHANCED TASK RENDERING ───────────────────────────────────────────────
+const TASK_STATUS = {
+  todo:        { icon:'○', label:'À faire',   color:'var(--text3)' },
+  in_progress: { icon:'◐', label:'En cours',  color:'#f97316' },
+  done:        { icon:'●', label:'Terminé',   color:'#22c55e' }
+};
+const TASK_PRIO_COLOR = { high:'#f87171', medium:'#fb923c', low:'#4ade80', critical:'#c084fc' };
+
+function renderEnhancedTask(t, projId, idx) {
+  const st = TASK_STATUS[t.status||'todo'];
+  const prioColor = TASK_PRIO_COLOR[t.priority||'medium'];
+  const subDone = (t.subtasks||[]).filter(s=>s.done).length;
+  const subTotal = (t.subtasks||[]).length;
+  return `<div class="task-item" id="taskitem-${t.id}" data-task-id="${t.id}" data-proj-id="${projId}">
+    <div class="task-item-header">
+      <span class="task-drag-handle" title="Déplacer">⠿</span>
+      <span class="task-rank" style="color:var(--text3)">${idx+1}</span>
+      <button class="task-status-btn ${t.status||'todo'}" onclick="cycleTaskStatus('${projId}','${t.id}')" title="${st.label}" style="border-color:${st.color};${(t.status==='in_progress'||t.status==='done')?'background:'+st.color+'22':''}">
+        <span style="color:${st.color}">${st.icon}</span>
+      </button>
+      <span class="task-priority-dot" style="background:${prioColor}" title="Priorité: ${t.priority||'medium'}"></span>
+      <span class="task-main-text ${t.status==='done'?'done':''}" onclick="openTaskDetail('${projId}','${t.id}')">${esc(t.text)}</span>
+      ${subTotal?`<span style="font-size:9px;color:var(--text3);flex-shrink:0">${subDone}/${subTotal}</span>`:''}
+      <div class="task-actions-row">
+        <button onclick="openTaskDetail('${projId}','${t.id}')" title="Détails">📋</button>
+        <button onclick="cycleTaskPriority('${projId}','${t.id}')" title="Priorité">🎯</button>
+        <button onclick="deleteTaskFromProj('${projId}','${t.id}')" title="Supprimer" style="color:#f87171">×</button>
+      </div>
+      ${subTotal?`<button class="task-expand-btn" id="texpand-${t.id}" onclick="toggleTaskDetail('${t.id}')">▶</button>`:''}
+    </div>
+    ${subTotal?`<div class="task-detail" id="tdetail-${t.id}">
+      <div class="subtask-list">${(t.subtasks||[]).map(s=>`<div class="subtask-row">
+        <button class="subtask-check${s.done?' done':''}" onclick="toggleSubtask('${projId}','${t.id}','${s.id}')">${s.done?'✓':''}</button>
+        <span class="subtask-text${s.done?' done':''}">${esc(s.text)}</span>
+        <button class="subtask-del" onclick="deleteSubtask('${projId}','${t.id}','${s.id}')">×</button>
+      </div>`).join('')}</div>
+    </div>`:''}
+  </div>`;
+}
+
+function cycleTaskStatus(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  const cycle = { todo:'in_progress', in_progress:'done', done:'todo' };
+  t.status = cycle[t.status||'todo'];
+  t.done = t.status === 'done';
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave();
+}
+
+function cycleTaskPriority(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  const cycle = { low:'medium', medium:'high', high:'critical', critical:'low' };
+  t.priority = cycle[t.priority||'medium'];
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); renderBacklog(); scheduleSave();
+}
+
+function deleteTaskFromProj(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  p.tasks = p.tasks.filter(t=>t.id!==taskId);
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); renderBacklog(); scheduleSave();
+}
+
+function toggleTaskDetail(taskId) {
+  const detail = document.getElementById('tdetail-'+taskId);
+  const btn = document.getElementById('texpand-'+taskId);
+  if (!detail) return;
+  const open = detail.classList.toggle('open');
+  if (btn) btn.classList.toggle('open', open);
+}
+
+function openTaskDetail(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  const st = TASK_STATUS[t.status||'todo'];
+  showModal(`
+    <div class="modal-header">
+      <div class="modal-title" style="display:flex;align-items:center;gap:8px">
+        <span style="color:${TASK_STATUS[t.status||'todo'].color}">${TASK_STATUS[t.status||'todo'].icon}</span>
+        Détail de la tâche
+      </div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="form-group">
-        <label class="form-label">Nom</label>
-        <input class="input" id="habit-name-inp" placeholder="Ex: Méditation 10min, Sport, Lecture..." autofocus>
+        <label class="form-label">Tâche</label>
+        <input class="input" id="td-text" value="${esc(t.text)}">
       </div>
-      <div class="form-group">
-        <label class="form-label">Couleur</label>
-        <div style="display:flex;gap:6px;flex-wrap:wrap">
-          ${colors.map((c,i)=>`<div class="color-swatch${i===0?' active':''}" style="background:${c}" data-c="${c}" onclick="document.querySelectorAll('#habit-color-row .color-swatch').forEach(s=>s.classList.remove('active'));this.classList.add('active');document.getElementById('habit-color-val').value='${c}'"></div>`).join('')}
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Statut</label>
+          <select class="input" id="td-status">
+            ${Object.entries(TASK_STATUS).map(([k,v])=>`<option value="${k}"${t.status===k?' selected':''}>${v.icon} ${v.label}</option>`).join('')}
+          </select>
         </div>
-        <input type="hidden" id="habit-color-val" value="${colors[0]}">
-        <div id="habit-color-row" style="display:none"></div>
+        <div class="form-group"><label class="form-label">Priorité</label>
+          <select class="input" id="td-priority">
+            ${['low','medium','high','critical'].map(k=>`<option value="${k}"${(t.priority||'medium')===k?' selected':''}>${k}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Rang</label>
+          <input type="number" class="input" id="td-rank" value="${t.rank||0}" min="0">
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">Date limite</label>
+        <input type="date" class="input" id="td-due" value="${t.dueDate||''}" style="color-scheme:dark">
+      </div>
+      <div class="form-group"><label class="form-label">Note</label>
+        <textarea class="input" id="td-note" style="min-height:80px">${esc(t.note||'')}</textarea>
+      </div>
+      <!-- Subtasks -->
+      <div class="form-group">
+        <label class="form-label">Sous-tâches (${(t.subtasks||[]).filter(s=>s.done).length}/${(t.subtasks||[]).length})</label>
+        <div id="td-subtasks">${renderSubtasksEdit(t.subtasks||[])}</div>
+        <div style="display:flex;gap:6px;margin-top:6px">
+          <input class="input" id="td-sub-inp" placeholder="+ Sous-tâche..." style="font-size:12px" onkeydown="if(event.key==='Enter')addSubtaskFromModal('${projId}','${taskId}')">
+          <button class="btn" onclick="addSubtaskFromModal('${projId}','${taskId}')">+</button>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
       <button class="btn" onclick="closeModal()">Annuler</button>
-      <button class="btn btn-primary" onclick="saveNewHabit()">+ Ajouter</button>
+      <button class="btn btn-primary" onclick="saveTaskDetail('${projId}','${taskId}')">💾 Sauvegarder</button>
     </div>
   `);
-  setTimeout(()=>{ const inp=document.getElementById('habit-name-inp');if(inp)inp.focus();},100);
+}
+function renderSubtasksEdit(subtasks) {
+  if (!subtasks.length) return '<p style="color:var(--text3);font-size:11px">Aucune sous-tâche</p>';
+  return subtasks.map(s=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)">
+    <button class="subtask-check${s.done?' done':''}" onclick="this.classList.toggle('done');this.nextSibling.nextSibling.value=this.classList.contains('done')?'true':'false'">${s.done?'✓':''}</button>
+    <span style="flex:1;font-size:12px;${s.done?'text-decoration:line-through;opacity:0.5':''}">${esc(s.text)}</span>
+    <input type="hidden" class="sub-done-val" value="${s.done}">
+    <input type="hidden" class="sub-id-val" value="${s.id}">
+    <button onclick="this.parentElement.remove()" style="background:none;border:none;cursor:pointer;color:var(--text3)">×</button>
+  </div>`).join('');
+}
+window.addSubtaskFromModal = function(projId, taskId) {
+  const inp = document.getElementById('td-sub-inp'); if(!inp||!inp.value.trim()) return;
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  if(!t.subtasks) t.subtasks=[];
+  const sub = { id:uid(), text:inp.value.trim(), done:false };
+  t.subtasks.push(sub);
+  p.updatedAt = new Date().toISOString();
+  inp.value='';
+  const container = document.getElementById('td-subtasks');
+  if (container) container.innerHTML = renderSubtasksEdit(t.subtasks);
+  scheduleSave();
+};
+window.saveTaskDetail = function(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  t.text = document.getElementById('td-text')?.value.trim() || t.text;
+  t.status = document.getElementById('td-status')?.value || t.status;
+  t.done = t.status === 'done';
+  t.priority = document.getElementById('td-priority')?.value || t.priority;
+  t.rank = parseInt(document.getElementById('td-rank')?.value)||0;
+  t.dueDate = document.getElementById('td-due')?.value || '';
+  t.note = document.getElementById('td-note')?.value || '';
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave(); closeModal();
+  toast('Tâche mise à jour ✏');
+};
+
+function toggleSubtask(projId, taskId, subId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  const s = (t.subtasks||[]).find(x=>x.id===subId); if(!s) return;
+  s.done = !s.done;
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); scheduleSave();
+}
+function deleteSubtask(projId, taskId, subId) {
+  const p = state.projects.find(x=>x.id===projId); if(!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  t.subtasks = (t.subtasks||[]).filter(s=>s.id!==subId);
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); scheduleSave();
+}
+
+// ── TOUCH DRAG (mobile drag & drop) ───────────────────────────────────────
+function onTouchDragStart(e) {
+  const card = e.currentTarget;
+  touchDragId = card.dataset.id;
+  const touch = e.touches[0];
+  // Create ghost
+  touchGhost = card.cloneNode(true);
+  touchGhost.className = card.className + ' touch-drag-ghost';
+  touchGhost.style.width = card.offsetWidth + 'px';
+  touchGhost.style.left = (touch.clientX - card.offsetWidth/2) + 'px';
+  touchGhost.style.top = (touch.clientY - 30) + 'px';
+  document.body.appendChild(touchGhost);
+  document.addEventListener('touchmove', onTouchDragMove, { passive: false });
+  document.addEventListener('touchend', onTouchDragEnd);
+}
+
+function onTouchDragMove(e) {
+  e.preventDefault();
+  if (!touchGhost || !touchDragId) return;
+  const touch = e.touches[0];
+  touchGhost.style.left = (touch.clientX - parseInt(touchGhost.style.width)/2) + 'px';
+  touchGhost.style.top = (touch.clientY - 30) + 'px';
+  // Find drop target
+  touchGhost.style.display = 'none';
+  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+  touchGhost.style.display = '';
+  if (!el) return;
+  // Check slot drop zones
+  let zone = null;
+  const slotEl = el.closest('[id^="slot-"]');
+  if (slotEl) zone = slotEl.id.replace('slot-','');
+  // Highlight
+  document.querySelectorAll('.slot-card').forEach(s => s.classList.remove('drag-valid-target'));
+  if (zone && SLOT_INFO[zone]) {
+    const slotCard = document.getElementById('slot-'+zone);
+    if (slotCard) { slotCard.classList.add('drag-valid-target'); touchDragOver = zone; }
+  } else { touchDragOver = null; }
+}
+
+function onTouchDragEnd() {
+  if (touchGhost) { touchGhost.remove(); touchGhost = null; }
+  document.querySelectorAll('.slot-card').forEach(s => s.classList.remove('drag-valid-target'));
+  document.removeEventListener('touchmove', onTouchDragMove);
+  document.removeEventListener('touchend', onTouchDragEnd);
+  if (touchDragId && touchDragOver) {
+    assignToSlot(touchDragId, touchDragOver);
+  }
+  touchDragId = null; touchDragOver = null;
+}
+
+// ── HABITS SYSTEM ──────────────────────────────────────────────────────────
+const todayKey = () => new Date().toISOString().split('T')[0];
+
+function renderHabits() {
+  const body = document.getElementById('habits-body'); if (!body) return;
+  const collapsed = state.settings.habitsCollapsed;
+  const btn = document.getElementById('habits-collapse-btn');
+  if (btn) btn.textContent = collapsed ? '+' : '−';
+  if (collapsed) { body.style.display = 'none'; return; }
+  body.style.display = 'block';
+  const today = todayKey();
+  const log = state.habitLog[today] || {};
+  const done = state.habits.filter(h => log[h.id]).length;
+  const badge = document.getElementById('habits-streak-badge');
+  if (badge) {
+    badge.style.display = state.habits.length > 0 ? 'inline' : 'none';
+    badge.textContent = `${done}/${state.habits.length}`;
+    badge.style.background = done===state.habits.length ? 'rgba(34,197,94,0.2)' : 'rgba(var(--accent-rgb),0.15)';
+    badge.style.color = done===state.habits.length ? '#4ade80' : 'var(--accent)';
+  }
+  if (!state.habits.length) {
+    body.innerHTML = `<div style="text-align:center;padding:12px;color:var(--text3);font-size:12px">Aucune habitude — <button onclick="addHabitPrompt()" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:12px">Ajouter →</button></div>`;
+    return;
+  }
+  body.innerHTML = state.habits.map(h => {
+    const isDone = !!log[h.id];
+    const streak = getHabitStreak(h.id);
+    const dots = Array.from({length:7},(_,i)=>{ const d=new Date();d.setDate(d.getDate()-6+i);const k=d.toISOString().split('T')[0];const filled=!!(state.habitLog[k]||{})[h.id];return `<div class="habit-dot" style="background:${filled?(h.color||'var(--accent)'):'rgba(255,255,255,0.1)'}"></div>`; }).join('');
+    return `<div class="habit-row"><button class="habit-check${isDone?' done':''}" onclick="toggleHabit('${h.id}')" style="${isDone?`border-color:${h.color||'#22c55e'};background:${h.color||'#22c55e'}22`:''}"></button><span class="habit-name" style="${isDone?'text-decoration:line-through;opacity:0.5':''}">${esc(h.name)}</span><div class="habit-dots">${dots}</div>${streak>0?`<div class="habit-streak">🔥 ${streak}</div>`:''}<button class="habit-del" onclick="deleteHabit('${h.id}')">×</button></div>`;
+  }).join('');
+}
+function getHabitStreak(habitId) {
+  let streak=0,d=new Date(); d.setDate(d.getDate()-1);
+  while(true){const k=d.toISOString().split('T')[0];if((state.habitLog[k]||{})[habitId]){streak++;d.setDate(d.getDate()-1);}else break;if(streak>365)break;}
+  if((state.habitLog[todayKey()]||{})[habitId]) streak++;
+  return streak;
+}
+function toggleHabit(habitId) {
+  const today=todayKey(); if(!state.habitLog[today])state.habitLog[today]={};
+  state.habitLog[today][habitId]=!state.habitLog[today][habitId];
+  const cutoff=new Date();cutoff.setDate(cutoff.getDate()-90);
+  Object.keys(state.habitLog).forEach(k=>{if(new Date(k)<cutoff)delete state.habitLog[k];});
+  renderHabits(); scheduleSave();
+  const allDone=state.habits.length>0&&state.habits.every(h=>state.habitLog[today][h.id]);
+  if(allDone) toast('🌿 Toutes les habitudes du jour ! 🎉','success');
+}
+function addHabitPrompt() {
+  showModal(`
+    <div class="modal-header"><div class="modal-title">🌿 Nouvelle habitude</div><button class="btn btn-icon" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Nom</label><input class="input" id="habit-name-inp" placeholder="Ex: Méditation, Sport, Lecture..."></div>
+      <div class="form-group"><label class="form-label">Couleur</label><div class="color-swatches">${COLORS.slice(0,8).map((c,i)=>`<div class="color-swatch${i===0?' active':''}" style="background:${c}" onclick="document.querySelectorAll('.color-swatches .color-swatch').forEach(s=>s.classList.remove('active'));this.classList.add('active');document.getElementById('habit-color-val').value='${c}'"></div>`).join('')}</div><input type="hidden" id="habit-color-val" value="${COLORS[0]}"></div>
+    </div>
+    <div class="modal-footer"><button class="btn" onclick="closeModal()">Annuler</button><button class="btn btn-primary" onclick="saveNewHabit()">+ Ajouter</button></div>
+  `);
+  setTimeout(()=>document.getElementById('habit-name-inp')?.focus(),100);
 }
 window.saveNewHabit = function() {
-  const name = document.getElementById('habit-name-inp')?.value.trim();
-  const color = document.getElementById('habit-color-val')?.value || '#22c55e';
-  if (!name) return;
-  state.habits.push({ id: uid(), name, color, createdAt: new Date().toISOString() });
-  renderHabits(); scheduleSave(); closeModal();
-  toast(`🌿 Habitude "${name}" ajoutée !`);
+  const name=document.getElementById('habit-name-inp')?.value.trim();
+  const color=document.getElementById('habit-color-val')?.value||COLORS[0];
+  if(!name)return;
+  state.habits.push({id:uid(),name,color,createdAt:new Date().toISOString()});
+  renderHabits();scheduleSave();closeModal();toast(`🌿 "${name}" ajoutée !`);
 };
-function deleteHabit(id) {
-  state.habits = state.habits.filter(h=>h.id!==id);
-  renderHabits(); scheduleSave();
+function deleteHabit(id){state.habits=state.habits.filter(h=>h.id!==id);renderHabits();scheduleSave();}
+function toggleHabitsWidget(){state.settings.habitsCollapsed=!state.settings.habitsCollapsed;renderHabits();scheduleSave();}
+
+// ── SYNC STATUS ────────────────────────────────────────────────────────────
+function setSyncStatus(s) {
+  syncStatus = s;
+  const dot = document.getElementById('sync-dot');
+  const lbl = document.getElementById('sync-label');
+  if (!dot) return;
+  dot.className = 'sync-dot ' + s;
+  const labels = { idle:'Local', syncing:'Sync...', synced:'Sync ✓', error:'Erreur sync' };
+  lbl.textContent = labels[s] || s;
+  if (s==='synced') { lastSaveTime=new Date(); updateSyncTime(); }
 }
-function toggleHabitsWidget() {
-  state.settings.habitsCollapsed = !state.settings.habitsCollapsed;
-  renderHabits(); scheduleSave();
+function updateSyncTime() {
+  const el=document.getElementById('sync-time'); if(!el||!lastSaveTime)return;
+  const diff=Math.round((Date.now()-lastSaveTime)/1000);
+  el.textContent=diff<5?'À l\'instant':diff<60?`${diff}s`:`${Math.round(diff/60)}min`;
 }
 
 // ── START ─────────────────────────────────────────────────────────────────
