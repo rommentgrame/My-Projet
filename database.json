@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T20:14:21.730Z",
+  "lastUpdated": "2026-02-26T20:14:23.973Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -8,52 +8,7 @@
       "description": "",
       "icon": "🎲",
       "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "a7odndp6fmm3sfv0i",
-          "text": "Teste",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "critical",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "g5678ee2amm3sfx83",
-          "text": "Teste",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "a7efuz4rymm3sgp07",
-          "text": "Tedte",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "kniucsfucmm3sgr5q",
-          "text": "Teste",
-          "done": true
-        }
-      ],
+      "tasks": [],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-05-30",
@@ -67,7 +22,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:22:02.883Z"
+      "updatedAt": "2026-02-26T20:14:23.469Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
