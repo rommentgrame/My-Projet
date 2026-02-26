@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:59:49.105Z",
+  "lastUpdated": "2026-02-26T18:00:20.614Z",
   "projects": [
+    {
+      "id": "y0m12uar1mm3rq5tw",
+      "name": "Creation Drone",
+      "description": "",
+      "icon": "🦋",
+      "color": "#4f46e5",
+      "tasks": [],
+      "tags": [],
+      "priority": "low",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_perso",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:59:50.276Z",
+      "updatedAt": "2026-02-26T17:59:50.276Z"
+    },
     {
       "id": "tqfqmnk9pmm3rpbav",
       "name": "KORA -Skateboard & Robot Elec & Intelligent",
