@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:02:31.989Z",
+  "lastUpdated": "2026-02-26T18:03:12.519Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -28,7 +28,7 @@
       "id": "y0m12uar1mm3rq5tw",
       "name": "Creation Drone",
       "description": "",
-      "icon": "🦋",
+      "icon": "🚀",
       "color": "#4f46e5",
       "tasks": [],
       "tags": [],
@@ -44,7 +44,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:59:50.276Z",
-      "updatedAt": "2026-02-26T17:59:50.276Z"
+      "updatedAt": "2026-02-26T18:03:12.418Z"
     },
     {
       "id": "tqfqmnk9pmm3rpbav",
