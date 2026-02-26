@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:03:30.935Z",
+  "lastUpdated": "2026-02-26T18:03:50.675Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -267,7 +267,7 @@
     "accent": "#10b981",
     "compact": true,
     "slotNames": {
-      "primary": "Primaire",
+      "primary": "Prima",
       "secondary": "Secondaire",
       "pleasure": "Plaisir"
     },
