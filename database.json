@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:38:35.815Z",
+  "lastUpdated": "2026-02-26T22:41:39.272Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -122,15 +122,15 @@
       "color": "#f97316",
       "tasks": [
         {
-          "id": "sylvxoj95mm41omy8",
-          "text": "rest",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "sylvxoj95mm41omy8",
+          "text": "rest",
+          "done": false
         }
       ],
       "tags": [],
