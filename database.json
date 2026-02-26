@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:12:53.304Z",
+  "lastUpdated": "2026-02-26T22:13:00.943Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -63,17 +63,6 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
-        },
-        {
-          "id": "097l7c862mm40rkqb",
-          "text": "tetet",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
         }
       ],
       "tags": [],
@@ -89,7 +78,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:12:52.787Z"
+      "updatedAt": "2026-02-26T22:13:00.434Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
