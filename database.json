@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:14:09.677Z",
+  "lastUpdated": "2026-02-26T18:14:13.976Z",
   "projects": [
+    {
+      "id": "ychuqcj0nmm3r66d5",
+      "name": "Échiquier électronique ",
+      "description": "",
+      "icon": "🎲",
+      "color": "#6366f1",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:44:17.849Z",
+      "updatedAt": "2026-02-26T18:02:31.485Z"
+    },
     {
       "id": "96pa7j3w8mm3rqvc6",
       "name": "Creation bracelet araignée ",
@@ -208,31 +230,7 @@
     "secondary": "1lu5shi7lmm3rfb7g",
     "pleasure": null
   },
-  "completedProjects": [
-    {
-      "id": "ychuqcj0nmm3r66d5",
-      "name": "Échiquier électronique ",
-      "description": "",
-      "icon": "🎲",
-      "color": "#6366f1",
-      "tasks": [],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": true,
-      "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:02:31.485Z",
-      "completedAt": "2026-02-26T18:14:09.117Z"
-    }
-  ],
+  "completedProjects": [],
   "categories": [
     {
       "id": "cat_general",
