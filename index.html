@@ -278,7 +278,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-card {
   border-radius: var(--radius); border: 2px dashed var(--border);
   background: rgba(255,255,255,0.015);
-  transition: all var(--transition); min-height: 340px; overflow: hidden;
+  transition: all var(--transition); min-height: 340px; max-height: 700px; overflow: hidden;
   display: flex; flex-direction: column;
 }
 .slot-card.drag-over {
@@ -296,7 +296,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-meta { display: flex; flex-direction: column; }
 .slot-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; }
 .slot-desc { font-size: 10px; color: var(--text3); margin-top: 1px; }
-.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; }
+.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
 .slot-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; color: var(--text3); gap: 10px; }
 .slot-empty-icon { font-size: 38px; opacity: 0.2; }
 .slot-empty p { font-size: 12px; line-height: 1.6; }
@@ -313,6 +313,60 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .sp-prog-bar { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.07); overflow: hidden; }
 .sp-prog-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
 .sp-tasks { }
+/* ── Scrollable task list in slot cards ──────────────── */
+.sp-tasklist-wrap {
+  display: flex; flex-direction: column;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.sp-tasklist {
+  max-height: 192px;   /* ~6 tasks visible, then scroll */
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.12) transparent;
+}
+.sp-tasklist::-webkit-scrollbar { width: 4px; }
+.sp-tasklist::-webkit-scrollbar-track { background: transparent; }
+.sp-tasklist::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+.sp-tasklist::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.28); }
+.sp-tasklist-empty {
+  padding: 14px; text-align: center;
+  font-size: 11px; color: var(--text3); font-style: italic;
+}
+/* Task rows inside the slot list — flat, no individual card borders */
+.sp-tasklist .task-item {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+  margin-bottom: 0;
+}
+.sp-tasklist .task-item:last-child { border-bottom: none; }
+.sp-tasklist .task-item:hover { background: rgba(255,255,255,0.04); transform: none; }
+.sp-tasklist .task-item-header { padding: 7px 10px; }
+/* Add-task input row */
+.sp-addtask-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  border-top: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.sp-addtask-row:focus-within { background: rgba(var(--accent-rgb),0.05); }
+.sp-addtask-plus {
+  font-size: 18px; color: var(--text3); flex-shrink: 0;
+  line-height: 1; transition: color 0.15s;
+}
+.sp-addtask-row:focus-within .sp-addtask-plus { color: var(--accent); }
+.sp-addtask-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-size: 12px; font-family: var(--font); color: var(--text);
+  padding: 0;
+}
+.sp-addtask-input::placeholder { color: var(--text3); font-style: italic; }
 .sp-tasks-list {
   display: flex; flex-direction: column; gap: 2px;
   max-height: 210px; overflow-y: auto;
@@ -2213,10 +2267,19 @@ function renderSlots() {
 }
 
 function renderActiveProject(p, slotKey) {
-  const pct = progress(p);
-  const tasks = p.tasks.slice(0,6);
-  const more = p.tasks.length - 6;
-  return `<div class="slot-body">
+  const pct  = progress(p);
+  const done = p.tasks.filter(t => t.done).length;
+  // Sort: pending tasks by rank asc, done tasks float to bottom
+  const sorted = [...p.tasks].sort((a, b) => {
+    if (a.done !== b.done) return a.done ? 1 : -1;
+    return (a.rank || 0) - (b.rank || 0);
+  });
+  const dueHtml = (() => {
+    if (!p.dueDate) return '';
+    const d = daysUntil(p.dueDate);
+    return `<span class="badge ${d<0?'badge-due-late':d<=2?'badge-due-urgent':d<=7?'badge-due-soon':'badge-due-ok'}">📅 ${d<0?Math.abs(d)+'j retard':d===0?'Auj.':d+'j'}</span>`;
+  })();
+  return `<div class="slot-body" id="slot-${p.id}">
     <div class="sp-header">
       <div class="sp-icon" style="background:${p.color}22">${p.icon}</div>
       <div class="sp-info">
@@ -2224,7 +2287,7 @@ function renderActiveProject(p, slotKey) {
         ${p.description ? `<div class="sp-desc">${esc(p.description)}</div>` : ''}
         <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">
           <span class="badge ${PRIO[p.priority].bgClass}">${PRIO[p.priority].dot} ${PRIO[p.priority].label}</span>
-          ${p.dueDate ? (() => { const d=daysUntil(p.dueDate); return `<span class="badge ${d<0?'badge-due-late':d<=2?'badge-due-urgent':d<=7?'badge-due-soon':'badge-due-ok'}">📅 ${d<0?Math.abs(d)+'j retard':d===0?'Auj.':d+'j'}</span>`; })() : ''}
+          ${dueHtml}
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:3px;flex-shrink:0">
@@ -2235,24 +2298,27 @@ function renderActiveProject(p, slotKey) {
 
     <div class="sp-prog">
       <div class="sp-prog-label">
-        <span>${p.tasks.filter(t=>t.done).length}/${p.tasks.length} tâches</span>
+        <span>${done}/${p.tasks.length} tâche${p.tasks.length!==1?'s':''}</span>
         <span class="sp-prog-pct" style="color:${p.color}">${pct}%</span>
       </div>
       <div class="sp-prog-bar"><div class="sp-prog-fill" style="width:${pct}%;background:linear-gradient(90deg,${p.color},${p.color}cc);box-shadow:0 0 10px ${p.color}60"></div></div>
     </div>
 
-    <div class="sp-tasks">
-      <div class="sp-tasks-scroll" id="tasks-${p.id}" style="max-height:160px;overflow-y:auto">
-        ${tasks.map((t,i) => renderEnhancedTask(t, p.id, i)).join('')}
-        ${more > 0 ? `<div style="font-size:10px;color:var(--text3);text-align:center;padding:4px">+ ${more} de plus — <a href="#" onclick="openDetailProj('${p.id}');return false" style="color:var(--accent)">voir tout</a></div>` : ''}
+    <div class="sp-tasklist-wrap">
+      <div class="sp-tasklist" id="tasks-${p.id}">
+        ${sorted.length === 0
+          ? '<div class="sp-tasklist-empty">Aucune tâche — ajoutez-en une</div>'
+          : sorted.map((t, i) => renderEnhancedTask(t, p.id, i)).join('')
+        }
       </div>
-      <div class="sp-task-input">
-        <input class="input" id="task-input-${p.id}" placeholder="+ Ajouter une tâche..." onkeydown="if(event.key==='Enter')addTask('${p.id}','${p.id}')">
-        <button class="btn" style="padding:6px 10px;font-size:16px;flex-shrink:0" onclick="addTask('${p.id}','${p.id}')">+</button>
+      <div class="sp-addtask-row">
+        <span class="sp-addtask-plus">+</span>
+        <input class="sp-addtask-input" id="task-input-${p.id}"
+          placeholder="Nouvelle tâche…"
+          onkeydown="if(event.key==='Enter')addTask('${p.id}','${p.id}')">
       </div>
     </div>
 
-    <!-- Timer Widget -->
     <div id="timer-${p.id}"></div>
 
     <div class="sp-actions">
@@ -2455,7 +2521,9 @@ function addTask(projId, inputSuffix) {
   const inp = document.getElementById('task-input-' + inputSuffix); if (!inp) return;
   const text = inp.value.trim(); if (!text) return;
   const p = state.projects.find(x=>x.id===projId); if (!p) return;
-  p.tasks.push(newTask(text));
+  const t = newTask(text);
+  t.rank = p.tasks.length; // append at end in rank order
+  p.tasks.push(t);
   p.updatedAt = new Date().toISOString();
   inp.value = '';
   renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave();
