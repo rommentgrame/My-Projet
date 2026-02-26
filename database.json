@@ -1,29 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T20:22:38.752Z",
+  "lastUpdated": "2026-02-26T20:22:44.729Z",
   "projects": [
-    {
-      "id": "ol19pho0bmm3wtrau",
-      "name": "dsds",
-      "description": "",
-      "icon": "🌊",
-      "color": "#a855f7",
-      "tasks": [],
-      "tags": [],
-      "priority": "medium",
-      "dueDate": "",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_general",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T20:22:36.150Z",
-      "updatedAt": "2026-02-26T20:22:36.150Z"
-    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
