@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:37:17.444Z",
+  "lastUpdated": "2026-02-26T17:37:42.128Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -80,7 +80,7 @@
         "dev",
         "tech"
       ],
-      "priority": "medium",
+      "priority": "high",
       "dueDate": "2026-05-30",
       "notes": "",
       "links": [],
@@ -92,7 +92,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:37:16.826Z"
+      "updatedAt": "2026-02-26T17:37:41.429Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
