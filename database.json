@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:14:33.915Z",
+  "lastUpdated": "2026-02-26T18:16:04.043Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -286,7 +286,7 @@
     "timerDefault": {
       "mode": "countdown",
       "h": 0,
-      "m": 25,
+      "m": 1,
       "s": 0
     },
     "habitsCollapsed": true
