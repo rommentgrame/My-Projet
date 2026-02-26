@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:17:45.660Z",
+  "lastUpdated": "2026-02-26T18:17:53.093Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -269,7 +269,14 @@
       "color": "#ef4444"
     }
   ],
-  "habits": [],
+  "habits": [
+    {
+      "id": "l6jezxn0rmm3sdcxs",
+      "name": "Juste",
+      "color": "#7c3aed",
+      "createdAt": "2026-02-26T18:17:52.576Z"
+    }
+  ],
   "habitLog": {
     "2026-02-26": {
       "d18wvy1q1mm3s04zn": true
