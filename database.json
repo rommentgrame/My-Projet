@@ -1,55 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:43:46.837Z",
+  "lastUpdated": "2026-02-26T17:43:53.380Z",
   "projects": [
-    {
-      "id": "d1p2smhxxmm3qqw47",
-      "name": "App / Web",
-      "description": "",
-      "icon": "🔧",
-      "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "in_progress",
-          "priority": "medium",
-          "rank": 2,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "zjcc1kvismm3qqw43",
-          "text": "Setup & config",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "low",
-          "rank": 1,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "tllk8wvxhmm3qqw43",
-          "text": "Design UI",
-          "done": false
-        }
-      ],
-      "tags": [
-        "dev",
-        "tech"
-      ],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 1,
-      "categoryId": "cat_general",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:43:30.099Z"
-    },
     {
       "id": "tr7scntpemm3q71x1",
       "name": "Teste (copie)",
@@ -149,7 +101,7 @@
   "slots": {
     "primary": null,
     "secondary": null,
-    "pleasure": "d1p2smhxxmm3qqw47"
+    "pleasure": null
   },
   "completedProjects": [],
   "categories": [
