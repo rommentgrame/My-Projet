@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:36:19.156Z",
+  "lastUpdated": "2026-02-26T17:37:17.444Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -81,7 +81,7 @@
         "tech"
       ],
       "priority": "medium",
-      "dueDate": "",
+      "dueDate": "2026-05-30",
       "notes": "",
       "links": [],
       "estimatedHours": 0,
@@ -92,7 +92,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:35:21.935Z"
+      "updatedAt": "2026-02-26T17:37:16.826Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
