@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:21:07.871Z",
+  "lastUpdated": "2026-02-26T18:21:09.899Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -34,8 +34,8 @@
         {
           "id": "a7efuz4rymm3sgp07",
           "text": "Tedte",
-          "done": false,
-          "status": "in_progress",
+          "done": true,
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -45,8 +45,8 @@
         {
           "id": "kniucsfucmm3sgr5q",
           "text": "Teste",
-          "done": false,
-          "status": "todo",
+          "done": true,
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -67,7 +67,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:21:07.361Z"
+      "updatedAt": "2026-02-26T18:21:09.382Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
