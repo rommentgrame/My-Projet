@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:58:12.519Z",
+  "lastUpdated": "2026-02-26T17:58:28.732Z",
   "projects": [
+    {
+      "id": "t1u9kwj53mm3rnax1",
+      "name": "Création de mon entreprise (Montage Vidéo et Sound Design)",
+      "description": "",
+      "icon": "💼",
+      "color": "#84cc16",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_learning",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:57:36.901Z",
+      "updatedAt": "2026-02-26T17:57:36.901Z"
+    },
     {
       "id": "tjum1tqw5mm3rli06",
       "name": "Mon livre sur la dyslexie",
