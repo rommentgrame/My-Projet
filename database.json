@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:53:12.513Z",
+  "lastUpdated": "2026-02-26T17:54:02.198Z",
   "projects": [
+    {
+      "id": "54nnzhm83mm3rhtt1",
+      "name": "Crée un scénario pour mon court métrage ",
+      "description": "",
+      "icon": "📚",
+      "color": "#ec4899",
+      "tasks": [],
+      "tags": [],
+      "priority": "low",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_creative",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:53:21.445Z",
+      "updatedAt": "2026-02-26T17:53:21.446Z"
+    },
     {
       "id": "1lu5shi7lmm3rfb7g",
       "name": "l’IA IXA",
