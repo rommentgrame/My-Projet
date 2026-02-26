@@ -1,74 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:44:53.004Z",
+  "lastUpdated": "2026-02-26T22:45:08.530Z",
   "projects": [
-    {
-      "id": "ychuqcj0nmm3r66d5",
-      "name": "Échiquier électronique ",
-      "description": "",
-      "icon": "🎲",
-      "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 2,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "a7odndp6fmm3sfv0i",
-          "text": "Teste",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 1,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "g5678ee2amm3sfx83",
-          "text": "Teste",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 4,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "a7efuz4rymm3sgp07",
-          "text": "Tedte",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 3,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "kniucsfucmm3sgr5q",
-          "text": "Teste",
-          "done": false
-        }
-      ],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": true,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:44:50.431Z"
-    },
     {
       "id": "96pa7j3w8mm3rqvc6",
       "name": "Creation bracelet araignée ",
@@ -187,19 +120,7 @@
       "description": "",
       "icon": "🖥️",
       "color": "#f97316",
-      "tasks": [
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "sylvxoj95mm41omy8",
-          "text": "rest",
-          "done": false
-        }
-      ],
+      "tasks": [],
       "tags": [],
       "priority": "low",
       "dueDate": "",
@@ -213,7 +134,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:55:09.576Z",
-      "updatedAt": "2026-02-26T22:38:35.312Z"
+      "updatedAt": "2026-02-26T20:52:24.730Z"
     },
     {
       "id": "8jra8qkuimm3rj05b",
@@ -275,19 +196,88 @@
       "loggedHours": 0,
       "pomodoroCount": 0,
       "categoryId": "cat_tech",
-      "pinned": true,
+      "pinned": false,
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-26T22:42:58.127Z"
+      "updatedAt": "2026-02-26T18:06:06.248Z"
     }
   ],
   "slots": {
-    "primary": "ychuqcj0nmm3r66d5",
+    "primary": "a0kssl5thmm3rk58o",
     "secondary": "1lu5shi7lmm3rfb7g",
     "pleasure": null
   },
-  "completedProjects": [],
+  "completedProjects": [
+    {
+      "id": "ychuqcj0nmm3r66d5",
+      "name": "Échiquier électronique ",
+      "description": "",
+      "icon": "🎲",
+      "color": "#6366f1",
+      "tasks": [
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7odndp6fmm3sfv0i",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "critical",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "g5678ee2amm3sfx83",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7efuz4rymm3sgp07",
+          "text": "Tedte",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "kniucsfucmm3sgr5q",
+          "text": "Teste",
+          "done": true
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-02-26T17:44:17.849Z",
+      "updatedAt": "2026-02-26T18:22:02.883Z",
+      "completedAt": "2026-02-26T20:10:56.362Z"
+    }
+  ],
   "categories": [
     {
       "id": "cat_general",
@@ -326,18 +316,10 @@
       "color": "#ef4444"
     }
   ],
-  "habits": [
-    {
-      "id": "ujdr6atthmm41oid4",
-      "name": "test",
-      "color": "#7c3aed",
-      "createdAt": "2026-02-26T22:38:29.368Z"
-    }
-  ],
+  "habits": [],
   "habitLog": {
     "2026-02-26": {
-      "d18wvy1q1mm3s04zn": true,
-      "ujdr6atthmm41oid4": true
+      "d18wvy1q1mm3s04zn": true
     }
   },
   "settings": {
@@ -354,7 +336,7 @@
       "m": 1,
       "s": 0
     },
-    "habitsCollapsed": false
+    "habitsCollapsed": true
   },
   "auth": {
     "username": "Tom",
