@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:16:04.043Z",
+  "lastUpdated": "2026-02-26T18:16:29.877Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -284,7 +284,7 @@
       "pleasure": "Plaisir"
     },
     "timerDefault": {
-      "mode": "countdown",
+      "mode": "stopwatch",
       "h": 0,
       "m": 1,
       "s": 0
