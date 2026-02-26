@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:32:58.705Z",
+  "lastUpdated": "2026-02-26T17:33:16.971Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -63,6 +63,17 @@
           "id": "pgoyjh6vtmm3qqw43",
           "text": "Déploiement",
           "done": false
+        },
+        {
+          "id": "aqtrwfdhamm3qrzyd",
+          "text": "tet",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [
@@ -81,7 +92,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:32:58.046Z"
+      "updatedAt": "2026-02-26T17:33:16.357Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
