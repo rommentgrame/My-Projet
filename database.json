@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:13:44.178Z",
+  "lastUpdated": "2026-02-26T17:13:45.394Z",
   "projects": [
     {
       "id": "eawh10l4bmm3q1wbv",
@@ -23,7 +23,7 @@
               "done": false
             }
           ],
-          "note": "",
+          "note": "teste",
           "dueDate": ""
         }
       ],
@@ -40,7 +40,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:12:58.603Z",
-      "updatedAt": "2026-02-26T17:13:43.675Z"
+      "updatedAt": "2026-02-26T17:13:44.890Z"
     }
   ],
   "slots": {
