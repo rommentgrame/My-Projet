@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:05:14.970Z",
+  "lastUpdated": "2026-02-26T18:06:02.563Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -197,10 +197,10 @@
       "pomodoroCount": 0,
       "categoryId": "cat_tech",
       "pinned": false,
-      "archived": false,
+      "archived": true,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-26T18:02:23.654Z"
+      "updatedAt": "2026-02-26T18:06:02.058Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -227,7 +227,7 @@
   ],
   "slots": {
     "primary": "ychuqcj0nmm3r66d5",
-    "secondary": "1lu5shi7lmm3rfb7g",
+    "secondary": null,
     "pleasure": null
   },
   "completedProjects": [],
