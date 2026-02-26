@@ -1,101 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:29:08.253Z",
+  "lastUpdated": "2026-02-26T22:30:08.258Z",
   "projects": [
-    {
-      "id": "ychuqcj0nmm3r66d5",
-      "name": "Échiquier électronique ",
-      "description": "",
-      "icon": "🎲",
-      "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [
-            {
-              "id": "ki2ay375pmm40rw16",
-              "text": "rer",
-              "done": false
-            },
-            {
-              "id": "msjgiyzywmm4167cx",
-              "text": "teste",
-              "done": false
-            },
-            {
-              "id": "80m5xt54ymm416bht",
-              "text": "rtere",
-              "done": false
-            }
-          ],
-          "note": "",
-          "dueDate": "",
-          "id": "a7odndp6fmm3sfv0i",
-          "text": "Teste",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "kniucsfucmm3sgr5q",
-          "text": "Teste",
-          "done": true
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "f93vf071zmm416kfl",
-          "text": "fdfd",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "7w9vc35znmm416ltl",
-          "text": "fdf",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "dffxrb8kamm416nah",
-          "text": "fdfd",
-          "done": false
-        }
-      ],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:24:35.945Z"
-    },
     {
       "id": "96pa7j3w8mm3rqvc6",
       "name": "Creation bracelet araignée ",
@@ -298,11 +204,80 @@
     }
   ],
   "slots": {
-    "primary": "ychuqcj0nmm3r66d5",
+    "primary": "a0kssl5thmm3rk58o",
     "secondary": "1lu5shi7lmm3rfb7g",
     "pleasure": null
   },
-  "completedProjects": [],
+  "completedProjects": [
+    {
+      "id": "ychuqcj0nmm3r66d5",
+      "name": "Échiquier électronique ",
+      "description": "",
+      "icon": "🎲",
+      "color": "#6366f1",
+      "tasks": [
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7odndp6fmm3sfv0i",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "critical",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "g5678ee2amm3sfx83",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7efuz4rymm3sgp07",
+          "text": "Tedte",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "kniucsfucmm3sgr5q",
+          "text": "Teste",
+          "done": true
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-02-26T17:44:17.849Z",
+      "updatedAt": "2026-02-26T18:22:02.883Z",
+      "completedAt": "2026-02-26T20:10:56.362Z"
+    }
+  ],
   "categories": [
     {
       "id": "cat_general",
