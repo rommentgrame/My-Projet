@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:24:36.453Z",
+  "lastUpdated": "2026-02-26T22:24:28.736Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -46,39 +46,6 @@
           "id": "kniucsfucmm3sgr5q",
           "text": "Teste",
           "done": true
-        },
-        {
-          "id": "f93vf071zmm416kfl",
-          "text": "fdfd",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "7w9vc35znmm416ltl",
-          "text": "fdf",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "dffxrb8kamm416nah",
-          "text": "fdfd",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
         }
       ],
       "tags": [],
@@ -94,7 +61,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:24:35.945Z"
+      "updatedAt": "2026-02-26T22:24:28.233Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
