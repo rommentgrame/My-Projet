@@ -1,7 +1,58 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:32:08.916Z",
+  "lastUpdated": "2026-02-26T17:32:27.285Z",
   "projects": [
+    {
+      "id": "d1p2smhxxmm3qqw47",
+      "name": "App / Web",
+      "description": "",
+      "icon": "🔧",
+      "color": "#6366f1",
+      "tasks": [
+        {
+          "id": "zjcc1kvismm3qqw43",
+          "text": "Setup & config",
+          "done": false
+        },
+        {
+          "id": "tllk8wvxhmm3qqw43",
+          "text": "Design UI",
+          "done": false
+        },
+        {
+          "id": "sr6pm0qq5mm3qqw43",
+          "text": "Dev backend",
+          "done": false
+        },
+        {
+          "id": "9ddekueclmm3qqw43",
+          "text": "Tests",
+          "done": false
+        },
+        {
+          "id": "pgoyjh6vtmm3qqw43",
+          "text": "Déploiement",
+          "done": false
+        }
+      ],
+      "tags": [
+        "dev",
+        "tech"
+      ],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_general",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:32:24.728Z",
+      "updatedAt": "2026-02-26T17:32:24.729Z"
+    },
     {
       "id": "tr7scntpemm3q71x1",
       "name": "Teste (copie)",
