@@ -1,7 +1,30 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:12:44.994Z",
-  "projects": [],
+  "lastUpdated": "2026-02-26T17:13:06.605Z",
+  "projects": [
+    {
+      "id": "eawh10l4bmm3q1wbv",
+      "name": "reste",
+      "description": "",
+      "icon": "🔥",
+      "color": "#6366f1",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_general",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:12:58.603Z",
+      "updatedAt": "2026-02-26T17:12:58.603Z"
+    }
+  ],
   "slots": {
     "primary": null,
     "secondary": null,
