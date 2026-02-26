@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:38:21.820Z",
+  "lastUpdated": "2026-02-26T17:39:43.598Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -63,17 +63,6 @@
           "id": "pgoyjh6vtmm3qqw43",
           "text": "Déploiement",
           "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "aqtrwfdhamm3qrzyd",
-          "text": "tet",
-          "done": false
         }
       ],
       "tags": [
@@ -86,13 +75,13 @@
       "links": [],
       "estimatedHours": 0,
       "loggedHours": 0,
-      "pomodoroCount": 0,
+      "pomodoroCount": 1,
       "categoryId": "cat_general",
       "pinned": false,
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:37:41.429Z"
+      "updatedAt": "2026-02-26T17:39:43.088Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
