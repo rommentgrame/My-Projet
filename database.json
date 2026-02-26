@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:13:49.072Z",
+  "lastUpdated": "2026-02-26T18:14:09.677Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -201,7 +201,14 @@
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
       "updatedAt": "2026-02-26T18:06:06.248Z"
-    },
+    }
+  ],
+  "slots": {
+    "primary": null,
+    "secondary": "1lu5shi7lmm3rfb7g",
+    "pleasure": null
+  },
+  "completedProjects": [
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
@@ -220,17 +227,12 @@
       "categoryId": "cat_tech",
       "pinned": false,
       "archived": false,
-      "completed": false,
+      "completed": true,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:02:31.485Z"
+      "updatedAt": "2026-02-26T18:02:31.485Z",
+      "completedAt": "2026-02-26T18:14:09.117Z"
     }
   ],
-  "slots": {
-    "primary": "ychuqcj0nmm3r66d5",
-    "secondary": "1lu5shi7lmm3rfb7g",
-    "pleasure": null
-  },
-  "completedProjects": [],
   "categories": [
     {
       "id": "cat_general",
