@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T23:02:53.208Z",
+  "lastUpdated": "2026-02-26T23:06:39.221Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -10,15 +10,15 @@
       "color": "#a855f7",
       "tasks": [
         {
-          "id": "e2a0jy0lqmm42jbox",
-          "text": "Faire un nouvelle onglet comme state ou projet mais avec les missions du mois, du semestre et de l'année et de la semaine",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "e2a0jy0lqmm42jbox",
+          "text": "Faire un nouvelle onglet comme state ou projet mais avec les missions du mois, du semestre et de l'année et de la semaine",
+          "done": false
         }
       ],
       "tags": [],
@@ -46,7 +46,7 @@
       "tags": [],
       "priority": "high",
       "dueDate": "2026-05-30",
-      "notes": "",
+      "notes": "J'aimerai faire ça...",
       "links": [],
       "estimatedHours": 0,
       "loggedHours": 0,
@@ -56,7 +56,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T23:00:29.078Z"
+      "updatedAt": "2026-02-26T23:06:38.660Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
