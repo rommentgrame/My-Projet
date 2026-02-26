@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:40:18.706Z",
+  "lastUpdated": "2026-02-26T17:43:44.841Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -12,7 +12,7 @@
         {
           "status": "in_progress",
           "priority": "medium",
-          "rank": 0,
+          "rank": 2,
           "subtasks": [],
           "note": "",
           "dueDate": "",
@@ -22,7 +22,7 @@
         },
         {
           "status": "todo",
-          "priority": "critical",
+          "priority": "low",
           "rank": 1,
           "subtasks": [],
           "note": "",
@@ -48,7 +48,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:40:18.196Z"
+      "updatedAt": "2026-02-26T17:43:30.099Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
@@ -147,8 +147,8 @@
     }
   ],
   "slots": {
-    "primary": "d1p2smhxxmm3qqw47",
-    "secondary": null,
+    "primary": null,
+    "secondary": "d1p2smhxxmm3qqw47",
     "pleasure": null
   },
   "completedProjects": [],
