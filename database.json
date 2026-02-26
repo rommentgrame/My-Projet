@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:18:06.940Z",
+  "lastUpdated": "2026-02-26T17:18:23.673Z",
   "projects": [
     {
       "id": "k0q948ogrmm3q84tk",
@@ -12,7 +12,8 @@
         {
           "id": "uteksqw5umm3q84tj",
           "text": "Setup & config",
-          "done": false
+          "done": false,
+          "status": "in_progress"
         },
         {
           "id": "l8wiuouahmm3q84tj",
@@ -51,7 +52,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:17:49.544Z",
-      "updatedAt": "2026-02-26T17:17:49.544Z"
+      "updatedAt": "2026-02-26T17:18:23.164Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
