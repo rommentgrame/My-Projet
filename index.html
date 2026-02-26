@@ -278,7 +278,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-card {
   border-radius: var(--radius); border: 2px dashed var(--border);
   background: rgba(255,255,255,0.015);
-  transition: all var(--transition); min-height: 340px; max-height: 700px; overflow: hidden;
+  transition: all var(--transition); min-height: 340px; max-height: 720px; overflow: hidden;
   display: flex; flex-direction: column;
 }
 .slot-card.drag-over {
@@ -296,7 +296,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-meta { display: flex; flex-direction: column; }
 .slot-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; }
 .slot-desc { font-size: 10px; color: var(--text3); margin-top: 1px; }
-.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; min-height: 0; overflow: hidden; }
 .slot-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; color: var(--text3); gap: 10px; }
 .slot-empty-icon { font-size: 38px; opacity: 0.2; }
 .slot-empty p { font-size: 12px; line-height: 1.6; }
@@ -319,12 +319,15 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
   border-radius: 10px;
-  overflow: hidden;
-  flex-shrink: 0;
+  overflow: visible;   /* allow internal scroll to work */
+  flex: 1;             /* take available space */
+  min-height: 0;       /* critical: flex children can shrink below content size */
 }
 .sp-tasklist {
-  max-height: 192px;   /* ~6 tasks visible, then scroll */
+  max-height: 200px;   /* ~6 tasks, then scroll */
+  min-height: 36px;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex; flex-direction: column;
   scrollbar-width: thin;
   scrollbar-color: rgba(255,255,255,0.12) transparent;
@@ -1235,6 +1238,105 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   border-radius: 8px; padding: 0 4px;
   display: inline-flex; align-items: center; justify-content: center;
 }
+
+/* ══════════════════════════════════════════════
+   HABITS WIDGET — task-item style
+══════════════════════════════════════════════ */
+.habit-empty {
+  text-align: center; padding: 12px;
+  color: var(--text3); font-size: 12px;
+}
+.habit-add-link {
+  background: none; border: none; color: var(--accent);
+  cursor: pointer; font-size: 12px; font-family: var(--font);
+}
+.habit-list {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.habit-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 9px;
+  transition: background 0.15s;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.habit-list .habit-item:last-child { border-bottom: none; }
+.habit-item:hover { background: rgba(255,255,255,0.04); }
+.habit-item--done { opacity: 0.6; }
+.habit-item--done:hover { opacity: 0.8; }
+
+/* Check button */
+.habit-toggle {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; cursor: pointer;
+  color: var(--hc, var(--accent));
+  transition: all 0.2s cubic-bezier(0.34,1.4,0.64,1);
+}
+.habit-toggle:hover {
+  border-color: var(--hc, var(--accent));
+  background: color-mix(in srgb, var(--hc, var(--accent)) 15%, transparent);
+  transform: scale(1.1);
+}
+.habit-toggle.done {
+  border-color: var(--hc, var(--accent));
+  background: color-mix(in srgb, var(--hc, var(--accent)) 22%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--hc, var(--accent)) 35%, transparent);
+}
+
+/* Content area */
+.habit-content {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.habit-name {
+  font-size: 12.5px; color: var(--text);
+  font-weight: 500; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+  transition: all 0.2s;
+}
+.habit-name.done {
+  text-decoration: line-through;
+  color: var(--text3);
+}
+
+/* 7-day mini calendar dots */
+.habit-week {
+  display: flex; gap: 3px; align-items: center;
+}
+.hday-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.hday-dot.filled { background: var(--accent); }
+.hday-dot.today {
+  width: 7px; height: 7px;
+  outline: 1.5px solid rgba(255,255,255,0.25);
+  outline-offset: 1px;
+}
+.hday-dot.filled.today { background: var(--accent); }
+
+/* Streak badge */
+.habit-streak {
+  font-size: 10px; font-weight: 700;
+  color: #fb923c;
+  background: rgba(249,115,22,0.1);
+  border-radius: 10px; padding: 2px 7px;
+  flex-shrink: 0; white-space: nowrap;
+}
+
+/* Delete button */
+.habit-del-btn {
+  background: none; border: none; cursor: pointer;
+  color: transparent; font-size: 15px; padding: 0 3px;
+  border-radius: 4px; transition: color 0.15s;
+  line-height: 1;
+}
+.habit-item:hover .habit-del-btn { color: var(--text3); }
+.habit-del-btn:hover { color: #f87171 !important; }
 </style>
 </head>
 <body>
@@ -3800,7 +3902,7 @@ function renderEnhancedTask(t, projId, idx) {
       </button>
       <span class="task-priority-dot" style="background:${prioColor};box-shadow:0 0 4px ${prioColor}80" title="Priorité ${t.priority||'medium'}"></span>
       <span class="task-main-text ${t.status==='done'?'done':t.status==='in_progress'?'in_progress':''}" onclick="openTaskDetail('${projId}','${t.id}')">${esc(t.text)||'<em style="opacity:.4">Sans titre</em>'}</span>
-      ${subTotal ? `<span style="font-size:9px;color:var(--text3);flex-shrink:0;padding:1px 5px;background:rgba(255,255,255,0.06);border-radius:10px">${subDone}/${subTotal}</span>` : ''}
+      ${subTotal ? `<span data-sub-pill style="font-size:9px;color:var(--text3);flex-shrink:0;padding:1px 5px;background:rgba(255,255,255,0.06);border-radius:10px">${subDone}/${subTotal}</span>` : ''}
       <div class="task-actions-row">
         <button onclick="openTaskDetail('${projId}','${t.id}')" title="Détails" style="font-size:11px">📋</button>
         <button onclick="cycleTaskPriority('${projId}','${t.id}')" title="Priorité" style="font-size:11px">🎯</button>
@@ -3950,10 +4052,35 @@ window.saveTaskDetail = function(projId, taskId) {
 function toggleSubtask(projId, taskId, subId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
-  const s = (t.subtasks||[]).find(x=>x.id===subId); if(!s) return;
-  s.done = !s.done;
+  const sub = (t.subtasks||[]).find(x=>x.id===subId); if(!sub) return;
+  sub.done = !sub.done;
   p.updatedAt = new Date().toISOString();
-  renderSlots(); scheduleSave();
+
+  // ── Targeted DOM update — does NOT close the expand panel ────────────
+  // 1. Update the checkbox button class + SVG checkmark
+  const checkBtn = document.querySelector(`[onclick*="toggleSubtask"][onclick*="${subId}"]`);
+  if (checkBtn) {
+    checkBtn.classList.toggle('done', sub.done);
+    checkBtn.innerHTML = sub.done
+      ? '<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6.5 7,1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      : '';
+  }
+  // 2. Strike-through the subtask text
+  const textEl = checkBtn ? checkBtn.nextElementSibling : null;
+  if (textEl) textEl.classList.toggle('done', sub.done);
+
+  // 3. Update the mini progress bar
+  const subDone = (t.subtasks||[]).filter(s=>s.done).length;
+  const subTotal = t.subtasks.length;
+  const fillEl = document.querySelector(`#taskitem-${taskId} .subtask-mini-fill`);
+  if (fillEl) fillEl.style.width = (subTotal ? Math.round(subDone/subTotal*100) : 0) + '%';
+
+  // 4. Update the subtask count pill in the task header
+  const pillEl = document.querySelector(`#taskitem-${taskId} [data-sub-pill]`);
+  if (pillEl) pillEl.textContent = subDone+'/'+subTotal;
+
+  // 5. Save
+  scheduleSave();
 }
 function deleteSubtask(projId, taskId, subId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
@@ -4022,27 +4149,52 @@ function renderHabits() {
   const btn = document.getElementById('habits-collapse-btn');
   if (btn) btn.textContent = collapsed ? '+' : '−';
   if (collapsed) { body.style.display = 'none'; return; }
-  body.style.display = 'block';
+  body.style.display = '';
+
   const today = todayKey();
   const log = state.habitLog[today] || {};
-  const done = state.habits.filter(h => log[h.id]).length;
+  const doneCnt = state.habits.filter(h => log[h.id]).length;
+  const total = state.habits.length;
+
   const badge = document.getElementById('habits-streak-badge');
   if (badge) {
-    badge.style.display = state.habits.length > 0 ? 'inline' : 'none';
-    badge.textContent = `${done}/${state.habits.length}`;
-    badge.style.background = done===state.habits.length ? 'rgba(34,197,94,0.2)' : 'rgba(var(--accent-rgb),0.15)';
-    badge.style.color = done===state.habits.length ? '#4ade80' : 'var(--accent)';
+    badge.style.display = total > 0 ? 'inline' : 'none';
+    badge.textContent = doneCnt + '/' + total;
+    badge.style.background = doneCnt === total && total > 0 ? 'rgba(34,197,94,0.2)' : 'rgba(var(--accent-rgb),0.15)';
+    badge.style.color = doneCnt === total && total > 0 ? '#4ade80' : 'var(--accent)';
   }
-  if (!state.habits.length) {
-    body.innerHTML = `<div style="text-align:center;padding:12px;color:var(--text3);font-size:12px">Aucune habitude — <button onclick="addHabitPrompt()" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:12px">Ajouter →</button></div>`;
+
+  if (!total) {
+    body.innerHTML = `<div class="habit-empty">Aucune habitude — <button onclick="addHabitPrompt()" class="habit-add-link">Ajouter →</button></div>`;
     return;
   }
-  body.innerHTML = state.habits.map(h => {
+
+  body.innerHTML = `<div class="habit-list">` + state.habits.map(h => {
     const isDone = !!log[h.id];
     const streak = getHabitStreak(h.id);
-    const dots = Array.from({length:7},(_,i)=>{ const d=new Date();d.setDate(d.getDate()-6+i);const k=d.toISOString().split('T')[0];const filled=!!(state.habitLog[k]||{})[h.id];return `<div class="habit-dot" style="background:${filled?(h.color||'var(--accent)'):'rgba(255,255,255,0.1)'}"></div>`; }).join('');
-    return `<div class="habit-row"><button class="habit-check${isDone?' done':''}" onclick="toggleHabit('${h.id}')" style="${isDone?`border-color:${h.color||'#22c55e'};background:${h.color||'#22c55e'}22`:''}"></button><span class="habit-name" style="${isDone?'text-decoration:line-through;opacity:0.5':''}">${esc(h.name)}</span><div class="habit-dots">${dots}</div>${streak>0?`<div class="habit-streak">🔥 ${streak}</div>`:''}<button class="habit-del" onclick="deleteHabit('${h.id}')">×</button></div>`;
-  }).join('');
+    const color = h.color || 'var(--accent)';
+    // 7-day dots
+    const dots = Array.from({length:7}, (_, i) => {
+      const d = new Date(); d.setDate(d.getDate() - 6 + i);
+      const k = d.toISOString().split('T')[0];
+      const filled = !!(state.habitLog[k]||{})[h.id];
+      const isToday = i === 6;
+      return `<span class="hday-dot${filled?' filled':''}${isToday?' today':''}" style="${filled?'background:'+color:''}"></span>`;
+    }).join('');
+
+    return `<div class="habit-item${isDone?' habit-item--done':''}">
+      <button class="habit-toggle${isDone?' done':''}" onclick="toggleHabit('${h.id}')"
+        style="--hc:${color}" title="${isDone?'Marquer non fait':'Marquer fait'}">
+        ${isDone ? '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}
+      </button>
+      <div class="habit-content">
+        <span class="habit-name${isDone?' done':''}">${esc(h.name)}</span>
+        <div class="habit-week">${dots}</div>
+      </div>
+      ${streak > 1 ? `<span class="habit-streak">🔥 ${streak}</span>` : ''}
+      <button class="habit-del-btn" onclick="deleteHabit('${h.id}')" title="Supprimer">×</button>
+    </div>`;
+  }).join('') + `</div>`;
 }
 function getHabitStreak(habitId) {
   let streak=0,d=new Date(); d.setDate(d.getDate()-1);
@@ -4051,13 +4203,17 @@ function getHabitStreak(habitId) {
   return streak;
 }
 function toggleHabit(habitId) {
-  const today=todayKey(); if(!state.habitLog[today])state.habitLog[today]={};
-  state.habitLog[today][habitId]=!state.habitLog[today][habitId];
-  const cutoff=new Date();cutoff.setDate(cutoff.getDate()-90);
-  Object.keys(state.habitLog).forEach(k=>{if(new Date(k)<cutoff)delete state.habitLog[k];});
-  renderHabits(); scheduleSave();
-  const allDone=state.habits.length>0&&state.habits.every(h=>state.habitLog[today][h.id]);
-  if(allDone) toast('🌿 Toutes les habitudes du jour ! 🎉','success');
+  const today = todayKey();
+  if (!state.habitLog[today]) state.habitLog[today] = {};
+  state.habitLog[today][habitId] = !state.habitLog[today][habitId];
+  // Prune old log entries (keep 90 days)
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - 90);
+  Object.keys(state.habitLog).forEach(k => { if (new Date(k) < cutoff) delete state.habitLog[k]; });
+  // Full re-render habits (light, just the widget)
+  renderHabits();
+  scheduleSave();
+  const allDone = state.habits.length > 0 && state.habits.every(h => state.habitLog[today][h.id]);
+  if (allDone) toast('🌿 Toutes les habitudes du jour ! 🎉', 'success');
 }
 function addHabitPrompt() {
   showModal(`
