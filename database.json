@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:54:02.198Z",
+  "lastUpdated": "2026-02-26T17:54:44.230Z",
   "projects": [
+    {
+      "id": "8jra8qkuimm3rj05b",
+      "name": "Crée une petit musique",
+      "description": "",
+      "icon": "🎵",
+      "color": "#ef4444",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_creative",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:54:16.319Z",
+      "updatedAt": "2026-02-26T17:54:16.319Z"
+    },
     {
       "id": "54nnzhm83mm3rhtt1",
       "name": "Crée un scénario pour mon court métrage ",
