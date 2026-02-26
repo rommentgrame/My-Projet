@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:04:09.389Z",
+  "lastUpdated": "2026-02-26T18:04:35.532Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -9,7 +9,9 @@
       "icon": "🚀",
       "color": "#7c3aed",
       "tasks": [],
-      "tags": [],
+      "tags": [
+        "resste"
+      ],
       "priority": "low",
       "dueDate": "",
       "notes": "",
@@ -22,7 +24,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T18:00:23.334Z",
-      "updatedAt": "2026-02-26T18:00:23.334Z"
+      "updatedAt": "2026-02-26T18:04:35.024Z"
     },
     {
       "id": "y0m12uar1mm3rq5tw",
