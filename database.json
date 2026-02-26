@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:22:02.791Z",
+  "lastUpdated": "2026-02-26T18:22:03.393Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -10,7 +10,7 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -18,7 +18,7 @@
           "dueDate": "",
           "id": "a7odndp6fmm3sfv0i",
           "text": "Teste",
-          "done": false
+          "done": true
         },
         {
           "status": "done",
@@ -67,7 +67,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:22:02.273Z"
+      "updatedAt": "2026-02-26T18:22:02.883Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
