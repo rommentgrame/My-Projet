@@ -1,7 +1,30 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:44:17.220Z",
-  "projects": [],
+  "lastUpdated": "2026-02-26T17:44:59.692Z",
+  "projects": [
+    {
+      "id": "ychuqcj0nmm3r66d5",
+      "name": "Échiquier électronique ",
+      "description": "",
+      "icon": "🎲",
+      "color": "#6366f1",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:44:17.849Z",
+      "updatedAt": "2026-02-26T17:44:17.849Z"
+    }
+  ],
   "slots": {
     "primary": null,
     "secondary": null,
