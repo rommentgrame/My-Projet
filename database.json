@@ -1,7 +1,74 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T21:52:35.251Z",
+  "lastUpdated": "2026-02-26T21:54:08.243Z",
   "projects": [
+    {
+      "id": "ychuqcj0nmm3r66d5",
+      "name": "Échiquier électronique ",
+      "description": "",
+      "icon": "🎲",
+      "color": "#6366f1",
+      "tasks": [
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7odndp6fmm3sfv0i",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "critical",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "g5678ee2amm3sfx83",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7efuz4rymm3sgp07",
+          "text": "Tedte",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "kniucsfucmm3sgr5q",
+          "text": "Teste",
+          "done": true
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": true,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:44:17.849Z",
+      "updatedAt": "2026-02-26T20:44:04.850Z"
+    },
     {
       "id": "96pa7j3w8mm3rqvc6",
       "name": "Creation bracelet araignée ",
@@ -134,7 +201,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:55:09.576Z",
-      "updatedAt": "2026-02-26T20:52:24.730Z"
+      "updatedAt": "2026-02-26T17:55:52.241Z"
     },
     {
       "id": "8jra8qkuimm3rj05b",
@@ -196,88 +263,19 @@
       "loggedHours": 0,
       "pomodoroCount": 0,
       "categoryId": "cat_tech",
-      "pinned": false,
+      "pinned": true,
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-26T18:06:06.248Z"
+      "updatedAt": "2026-02-26T20:44:02.810Z"
     }
   ],
   "slots": {
-    "primary": "a0kssl5thmm3rk58o",
+    "primary": "ychuqcj0nmm3r66d5",
     "secondary": "1lu5shi7lmm3rfb7g",
     "pleasure": null
   },
-  "completedProjects": [
-    {
-      "id": "ychuqcj0nmm3r66d5",
-      "name": "Échiquier électronique ",
-      "description": "",
-      "icon": "🎲",
-      "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "a7odndp6fmm3sfv0i",
-          "text": "Teste",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "critical",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "g5678ee2amm3sfx83",
-          "text": "Teste",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "a7efuz4rymm3sgp07",
-          "text": "Tedte",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "kniucsfucmm3sgr5q",
-          "text": "Teste",
-          "done": true
-        }
-      ],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": true,
-      "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:22:02.883Z",
-      "completedAt": "2026-02-26T20:10:56.362Z"
-    }
-  ],
+  "completedProjects": [],
   "categories": [
     {
       "id": "cat_general",
