@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:39:01.303Z",
+  "lastUpdated": "2026-02-26T22:38:35.815Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -131,94 +131,6 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
-        },
-        {
-          "id": "uon37bfk6mm41oolk",
-          "text": "test",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 1,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "z5nh6b8kqmm41oqcf",
-          "text": "test",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 2,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "u0ghvmw64mm41osch",
-          "text": "test",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 3,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "4vfboahexmm41owdj",
-          "text": "tete",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 5,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "5ydhpgx22mm41oydk",
-          "text": "tette",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 6,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "sccfti465mm41ozvk",
-          "text": "tetete",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 7,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "4bvdqp6lpmm41p17j",
-          "text": "tetetet",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 8,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "dnl97mspnmm41p3n4",
-          "text": "tete",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 9,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
         }
       ],
       "tags": [],
@@ -234,7 +146,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:55:09.576Z",
-      "updatedAt": "2026-02-26T22:39:00.799Z"
+      "updatedAt": "2026-02-26T22:38:35.312Z"
     },
     {
       "id": "8jra8qkuimm3rj05b",
