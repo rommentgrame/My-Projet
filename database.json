@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:07:29.102Z",
+  "lastUpdated": "2026-02-26T18:07:29.799Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -263,14 +263,7 @@
       "icon": "🏠"
     }
   ],
-  "habits": [
-    {
-      "id": "p335qd187mm3rzwsx",
-      "name": "teste",
-      "color": "#0ea5e9",
-      "createdAt": "2026-02-26T18:07:25.137Z"
-    }
-  ],
+  "habits": [],
   "habitLog": {},
   "settings": {
     "accent": "#10b981",
