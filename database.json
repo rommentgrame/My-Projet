@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:44:00.931Z",
+  "lastUpdated": "2026-02-26T17:44:17.220Z",
   "projects": [],
   "slots": {
     "primary": null,
@@ -44,7 +44,7 @@
   "habitLog": {},
   "settings": {
     "accent": "#10b981",
-    "compact": false,
+    "compact": true,
     "slotNames": {
       "primary": "Primaire",
       "secondary": "Secondaire",
