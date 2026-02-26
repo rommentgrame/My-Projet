@@ -1,12 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "",
-  "auth": {
-    "username": "Admin",
-    "hash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-    "salt": "",
-    "createdAt": ""
-  },
+  "lastUpdated": "2026-02-26T17:11:18.715Z",
   "projects": [],
   "slots": {
     "primary": null,
@@ -15,18 +9,42 @@
   },
   "completedProjects": [],
   "categories": [
-    { "id": "cat_general",  "name": "Général",      "color": "#6366f1", "icon": "📁" },
-    { "id": "cat_tech",     "name": "Tech / Dev",    "color": "#0ea5e9", "icon": "💻" },
-    { "id": "cat_creative", "name": "Créatif",       "color": "#ec4899", "icon": "🎨" },
-    { "id": "cat_learning", "name": "Apprentissage", "color": "#22c55e", "icon": "📚" },
-    { "id": "cat_perso",    "name": "Personnel",     "color": "#f97316", "icon": "🏠" }
+    {
+      "id": "cat_general",
+      "name": "Général",
+      "color": "#6366f1",
+      "icon": "📁"
+    },
+    {
+      "id": "cat_tech",
+      "name": "Tech / Dev",
+      "color": "#0ea5e9",
+      "icon": "💻"
+    },
+    {
+      "id": "cat_creative",
+      "name": "Créatif",
+      "color": "#ec4899",
+      "icon": "🎨"
+    },
+    {
+      "id": "cat_learning",
+      "name": "Apprentissage",
+      "color": "#22c55e",
+      "icon": "📚"
+    },
+    {
+      "id": "cat_perso",
+      "name": "Personnel",
+      "color": "#f97316",
+      "icon": "🏠"
+    }
   ],
   "habits": [],
   "habitLog": {},
   "settings": {
     "accent": "#7c3aed",
     "compact": false,
-    "habitsCollapsed": false,
     "slotNames": {
       "primary": "Primaire",
       "secondary": "Secondaire",
@@ -37,6 +55,13 @@
       "h": 0,
       "m": 25,
       "s": 0
-    }
+    },
+    "habitsCollapsed": false
+  },
+  "auth": {
+    "username": "Admin",
+    "hash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+    "salt": "",
+    "createdAt": ""
   }
 }
