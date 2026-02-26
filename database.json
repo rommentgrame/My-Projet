@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:24:21.161Z",
+  "lastUpdated": "2026-02-26T22:24:05.803Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -17,16 +17,6 @@
             {
               "id": "ki2ay375pmm40rw16",
               "text": "rer",
-              "done": false
-            },
-            {
-              "id": "msjgiyzywmm4167cx",
-              "text": "teste",
-              "done": false
-            },
-            {
-              "id": "80m5xt54ymm416bht",
-              "text": "rtere",
               "done": false
             }
           ],
@@ -61,7 +51,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:24:20.657Z"
+      "updatedAt": "2026-02-26T22:24:05.297Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
