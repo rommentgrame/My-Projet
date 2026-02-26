@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:04:35.532Z",
+  "lastUpdated": "2026-02-26T18:05:14.970Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -162,7 +162,7 @@
       "id": "54nnzhm83mm3rhtt1",
       "name": "Crée un scénario pour mon court métrage ",
       "description": "",
-      "icon": "📚",
+      "icon": "🎭",
       "color": "#ec4899",
       "tasks": [],
       "tags": [],
@@ -178,7 +178,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:53:21.445Z",
-      "updatedAt": "2026-02-26T17:53:21.446Z"
+      "updatedAt": "2026-02-26T18:05:14.463Z"
     },
     {
       "id": "1lu5shi7lmm3rfb7g",
