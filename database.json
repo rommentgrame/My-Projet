@@ -1,7 +1,30 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T13:10:28.257Z",
-  "projects": [],
+  "lastUpdated": "2026-02-26T13:10:34.343Z",
+  "projects": [
+    {
+      "id": "v45v4i1twmm3he1nq",
+      "name": "teste",
+      "description": "",
+      "icon": "🎲",
+      "color": "#06b6d4",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_general",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T13:10:28.838Z",
+      "updatedAt": "2026-02-26T13:10:28.838Z"
+    }
+  ],
   "slots": {
     "primary": null,
     "secondary": null,
