@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:46:55.767Z",
+  "lastUpdated": "2026-02-26T22:47:12.241Z",
   "projects": [
     {
       "id": "dyhxz3u4vmm41x9pj",
@@ -102,12 +102,12 @@
           "id": "y3yelwia7mm41zcpi",
           "text": "Faire un principe de liste avec objectif de la semaine, du mois, du seméstre et de l'année",
           "done": false,
-          "status": "todo",
-          "priority": "medium",
+          "status": "in_progress",
+          "priority": "high",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "2026-02-27"
         }
       ],
       "tags": [
@@ -125,7 +125,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T18:00:23.334Z",
-      "updatedAt": "2026-02-26T22:46:55.254Z"
+      "updatedAt": "2026-02-26T22:47:11.728Z"
     },
     {
       "id": "y0m12uar1mm3rq5tw",
