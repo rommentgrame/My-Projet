@@ -1,12 +1,12 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:59:35.520Z",
+  "lastUpdated": "2026-02-26T22:59:41.255Z",
   "projects": [
     {
       "id": "nxod12betmm42f8zi",
       "name": "App Projet",
       "description": "",
-      "icon": "🎨",
+      "icon": "🖥️",
       "color": "#22c55e",
       "tasks": [],
       "tags": [],
@@ -22,7 +22,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T22:59:16.926Z",
-      "updatedAt": "2026-02-26T22:59:16.926Z"
+      "updatedAt": "2026-02-26T22:59:40.744Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
