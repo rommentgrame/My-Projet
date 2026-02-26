@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:32:29.789Z",
+  "lastUpdated": "2026-02-26T17:32:58.705Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -10,26 +10,56 @@
       "color": "#6366f1",
       "tasks": [
         {
+          "status": "todo",
+          "priority": "high",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
           "id": "zjcc1kvismm3qqw43",
           "text": "Setup & config",
           "done": false
         },
         {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
           "id": "tllk8wvxhmm3qqw43",
           "text": "Design UI",
           "done": false
         },
         {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
           "id": "sr6pm0qq5mm3qqw43",
           "text": "Dev backend",
           "done": false
         },
         {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
           "id": "9ddekueclmm3qqw43",
           "text": "Tests",
           "done": false
         },
         {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
           "id": "pgoyjh6vtmm3qqw43",
           "text": "Déploiement",
           "done": false
@@ -51,7 +81,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:32:24.729Z"
+      "updatedAt": "2026-02-26T17:32:58.046Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
@@ -122,15 +152,15 @@
           "done": true
         },
         {
-          "id": "llr7qxt1ymm3qqjgx",
-          "text": "teste",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "llr7qxt1ymm3qqjgx",
+          "text": "teste",
+          "done": false
         }
       ],
       "tags": [],
