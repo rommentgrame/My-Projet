@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:43:09.853Z",
+  "lastUpdated": "2026-02-26T22:43:11.550Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -10,7 +10,7 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -18,10 +18,10 @@
           "dueDate": "",
           "id": "a7odndp6fmm3sfv0i",
           "text": "Teste",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "critical",
           "rank": 0,
           "subtasks": [],
@@ -29,7 +29,7 @@
           "dueDate": "",
           "id": "g5678ee2amm3sfx83",
           "text": "Teste",
-          "done": true
+          "done": false
         },
         {
           "status": "todo",
@@ -67,7 +67,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:43:09.351Z"
+      "updatedAt": "2026-02-26T22:43:11.047Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
