@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:55:52.751Z",
+  "lastUpdated": "2026-02-26T17:56:36.988Z",
   "projects": [
+    {
+      "id": "tjum1tqw5mm3rli06",
+      "name": "Mon livre sur la dyslexie",
+      "description": "",
+      "icon": "📚",
+      "color": "#84cc16",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_creative",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:56:12.774Z",
+      "updatedAt": "2026-02-26T17:56:12.774Z"
+    },
     {
       "id": "a0kssl5thmm3rk58o",
       "name": "Mon jeux vidéo",
