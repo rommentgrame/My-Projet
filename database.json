@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:32:27.285Z",
+  "lastUpdated": "2026-02-26T17:32:29.789Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -152,7 +152,7 @@
   "slots": {
     "primary": "eawh10l4bmm3q1wbv",
     "secondary": "tr7scntpemm3q71x1",
-    "pleasure": null
+    "pleasure": "d1p2smhxxmm3qqw47"
   },
   "completedProjects": [],
   "categories": [
