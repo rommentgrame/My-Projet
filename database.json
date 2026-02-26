@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:20:31.491Z",
+  "lastUpdated": "2026-02-26T18:20:37.213Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -27,17 +27,6 @@
           "status": "done",
           "priority": "high",
           "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "ocreotbpumm3sg16r",
-          "text": "Tom",
-          "done": false,
-          "status": "todo",
-          "priority": "high",
-          "rank": 2,
           "subtasks": [],
           "note": "",
           "dueDate": ""
@@ -89,7 +78,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T18:20:30.974Z"
+      "updatedAt": "2026-02-26T18:20:36.702Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
