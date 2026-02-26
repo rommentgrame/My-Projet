@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:40:11.774Z",
+  "lastUpdated": "2026-02-26T17:39:50.813Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -21,15 +21,15 @@
           "done": false
         },
         {
-          "status": "done",
-          "priority": "critical",
+          "status": "todo",
+          "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
           "dueDate": "",
           "id": "tllk8wvxhmm3qqw43",
           "text": "Design UI",
-          "done": true
+          "done": false
         }
       ],
       "tags": [
@@ -48,7 +48,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:32:24.728Z",
-      "updatedAt": "2026-02-26T17:40:11.266Z"
+      "updatedAt": "2026-02-26T17:39:50.301Z"
     },
     {
       "id": "tr7scntpemm3q71x1",
