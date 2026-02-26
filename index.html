@@ -313,6 +313,17 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .sp-prog-bar { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.07); overflow: hidden; }
 .sp-prog-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
 .sp-tasks { }
+.sp-tasks-list {
+  display: flex; flex-direction: column; gap: 2px;
+  max-height: 210px; overflow-y: auto;
+  margin-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+.sp-tasks-list::-webkit-scrollbar { width: 3px; }
+.sp-tasks-list::-webkit-scrollbar-track { background: transparent; }
+.sp-tasks-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+.sp-tasks-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
 .sp-tasks-scroll {
   max-height: 155px; overflow-y: auto;
   display: flex; flex-direction: column; gap: 3px;
@@ -668,7 +679,8 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   .modal { border-radius: 20px 20px 0 0; max-height: 92dvh; }
   .modal-bg { align-items: flex-end; padding: 0; }
   .slot-card { min-height: auto; }
-  .sp-tasks-scroll { max-height: 100px; }
+  .sp-tasks-scroll { max-height: 160px; }
+  .sp-tasks-list { max-height: 160px; }
 }
 @media (min-width: 641px) {
   .mobile-only { display: none; }
@@ -960,32 +972,85 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 @keyframes taskDetailIn { from { opacity:0; transform:translateY(-3px); } to { opacity:1; transform:none; } }
 .task-detail.open { display: block; animation: taskDetailIn 0.18s ease; }
 .subtask-list {
-  display: flex; flex-direction: column; gap: 2px;
-  margin-bottom: 8px; padding-top: 6px;
+  display: flex; flex-direction: column; gap: 1px;
+  margin-bottom: 8px; padding-top: 8px;
+  /* Vertical connecting line on the left */
+  position: relative;
+}
+.subtask-list::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 12px; bottom: 12px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+  border-radius: 1px;
+  pointer-events: none;
 }
 .subtask-row {
-  display: flex; align-items: center; gap: 8px;
-  padding: 4px 4px; border-radius: 7px;
-  transition: background 0.15s;
+  display: flex; align-items: center; gap: 9px;
+  padding: 5px 6px 5px 4px; border-radius: 8px;
+  transition: background 0.15s, transform 0.15s;
+  position: relative;
 }
-.subtask-row:hover { background: rgba(255,255,255,0.04); }
+.subtask-row:hover { background: rgba(255,255,255,0.05); transform: translateX(2px); }
 .subtask-check {
-  width: 15px; height: 15px; border-radius: 4px;
-  border: 1.5px solid rgba(255,255,255,0.18);
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.2);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 8px; transition: all 0.18s;
+  flex-shrink: 0; transition: all 0.2s cubic-bezier(0.34,1.4,0.64,1);
+  background: transparent; position: relative; z-index: 1;
 }
-.subtask-check:hover { border-color: rgba(var(--accent-rgb),0.5); }
-.subtask-check.done { border-color: #22c55e; background: rgba(34,197,94,0.22); color: #4ade80; }
-.subtask-text { flex: 1; font-size: 11px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.subtask-text.done { text-decoration: line-through; color: var(--text3); }
+.subtask-check:hover {
+  border-color: rgba(34,197,94,0.6);
+  background: rgba(34,197,94,0.08);
+  transform: scale(1.15);
+}
+.subtask-check.done {
+  border-color: #22c55e;
+  background: rgba(34,197,94,0.22);
+  color: #4ade80;
+  box-shadow: 0 0 8px rgba(34,197,94,0.35);
+}
+@keyframes subtaskDoneIn {
+  0%   { transform: scale(0.6) rotate(-15deg); opacity: 0; }
+  60%  { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.subtask-check.done svg { animation: subtaskDoneIn 0.25s cubic-bezier(0.34,1.4,0.64,1); }
+.subtask-text {
+  flex: 1; font-size: 11.5px; color: var(--text2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color 0.2s, text-decoration 0.2s;
+  line-height: 1.4;
+}
+.subtask-text.done {
+  text-decoration: line-through;
+  color: var(--text3);
+  text-decoration-color: rgba(34,197,94,0.4);
+}
+.subtask-count-badge {
+  font-size: 9.5px; font-weight: 600; color: var(--text3);
+  background: rgba(255,255,255,0.06); border-radius: 10px;
+  padding: 1px 6px; flex-shrink: 0; white-space: nowrap;
+}
+.subtask-count-badge.partial { color: #fb923c; background: rgba(249,115,22,0.1); }
+.subtask-count-badge.complete { color: #4ade80; background: rgba(34,197,94,0.1); }
+.subtask-mini-bar {
+  height: 2px; background: var(--surface2); border-radius: 2px;
+  overflow: hidden; margin-bottom: 5px;
+}
+.subtask-mini-fill {
+  height: 100%; background: #22c55e; border-radius: 2px;
+  transition: width 0.35s ease;
+}
 .subtask-del {
   background: none; border: none; cursor: pointer;
-  color: transparent; font-size: 13px; padding: 0 2px;
-  border-radius: 4px; transition: color 0.15s;
+  color: transparent; font-size: 14px; padding: 0 3px;
+  border-radius: 4px; transition: color 0.15s, background 0.15s;
+  line-height: 1;
 }
-.subtask-row:hover .subtask-del { color: var(--text3); }
-.subtask-del:hover { color: #f87171 !important; }
+.subtask-row:hover .subtask-del { color: rgba(255,255,255,0.25); }
+.subtask-del:hover { color: #f87171 !important; background: rgba(248,113,113,0.1); }
 .task-note-field {
   font-size: 11px; color: var(--text3);
   background: rgba(0,0,0,0.15);
@@ -1045,6 +1110,76 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   .sidebar { display: flex !important; position: relative !important; width: var(--sidebar-w) !important; }
   .sidebar-overlay { display: none !important; }
   .main-area { padding-bottom: 24px; }
+}
+
+/* Alarm datetime picker */
+.timer-alarm-wrap {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 4px 0;
+}
+.timer-alarm-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--text3);
+}
+.timer-alarm-input {
+  background: var(--glass); border: 1px solid var(--border2);
+  border-radius: 10px; color: var(--text);
+  font-family: var(--font-mono); font-size: 14px; font-weight: 600;
+  padding: 8px 12px; outline: none; transition: all 0.18s;
+  width: 100%; box-sizing: border-box;
+}
+.timer-alarm-input:focus {
+  border-color: rgba(var(--accent-rgb),0.5);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb),0.1);
+}
+.timer-alarm-input:disabled { opacity: 0.6; cursor: not-allowed; }
+.timer-alarm-countdown {
+  text-align: center; font-family: var(--font-mono);
+  font-size: 20px; font-weight: 800; color: var(--accent);
+  letter-spacing: 0.02em;
+  animation: alarmCountdownPulse 2s ease-in-out infinite;
+}
+@keyframes alarmCountdownPulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+/* ══════════════════════════════════════════════
+   DESKTOP VIEW TABS
+══════════════════════════════════════════════ */
+.desktop-view-bar {
+  display: none; /* hidden on mobile — shown on desktop via media query */
+  align-items: center; gap: 4px;
+  padding: 0 20px;
+  height: 40px;
+  background: rgba(8,11,22,0.7);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+@media (min-width: 641px) {
+  .desktop-view-bar { display: flex; }
+}
+.dvtab {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 8px; border: none;
+  font-family: var(--font); font-size: 12px; font-weight: 500;
+  color: var(--text3); background: transparent; cursor: pointer;
+  transition: all 0.18s; white-space: nowrap;
+  position: relative;
+}
+.dvtab:hover { color: var(--text); background: var(--glass); }
+.dvtab.active {
+  color: var(--accent); background: rgba(var(--accent-rgb),0.12);
+  font-weight: 600;
+}
+.dvtab.active::after {
+  content: '';
+  position: absolute; bottom: -1px; left: 14px; right: 14px;
+  height: 2px; background: var(--accent); border-radius: 2px 2px 0 0;
+}
+.dvtab-badge {
+  font-size: 9px; font-weight: 700; min-width: 16px; height: 16px;
+  background: rgba(var(--accent-rgb),0.2); color: var(--accent);
+  border-radius: 8px; padding: 0 4px;
+  display: inline-flex; align-items: center; justify-content: center;
 }
 </style>
 </head>
@@ -1210,6 +1345,13 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
     <button class="btn btn-primary" onclick="openNew()" id="btn-new-desktop">+ Projet</button>
   </div>
 </header>
+
+<!-- ══════ DESKTOP VIEW TABS ══════ -->
+<div class="desktop-view-bar" id="desktop-view-bar">
+  <button class="dvtab active" id="dvtab-board" onclick="setDesktopView('board')">⚡ Actifs</button>
+  <button class="dvtab" id="dvtab-completed" onclick="setDesktopView('completed')">🏆 Terminés</button>
+  <button class="dvtab" id="dvtab-stats" onclick="setDesktopView('stats')">📊 Stats</button>
+</div>
 
 <!-- ══════ BODY ══════ -->
 <div class="app-body">
@@ -2131,7 +2273,8 @@ function renderProgRing(val, size=44, stroke=4, color='var(--accent)') {
 function initTimer(projId, p) {
   if (timers[projId]) return;
   const def = state.settings.timerDefault || { mode:'countdown', h:0, m:25, s:0 };
-  timers[projId] = { mode: def.mode, h: def.h, m: def.m, s: def.s, running: false, elapsed: 0, totalSecs: def.h*3600+def.m*60+def.s, intervalId: null };
+  // alarmDatetime: ISO string for the scheduled alarm target (alarm mode only)
+  timers[projId] = { mode: def.mode, h: def.h, m: def.m, s: def.s, running: false, elapsed: 0, totalSecs: def.h*3600+def.m*60+def.s, intervalId: null, alarmDatetime: null };
 }
 
 function renderTimerWidget(projId) {
@@ -2141,7 +2284,7 @@ function renderTimerWidget(projId) {
   if (!t) return;
   const p = state.projects.find(x=>x.id===projId);
 
-  let display, progress_ = 0;
+  let display, progress_ = 0, alarmRemMs = 0;
   if (t.mode === 'countdown') {
     const rem = Math.max(0, t.totalSecs - t.elapsed);
     display = secsToHMS(rem);
@@ -2150,11 +2293,13 @@ function renderTimerWidget(projId) {
     display = secsToHMS(t.elapsed);
     progress_ = Math.min(100, (t.elapsed % 3600) / 3600 * 100);
   } else { // alarm
-    const alarmSecs = t.h*3600 + t.m*60 + t.s;
-    const now = new Date(); const nowSecs = now.getHours()*3600+now.getMinutes()*60+now.getSeconds();
-    let rem2 = alarmSecs - nowSecs; if (rem2 < 0) rem2 += 86400;
-    display = secsToHMS(rem2);
-    progress_ = 100 - (rem2/86400)*100;
+    const targetTs = t.alarmDatetime ? new Date(t.alarmDatetime).getTime() : null;
+    alarmRemMs = targetTs ? Math.max(0, targetTs - Date.now()) : 0;
+    const remSecs = Math.floor(alarmRemMs / 1000);
+    display = secsToHMS(remSecs);
+    // Progress: 0% = just set, 100% = alarm fires (over 1hr window)
+    const windowMs = 3600000;
+    progress_ = targetTs ? Math.min(100, Math.max(0, (1 - alarmRemMs/windowMs)*100)) : 0;
   }
   const [dh, dm, ds] = display;
 
@@ -2165,12 +2310,25 @@ function renderTimerWidget(projId) {
     <div class="timer-display">
       <div class="timer-clock">
         <div class="timer-time-edit">
-          ${t.mode==='stopwatch' ? `<div style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--accent);padding:4px 0">${pad(dh)}:${pad(dm)}:${pad(ds)}</div>` :
-          `<div class="timer-seg"><input type="number" value="${pad(dh)}" min="0" max="23" ${t.running?'disabled':''} onchange="setTimerH('${projId}',this.value)"><span>h</span></div>
+          ${t.mode==='stopwatch'
+            ? `<div style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--accent);padding:4px 0">${pad(dh)}:${pad(dm)}:${pad(ds)}</div>`
+            : t.mode==='alarm'
+            ? `<div class="timer-alarm-wrap">
+                <div class="timer-alarm-label">⏰ Déclencher à</div>
+                <input type="datetime-local"
+                  class="timer-alarm-input"
+                  value="${t.alarmDatetime||''}"
+                  ${t.running?'disabled':''}
+                  onchange="setAlarmDatetime('${projId}',this.value)"
+                  style="color-scheme:dark">
+                ${alarmRemMs > 0 ? `<div class="timer-alarm-countdown">${pad(dh)}h ${pad(dm)}m ${pad(ds)}s restant${alarmRemMs<60000?' ⚡':''}</div>` : ''}
+              </div>`
+            : `<div class="timer-seg"><input type="number" value="${pad(dh)}" min="0" max="23" ${t.running?'disabled':''} onchange="setTimerH('${projId}',this.value)"><span>h</span></div>
           <div class="timer-colon">:</div>
           <div class="timer-seg"><input type="number" value="${pad(dm)}" min="0" max="59" ${t.running?'disabled':''} onchange="setTimerM('${projId}',this.value)"><span>min</span></div>
           <div class="timer-colon">:</div>
-          <div class="timer-seg"><input type="number" value="${pad(ds)}" min="0" max="59" ${t.running?'disabled':''} onchange="setTimerS('${projId}',this.value)"><span>sec</span></div>`}
+          <div class="timer-seg"><input type="number" value="${pad(ds)}" min="0" max="59" ${t.running?'disabled':''} onchange="setTimerS('${projId}',this.value)"><span>sec</span></div>`
+          }
         </div>
         <div class="timer-progress-bar" style="margin-top:5px"><div class="timer-progress-fill" style="width:${progress_}%"></div></div>
       </div>
@@ -2190,8 +2348,18 @@ function setTimerMode(projId, mode) {
   const t = timers[projId]; if (!t) return;
   stopTimer(projId);
   t.mode = mode; t.elapsed = 0;
-  if (mode === 'alarm') { const now = new Date(); t.h = now.getHours(); t.m = now.getMinutes()+25; if(t.m>=60){t.h++;t.m-=60;} t.s = 0; }
-  else { const def = state.settings.timerDefault; t.h=def.h; t.m=def.m; t.s=def.s; t.totalSecs=def.h*3600+def.m*60+def.s; }
+  if (mode === 'alarm') {
+    // Default: alarm in 1 hour from now
+    const target = new Date(Date.now() + 3600000);
+    const pad2 = n => String(n).padStart(2,'0');
+    t.alarmDatetime = target.getFullYear()+'-'+pad2(target.getMonth()+1)+'-'+pad2(target.getDate())+'T'+pad2(target.getHours())+':'+pad2(target.getMinutes());
+    // Keep legacy h/m/s in sync
+    t.h = target.getHours(); t.m = target.getMinutes(); t.s = 0;
+  } else {
+    t.alarmDatetime = null;
+    const def = state.settings.timerDefault || { h:0, m:25, s:0 };
+    t.h=def.h; t.m=def.m; t.s=def.s; t.totalSecs=def.h*3600+def.m*60+def.s;
+  }
   renderTimerWidget(projId);
 }
 
@@ -2220,10 +2388,10 @@ function startTimer(projId) {
         if (p) { updateProj(projId, { pomodoroCount: (p.pomodoroCount||0)+1 }); renderHeaderStats(); }
         return;
       }
-    } else { // alarm
-      const now = new Date(); const alarmSecs = t.h*3600+t.m*60+t.s;
-      const nowSecs = now.getHours()*3600+now.getMinutes()*60+now.getSeconds();
-      if (nowSecs >= alarmSecs) { stopTimer(projId); timerAlarm(projId); return; }
+    } else { // alarm — uses alarmDatetime (ISO) for timezone-safe comparison
+      const now = Date.now();
+      const target = t.alarmDatetime ? new Date(t.alarmDatetime).getTime() : null;
+      if (target !== null && now >= target) { stopTimer(projId); timerAlarm(projId); return; }
       t.elapsed++;
     }
     renderTimerWidget(projId);
@@ -2241,6 +2409,17 @@ function resetTimer(projId) {
   stopTimer(projId);
   const t = timers[projId]; if (!t) return;
   t.elapsed = 0; renderTimerWidget(projId);
+}
+
+function setAlarmDatetime(projId, val) {
+  // val is "YYYY-MM-DDTHH:MM" from datetime-local input
+  const t = timers[projId]; if (!t) return;
+  if (!val) return;
+  t.alarmDatetime = val;
+  // Keep legacy h/m/s in sync for display
+  const d = new Date(val);
+  t.h = d.getHours(); t.m = d.getMinutes(); t.s = 0;
+  renderTimerWidget(projId);
 }
 
 function timerAlarm(projId) {
@@ -2425,6 +2604,13 @@ function handleDrop(event, zone) {
 
 // ── COMPLETED VIEW ────────────────────────────────────────────────────────
 function renderCompleted() {
+  // Update desktop tab badge
+  const dvtabCompleted = document.getElementById('dvtab-completed');
+  if (dvtabCompleted && state.completedProjects.length > 0) {
+    dvtabCompleted.innerHTML = '🏆 Terminés <span class="dvtab-badge">'+state.completedProjects.length+'</span>';
+  } else if (dvtabCompleted) {
+    dvtabCompleted.textContent = '🏆 Terminés';
+  }
   const grid = document.getElementById('completed-grid');
   const empty = document.getElementById('completed-empty');
   if (!state.completedProjects.length) {
@@ -2620,13 +2806,27 @@ function setMobileView(v) {
     // On mobile: toggle sidebar for 'list' view
     if (v==='list') toggleSidebar();
     else closeSidebar();
-
-    // Update nav
+    // Update mobile nav
     ['list','board','done','stats','settings'].forEach(n => {
       const el = document.getElementById('nav-'+n);
       if (el) el.classList.toggle('active', v===n||(n==='done'&&v==='completed'));
     });
   }
+
+  // Sync desktop tab highlights
+  const viewMap = { board:'board', completed:'completed', stats:'stats' };
+  const activeTab = viewMap[v] || 'board';
+  ['board','completed','stats'].forEach(t => {
+    const el = document.getElementById('dvtab-'+t);
+    if (el) el.classList.toggle('active', t===activeTab);
+  });
+
+  // Render completed when switching to that view
+  if (v === 'completed') renderCompleted();
+}
+
+function setDesktopView(v) {
+  setMobileView(v);
 }
 
 function onResize() {
@@ -3541,8 +3741,11 @@ function renderEnhancedTask(t, projId, idx) {
       ${subTotal ? `<button class="task-expand-btn" id="texpand-${t.id}" onclick="toggleTaskDetail('${t.id}')">▶</button>` : ''}
     </div>
     ${subTotal ? `<div class="task-detail" id="tdetail-${t.id}">
+      <div class="subtask-mini-bar"><div class="subtask-mini-fill" style="width:${subTotal?Math.round(subDone/subTotal*100):0}%"></div></div>
       <div class="subtask-list">${(t.subtasks||[]).map(s=>`<div class="subtask-row">
-        <button class="subtask-check${s.done?' done':''}" onclick="toggleSubtask('${projId}','${t.id}','${s.id}')" title="${s.done?'Terminé':'À faire'}">${s.done?'✓':''}</button>
+        <button class="subtask-check${s.done?' done':''}" onclick="toggleSubtask('${projId}','${t.id}','${s.id}')" title="${s.done?'Terminé':'Marquer comme fait'}">
+          ${s.done?'<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6.5 7,1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
+        </button>
         <span class="subtask-text${s.done?' done':''}">${esc(s.text)}</span>
         <button class="subtask-del" onclick="deleteSubtask('${projId}','${t.id}','${s.id}')" title="Supprimer">×</button>
       </div>`).join('')}</div>
