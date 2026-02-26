@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:01:42.020Z",
+  "lastUpdated": "2026-02-26T18:02:05.665Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -288,7 +288,7 @@
   "habitLog": {},
   "settings": {
     "accent": "#10b981",
-    "compact": true,
+    "compact": false,
     "slotNames": {
       "primary": "Primaire",
       "secondary": "Secondaire",
