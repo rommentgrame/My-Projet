@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T13:10:40.862Z",
+  "lastUpdated": "2026-02-26T13:10:44.947Z",
   "projects": [
     {
       "id": "v45v4i1twmm3he1nq",
@@ -26,8 +26,8 @@
     }
   ],
   "slots": {
-    "primary": "v45v4i1twmm3he1nq",
-    "secondary": null,
+    "primary": null,
+    "secondary": "v45v4i1twmm3he1nq",
     "pleasure": null
   },
   "completedProjects": [],
