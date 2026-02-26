@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:37:48.928Z",
+  "lastUpdated": "2026-02-26T17:38:21.820Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -65,15 +65,15 @@
           "done": false
         },
         {
-          "id": "aqtrwfdhamm3qrzyd",
-          "text": "tet",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "aqtrwfdhamm3qrzyd",
+          "text": "tet",
+          "done": false
         }
       ],
       "tags": [
