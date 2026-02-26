@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:34:28.463Z",
+  "lastUpdated": "2026-02-26T17:34:29.148Z",
   "projects": [
     {
       "id": "d1p2smhxxmm3qqw47",
@@ -146,7 +146,7 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "status": "todo",
+          "status": "in_progress",
           "priority": "high",
           "rank": 0,
           "subtasks": [
@@ -187,7 +187,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:12:58.603Z",
-      "updatedAt": "2026-02-26T17:34:27.901Z"
+      "updatedAt": "2026-02-26T17:34:28.636Z"
     }
   ],
   "slots": {
