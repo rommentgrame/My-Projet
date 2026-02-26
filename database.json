@@ -1,23 +1,84 @@
 {
   "version": "3.0",
-  "lastUpdated": "",
-  "projects": [],
-  "slots": { "primary": null, "secondary": null, "pleasure": null },
+  "lastUpdated": "2026-02-26T12:25:23.872Z",
+  "projects": [
+    {
+      "id": "gl9wf59pbmm3frfda",
+      "name": "Teste",
+      "description": "Teste ",
+      "icon": "🎵",
+      "color": "#f97316",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_general",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T12:24:53.902Z",
+      "updatedAt": "2026-02-26T12:24:53.902Z"
+    }
+  ],
+  "slots": {
+    "primary": null,
+    "secondary": null,
+    "pleasure": null
+  },
   "completedProjects": [],
   "categories": [
-    { "id": "cat_general",  "name": "Général",      "color": "#6366f1", "icon": "📁" },
-    { "id": "cat_tech",     "name": "Tech / Dev",    "color": "#0ea5e9", "icon": "💻" },
-    { "id": "cat_creative", "name": "Créatif",       "color": "#ec4899", "icon": "🎨" },
-    { "id": "cat_learning", "name": "Apprentissage", "color": "#22c55e", "icon": "📚" },
-    { "id": "cat_perso",    "name": "Personnel",     "color": "#f97316", "icon": "🏠" }
+    {
+      "id": "cat_general",
+      "name": "Général",
+      "color": "#6366f1",
+      "icon": "📁"
+    },
+    {
+      "id": "cat_tech",
+      "name": "Tech / Dev",
+      "color": "#0ea5e9",
+      "icon": "💻"
+    },
+    {
+      "id": "cat_creative",
+      "name": "Créatif",
+      "color": "#ec4899",
+      "icon": "🎨"
+    },
+    {
+      "id": "cat_learning",
+      "name": "Apprentissage",
+      "color": "#22c55e",
+      "icon": "📚"
+    },
+    {
+      "id": "cat_perso",
+      "name": "Personnel",
+      "color": "#f97316",
+      "icon": "🏠"
+    }
   ],
   "habits": [],
   "habitLog": {},
   "settings": {
     "accent": "#7c3aed",
     "compact": false,
-    "habitsCollapsed": false,
-    "slotNames": { "primary": "Primaire", "secondary": "Secondaire", "pleasure": "Plaisir" },
-    "timerDefault": { "mode": "countdown", "h": 0, "m": 25, "s": 0 }
+    "slotNames": {
+      "primary": "Primaire",
+      "secondary": "Secondaire",
+      "pleasure": "Plaisir"
+    },
+    "timerDefault": {
+      "mode": "countdown",
+      "h": 0,
+      "m": 25,
+      "s": 0
+    },
+    "habitsCollapsed": false
   }
 }
