@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:13:19.749Z",
+  "lastUpdated": "2026-02-26T17:13:24.398Z",
   "projects": [
     {
       "id": "eawh10l4bmm3q1wbv",
@@ -8,7 +8,19 @@
       "description": "",
       "icon": "🔥",
       "color": "#6366f1",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "lqxagwup8mm3q2fue",
+          "text": "teste",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        }
+      ],
       "tags": [],
       "priority": "medium",
       "dueDate": "",
@@ -22,7 +34,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:12:58.603Z",
-      "updatedAt": "2026-02-26T17:13:19.245Z"
+      "updatedAt": "2026-02-26T17:13:23.894Z"
     }
   ],
   "slots": {
