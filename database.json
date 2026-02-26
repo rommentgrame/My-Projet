@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:54:44.230Z",
+  "lastUpdated": "2026-02-26T17:55:47.429Z",
   "projects": [
+    {
+      "id": "a0kssl5thmm3rk58o",
+      "name": "Mon jeux vidéo",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#f43f5e",
+      "tasks": [],
+      "tags": [],
+      "priority": "low",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:55:09.576Z",
+      "updatedAt": "2026-02-26T17:55:09.576Z"
+    },
     {
       "id": "8jra8qkuimm3rj05b",
       "name": "Crée une petit musique",
