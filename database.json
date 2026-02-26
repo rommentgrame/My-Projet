@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T18:08:38.759Z",
+  "lastUpdated": "2026-02-26T18:12:54.696Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -261,6 +261,12 @@
       "name": "Personnel",
       "color": "#f97316",
       "icon": "🏠"
+    },
+    {
+      "id": "cat_xxvovw7nimm3s6yol",
+      "name": "Teste",
+      "icon": "🌍",
+      "color": "#ef4444"
     }
   ],
   "habits": [],
