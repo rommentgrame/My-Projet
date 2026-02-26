@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:23:50.770Z",
+  "lastUpdated": "2026-02-26T22:23:49.465Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -44,6 +44,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": "",
+          "id": "a7efuz4rymm3sgp07",
+          "text": "Tedte",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
           "id": "kniucsfucmm3sgr5q",
           "text": "Teste",
           "done": true
@@ -62,7 +73,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:23:50.257Z"
+      "updatedAt": "2026-02-26T22:23:48.954Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
