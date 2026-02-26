@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T20:24:18.249Z",
+  "lastUpdated": "2026-02-26T20:24:24.870Z",
   "projects": [
+    {
+      "id": "ob0cw3i5emm3wvvr0",
+      "name": "Creation bracelet araignée ",
+      "description": "",
+      "icon": "🚀",
+      "color": "#7c3aed",
+      "tasks": [],
+      "tags": [],
+      "priority": "low",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_xxvovw7nimm3s6yol",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T20:24:15.228Z",
+      "updatedAt": "2026-02-26T20:24:15.228Z"
+    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
