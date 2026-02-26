@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:40:08.240Z",
+  "lastUpdated": "2026-02-26T22:39:08.252Z",
   "projects": [
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -120,7 +120,74 @@
       "description": "",
       "icon": "🖥️",
       "color": "#f97316",
-      "tasks": [],
+      "tasks": [
+        {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "sylvxoj95mm41omy8",
+          "text": "rest",
+          "done": false
+        },
+        {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 1,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "uon37bfk6mm41oolk",
+          "text": "test",
+          "done": false
+        },
+        {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 6,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "5ydhpgx22mm41oydk",
+          "text": "tette",
+          "done": false
+        },
+        {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 7,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "sccfti465mm41ozvk",
+          "text": "tetete",
+          "done": false
+        },
+        {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 8,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "4bvdqp6lpmm41p17j",
+          "text": "tetetet",
+          "done": false
+        },
+        {
+          "status": "todo",
+          "priority": "medium",
+          "rank": 9,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "dnl97mspnmm41p3n4",
+          "text": "tete",
+          "done": false
+        }
+      ],
       "tags": [],
       "priority": "low",
       "dueDate": "",
@@ -134,7 +201,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:55:09.576Z",
-      "updatedAt": "2026-02-26T20:52:24.730Z"
+      "updatedAt": "2026-02-26T22:39:02.880Z"
     },
     {
       "id": "8jra8qkuimm3rj05b",
@@ -316,7 +383,14 @@
       "color": "#ef4444"
     }
   ],
-  "habits": [],
+  "habits": [
+    {
+      "id": "ujdr6atthmm41oid4",
+      "name": "test",
+      "color": "#7c3aed",
+      "createdAt": "2026-02-26T22:38:29.368Z"
+    }
+  ],
   "habitLog": {
     "2026-02-26": {
       "d18wvy1q1mm3s04zn": true
@@ -336,7 +410,7 @@
       "m": 1,
       "s": 0
     },
-    "habitsCollapsed": true
+    "habitsCollapsed": false
   },
   "auth": {
     "username": "Tom",
