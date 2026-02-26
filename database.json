@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:59:12.759Z",
+  "lastUpdated": "2026-02-26T22:59:33.151Z",
   "projects": [
+    {
+      "id": "nxod12betmm42f8zi",
+      "name": "App Projet",
+      "description": "",
+      "icon": "🎨",
+      "color": "#22c55e",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-03-05",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T22:59:16.926Z",
+      "updatedAt": "2026-02-26T22:59:16.926Z"
+    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
