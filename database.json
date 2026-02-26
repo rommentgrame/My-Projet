@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T20:27:12.607Z",
+  "lastUpdated": "2026-02-26T20:27:16.972Z",
   "projects": [
     {
       "id": "ob0cw3i5emm3wvvr0",
@@ -106,11 +106,11 @@
       "loggedHours": 0,
       "pomodoroCount": 0,
       "categoryId": "cat_learning",
-      "pinned": true,
+      "pinned": false,
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:57:36.901Z",
-      "updatedAt": "2026-02-26T20:27:09.957Z"
+      "updatedAt": "2026-02-26T20:27:16.468Z"
     },
     {
       "id": "tjum1tqw5mm3rli06",
