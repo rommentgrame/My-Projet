@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:13:59.257Z",
+  "lastUpdated": "2026-02-26T17:16:48.872Z",
   "projects": [
+    {
+      "id": "qiffekpmgmm3q6qcr",
+      "name": "Teste",
+      "description": "",
+      "icon": "🎨",
+      "color": "#84cc16",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_general",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:16:44.139Z",
+      "updatedAt": "2026-02-26T17:16:44.139Z"
+    },
     {
       "id": "eawh10l4bmm3q1wbv",
       "name": "reste",
@@ -10,9 +32,6 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "id": "lqxagwup8mm3q2fue",
-          "text": "teste",
-          "done": true,
           "status": "done",
           "priority": "high",
           "rank": 0,
@@ -24,7 +43,10 @@
             }
           ],
           "note": "teste",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "lqxagwup8mm3q2fue",
+          "text": "teste",
+          "done": true
         }
       ],
       "tags": [],
