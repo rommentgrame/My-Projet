@@ -1,51 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T22:59:41.255Z",
+  "lastUpdated": "2026-02-26T23:00:01.361Z",
   "projects": [
-    {
-      "id": "nxod12betmm42f8zi",
-      "name": "App Projet",
-      "description": "",
-      "icon": "🖥️",
-      "color": "#22c55e",
-      "tasks": [],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-03-05",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T22:59:16.926Z",
-      "updatedAt": "2026-02-26T22:59:40.744Z"
-    },
-    {
-      "id": "ychuqcj0nmm3r66d5",
-      "name": "Échiquier électronique ",
-      "description": "",
-      "icon": "🎲",
-      "color": "#6366f1",
-      "tasks": [],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T22:59:12.253Z"
-    },
     {
       "id": "96pa7j3w8mm3rqvc6",
       "name": "Creation bracelet araignée ",
@@ -248,11 +204,80 @@
     }
   ],
   "slots": {
-    "primary": "ychuqcj0nmm3r66d5",
+    "primary": "a0kssl5thmm3rk58o",
     "secondary": "1lu5shi7lmm3rfb7g",
-    "pleasure": "nxod12betmm42f8zi"
+    "pleasure": null
   },
-  "completedProjects": [],
+  "completedProjects": [
+    {
+      "id": "ychuqcj0nmm3r66d5",
+      "name": "Échiquier électronique ",
+      "description": "",
+      "icon": "🎲",
+      "color": "#6366f1",
+      "tasks": [
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7odndp6fmm3sfv0i",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "critical",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "g5678ee2amm3sfx83",
+          "text": "Teste",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "a7efuz4rymm3sgp07",
+          "text": "Tedte",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "kniucsfucmm3sgr5q",
+          "text": "Teste",
+          "done": true
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-05-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-02-26T17:44:17.849Z",
+      "updatedAt": "2026-02-26T18:22:02.883Z",
+      "completedAt": "2026-02-26T20:10:56.362Z"
+    }
+  ],
   "categories": [
     {
       "id": "cat_general",
