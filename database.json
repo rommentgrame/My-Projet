@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:48:12.530Z",
+  "lastUpdated": "2026-02-26T17:53:02.494Z",
   "projects": [
+    {
+      "id": "1lu5shi7lmm3rfb7g",
+      "name": "l’IA IXA",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#a855f7",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-03-10",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:51:24.028Z",
+      "updatedAt": "2026-02-26T17:51:24.028Z"
+    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
