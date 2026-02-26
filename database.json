@@ -1,29 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-26T17:43:56.493Z",
+  "lastUpdated": "2026-02-26T17:43:58.894Z",
   "projects": [
-    {
-      "id": "qiffekpmgmm3q6qcr",
-      "name": "Teste",
-      "description": "",
-      "icon": "🎨",
-      "color": "#84cc16",
-      "tasks": [],
-      "tags": [],
-      "priority": "medium",
-      "dueDate": "",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_general",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T17:16:44.139Z",
-      "updatedAt": "2026-02-26T17:16:44.139Z"
-    },
     {
       "id": "eawh10l4bmm3q1wbv",
       "name": "reste",
