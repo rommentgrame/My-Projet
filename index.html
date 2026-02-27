@@ -319,16 +319,12 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
   border-radius: 10px;
-  overflow: hidden;   /* clip at border-radius */
-  flex-shrink: 0;
-  /* Fixed height container — tasks scroll inside */
-  height: 220px;
-  min-height: 220px;
-  max-height: 220px;
+  overflow: hidden;
+  /* No fixed height — list uses its own max-height */
 }
 .sp-tasklist {
-  /* Fill the wrapper height minus the add-task row (~40px) */
-  height: calc(100% - 40px);
+  max-height: 210px;   /* show ~5-6 tasks, then scroll */
+  min-height: 32px;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex; flex-direction: column;
@@ -357,7 +353,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 /* Add-task input row */
 .sp-addtask-row {
   display: flex; align-items: center; gap: 8px;
-  padding: 6px 10px;
+  padding: 6px 10px; height: 36px; flex-shrink: 0;
   border-top: 1px solid var(--border);
   transition: background 0.15s;
 }
@@ -1141,7 +1137,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 ══════════════════════════════════════════════ */
 @media (max-width: 640px) {
   .slot-card { min-height: auto; }
-  .sp-tasks-scroll { max-height: 100px; }
+  .sp-tasklist { max-height: 160px; } /* compact on mobile */
   .sp-actions { gap: 4px; }
   .sp-actions .btn { font-size: 10px; padding: 5px 6px; }
   .timer-widget { padding: 8px 10px; }
@@ -1528,6 +1524,38 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 
 
+
+/* ── Task filter bar ─────────────────────────── */
+.sp-filter-bar {
+  display: flex; flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.12);
+  overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: none;
+}
+.sp-filter-bar::-webkit-scrollbar { display: none; }
+.sp-filter-btn {
+  flex: 1; padding: 5px 8px; font-size: 10px;
+  font-family: var(--font); background: none;
+  border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; color: var(--text3);
+  transition: color .15s, border-color .15s, background .15s;
+  white-space: nowrap;
+}
+.sp-filter-btn:hover { color: var(--text2); background: rgba(255,255,255,0.03); }
+.sp-filter-btn.active {
+  color: var(--accent); border-bottom-color: var(--accent);
+  background: rgba(var(--accent-rgb),0.07); font-weight: 600;
+}
+/* ── Task due date badges ────────────────────── */
+.task-due-badge {
+  font-size: 9px; font-weight: 600; flex-shrink: 0;
+  padding: 1px 5px; border-radius: 5px;
+  white-space: nowrap;
+}
+.task-due-late { background: rgba(248,113,113,.15); color:#f87171; border:1px solid rgba(248,113,113,.25); }
+.task-due-soon { background: rgba(251,146,60,.15);  color:#fb923c; border:1px solid rgba(251,146,60,.25); }
+.task-due-ok   { background: rgba(255,255,255,.05); color:var(--text3); border:1px solid rgba(255,255,255,.08); }
 </style>
 </head>
 <body>
@@ -1933,6 +1961,8 @@ let state = {
   }
 };
 let filterActive = { priority: '', tags: [], archived: false, category: '' };
+// Per-project task status filter (session-only, not persisted)
+const taskFilterMap = new Map(); // projId -> 'all'|'todo'|'in_progress'|'done'
 let undoStack = [];
 let timers = {};
 let github = { token: '', owner: '', repo: '', sha: null };
@@ -2608,11 +2638,16 @@ function renderActiveProject(p, slotKey) {
     </div>
 
     <div class="sp-tasklist-wrap">
+      <div class="sp-filter-bar" id="filter-${p.id}">${['all','todo','in_progress','done'].map(f => {const lbls = { all:'Toutes', todo:'○ Todo', in_progress:'◐ Cours', done:'● Faites' };const isAct = (taskFilterMap.get(p.id)||'all') === f;return '<button class="sp-filter-btn' + (isAct ? ' active' : '') + '" onclick="setTaskFilter(\'' + p.id + '\',\'' + f + '\')">' + lbls[f] + '</button>';}).join('')}      </div>
       <div class="sp-tasklist" id="tasks-${p.id}">
-        ${sorted.length === 0
-          ? '<div class="sp-tasklist-empty">Aucune tâche — ajoutez-en une</div>'
-          : sorted.map((t, i) => renderEnhancedTask(t, p.id, i)).join('')
-        }
+        ${(() => {
+          const activeF = taskFilterMap.get(p.id) || 'all';
+          const filtered = activeF === 'all' ? sorted : sorted.filter(t => (t.status||'todo') === activeF);
+          if (filtered.length === 0) {
+            return '<div class="sp-tasklist-empty">' + (sorted.length === 0 ? 'Aucune tâche — ajoutez-en une' : 'Aucun résultat pour ce filtre') + '</div>';
+          }
+          return filtered.map((t, i) => renderEnhancedTask(t, p.id, i)).join('');
+        })()}
       </div>
       <div class="sp-addtask-row">
         <span class="sp-addtask-plus">+</span>
@@ -4090,6 +4125,20 @@ const TASK_STATUS = {
 };
 const TASK_PRIO_COLOR = { high:'#f87171', medium:'#fb923c', low:'#4ade80', critical:'#c084fc' };
 
+function setTaskFilter(projId, filter) {
+  taskFilterMap.set(projId, filter);
+  const openPanels = new Set(
+    [...document.querySelectorAll('.task-detail.open')].map(el => el.id.replace('tdetail-', ''))
+  );
+  renderSlots();
+  openPanels.forEach(id => {
+    const d = document.getElementById('tdetail-' + id);
+    const b = document.getElementById('texpand-' + id);
+    if (d) d.classList.add('open');
+    if (b) b.classList.add('open');
+  });
+}
+
 function renderEnhancedTask(t, projId, idx) {
   const st = TASK_STATUS[t.status||'todo'];
   const prioColor = TASK_PRIO_COLOR[t.priority||'medium'];
@@ -4106,6 +4155,7 @@ function renderEnhancedTask(t, projId, idx) {
       <span class="task-priority-dot" style="background:${prioColor};box-shadow:0 0 4px ${prioColor}80" title="Priorité ${t.priority||'medium'}"></span>
       <span class="task-main-text ${t.status==='done'?'done':t.status==='in_progress'?'in_progress':''}" onclick="openTaskDetail('${projId}','${t.id}')">${esc(t.text)||'<em style="opacity:.4">Sans titre</em>'}</span>
       ${subTotal ? `<span data-sub-pill style="font-size:9px;color:var(--text3);flex-shrink:0;padding:1px 5px;background:rgba(255,255,255,0.06);border-radius:10px">${subDone}/${subTotal}</span>` : ''}
+      ${(t.dueDate && t.status !== 'done') ? (() => { const dd = daysUntil(t.dueDate); const cls = dd < 0 ? 'task-due-late' : dd <= 3 ? 'task-due-soon' : 'task-due-ok'; const lbl = dd < 0 ? Math.abs(dd)+'j↑' : dd === 0 ? 'Auj.' : dd+'j'; return `<span class="task-due-badge ${cls}">📅${lbl}</span>`; })() : ''}
       <div class="task-actions-row">
         <button onclick="openTaskDetail('${projId}','${t.id}')" title="Détails" style="font-size:11px">📋</button>
         <button onclick="cycleTaskPriority('${projId}','${t.id}')" title="Priorité" style="font-size:11px">🎯</button>
@@ -4253,27 +4303,28 @@ window.saveTaskDetail = function(projId, taskId) {
 };
 
 function toggleSubtask(projId, taskId, subId) {
+  // Capture which detail panels are open before re-rendering
+  const openPanels = new Set(
+    [...document.querySelectorAll('.task-detail.open')].map(el => el.id.replace('tdetail-', ''))
+  );
+  openPanels.add(taskId); // always keep current task's panel open
+
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
   const sub = (t.subtasks||[]).find(x=>x.id===subId); if(!sub) return;
   sub.done = !sub.done;
   p.updatedAt = new Date().toISOString();
-  // Re-render just this one task item in-place (fast, no full re-render, panel stays open)
-  const itemEl = document.getElementById('taskitem-' + taskId);
-  if (itemEl) {
-    const idx = [...(itemEl.parentElement?.children || [])].indexOf(itemEl);
-    const newHtml = renderEnhancedTask(t, projId, idx < 0 ? 0 : idx);
-    const tmp = document.createElement('div');
-    tmp.innerHTML = newHtml;
-    const newItem = tmp.firstElementChild;
-    itemEl.replaceWith(newItem);
-    // Re-open the detail panel if it was open
-    const detail = document.getElementById('tdetail-' + taskId);
-    const expandBtn = document.getElementById('texpand-' + taskId);
-    if (detail) { detail.classList.add('open'); }
-    if (expandBtn) { expandBtn.classList.add('open'); }
-  }
+
+  renderSlots(); // full, reliable re-render
   scheduleSave();
+
+  // Restore open panels
+  openPanels.forEach(id => {
+    const d = document.getElementById('tdetail-' + id);
+    const b = document.getElementById('texpand-' + id);
+    if (d) d.classList.add('open');
+    if (b) b.classList.add('open');
+  });
 }
 function deleteSubtask(projId, taskId, subId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
