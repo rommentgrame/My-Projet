@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:23:45.325Z",
+  "lastUpdated": "2026-02-27T09:23:46.245Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -449,6 +449,14 @@
       "periodKey": "2026-W09",
       "done": false,
       "createdAt": "2026-02-27T09:23:44.819Z"
+    },
+    {
+      "id": "cvvn88q74mm4oqc3o",
+      "text": "rerer",
+      "period": "week",
+      "periodKey": "2026-W09",
+      "done": false,
+      "createdAt": "2026-02-27T09:23:45.732Z"
     }
   ],
   "settings": {
