@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:23:32.661Z",
+  "lastUpdated": "2026-02-27T09:23:40.080Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -409,7 +409,16 @@
       "d18wvy1q1mm3s04zn": true
     }
   },
-  "missions": [],
+  "missions": [
+    {
+      "id": "ywfwnywglmm4oq7cr",
+      "text": "rere",
+      "period": "week",
+      "periodKey": "2026-W09",
+      "done": false,
+      "createdAt": "2026-02-27T09:23:39.579Z"
+    }
+  ],
   "settings": {
     "accent": "#ec4899",
     "compact": true,
