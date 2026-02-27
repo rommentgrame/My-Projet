@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:51:49.561Z",
+  "lastUpdated": "2026-02-27T09:51:50.801Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -30,63 +30,7 @@
       "description": "",
       "icon": "🎲",
       "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 6,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "kzxle2zmymm4opz7f",
-          "text": "rerer",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 7,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "b99g261qmmm4oq0ij",
-          "text": "rerer",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 8,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "l4ppwt5pmmm4oq1mj",
-          "text": "rerer",
-          "done": false
-        },
-        {
-          "id": "bwiu08he5mm4ppq52",
-          "text": "Hshs",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 6,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        },
-        {
-          "id": "8lkm0x3wrmm4ppsbi",
-          "text": "Djdk",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 7,
-          "subtasks": [],
-          "note": "",
-          "dueDate": ""
-        }
-      ],
+      "tasks": [],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-05-30",
@@ -100,7 +44,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T09:51:49.050Z"
+      "updatedAt": "2026-02-27T09:51:50.294Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
