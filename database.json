@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T12:51:28.305Z",
+  "lastUpdated": "2026-02-27T12:52:04.194Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -127,7 +127,7 @@
           "done": false
         },
         {
-          "status": "in_progress",
+          "status": "todo",
           "priority": "high",
           "rank": 6,
           "subtasks": [],
@@ -173,7 +173,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T12:51:27.794Z"
+      "updatedAt": "2026-02-27T12:52:03.690Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
