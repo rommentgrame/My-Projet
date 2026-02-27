@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T12:49:57.659Z",
+  "lastUpdated": "2026-02-27T12:50:04.918Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -55,7 +55,7 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "status": "todo",
+          "status": "done",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
@@ -63,7 +63,7 @@
           "dueDate": "",
           "id": "1exbviajkmm4qwmcb",
           "text": "Modélisation 3D des pièce et du plateaux",
-          "done": false
+          "done": true
         },
         {
           "status": "todo",
@@ -173,7 +173,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T12:49:57.154Z"
+      "updatedAt": "2026-02-27T12:50:04.403Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
