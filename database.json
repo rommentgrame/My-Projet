@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:44:19.296Z",
+  "lastUpdated": "2026-02-27T09:44:20.759Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -388,14 +388,6 @@
     }
   },
   "missions": [
-    {
-      "id": "g4wmjyravmm4pfoe0",
-      "text": "Finir la CAO de l’échéquier",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:43:28.056Z"
-    },
     {
       "id": "prfh00s3lmm4pg6g9",
       "text": "Finir l’échéquier élétronique",
