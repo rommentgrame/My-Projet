@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:40:33.479Z",
+  "lastUpdated": "2026-02-27T09:40:45.284Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -55,7 +55,7 @@
             }
           ],
           "note": "",
-          "dueDate": "2026-03-07",
+          "dueDate": "2026-02-05",
           "id": "x8xrh819imm4opqz7",
           "text": "rerre",
           "done": false
@@ -129,7 +129,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T09:40:32.977Z"
+      "updatedAt": "2026-02-27T09:40:44.777Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
