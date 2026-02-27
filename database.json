@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:48:27.895Z",
+  "lastUpdated": "2026-02-27T09:48:29.578Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -61,7 +61,7 @@
           "done": false
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 4,
           "subtasks": [],
@@ -69,7 +69,7 @@
           "dueDate": "",
           "id": "isb95cvykmm4opwtf",
           "text": "rere",
-          "done": false
+          "done": true
         },
         {
           "status": "in_progress",
@@ -129,7 +129,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T09:48:27.377Z"
+      "updatedAt": "2026-02-27T09:48:29.064Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
