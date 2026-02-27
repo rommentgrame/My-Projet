@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:12:30.260Z",
+  "lastUpdated": "2026-02-27T13:14:25.474Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -359,7 +359,19 @@
       "description": "",
       "icon": "🖥️",
       "color": "#a855f7",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "r9goxfonpmm4wyyi2",
+          "text": "Testete",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        }
+      ],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-03-10",
@@ -373,7 +385,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-27T10:26:47.132Z"
+      "updatedAt": "2026-02-27T13:14:24.941Z"
     }
   ],
   "slots": {
