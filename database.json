@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:24:40.671Z",
+  "lastUpdated": "2026-02-27T10:24:45.796Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -52,6 +52,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "9ltn65vdmmm4qwru4",
+          "text": "Créé un cahier des charge",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 2,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -67,7 +78,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T10:24:40.155Z"
+      "updatedAt": "2026-02-27T10:24:45.292Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
