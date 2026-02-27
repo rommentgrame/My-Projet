@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:44:03.121Z",
+  "lastUpdated": "2026-02-27T09:44:09.752Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -390,7 +390,7 @@
   "missions": [
     {
       "id": "049eefpu4mm4pfgnt",
-      "text": "Faire un Exel avec tout les pièce pour l'échiquier électronique",
+      "text": "Faire un Exel avec tout les pièce pour l'échiquier électronique                                     dddddddddddddddddddd",
       "period": "week",
       "periodKey": "2026-W09",
       "done": false,
