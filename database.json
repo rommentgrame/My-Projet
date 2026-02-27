@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:51:50.801Z",
+  "lastUpdated": "2026-02-27T09:52:24.120Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -362,7 +362,7 @@
       "text": "Améliorer mon indépendance",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:44:51.009Z"
     },
     {
