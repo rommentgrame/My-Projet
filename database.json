@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:09:28.256Z",
+  "lastUpdated": "2026-02-27T13:09:31.008Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -421,12 +421,6 @@
     }
   ],
   "habits": [
-    {
-      "id": "d78gmk51gmm4wled9",
-      "name": "Tesyz",
-      "color": "#7c3aed",
-      "createdAt": "2026-02-27T13:03:52.317Z"
-    },
     {
       "id": "4u0jb45owmm4wscqo",
       "name": "teste",
