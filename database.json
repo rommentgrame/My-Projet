@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T12:48:02.701Z",
+  "lastUpdated": "2026-02-27T12:48:25.604Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -54,23 +54,6 @@
       "icon": "🎲",
       "color": "#6366f1",
       "tasks": [
-        {
-          "status": "todo",
-          "priority": "critical",
-          "rank": 0,
-          "subtasks": [
-            {
-              "id": "76rv2huw1mm4vtsw4",
-              "text": "ffffffff",
-              "done": false
-            }
-          ],
-          "note": "",
-          "dueDate": "",
-          "id": "h8zstmjtvmm4qwd2c",
-          "text": "Trouver une idée",
-          "done": false
-        },
         {
           "status": "todo",
           "priority": "medium",
@@ -184,7 +167,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T12:48:02.195Z"
+      "updatedAt": "2026-02-27T12:48:25.098Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
