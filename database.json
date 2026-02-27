@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:23:48.163Z",
+  "lastUpdated": "2026-02-27T09:23:53.238Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -410,30 +410,6 @@
     }
   },
   "missions": [
-    {
-      "id": "ywfwnywglmm4oq7cr",
-      "text": "rere",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:39.579Z"
-    },
-    {
-      "id": "yfbk9ui7dmm4oq8ir",
-      "text": "errer",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:41.091Z"
-    },
-    {
-      "id": "wt9ovwcdtmm4oq9qj",
-      "text": "rerer",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:42.667Z"
-    },
     {
       "id": "58rmrlfwumm4oqam3",
       "text": "rerer",
