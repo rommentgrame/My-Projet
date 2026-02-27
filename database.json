@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:23:40.080Z",
+  "lastUpdated": "2026-02-27T09:23:41.600Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -417,6 +417,14 @@
       "periodKey": "2026-W09",
       "done": false,
       "createdAt": "2026-02-27T09:23:39.579Z"
+    },
+    {
+      "id": "yfbk9ui7dmm4oq8ir",
+      "text": "errer",
+      "period": "week",
+      "periodKey": "2026-W09",
+      "done": false,
+      "createdAt": "2026-02-27T09:23:41.091Z"
     }
   ],
   "settings": {
