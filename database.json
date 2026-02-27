@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T16:04:06.155Z",
+  "lastUpdated": "2026-02-27T17:23:50.661Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -265,7 +265,7 @@
     {
       "id": "8jra8qkuimm3rj05b",
       "name": "Crée une petit musique",
-      "description": "",
+      "description": "Créé une musique électro. Il faut :\n- Un violon\n- Si je peu rajouter des voix \n- Créé un vrai panoramique \n",
       "icon": "🎵",
       "color": "#ef4444",
       "tasks": [
@@ -283,7 +283,7 @@
       ],
       "tags": [],
       "priority": "medium",
-      "dueDate": "",
+      "dueDate": "2026-04-30",
       "notes": "",
       "links": [],
       "estimatedHours": 0,
@@ -294,7 +294,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:54:16.319Z",
-      "updatedAt": "2026-02-27T14:07:13.642Z"
+      "updatedAt": "2026-02-27T17:23:50.089Z"
     },
     {
       "id": "54nnzhm83mm3rhtt1",
