@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:25:26.101Z",
+  "lastUpdated": "2026-02-27T10:25:31.506Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -118,6 +118,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "xjhv3qf16mm4qxr3n",
+          "text": "Créé le plateau",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 8,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -133,7 +144,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T10:25:25.595Z"
+      "updatedAt": "2026-02-27T10:25:30.995Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
