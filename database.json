@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T17:26:26.913Z",
+  "lastUpdated": "2026-02-27T17:26:55.096Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -115,7 +115,9 @@
           "done": false
         }
       ],
-      "tags": [],
+      "tags": [
+        "école"
+      ],
       "priority": "high",
       "dueDate": "2026-05-30",
       "notes": "- [x]  Trouver une idée\n- [x]  Créé un cahier des charge\n- [ ]  Faire le schéma des composants\n- [ ]  Faire une analyse du prix\n- [ ]  Changement si besoin\n- [ ]  Commencé le schéma électronique et choisir la taille de la carte\n- [x]  Modélisation 3D des pièce\n- [ ]  Créé le schéma du plateau\n- [ ]  Créé le plateau\n- [ ]  Commencer les assemblages\n- [ ]  Faire le codage et teste du système.",
@@ -128,7 +130,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T13:34:12.656Z"
+      "updatedAt": "2026-02-27T17:26:54.584Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
