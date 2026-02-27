@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:46:52.488Z",
+  "lastUpdated": "2026-02-27T09:47:49.913Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -513,7 +513,7 @@
       "text": "Baisser mon temps de téléphone pour de la productivité",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:46:10.113Z"
     },
     {
