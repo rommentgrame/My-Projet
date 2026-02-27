@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T17:24:47.861Z",
+  "lastUpdated": "2026-02-27T17:25:27.232Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -279,6 +279,17 @@
           "id": "k7ms9amrgmm4xq9e8",
           "text": "Choisir mon style",
           "done": true
+        },
+        {
+          "id": "9hexo0pgkmm55xs6g",
+          "text": "Faire la mélodie et les accompagnement",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 1,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -294,7 +305,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:54:16.319Z",
-      "updatedAt": "2026-02-27T17:24:42.454Z"
+      "updatedAt": "2026-02-27T17:25:26.632Z"
     },
     {
       "id": "54nnzhm83mm3rhtt1",
