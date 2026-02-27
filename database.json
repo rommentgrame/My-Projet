@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:50:27.027Z",
+  "lastUpdated": "2026-02-27T09:50:32.671Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -16,7 +16,13 @@
           "status": "todo",
           "priority": "medium",
           "rank": 0,
-          "subtasks": [],
+          "subtasks": [
+            {
+              "id": "fh752nvcomm4pormo",
+              "text": "Tetse",
+              "done": false
+            }
+          ],
           "note": "",
           "dueDate": ""
         }
@@ -34,7 +40,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T23:00:31.039Z",
-      "updatedAt": "2026-02-27T09:50:26.511Z"
+      "updatedAt": "2026-02-27T09:50:32.161Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
