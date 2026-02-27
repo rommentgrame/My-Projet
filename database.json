@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:45:35.297Z",
+  "lastUpdated": "2026-02-27T09:45:40.475Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -475,6 +475,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:45:34.785Z"
+    },
+    {
+      "id": "iana9s32amm4pii68",
+      "text": "Améliorer mon anglais",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:45:39.968Z"
     }
   ],
   "settings": {
