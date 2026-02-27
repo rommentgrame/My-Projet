@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:25:04.547Z",
+  "lastUpdated": "2026-02-27T10:25:10.865Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -85,6 +85,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "qrqiogamemm4qxb6c",
+          "text": "Faire le codage et teste du système.",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 5,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -100,7 +111,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T10:25:04.037Z"
+      "updatedAt": "2026-02-27T10:25:10.356Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
