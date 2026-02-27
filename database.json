@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:16:40.288Z",
+  "lastUpdated": "2026-02-27T13:16:42.399Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -10,7 +10,7 @@
       "color": "#a855f7",
       "tasks": [
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -18,10 +18,10 @@
           "dueDate": "",
           "id": "u95b154jfmm4tlsqa",
           "text": "Ajuster les taches",
-          "done": false
+          "done": true
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
@@ -29,7 +29,7 @@
           "dueDate": "",
           "id": "ei3r9lkxomm4tmw6z",
           "text": "Ajuster les sous tache pour avoir un principe de cochage des sous taches",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -45,7 +45,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T23:00:31.039Z",
-      "updatedAt": "2026-02-27T13:04:20.627Z"
+      "updatedAt": "2026-02-27T13:16:41.895Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
