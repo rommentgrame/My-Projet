@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:32:02.435Z",
+  "lastUpdated": "2026-02-27T13:32:11.673Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -105,7 +105,7 @@
         },
         {
           "status": "todo",
-          "priority": "medium",
+          "priority": "low",
           "rank": 9,
           "subtasks": [],
           "note": "",
@@ -128,7 +128,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T13:32:01.923Z"
+      "updatedAt": "2026-02-27T13:32:11.160Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
