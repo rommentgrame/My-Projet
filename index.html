@@ -296,7 +296,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-meta { display: flex; flex-direction: column; }
 .slot-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; }
 .slot-desc { font-size: 10px; color: var(--text3); margin-top: 1px; }
-.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow: hidden; }
+.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow: visible; }
 .slot-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; color: var(--text3); gap: 10px; }
 .slot-empty-icon { font-size: 38px; opacity: 0.2; }
 .slot-empty p { font-size: 12px; line-height: 1.6; }
@@ -320,11 +320,12 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  /* No fixed height — list uses its own max-height */
+  flex: 1; min-height: 0; /* allow shrink in flex parent */
 }
 .sp-tasklist {
-  max-height: 210px;   /* show ~5-6 tasks, then scroll */
-  min-height: 32px;
+  /* Fixed scrollable area — tasks NEVER compress */
+  max-height: 280px;
+  min-height: 40px;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex; flex-direction: column;
@@ -339,8 +340,10 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   padding: 14px; text-align: center;
   font-size: 11px; color: var(--text3); font-style: italic;
 }
-/* Task rows inside the slot list — flat, no individual card borders */
+/* Task rows inside slot list — stable height, no compression */
 .sp-tasklist .task-item {
+  min-height: 38px;   /* guaranteed minimum, never shrinks below this */
+  flex-shrink: 0;     /* critical: prevents flex from compressing tasks */
   border-radius: 0;
   border: none;
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -659,8 +662,192 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .tags-wrap { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
 
 /* ══════════════════════════════════════════════
-   CONFETTI
+   20 NEW FEATURES — CSS
 ══════════════════════════════════════════════ */
+
+/* Feature 1: Global progress bar */
+#global-task-bar {
+  background: var(--glass); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+}
+#global-task-bar .gt-label { font-size: 11px; color: var(--text2); font-weight: 600; white-space: nowrap; }
+#global-task-bar .gt-bar-wrap { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+#global-task-bar .gt-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), #22c55e); transition: width 0.4s ease; }
+#global-task-bar .gt-pct { font-size: 12px; font-weight: 700; color: var(--text); min-width: 38px; text-align: right; }
+#global-task-bar .gt-active { font-size: 10px; color: var(--text3); white-space: nowrap; }
+
+/* Feature 2: Task filter counts */
+.sp-filter-count { font-size: 9px; color: var(--text3); margin-left: 3px; }
+
+/* Feature 3: Slot sort bar */
+.slot-sort-bar {
+  display: flex; gap: 3px; padding: 5px 10px 3px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.12);
+}
+.slot-sort-btn {
+  padding: 2px 7px; border-radius: 20px; border: 1px solid var(--border);
+  background: transparent; color: var(--text3); cursor: pointer;
+  font-size: 9px; font-family: var(--font); font-weight: 500;
+  transition: all var(--transition);
+}
+.slot-sort-btn:hover { border-color: var(--border2); color: var(--text2); }
+.slot-sort-btn.active { background: rgba(var(--accent-rgb),0.15); border-color: rgba(var(--accent-rgb),0.4); color: var(--accent); }
+
+/* Feature 4: Overdue task highlight */
+.task-item.task-overdue { border-left-color: #ef4444 !important; }
+.task-item.task-overdue .task-main-text { color: #fca5a5 !important; }
+.task-due-badge.task-due-late { color: #f87171; background: rgba(239,68,68,0.1); border-radius: 8px; padding: 1px 5px; }
+.task-due-badge.task-due-soon { color: #fb923c; background: rgba(249,115,22,0.1); border-radius: 8px; padding: 1px 5px; }
+.task-due-badge.task-due-ok { color: #4ade80; }
+
+/* Feature 5: Focus mode */
+.focus-mode .slot-card { filter: brightness(0.35) saturate(0.4); transition: filter 0.3s; }
+.focus-mode .slot-card.focus-active { filter: none !important; box-shadow: 0 0 40px rgba(var(--accent-rgb),0.2) !important; }
+.focus-mode-badge {
+  position: fixed; top: 70px; right: 16px; z-index: 500;
+  background: rgba(var(--accent-rgb),0.9); color: white;
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 20px; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(var(--accent-rgb),0.4);
+  animation: slideDown 0.2s ease;
+}
+
+/* Feature 6: Compact task mode per slot */
+.sp-tasklist.compact .task-item-header { padding: 4px 10px; }
+.sp-tasklist.compact .task-item { min-height: 28px; }
+.sp-tasklist.compact .task-rank { display: none; }
+.sp-tasklist.compact .task-priority-dot { display: none; }
+
+/* Feature 7: Inline subtask quick-add */
+.task-subtask-quick {
+  padding: 4px 10px 6px 42px;
+  border-top: 1px dashed rgba(255,255,255,0.05);
+  display: none; gap: 6px; align-items: center;
+}
+.task-subtask-quick.open { display: flex; }
+.task-subtask-quick input {
+  flex: 1; background: transparent; border: none; border-bottom: 1px solid var(--border);
+  outline: none; color: var(--text); font-family: var(--font); font-size: 11px; padding: 2px 4px;
+  transition: border-color 0.15s;
+}
+.task-subtask-quick input:focus { border-color: rgba(var(--accent-rgb),0.5); }
+.task-subtask-quick input::placeholder { color: var(--text3); font-style: italic; }
+.task-subtask-quick button {
+  background: rgba(var(--accent-rgb),0.12); border: 1px solid rgba(var(--accent-rgb),0.3);
+  color: var(--accent); font-size: 13px; border-radius: 5px; cursor: pointer; padding: 1px 7px;
+  transition: all var(--transition);
+}
+.task-subtask-quick button:hover { background: rgba(var(--accent-rgb),0.22); }
+
+/* Feature 8: Task completion flash */
+@keyframes taskCompleteFx {
+  0%   { background: rgba(34,197,94,0.25); }
+  100% { background: transparent; }
+}
+.task-item.completing { animation: taskCompleteFx 0.6s ease; }
+
+/* Feature 9: Keyboard shortcut panel */
+.kbd-help-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.kbd-help-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; background: var(--glass); border-radius: 8px;
+}
+.kbd-help-item .kbd { min-width: 64px; text-align: center; }
+.kbd-help-item span { font-size: 12px; color: var(--text2); }
+
+/* Feature 10: Statistics per slot */
+.slot-task-stats {
+  display: flex; gap: 6px; padding: 4px 10px 4px;
+  font-size: 9.5px; color: var(--text3); flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.slot-task-stat { display: flex; align-items: center; gap: 3px; }
+.slot-task-stat.todo-stat { color: var(--text3); }
+.slot-task-stat.prog-stat { color: #fb923c; }
+.slot-task-stat.done-stat { color: #4ade80; }
+.slot-task-stat.late-stat { color: #f87171; }
+
+/* Feature 11: Slot action bar extra buttons */
+.sp-slot-extra-btns {
+  display: flex; gap: 4px; flex-wrap: wrap; padding: 4px 0 0;
+}
+.sp-slot-extra-btns .btn { font-size: 10px; padding: 4px 8px; }
+
+/* Feature 12: Drag placeholder */
+.task-drop-placeholder {
+  height: 36px; border-radius: 8px;
+  border: 2px dashed rgba(var(--accent-rgb),0.4);
+  background: rgba(var(--accent-rgb),0.06);
+  margin-bottom: 3px; transition: all 0.2s;
+}
+
+/* Feature 13: Task note preview */
+.task-note-preview {
+  padding: 2px 10px 6px 42px;
+  font-size: 10.5px; color: var(--text3);
+  font-style: italic; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+
+/* Feature 14: Milestone banner */
+.milestone-banner {
+  position: fixed; top: 70px; left: 50%; transform: translateX(-50%);
+  z-index: 8000; background: linear-gradient(135deg, var(--accent), #22c55e);
+  color: white; font-size: 13px; font-weight: 700; padding: 8px 20px;
+  border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  animation: milestoneIn 0.4s cubic-bezier(0.34,1.4,0.64,1), milestoneOut 0.3s ease 2.5s forwards;
+  pointer-events: none;
+}
+@keyframes milestoneIn { from { opacity:0; transform:translateX(-50%) scale(0.7) translateY(-20px); } to { opacity:1; transform:translateX(-50%) scale(1) translateY(0); } }
+@keyframes milestoneOut { to { opacity:0; transform:translateX(-50%) scale(0.9) translateY(-10px); } }
+
+/* Feature 15: Export panel */
+.export-task-text {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px; font-family: var(--font-mono);
+  font-size: 11px; color: var(--text2); white-space: pre;
+  max-height: 300px; overflow-y: auto; user-select: all;
+  line-height: 1.8;
+}
+
+/* Feature 16: Move task between projects modal */
+.move-proj-list { display: flex; flex-direction: column; gap: 6px; max-height: 280px; overflow-y: auto; }
+.move-proj-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; background: var(--glass); border: 1px solid var(--border);
+  border-radius: 8px; cursor: pointer; transition: all var(--transition);
+}
+.move-proj-item:hover { background: var(--glass2); border-color: var(--border2); }
+
+/* Feature 17: Slot collapse */
+.slot-body.collapsed { display: none !important; }
+.slot-collapse-btn {
+  background: none; border: none; cursor: pointer; color: var(--text3);
+  font-size: 11px; transition: all var(--transition);
+}
+.slot-collapse-btn:hover { color: var(--text); }
+
+/* Feature 18: Subtask count badge improvements - already done above */
+
+/* Feature 19: All-tasks done check per slot */
+.slot-mark-all-btn {
+  font-size: 9.5px; color: #4ade80; background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2); border-radius: 8px;
+  padding: 2px 8px; cursor: pointer; transition: all var(--transition);
+}
+.slot-mark-all-btn:hover { background: rgba(34,197,94,0.2); }
+
+/* Feature 20: Task priority border color */
+.task-item[data-priority="critical"] { border-left-color: #c084fc; }
+.task-item[data-priority="high"] { border-left-color: #f87171; }
+.task-item[data-priority="medium"] { border-left-color: #fb923c; }
+.task-item[data-priority="low"] { border-left-color: #4ade80; }
+.task-item[data-status="done"][data-priority] { border-left-color: #22c55e; }
+.task-item[data-status="in_progress"] { border-left-color: #f97316 !important; }
 .confetti-piece {
   position: fixed; width: 8px; height: 8px; z-index: 9999;
   animation: confettiFall linear forwards;
@@ -1808,6 +1995,13 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 
     <!-- Active Projects View -->
     <div id="view-board">
+      <!-- Global Task Progress Bar -->
+      <div id="global-task-bar">
+        <span class="gt-label">📊 Avancement global</span>
+        <div class="gt-bar-wrap"><div class="gt-bar-fill" id="gt-bar-fill" style="width:0%"></div></div>
+        <span class="gt-pct" id="gt-pct">0%</span>
+        <span class="gt-active" id="gt-active"></span>
+      </div>
       <!-- Habits Widget -->
       <div style="background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:16px" id="habits-widget">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
@@ -1839,6 +2033,9 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
       <div style="display:flex;gap:12px;flex-wrap:wrap;padding:10px 14px;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:11px;color:var(--text3)">
         <span><kbd class="kbd">Ctrl+N</kbd> Nouveau projet</span>
         <span><kbd class="kbd">Ctrl+Z</kbd> Annuler</span>
+        <span><kbd class="kbd">Ctrl+/</kbd> Raccourcis</span>
+        <span><kbd class="kbd">Ctrl+F</kbd> Recherche</span>
+        <span><kbd class="kbd">Esc</kbd> Quitter focus</span>
         <span>🖱 Glisser-déposer vers slots</span>
         <span>→ Assigner depuis la liste</span>
       </div>
@@ -1961,6 +2158,11 @@ let state = {
   }
 };
 let filterActive = { priority: '', tags: [], archived: false, category: '' };
+// Per-slot sort map (session-only)
+const slotSortMap = new Map(); // projId -> 'rank'|'priority'|'status'|'dueDate'
+const slotCompactMap = new Map(); // projId -> bool
+let focusModeSlot = null;
+
 // Per-project task status filter (session-only, not persisted)
 const taskFilterMap = new Map(); // projId -> 'all'|'todo'|'in_progress'|'done'
 let undoStack = [];
@@ -2433,6 +2635,8 @@ function renderAll() {
   renderHabits();
   renderMissions();
   renderCategoryFilters();
+  // Update global task bar
+  try { updateGlobalTaskBar(); } catch(e) {}
 }
 
 function renderHeaderStats() {
@@ -2638,11 +2842,48 @@ function renderActiveProject(p, slotKey) {
     </div>
 
     <div class="sp-tasklist-wrap">
-      <div class="sp-filter-bar" id="filter-${p.id}">${['all','todo','in_progress','done'].map(f => {const lbls = { all:'Toutes', todo:'○ Todo', in_progress:'◐ Cours', done:'● Faites' };const isAct = (taskFilterMap.get(p.id)||'all') === f;return '<button class="sp-filter-btn' + (isAct ? ' active' : '') + '" onclick="setTaskFilter(\'' + p.id + '\',\'' + f + '\')">' + lbls[f] + '</button>';}).join('')}      </div>
+      <div class="sp-filter-bar" id="filter-${p.id}">${['all','todo','in_progress','done'].map(f => {
+        const lbls = { all:'Toutes', todo:'○ Todo', in_progress:'◐ Cours', done:'● Faites' };
+        const counts = { all:p.tasks.length, todo:p.tasks.filter(t=>(t.status||'todo')==='todo').length, in_progress:p.tasks.filter(t=>t.status==='in_progress').length, done:p.tasks.filter(t=>t.done).length };
+        const isAct = (taskFilterMap.get(p.id)||'all') === f;
+        return '<button class="sp-filter-btn' + (isAct ? ' active' : '') + '" onclick="setTaskFilter(\'' + p.id + '\',\'' + f + '\')">' + lbls[f] + '<span class="sp-filter-count">'+counts[f]+'</span></button>';
+      }).join('')}</div>
+      <div class="slot-task-stats">
+        ${(() => {
+          const todo = p.tasks.filter(t=>(t.status||'todo')==='todo').length;
+          const prog = p.tasks.filter(t=>t.status==='in_progress').length;
+          const done2 = p.tasks.filter(t=>t.done).length;
+          const late = p.tasks.filter(t=>t.dueDate && !t.done && new Date(t.dueDate) < new Date()).length;
+          return `<span class="slot-task-stat todo-stat">○ ${todo} à faire</span>
+            ${prog?`<span class="slot-task-stat prog-stat">◐ ${prog} en cours</span>`:''}
+            ${done2?`<span class="slot-task-stat done-stat">● ${done2} faites</span>`:''}
+            ${late?`<span class="slot-task-stat late-stat">⏰ ${late} en retard</span>`:''}`;
+        })()}
+      </div>
+      <div class="slot-sort-bar">
+        <span style="font-size:9px;color:var(--text3);margin-right:3px">Tri:</span>
+        ${['rank','priority','status','dueDate'].map(s => {
+          const lbls = {rank:'N°',priority:'Prio',status:'Statut',dueDate:'Date'};
+          const cur = (slotSortMap.get(p.id)||'rank');
+          return `<button class="slot-sort-btn${cur===s?' active':''}" onclick="setSlotSort('${p.id}','${s}')">${lbls[s]}</button>`;
+        }).join('')}
+        <button class="slot-mark-all-btn" onclick="markAllTasksDone('${p.id}')" title="Tout terminer" style="margin-left:auto">✓ Tout</button>
+        <button class="slot-sort-btn" onclick="toggleSlotCompact('${p.id}')" title="Mode compact" style="margin-left:4px" id="compact-btn-${p.id}">▤</button>
+      </div>
       <div class="sp-tasklist" id="tasks-${p.id}">
         ${(() => {
           const activeF = taskFilterMap.get(p.id) || 'all';
-          const filtered = activeF === 'all' ? sorted : sorted.filter(t => (t.status||'todo') === activeF);
+          const sortBy = slotSortMap.get(p.id) || 'rank';
+          let filtered = activeF === 'all' ? sorted : sorted.filter(t => (t.status||'todo') === activeF);
+          if (sortBy === 'priority') {
+            const ordPri = {critical:0,high:1,medium:2,low:3};
+            filtered = [...filtered].sort((a,b) => (ordPri[a.priority||'medium']||2) - (ordPri[b.priority||'medium']||2));
+          } else if (sortBy === 'status') {
+            const ordSt = {in_progress:0,todo:1,done:2};
+            filtered = [...filtered].sort((a,b) => (ordSt[a.status||'todo']||1) - (ordSt[b.status||'todo']||1));
+          } else if (sortBy === 'dueDate') {
+            filtered = [...filtered].sort((a,b) => (a.dueDate||'9999') > (b.dueDate||'9999') ? 1 : -1);
+          }
           if (filtered.length === 0) {
             return '<div class="sp-tasklist-empty">' + (sorted.length === 0 ? 'Aucune tâche — ajoutez-en une' : 'Aucun résultat pour ce filtre') + '</div>';
           }
@@ -2662,6 +2903,8 @@ function renderActiveProject(p, slotKey) {
     <div class="sp-actions">
       <button class="btn" onclick="openDetailProj('${p.id}')">👁 Détails</button>
       <button class="btn" onclick="openNotesQuick('${p.id}')">📝 Notes</button>
+      <button class="btn" onclick="exportTasksToClipboard('${p.id}')" title="Exporter les tâches">📋 Export</button>
+      <button class="btn" onclick="activateFocusMode('${slotKey}')" title="Mode focus sur ce slot">🎯 Focus</button>
       <button class="btn btn-success" onclick="completeProject('${p.id}')">🏆 Terminer</button>
     </div>
   </div>`;
@@ -3983,7 +4226,16 @@ function onKeyDown(e) {
   }
   if ((e.ctrlKey||e.metaKey) && e.key==='z') { e.preventDefault(); doUndo(); }
   if ((e.ctrlKey||e.metaKey) && e.key==='n') { e.preventDefault(); openNew(); }
-  if (e.key==='Escape') { closeModal(); closeDropdown(); }
+  if ((e.ctrlKey||e.metaKey) && e.key==='/') { e.preventDefault(); showKeyboardHelp(); }
+  if ((e.ctrlKey||e.metaKey) && e.key==='f') {
+    e.preventDefault();
+    const si = document.getElementById('search-input');
+    if (si) { if (window.innerWidth > 900) si.focus(); else { toggleSidebar(); setTimeout(() => si.focus(), 200); } }
+  }
+  if (e.key==='Escape') {
+    closeModal(); closeDropdown();
+    if (focusModeSlot) activateFocusMode(focusModeSlot);
+  }
 }
 
 // ── QUICK STATS BAR ────────────────────────────────────────────────────────
@@ -4145,7 +4397,10 @@ function renderEnhancedTask(t, projId, idx) {
   const subDone = (t.subtasks||[]).filter(s=>s.done).length;
   const subTotal = (t.subtasks||[]).length;
   const statusLabel = { todo:'À faire', in_progress:'En cours', done:'Terminé' }[t.status||'todo'] || '';
-  return `<div class="task-item" id="taskitem-${t.id}" data-task-id="${t.id}" data-proj-id="${projId}" data-status="${t.status||'todo'}">
+  const isOverdueTask = t.dueDate && t.status !== 'done' && new Date(t.dueDate) < new Date();
+  const overdueClass = isOverdueTask ? ' task-overdue' : '';
+  const noteHtml = (t.note && t.status !== 'done') ? `<div class="task-note-preview">📝 ${esc(t.note)}</div>` : '';
+  return `<div class="task-item${overdueClass}" id="taskitem-${t.id}" data-task-id="${t.id}" data-proj-id="${projId}" data-status="${t.status||'todo'}" data-priority="${t.priority||'medium'}">
     <div class="task-item-header">
       <span class="task-drag-handle" title="Déplacer">⠿</span>
       <span class="task-rank">${idx+1}</span>
@@ -4154,15 +4409,18 @@ function renderEnhancedTask(t, projId, idx) {
       </button>
       <span class="task-priority-dot" style="background:${prioColor};box-shadow:0 0 4px ${prioColor}80" title="Priorité ${t.priority||'medium'}"></span>
       <span class="task-main-text ${t.status==='done'?'done':t.status==='in_progress'?'in_progress':''}" onclick="openTaskDetail('${projId}','${t.id}')">${esc(t.text)||'<em style="opacity:.4">Sans titre</em>'}</span>
-      ${subTotal ? `<span data-sub-pill style="font-size:9px;color:var(--text3);flex-shrink:0;padding:1px 5px;background:rgba(255,255,255,0.06);border-radius:10px">${subDone}/${subTotal}</span>` : ''}
+      ${subTotal ? `<span data-sub-pill class="subtask-count-badge ${subDone===subTotal?'complete':subDone>0?'partial':''}">${subDone}/${subTotal}</span>` : ''}
       ${(t.dueDate && t.status !== 'done') ? (() => { const dd = daysUntil(t.dueDate); const cls = dd < 0 ? 'task-due-late' : dd <= 3 ? 'task-due-soon' : 'task-due-ok'; const lbl = dd < 0 ? Math.abs(dd)+'j↑' : dd === 0 ? 'Auj.' : dd+'j'; return `<span class="task-due-badge ${cls}">📅${lbl}</span>`; })() : ''}
       <div class="task-actions-row">
         <button onclick="openTaskDetail('${projId}','${t.id}')" title="Détails" style="font-size:11px">📋</button>
         <button onclick="cycleTaskPriority('${projId}','${t.id}')" title="Priorité" style="font-size:11px">🎯</button>
+        <button onclick="toggleQuickSubtask('${t.id}')" title="Ajouter sous-tâche" style="font-size:11px">+↳</button>
+        <button onclick="duplicateTask('${projId}','${t.id}')" title="Dupliquer" style="font-size:11px">📋</button>
         <button onclick="deleteTaskFromProj('${projId}','${t.id}')" title="Supprimer" style="font-size:14px;color:#f87171 !important">×</button>
       </div>
       ${subTotal ? `<button class="task-expand-btn" id="texpand-${t.id}" onclick="toggleTaskDetail('${t.id}')">▶</button>` : ''}
     </div>
+    ${noteHtml}
     ${subTotal ? `<div class="task-detail" id="tdetail-${t.id}">
       <div class="subtask-mini-bar"><div class="subtask-mini-fill" style="width:${subTotal?Math.round(subDone/subTotal*100):0}%"></div></div>
       <div class="subtask-list">${(t.subtasks||[]).map(s=>`<div class="subtask-row">
@@ -4173,6 +4431,10 @@ function renderEnhancedTask(t, projId, idx) {
         <button class="subtask-del" onclick="deleteSubtask('${projId}','${t.id}','${s.id}')" title="Supprimer">×</button>
       </div>`).join('')}</div>
     </div>` : ''}
+    <div class="task-subtask-quick" id="tquick-${t.id}">
+      <input id="tquick-inp-${t.id}" placeholder="Nouvelle sous-tâche…" onkeydown="if(event.key==='Enter')addQuickSubtask('${projId}','${t.id}');if(event.key==='Escape')toggleQuickSubtask('${t.id}')">
+      <button onclick="addQuickSubtask('${projId}','${t.id}')">+</button>
+    </div>
   </div>`;
 }
 
@@ -4180,10 +4442,29 @@ function cycleTaskStatus(projId, taskId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
   const cycle = { todo:'in_progress', in_progress:'done', done:'todo' };
-  t.status = cycle[t.status||'todo'];
+  const prevStatus = t.status || 'todo';
+  t.status = cycle[prevStatus];
   t.done = t.status === 'done';
   p.updatedAt = new Date().toISOString();
+
+  // Check milestone
+  const doneTasks = p.tasks.filter(t=>t.done).length;
+  const totalTasks = p.tasks.length;
+  if (t.done) {
+    if (doneTasks === totalTasks && totalTasks > 0) {
+      showMilestoneBanner(`🏆 Toutes les tâches de "${p.name}" terminées !`);
+    } else if (doneTasks === Math.ceil(totalTasks / 2) && prevStatus !== 'done') {
+      showMilestoneBanner(`🎯 50% des tâches terminées !`);
+    }
+  }
+
   renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave();
+  updateGlobalTaskBar();
+  // Flash animation
+  setTimeout(() => {
+    const el = document.getElementById('taskitem-' + taskId);
+    if (el && t.done) { el.classList.add('completing'); setTimeout(() => el.classList.remove('completing'), 600); }
+  }, 10);
 }
 
 function cycleTaskPriority(projId, taskId) {
@@ -4251,10 +4532,10 @@ function openTaskDetail(projId, taskId) {
       <!-- Subtasks -->
       <div class="form-group">
         <label class="form-label">Sous-tâches (${(t.subtasks||[]).filter(s=>s.done).length}/${(t.subtasks||[]).length})</label>
-        <div id="td-subtasks">${renderSubtasksEdit(t.subtasks||[])}</div>
+        <div id="td-subtasks">${renderSubtasksEdit(t.subtasks||[], p.id, t.id)}</div>
         <div style="display:flex;gap:6px;margin-top:6px">
-          <input class="input" id="td-sub-inp" placeholder="+ Sous-tâche..." style="font-size:12px" onkeydown="if(event.key==='Enter')addSubtaskFromModal('${projId}','${taskId}')">
-          <button class="btn" onclick="addSubtaskFromModal('${projId}','${taskId}')">+</button>
+          <input class="input" id="td-sub-inp" placeholder="+ Sous-tâche..." style="font-size:12px" onkeydown="if(event.key==='Enter')addSubtaskFromModal('${p.id}','${t.id}')">
+          <button class="btn" onclick="addSubtaskFromModal('${p.id}','${t.id}')">+</button>
         </div>
       </div>
     </div>
@@ -4264,16 +4545,61 @@ function openTaskDetail(projId, taskId) {
     </div>
   `);
 }
-function renderSubtasksEdit(subtasks) {
+function renderSubtasksEdit(subtasks, projId, taskId) {
   if (!subtasks.length) return '<p style="color:var(--text3);font-size:11px">Aucune sous-tâche</p>';
-  return subtasks.map(s=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)">
-    <button class="subtask-check${s.done?' done':''}" onclick="this.classList.toggle('done');this.nextSibling.nextSibling.value=this.classList.contains('done')?'true':'false'">${s.done?'✓':''}</button>
-    <span style="flex:1;font-size:12px;${s.done?'text-decoration:line-through;opacity:0.5':''}">${esc(s.text)}</span>
-    <input type="hidden" class="sub-done-val" value="${s.done}">
-    <input type="hidden" class="sub-id-val" value="${s.id}">
-    <button onclick="this.parentElement.remove()" style="background:none;border:none;cursor:pointer;color:var(--text3)">×</button>
+  return subtasks.map(s=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)" id="sub-row-${s.id}">
+    <button class="subtask-check${s.done?' done':''}" 
+      data-sub-id="${s.id}" data-proj="${projId||''}" data-task="${taskId||''}"
+      onclick="toggleSubtaskInModal(this,'${s.id}','${projId||''}','${taskId||''}')"
+      title="${s.done?'Terminé':'À faire'}">
+      ${s.done?'<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6.5 7,1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
+    </button>
+    <span style="flex:1;font-size:12px;${s.done?'text-decoration:line-through;opacity:0.5':''}" id="sub-text-${s.id}">${esc(s.text)}</span>
+    <input type="hidden" class="sub-done-val" data-sid="${s.id}" value="${s.done}">
+    <button onclick="deleteSubtaskInModal('${projId||''}','${taskId||''}','${s.id}')" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px;padding:2px 5px;" title="Supprimer">×</button>
   </div>`).join('');
 }
+window.toggleSubtaskInModal = function(btn, subId, projId, taskId) {
+  // Immediate visual toggle
+  const isDone = btn.classList.toggle('done');
+  btn.innerHTML = isDone ? '<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6.5 7,1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '';
+  const textEl = document.getElementById('sub-text-' + subId);
+  if (textEl) { textEl.style.textDecoration = isDone ? 'line-through' : 'none'; textEl.style.opacity = isDone ? '0.5' : '1'; }
+  // Update hidden input
+  const hidden = btn.closest('div')?.querySelector('.sub-done-val');
+  if (hidden) hidden.value = isDone ? 'true' : 'false';
+  // Persist immediately to state if projId/taskId available
+  if (projId && taskId) {
+    const p = state.projects.find(x=>x.id===projId); if (!p) return;
+    const t = p.tasks.find(x=>x.id===taskId); if (!t) return;
+    const sub = (t.subtasks||[]).find(x=>x.id===subId); if (!sub) return;
+    sub.done = isDone;
+    // Auto-complete parent task if all subtasks done
+    if (t.subtasks.length > 0 && t.subtasks.every(s=>s.done)) {
+      t.status = 'done'; t.done = true;
+    } else if (isDone === false && t.status === 'done') {
+      t.status = 'in_progress'; t.done = false;
+    }
+    p.updatedAt = new Date().toISOString();
+    scheduleSave();
+    // Update count label in modal
+    const lbl = document.querySelector('.modal-body .form-label');
+    const allDone = t.subtasks.filter(s=>s.done).length;
+    const allTotal = t.subtasks.length;
+    // Update the label
+    const subLabel = document.querySelector('#td-subtasks')?.previousElementSibling;
+    if (subLabel) subLabel.textContent = `Sous-tâches (${allDone}/${allTotal})`;
+  }
+};
+window.deleteSubtaskInModal = function(projId, taskId, subId) {
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if (!t) return;
+  t.subtasks = (t.subtasks||[]).filter(s=>s.id!==subId);
+  p.updatedAt = new Date().toISOString();
+  const container = document.getElementById('td-subtasks');
+  if (container) container.innerHTML = renderSubtasksEdit(t.subtasks, projId, taskId);
+  scheduleSave();
+};
 window.addSubtaskFromModal = function(projId, taskId) {
   const inp = document.getElementById('td-sub-inp'); if(!inp||!inp.value.trim()) return;
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
@@ -4284,22 +4610,28 @@ window.addSubtaskFromModal = function(projId, taskId) {
   p.updatedAt = new Date().toISOString();
   inp.value='';
   const container = document.getElementById('td-subtasks');
-  if (container) container.innerHTML = renderSubtasksEdit(t.subtasks);
+  if (container) container.innerHTML = renderSubtasksEdit(t.subtasks, projId, taskId);
   scheduleSave();
 };
 window.saveTaskDetail = function(projId, taskId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
-  t.text = document.getElementById('td-text')?.value.trim() || t.text;
-  t.status = document.getElementById('td-status')?.value || t.status;
-  t.done = t.status === 'done';
+  const newText = document.getElementById('td-text')?.value.trim();
+  if (newText) t.text = newText;
+  const newStatus = document.getElementById('td-status')?.value;
+  if (newStatus) { t.status = newStatus; t.done = t.status === 'done'; }
   t.priority = document.getElementById('td-priority')?.value || t.priority;
   t.rank = parseInt(document.getElementById('td-rank')?.value)||0;
   t.dueDate = document.getElementById('td-due')?.value || '';
   t.note = document.getElementById('td-note')?.value || '';
+  // Auto-complete task if all subtasks done
+  if (t.subtasks && t.subtasks.length > 0 && t.subtasks.every(s=>s.done) && t.status !== 'done') {
+    t.status = 'done'; t.done = true;
+  }
   p.updatedAt = new Date().toISOString();
   renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave(); closeModal();
   toast('Tâche mise à jour ✏');
+  updateGlobalTaskBar();
 };
 
 function toggleSubtask(projId, taskId, subId) {
@@ -4313,9 +4645,26 @@ function toggleSubtask(projId, taskId, subId) {
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
   const sub = (t.subtasks||[]).find(x=>x.id===subId); if(!sub) return;
   sub.done = !sub.done;
-  p.updatedAt = new Date().toISOString();
 
-  renderSlots(); // full, reliable re-render
+  // Auto-complete / auto-reactivate parent task based on subtask state
+  const allSubDone = t.subtasks.every(s => s.done);
+  const anySubDone = t.subtasks.some(s => s.done);
+  if (allSubDone && t.subtasks.length > 0) {
+    t.status = 'done'; t.done = true;
+    showMilestoneBanner(`✅ Toutes les sous-tâches terminées !`);
+  } else if (!sub.done && t.status === 'done') {
+    // One subtask unchecked → reactivate parent
+    t.status = anySubDone ? 'in_progress' : 'todo';
+    t.done = false;
+  } else if (anySubDone && t.status === 'todo') {
+    t.status = 'in_progress'; t.done = false;
+  }
+
+  p.updatedAt = new Date().toISOString();
+  renderSlots();
+  renderBacklog();
+  renderHeaderStats();
+  updateGlobalTaskBar();
   scheduleSave();
 
   // Restore open panels
@@ -4753,6 +5102,290 @@ function editMissionInline(id, spanEl) {
     if (e.key === 'Enter') { e.preventDefault(); save(); }
     if (e.key === 'Escape') { input.value = m.text; save(); }
   });
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// 20 NOUVELLES FONCTIONNALITÉS
+// ══════════════════════════════════════════════════════════════
+
+// (slotSortMap, slotCompactMap, focusModeSlot declared above near state)
+
+// F1 — Global task progress bar
+function updateGlobalTaskBar() {
+  const allProj = state.projects.filter(p => !p.archived && !p.completed);
+  const allTasks = allProj.reduce((a,p) => a + p.tasks.length, 0);
+  const doneTasks = allProj.reduce((a,p) => a + p.tasks.filter(t=>t.done).length, 0);
+  const pct = allTasks > 0 ? Math.round(doneTasks / allTasks * 100) : 0;
+  const fill = document.getElementById('gt-bar-fill');
+  const pctEl = document.getElementById('gt-pct');
+  const activeEl = document.getElementById('gt-active');
+  if (fill) fill.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (activeEl) {
+    const slotCount = Object.values(state.slots).filter(Boolean).length;
+    activeEl.textContent = `${doneTasks}/${allTasks} tâches • ${slotCount} slot${slotCount !== 1?'s':''} actif${slotCount !== 1?'s':''}`;
+  }
+}
+
+// F2 — Slot sort
+function setSlotSort(projId, sortBy) {
+  slotSortMap.set(projId, sortBy);
+  renderSlots();
+  // Restore open panels
+  setTimeout(() => {
+    document.querySelectorAll('.task-detail').forEach(el => {
+      if (el.dataset && el.id) el.classList.remove('open');
+    });
+  }, 10);
+}
+
+// F3 — Compact mode per slot
+function toggleSlotCompact(projId) {
+  const cur = slotCompactMap.get(projId) || false;
+  slotCompactMap.set(projId, !cur);
+  const listEl = document.getElementById('tasks-' + projId);
+  if (listEl) listEl.classList.toggle('compact', !cur);
+  const btn = document.getElementById('compact-btn-' + projId);
+  if (btn) { btn.classList.toggle('active', !cur); btn.title = !cur ? 'Mode normal' : 'Mode compact'; }
+}
+
+// F4 — Mark all tasks done
+function markAllTasksDone(projId) {
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const hasPending = p.tasks.some(t => !t.done);
+  p.tasks.forEach(t => { t.status = hasPending ? 'done' : 'todo'; t.done = hasPending; });
+  p.updatedAt = new Date().toISOString();
+  if (hasPending) showMilestoneBanner(`🏆 Toutes les tâches de "${p.name}" marquées !`);
+  renderSlots(); renderBacklog(); renderHeaderStats(); scheduleSave(); updateGlobalTaskBar();
+}
+
+// F5 — Duplicate task
+function duplicateTask(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if (!t) return;
+  const copy = {
+    ...JSON.parse(JSON.stringify(t)),
+    id: uid(), text: t.text + ' (copie)',
+    status: 'todo', done: false,
+    subtasks: (t.subtasks||[]).map(s => ({...s, id:uid(), done:false}))
+  };
+  const idx = p.tasks.findIndex(x=>x.id===taskId);
+  p.tasks.splice(idx + 1, 0, copy);
+  p.updatedAt = new Date().toISOString();
+  renderSlots(); renderBacklog(); scheduleSave();
+  toast('Tâche dupliquée 📋');
+}
+
+// F6 — Quick subtask add inline (without modal)
+function toggleQuickSubtask(taskId) {
+  const el = document.getElementById('tquick-' + taskId);
+  if (!el) return;
+  const wasOpen = el.classList.contains('open');
+  // Close all other quick inputs
+  document.querySelectorAll('.task-subtask-quick.open').forEach(x => x.classList.remove('open'));
+  if (!wasOpen) {
+    el.classList.add('open');
+    setTimeout(() => document.getElementById('tquick-inp-' + taskId)?.focus(), 50);
+  }
+}
+
+function addQuickSubtask(projId, taskId) {
+  const inp = document.getElementById('tquick-inp-' + taskId);
+  if (!inp || !inp.value.trim()) return;
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if (!t) return;
+  if (!t.subtasks) t.subtasks = [];
+  t.subtasks.push({ id:uid(), text:inp.value.trim(), done:false });
+  p.updatedAt = new Date().toISOString();
+  inp.value = '';
+  // Track open panels
+  const openPanels = new Set([...(document.querySelectorAll('.task-detail.open')||[])].map(el => el.id.replace('tdetail-','')));
+  openPanels.add(taskId);
+  renderSlots(); renderBacklog(); scheduleSave();
+  openPanels.forEach(id => {
+    const d = document.getElementById('tdetail-' + id);
+    const b = document.getElementById('texpand-' + id);
+    if (d) d.classList.add('open');
+    if (b) b.classList.add('open');
+  });
+  // Re-focus input
+  setTimeout(() => {
+    const inp2 = document.getElementById('tquick-inp-' + taskId);
+    if (inp2) { document.getElementById('tquick-' + taskId)?.classList.add('open'); inp2.focus(); }
+  }, 30);
+}
+
+// F7 — Export tasks to clipboard
+function exportTasksToClipboard(projId) {
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const lines = [`${p.icon} ${p.name}`, `${'─'.repeat(p.name.length + 4)}`, ''];
+  p.tasks.forEach(t => {
+    const check = t.done ? '☑' : t.status === 'in_progress' ? '◐' : '☐';
+    lines.push(`${check} ${t.text}`);
+    (t.subtasks||[]).forEach(s => lines.push(`   ${s.done?'●':'○'} ${s.text}`));
+  });
+  lines.push('', `Progression: ${progress(p)}% (${p.tasks.filter(t=>t.done).length}/${p.tasks.length})`);
+  const text = lines.join('\n');
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">📋 Export — ${esc(p.name)}</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--text2);margin-bottom:10px">Cliquez sur le texte pour tout sélectionner :</p>
+      <div class="export-task-text" onclick="this.parentElement.parentElement.querySelector('.export-task-text').select?this.select():window.getSelection().selectAllChildren(this)">${esc(text)}</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Fermer</button>
+      <button class="btn btn-primary" onclick="navigator.clipboard.writeText(${JSON.stringify(text)}).then(()=>toast('Copié ! 📋','success'));closeModal()">📋 Copier</button>
+    </div>
+  `);
+}
+
+// F8 — Focus mode
+function activateFocusMode(slotKey) {
+  const grid = document.getElementById('slots-grid');
+  if (!grid) return;
+  if (focusModeSlot === slotKey) {
+    // Deactivate
+    focusModeSlot = null;
+    grid.classList.remove('focus-mode');
+    document.querySelectorAll('.slot-card').forEach(el => el.classList.remove('focus-active'));
+    document.querySelector('.focus-mode-badge')?.remove();
+    return;
+  }
+  focusModeSlot = slotKey;
+  grid.classList.add('focus-mode');
+  document.querySelectorAll('.slot-card').forEach(el => el.classList.remove('focus-active'));
+  const activeSlot = document.getElementById('slot-' + slotKey);
+  if (activeSlot) activeSlot.classList.add('focus-active');
+  // Show badge
+  document.querySelector('.focus-mode-badge')?.remove();
+  const badge = document.createElement('div');
+  badge.className = 'focus-mode-badge';
+  badge.textContent = '🎯 Mode Focus actif — Cliquer pour quitter';
+  badge.onclick = () => activateFocusMode(slotKey);
+  document.body.appendChild(badge);
+}
+
+// F9 — Keyboard shortcuts help
+function showKeyboardHelp() {
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">⌨️ Raccourcis clavier</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="kbd-help-grid">
+        ${[
+          ['Ctrl+N','Nouveau projet'],
+          ['Ctrl+Z','Annuler (undo)'],
+          ['Ctrl+F','Rechercher'],
+          ['Ctrl+/','Ce panneau'],
+          ['Esc','Fermer / Quitter focus'],
+          ['Enter','Valider dans les inputs'],
+          ['Tab','Naviguer entre éléments'],
+          ['Ctrl+E','Modifier projet actif (sidebar)'],
+        ].map(([k,l])=>`<div class="kbd-help-item"><kbd class="kbd">${k}</kbd><span>${l}</span></div>`).join('')}
+      </div>
+      <div style="margin-top:14px;padding:10px 12px;background:var(--glass);border-radius:8px;font-size:11px;color:var(--text3)">
+        💡 Dans les tâches : cliquer sur ○/◐/● pour changer le statut • 🎯 pour changer la priorité • +↳ pour ajouter une sous-tâche directement
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="closeModal()">OK</button>
+    </div>
+  `);
+}
+
+// F10 — Milestone banner
+function showMilestoneBanner(msg) {
+  document.querySelector('.milestone-banner')?.remove();
+  const el = document.createElement('div');
+  el.className = 'milestone-banner';
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 2900);
+}
+
+// F11 — Move task to another project
+function moveTaskToProject(projId, taskId) {
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const t = p.tasks.find(x=>x.id===taskId); if (!t) return;
+  const others = state.projects.filter(x => x.id !== projId && !x.archived && !x.completed);
+  if (!others.length) { toast('Aucun autre projet disponible', 'warning'); return; }
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">↗️ Déplacer vers…</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--text2);margin-bottom:10px">Déplacer <strong>${esc(t.text)}</strong> vers :</p>
+      <div class="move-proj-list">
+        ${others.map(op => `<div class="move-proj-item" onclick="doMoveTask('${projId}','${taskId}','${op.id}')">
+          <span style="font-size:18px">${op.icon}</span>
+          <div>
+            <div style="font-size:13px;font-weight:600">${esc(op.name)}</div>
+            <div style="font-size:10px;color:var(--text3)">${op.tasks.length} tâche${op.tasks.length!==1?'s':''}</div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Annuler</button>
+    </div>
+  `);
+}
+
+function doMoveTask(fromProjId, taskId, toProjId) {
+  const fromP = state.projects.find(x=>x.id===fromProjId); if (!fromP) return;
+  const toP = state.projects.find(x=>x.id===toProjId); if (!toP) return;
+  const idx = fromP.tasks.findIndex(x=>x.id===taskId); if (idx<0) return;
+  const [t] = fromP.tasks.splice(idx, 1);
+  toP.tasks.push(t);
+  fromP.updatedAt = new Date().toISOString();
+  toP.updatedAt = new Date().toISOString();
+  renderAll(); scheduleSave(); closeModal();
+  toast(`Tâche déplacée vers "${toP.name}" ↗️`);
+}
+
+// F12 — Task stats panel (per project)
+function showTaskStats(projId) {
+  const p = state.projects.find(x=>x.id===projId); if (!p) return;
+  const todo = p.tasks.filter(t=>(t.status||'todo')==='todo').length;
+  const inProg = p.tasks.filter(t=>t.status==='in_progress').length;
+  const done = p.tasks.filter(t=>t.done).length;
+  const late = p.tasks.filter(t=>t.dueDate && !t.done && new Date(t.dueDate) < new Date()).length;
+  const withSub = p.tasks.filter(t=>(t.subtasks||[]).length > 0).length;
+  const subTotal = p.tasks.reduce((a,t)=>a+(t.subtasks||[]).length, 0);
+  const subDone = p.tasks.reduce((a,t)=>a+(t.subtasks||[]).filter(s=>s.done).length, 0);
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">📊 Stats — ${esc(p.name)}</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+        ${[
+          {i:'○',v:todo,l:'À faire',c:'var(--text3)'},
+          {i:'◐',v:inProg,l:'En cours',c:'#fb923c'},
+          {i:'●',v:done,l:'Terminées',c:'#4ade80'},
+          {i:'⏰',v:late,l:'En retard',c:'#f87171'},
+          {i:'↳',v:withSub,l:'Avec sous-tâches',c:'#c084fc'},
+          {i:'↳✓',v:subTotal>0?Math.round(subDone/subTotal*100)+'%':'—',l:'% sous-tâches',c:'#60a5fa'},
+        ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.i}</div><div class="stat-val" style="color:${s.c};font-size:20px">${s.v}</div><div class="stat-lbl">${s.l}</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="closeModal()">Fermer</button>
+    </div>
+  `);
+}
+
+// Hook new shortcuts into document (called after init)
+function patchKeyDown() {
+  // Shortcuts are now directly in onKeyDown — nothing else needed
 }
 
 
