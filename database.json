@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:45:40.475Z",
+  "lastUpdated": "2026-02-27T09:45:47.715Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -483,6 +483,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:45:39.968Z"
+    },
+    {
+      "id": "006l76vvymm4pinrc",
+      "text": "Réussir cette fin d'année et ce début d'études supérieures",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:45:47.208Z"
     }
   ],
   "settings": {
