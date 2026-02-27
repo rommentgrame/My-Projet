@@ -340,19 +340,20 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   padding: 14px; text-align: center;
   font-size: 11px; color: var(--text3); font-style: italic;
 }
-/* Task rows inside slot list — stable height, no compression */
+/* Task rows inside slot list — inherit compact styles */
 .sp-tasklist .task-item {
-  min-height: 38px;   /* guaranteed minimum, never shrinks below this */
-  flex-shrink: 0;     /* critical: prevents flex from compressing tasks */
   border-radius: 0;
-  border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-top: none; border-right: none;
   background: transparent;
   margin-bottom: 0;
+  flex-shrink: 0;
+  min-height: 34px;
 }
 .sp-tasklist .task-item:last-child { border-bottom: none; }
 .sp-tasklist .task-item:hover { background: rgba(255,255,255,0.04); transform: none; }
-.sp-tasklist .task-item-header { padding: 7px 10px; }
+.sp-tasklist .task-item-header { padding: 6px 10px 6px 8px; }
 /* Add-task input row */
 .sp-addtask-row {
   display: flex; align-items: center; gap: 8px;
@@ -714,11 +715,8 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   animation: slideDown 0.2s ease;
 }
 
-/* Feature 6: Compact task mode per slot */
-.sp-tasklist.compact .task-item-header { padding: 4px 10px; }
-.sp-tasklist.compact .task-item { min-height: 28px; }
-.sp-tasklist.compact .task-rank { display: none; }
-.sp-tasklist.compact .task-priority-dot { display: none; }
+/* Feature 6: Compact task mode — permanent (no toggle needed) */
+.sp-tasklist .task-item-header { padding: 6px 10px 6px 8px; }
 
 /* Feature 7: Inline subtask quick-add */
 .task-subtask-quick {
@@ -1134,86 +1132,90 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .sidebar-cat-title { font-size: 10px; font-weight: 700; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
 
 /* ══════════════════════════════════════════════
-   ENHANCED TASKS
+   ENHANCED TASKS — Mode compact permanent
 ══════════════════════════════════════════════ */
 .task-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  border: none;
   border-left: 3px solid transparent;
-  border-radius: 10px; margin-bottom: 3px;
-  transition: background 0.18s, border-color 0.18s, transform 0.18s;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-radius: 0;
+  margin-bottom: 0;
+  transition: background 0.15s, border-left-color 0.15s;
   overflow: hidden;
+  min-height: 34px;     /* fixed compact height */
+  flex-shrink: 0;
 }
-.task-item:hover {
-  background: rgba(255,255,255,0.055);
-  border-color: rgba(255,255,255,0.1);
-  transform: translateX(2px);
-}
-.task-item[data-status="done"] {
-  opacity: 0.6;
-  border-left-color: #22c55e;
-}
-.task-item[data-status="in_progress"] {
-  border-left-color: #f97316;
-  background: rgba(249,115,22,0.04);
-}
+.task-item:last-child { border-bottom: none; }
+.task-item:hover { background: rgba(255,255,255,0.04); }
+.task-item[data-status="done"] { opacity: 0.55; border-left-color: #22c55e; }
+.task-item[data-status="in_progress"] { border-left-color: #f97316; background: rgba(249,115,22,0.03); }
+
+/* Task row — horizontal layout */
 .task-item-header {
   display: flex; align-items: center; gap: 8px;
-  padding: 9px 11px 9px 10px;
+  padding: 6px 10px 6px 8px;
+  min-height: 34px;
 }
-.task-rank {
-  font-family: var(--font-mono); font-size: 9px;
-  color: var(--text3); width: 14px; text-align: center;
-  flex-shrink: 0; opacity: 0.45;
-}
+
+/* Rank — hidden in compact */
+.task-rank { display: none; }
+
+/* Status button — the ONLY visible control on the row */
 .task-status-btn {
-  width: 20px; height: 20px; border-radius: 50%;
+  width: 18px; height: 18px; border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.2);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; transition: all 0.2s; background: transparent;
-  font-size: 9px; font-weight: 700;
+  font-size: 8px; font-weight: 700;
+  -webkit-tap-highlight-color: transparent;
 }
-.task-status-btn:hover { transform: scale(1.18); }
-.task-status-btn.todo { border-color: rgba(255,255,255,0.2); }
-.task-status-btn.todo:hover { border-color: rgba(var(--accent-rgb),0.6); background: rgba(var(--accent-rgb),0.1); }
-.task-status-btn.in_progress { border-color: #f97316; background: rgba(249,115,22,0.18); color: #fb923c; }
-.task-status-btn.done { border-color: #22c55e; background: rgba(34,197,94,0.22); color: #4ade80; }
+.task-status-btn:hover { transform: scale(1.2); }
+.task-status-btn.todo { border-color: rgba(255,255,255,0.22); }
+.task-status-btn.todo:hover { border-color: rgba(var(--accent-rgb),0.7); background: rgba(var(--accent-rgb),0.12); }
+.task-status-btn.in_progress { border-color: #f97316; background: rgba(249,115,22,0.2); color: #fb923c; }
+.task-status-btn.done { border-color: #22c55e; background: rgba(34,197,94,0.25); color: #4ade80; }
+
+/* Priority dot — small, always visible */
+.task-priority-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; opacity: 0.75; }
+
+/* Main text — clickable to open detail modal */
 .task-main-text {
-  flex: 1; font-size: 12.5px; min-width: 0; cursor: pointer;
+  flex: 1; font-size: 12px; min-width: 0; cursor: pointer;
   color: var(--text2);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  transition: color 0.15s;
+  transition: color 0.12s;
+  line-height: 1.3;
 }
 .task-item:hover .task-main-text { color: var(--text); }
 .task-main-text.done { text-decoration: line-through; color: var(--text3); }
 .task-main-text.in_progress { color: var(--text); font-weight: 500; }
-.task-priority-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; opacity: 0.7; }
+
+/* Subtask expand button — shown only when subtasks exist */
 .task-expand-btn {
   background: none; border: none; cursor: pointer;
-  color: var(--text3); font-size: 9px; padding: 0 2px;
-  transition: transform 0.2s, color 0.15s;
+  color: var(--text3); font-size: 8px; padding: 0 2px;
+  transition: transform 0.2s, color 0.12s;
+  flex-shrink: 0;
 }
-.task-expand-btn:hover { color: var(--text); }
+.task-expand-btn:hover { color: var(--text2); }
 .task-expand-btn.open { transform: rotate(90deg); }
-.task-actions-row {
-  display: flex; gap: 1px; flex-shrink: 0;
-  opacity: 0; transition: opacity 0.15s;
-}
-.task-item-header:hover .task-actions-row { opacity: 1; }
-.task-actions-row button {
-  background: none; border: none; cursor: pointer;
-  color: var(--text3); font-size: 13px;
-  padding: 3px 4px; border-radius: 5px;
-  transition: background 0.15s, color 0.15s;
-}
-.task-actions-row button:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+
+/* Actions row — HIDDEN, not even on hover (moved to modal) */
+.task-actions-row { display: none !important; }
+
+/* Subtask panel */
 .task-detail {
-  padding: 0 11px 10px 34px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 0 10px 8px 36px;
+  border-top: 1px solid rgba(255,255,255,0.04);
   display: none;
 }
 @keyframes taskDetailIn { from { opacity:0; transform:translateY(-3px); } to { opacity:1; transform:none; } }
-.task-detail.open { display: block; animation: taskDetailIn 0.18s ease; }
+.task-detail.open { display: block; animation: taskDetailIn 0.15s ease; }
+
+/* Drag handle — hidden (drag from sidebar instead) */
+.task-drag-handle { display: none !important; }
+
 .subtask-list {
   display: flex; flex-direction: column; gap: 1px;
   margin-bottom: 8px; padding-top: 8px;
@@ -1305,8 +1307,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .task-meta-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
 .task-due-badge { font-size: 10px; color: var(--text3); display: flex; align-items: center; gap: 3px; }
 /* Drag handle */
-.task-drag-handle { cursor: grab; color: var(--text3); font-size: 14px; padding: 0 2px; opacity: 0; }
-.task-item-header:hover .task-drag-handle { opacity: 1; }
+/* task-drag-handle hidden via display:none !important above */
 
 /* ══════════════════════════════════════════════
    TOUCH DRAG (mobile)
@@ -1462,13 +1463,13 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 .habit-toggle:hover {
   border-color: var(--hc, var(--accent));
-  background: color-mix(in srgb, var(--hc, var(--accent)) 15%, transparent);
+  background: rgba(124,58,237,0.15);
   transform: scale(1.1);
 }
 .habit-toggle.done {
   border-color: var(--hc, var(--accent));
-  background: color-mix(in srgb, var(--hc, var(--accent)) 22%, transparent);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--hc, var(--accent)) 35%, transparent);
+  background: rgba(124,58,237,0.22);
+  box-shadow: 0 0 8px rgba(124,58,237,0.35);
 }
 
 /* Content area */
@@ -1523,6 +1524,24 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 .habit-item:hover .habit-del-btn { color: var(--text3); }
 .habit-del-btn:hover { color: #f87171 !important; }
+.habit-del-btn:first-of-type:hover { color: var(--accent) !important; }
+
+/* Difficulty selector in modal */
+.habit-diff-btn {
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 10px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text3);
+  cursor: pointer; font-family: var(--font);
+  font-size: 11px; font-weight: 600;
+  transition: all 0.15s;
+}
+.habit-diff-btn:hover { border-color: var(--border2); color: var(--text2); }
+.habit-diff-btn.active {
+  background: rgba(var(--accent-rgb),0.18);
+  border-color: rgba(var(--accent-rgb),0.5);
+  color: var(--accent);
+}
 
 /* ══════════════════════════════════════════════════════════════
    MISSIONS VIEW
@@ -2867,8 +2886,7 @@ function renderActiveProject(p, slotKey) {
           const cur = (slotSortMap.get(p.id)||'rank');
           return `<button class="slot-sort-btn${cur===s?' active':''}" onclick="setSlotSort('${p.id}','${s}')">${lbls[s]}</button>`;
         }).join('')}
-        <button class="slot-mark-all-btn" onclick="markAllTasksDone('${p.id}')" title="Tout terminer" style="margin-left:auto">✓ Tout</button>
-        <button class="slot-sort-btn" onclick="toggleSlotCompact('${p.id}')" title="Mode compact" style="margin-left:4px" id="compact-btn-${p.id}">▤</button>
+        <button class="slot-mark-all-btn" onclick="markAllTasksDone('${p.id}')" title="Tout marquer comme terminé" style="margin-left:auto">✓ Tout</button>
       </div>
       <div class="sp-tasklist" id="tasks-${p.id}">
         ${(() => {
@@ -4399,42 +4417,54 @@ function renderEnhancedTask(t, projId, idx) {
   const statusLabel = { todo:'À faire', in_progress:'En cours', done:'Terminé' }[t.status||'todo'] || '';
   const isOverdueTask = t.dueDate && t.status !== 'done' && new Date(t.dueDate) < new Date();
   const overdueClass = isOverdueTask ? ' task-overdue' : '';
-  const noteHtml = (t.note && t.status !== 'done') ? `<div class="task-note-preview">📝 ${esc(t.note)}</div>` : '';
-  return `<div class="task-item${overdueClass}" id="taskitem-${t.id}" data-task-id="${t.id}" data-proj-id="${projId}" data-status="${t.status||'todo'}" data-priority="${t.priority||'medium'}">
+
+  // Due badge — compact
+  let dueBadge = '';
+  if (t.dueDate && t.status !== 'done') {
+    const dd = daysUntil(t.dueDate);
+    const cls = dd < 0 ? 'task-due-late' : dd <= 3 ? 'task-due-soon' : 'task-due-ok';
+    const lbl = dd < 0 ? Math.abs(dd)+'j↑' : dd === 0 ? 'Auj.' : dd+'j';
+    dueBadge = `<span class="task-due-badge ${cls}">📅${lbl}</span>`;
+  }
+
+  // Subtask pill
+  const subPill = subTotal
+    ? `<span class="subtask-count-badge ${subDone===subTotal?'complete':subDone>0?'partial':''}"
+         onclick="toggleTaskDetail('${t.id}')" style="cursor:pointer" title="Sous-tâches">${subDone}/${subTotal}</span>`
+    : '';
+
+  return `<div class="task-item${overdueClass}" id="taskitem-${t.id}"
+    data-task-id="${t.id}" data-proj-id="${projId}"
+    data-status="${t.status||'todo'}" data-priority="${t.priority||'medium'}">
     <div class="task-item-header">
-      <span class="task-drag-handle" title="Déplacer">⠿</span>
-      <span class="task-rank">${idx+1}</span>
-      <button class="task-status-btn ${t.status||'todo'}" onclick="cycleTaskStatus('${projId}','${t.id}')" title="${statusLabel}" style="border-color:${st.color}">
+      <button class="task-status-btn ${t.status||'todo'}"
+        onclick="cycleTaskStatus('${projId}','${t.id}')"
+        title="Statut : ${statusLabel} — cliquer pour changer"
+        style="border-color:${st.color}">
         <span style="color:${st.color}">${st.icon}</span>
       </button>
-      <span class="task-priority-dot" style="background:${prioColor};box-shadow:0 0 4px ${prioColor}80" title="Priorité ${t.priority||'medium'}"></span>
-      <span class="task-main-text ${t.status==='done'?'done':t.status==='in_progress'?'in_progress':''}" onclick="openTaskDetail('${projId}','${t.id}')">${esc(t.text)||'<em style="opacity:.4">Sans titre</em>'}</span>
-      ${subTotal ? `<span data-sub-pill class="subtask-count-badge ${subDone===subTotal?'complete':subDone>0?'partial':''}">${subDone}/${subTotal}</span>` : ''}
-      ${(t.dueDate && t.status !== 'done') ? (() => { const dd = daysUntil(t.dueDate); const cls = dd < 0 ? 'task-due-late' : dd <= 3 ? 'task-due-soon' : 'task-due-ok'; const lbl = dd < 0 ? Math.abs(dd)+'j↑' : dd === 0 ? 'Auj.' : dd+'j'; return `<span class="task-due-badge ${cls}">📅${lbl}</span>`; })() : ''}
-      <div class="task-actions-row">
-        <button onclick="openTaskDetail('${projId}','${t.id}')" title="Détails" style="font-size:11px">📋</button>
-        <button onclick="cycleTaskPriority('${projId}','${t.id}')" title="Priorité" style="font-size:11px">🎯</button>
-        <button onclick="toggleQuickSubtask('${t.id}')" title="Ajouter sous-tâche" style="font-size:11px">+↳</button>
-        <button onclick="duplicateTask('${projId}','${t.id}')" title="Dupliquer" style="font-size:11px">📋</button>
-        <button onclick="deleteTaskFromProj('${projId}','${t.id}')" title="Supprimer" style="font-size:14px;color:#f87171 !important">×</button>
-      </div>
-      ${subTotal ? `<button class="task-expand-btn" id="texpand-${t.id}" onclick="toggleTaskDetail('${t.id}')">▶</button>` : ''}
+      <span class="task-priority-dot"
+        style="background:${prioColor};box-shadow:0 0 4px ${prioColor}80"
+        title="Priorité : ${t.priority||'medium'}"></span>
+      <span class="task-main-text ${t.status==='done'?'done':t.status==='in_progress'?'in_progress':''}"
+        onclick="openTaskDetail('${projId}','${t.id}')"
+        title="Cliquer pour modifier">${esc(t.text)||'<em style="opacity:.4">Sans titre</em>'}</span>
+      ${subPill}
+      ${dueBadge}
+      ${subTotal ? `<button class="task-expand-btn" id="texpand-${t.id}" onclick="toggleTaskDetail('${t.id}')" title="Voir sous-tâches">▶</button>` : ''}
     </div>
-    ${noteHtml}
     ${subTotal ? `<div class="task-detail" id="tdetail-${t.id}">
-      <div class="subtask-mini-bar"><div class="subtask-mini-fill" style="width:${subTotal?Math.round(subDone/subTotal*100):0}%"></div></div>
+      <div class="subtask-mini-bar"><div class="subtask-mini-fill" style="width:${Math.round(subDone/subTotal*100)}%"></div></div>
       <div class="subtask-list">${(t.subtasks||[]).map(s=>`<div class="subtask-row">
-        <button class="subtask-check${s.done?' done':''}" onclick="toggleSubtask('${projId}','${t.id}','${s.id}')" title="${s.done?'Terminé':'Marquer comme fait'}">
+        <button class="subtask-check${s.done?' done':''}"
+          onclick="toggleSubtask('${projId}','${t.id}','${s.id}')"
+          title="${s.done?'Marquer non fait':'Marquer fait'}">
           ${s.done?'<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6.5 7,1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
         </button>
         <span class="subtask-text${s.done?' done':''}">${esc(s.text)}</span>
         <button class="subtask-del" onclick="deleteSubtask('${projId}','${t.id}','${s.id}')" title="Supprimer">×</button>
       </div>`).join('')}</div>
     </div>` : ''}
-    <div class="task-subtask-quick" id="tquick-${t.id}">
-      <input id="tquick-inp-${t.id}" placeholder="Nouvelle sous-tâche…" onkeydown="if(event.key==='Enter')addQuickSubtask('${projId}','${t.id}');if(event.key==='Escape')toggleQuickSubtask('${t.id}')">
-      <button onclick="addQuickSubtask('${projId}','${t.id}')">+</button>
-    </div>
   </div>`;
 }
 
@@ -4494,56 +4524,85 @@ function toggleTaskDetail(taskId) {
 function openTaskDetail(projId, taskId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
+  const prioLabels = { low:'🟢 Faible', medium:'🟡 Moyen', high:'🟠 Élevé', critical:'🔴 Critique' };
+  const prioColor = TASK_PRIO_COLOR[t.priority||'medium'];
   const st = TASK_STATUS[t.status||'todo'];
+
   showModal(`
-    <div class="modal-header">
-      <div class="modal-title" style="display:flex;align-items:center;gap:8px">
-        <span style="color:${TASK_STATUS[t.status||'todo'].color}">${TASK_STATUS[t.status||'todo'].icon}</span>
-        Détail de la tâche
+    <div class="modal-header" style="background:linear-gradient(135deg,${p.color}18,transparent);border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+        <span style="font-size:18px">${p.icon}</span>
+        <div style="min-width:0">
+          <div style="font-size:10px;color:var(--text3);margin-bottom:2px">${esc(p.name)}</div>
+          <div class="modal-title" style="font-size:15px">Tâche</div>
+        </div>
       </div>
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="padding:16px 20px">
+
+      <!-- Task name -->
       <div class="form-group">
-        <label class="form-label">Tâche</label>
-        <input class="input" id="td-text" value="${esc(t.text)}">
+        <label class="form-label">Nom de la tâche</label>
+        <input class="input" id="td-text" value="${esc(t.text)}" placeholder="Nom de la tâche..."
+          style="font-size:14px;font-weight:500">
       </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Statut</label>
+
+      <!-- Status + Priority inline -->
+      <div class="form-row" style="margin-bottom:12px">
+        <div class="form-group">
+          <label class="form-label">Statut</label>
           <select class="input" id="td-status">
-            ${Object.entries(TASK_STATUS).map(([k,v])=>`<option value="${k}"${t.status===k?' selected':''}>${v.icon} ${v.label}</option>`).join('')}
+            ${Object.entries(TASK_STATUS).map(([k,v])=>`<option value="${k}"${(t.status||'todo')===k?' selected':''}>${v.icon} ${v.label}</option>`).join('')}
           </select>
         </div>
-        <div class="form-group"><label class="form-label">Priorité</label>
+        <div class="form-group">
+          <label class="form-label">Priorité</label>
           <select class="input" id="td-priority">
-            ${['low','medium','high','critical'].map(k=>`<option value="${k}"${(t.priority||'medium')===k?' selected':''}>${k}</option>`).join('')}
+            <option value="low"${(t.priority||'medium')==='low'?' selected':''}>🟢 Faible</option>
+            <option value="medium"${(t.priority||'medium')==='medium'?' selected':''}>🟡 Moyen</option>
+            <option value="high"${(t.priority||'medium')==='high'?' selected':''}>🟠 Élevé</option>
+            <option value="critical"${(t.priority||'medium')==='critical'?' selected':''}>🔴 Critique</option>
           </select>
         </div>
-        <div class="form-group"><label class="form-label">Rang</label>
-          <input type="number" class="input" id="td-rank" value="${t.rank||0}" min="0">
+        <div class="form-group">
+          <label class="form-label">Date limite</label>
+          <input type="date" class="input" id="td-due" value="${t.dueDate||''}" style="color-scheme:dark">
         </div>
       </div>
-      <div class="form-group"><label class="form-label">Date limite</label>
-        <input type="date" class="input" id="td-due" value="${t.dueDate||''}" style="color-scheme:dark">
-      </div>
-      <div class="form-group"><label class="form-label">Note</label>
-        <textarea class="input" id="td-note" style="min-height:80px">${esc(t.note||'')}</textarea>
-      </div>
-      <!-- Subtasks -->
+
+      <!-- Note -->
       <div class="form-group">
-        <label class="form-label">Sous-tâches (${(t.subtasks||[]).filter(s=>s.done).length}/${(t.subtasks||[]).length})</label>
+        <label class="form-label">Note / Description</label>
+        <textarea class="input" id="td-note" style="min-height:68px;resize:vertical" placeholder="Détails, contexte...">${esc(t.note||'')}</textarea>
+      </div>
+
+      <!-- Sous-tâches -->
+      <div class="form-group" style="margin-bottom:6px">
+        <label class="form-label" id="subtask-lbl">Sous-tâches (${(t.subtasks||[]).filter(s=>s.done).length}/${(t.subtasks||[]).length})</label>
         <div id="td-subtasks">${renderSubtasksEdit(t.subtasks||[], p.id, t.id)}</div>
-        <div style="display:flex;gap:6px;margin-top:6px">
-          <input class="input" id="td-sub-inp" placeholder="+ Sous-tâche..." style="font-size:12px" onkeydown="if(event.key==='Enter')addSubtaskFromModal('${p.id}','${t.id}')">
-          <button class="btn" onclick="addSubtaskFromModal('${p.id}','${t.id}')">+</button>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <input class="input" id="td-sub-inp" placeholder="+ Nouvelle sous-tâche..."
+            style="font-size:12px"
+            onkeydown="if(event.key==='Enter')addSubtaskFromModal('${p.id}','${t.id}')">
+          <button class="btn" onclick="addSubtaskFromModal('${p.id}','${t.id}')" style="flex-shrink:0">+</button>
         </div>
+      </div>
+
+      <!-- Danger zone -->
+      <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" style="font-size:11px" onclick="duplicateTask('${p.id}','${t.id}');closeModal()" title="Dupliquer cette tâche">📋 Dupliquer</button>
+        <button class="btn" style="font-size:11px" onclick="moveTaskToProject('${p.id}','${t.id}')" title="Déplacer vers un autre projet">↗️ Déplacer</button>
+        <button class="btn btn-danger" style="font-size:11px;margin-left:auto"
+          onclick="if(confirm('Supprimer cette tâche ?')){deleteTaskFromProj('${p.id}','${t.id}');closeModal()}">🗑 Supprimer</button>
       </div>
     </div>
     <div class="modal-footer">
       <button class="btn" onclick="closeModal()">Annuler</button>
-      <button class="btn btn-primary" onclick="saveTaskDetail('${projId}','${taskId}')">💾 Sauvegarder</button>
+      <button class="btn btn-primary" onclick="saveTaskDetail('${p.id}','${t.id}')">💾 Enregistrer</button>
     </div>
   `);
+  setTimeout(() => document.getElementById('td-text')?.focus(), 80);
 }
 function renderSubtasksEdit(subtasks, projId, taskId) {
   if (!subtasks.length) return '<p style="color:var(--text3);font-size:11px">Aucune sous-tâche</p>';
@@ -4616,12 +4675,12 @@ window.addSubtaskFromModal = function(projId, taskId) {
 window.saveTaskDetail = function(projId, taskId) {
   const p = state.projects.find(x=>x.id===projId); if(!p) return;
   const t = p.tasks.find(x=>x.id===taskId); if(!t) return;
-  const newText = document.getElementById('td-text')?.value.trim();
+  const newText = (document.getElementById('td-text')?.value || '').trim();
   if (newText) t.text = newText;
   const newStatus = document.getElementById('td-status')?.value;
   if (newStatus) { t.status = newStatus; t.done = t.status === 'done'; }
-  t.priority = document.getElementById('td-priority')?.value || t.priority;
-  t.rank = parseInt(document.getElementById('td-rank')?.value)||0;
+  const newPrio = document.getElementById('td-priority')?.value;
+  if (newPrio) t.priority = newPrio;
   t.dueDate = document.getElementById('td-due')?.value || '';
   t.note = document.getElementById('td-note')?.value || '';
   // Auto-complete task if all subtasks done
@@ -4749,10 +4808,18 @@ function renderHabits() {
   const doneCnt = state.habits.filter(h => log[h.id]).length;
   const total = state.habits.length;
 
+  // Compute total points earned today
+  const pointsToday = state.habits.reduce((acc, h) => log[h.id] ? acc + (h.difficulty||1) : acc, 0);
+  const pointsMax = state.habits.reduce((acc, h) => acc + (h.difficulty||1), 0);
+
   const badge = document.getElementById('habits-streak-badge');
   if (badge) {
     badge.style.display = total > 0 ? 'inline' : 'none';
-    badge.textContent = doneCnt + '/' + total;
+    if (pointsMax > 0) {
+      badge.textContent = `${pointsToday}/${pointsMax} pts`;
+    } else {
+      badge.textContent = doneCnt + '/' + total;
+    }
     badge.style.background = doneCnt === total && total > 0 ? 'rgba(34,197,94,0.2)' : 'rgba(var(--accent-rgb),0.15)';
     badge.style.color = doneCnt === total && total > 0 ? '#4ade80' : 'var(--accent)';
   }
@@ -4766,8 +4833,10 @@ function renderHabits() {
     const isDone = !!log[h.id];
     const streak = getHabitStreak(h.id);
     const color = h.color || 'var(--accent)';
+    const diff = h.difficulty || 1;
+
     // 7-day dots
-    const dots = Array.from({length:7}, (_, i) => {
+    const weekDots = Array.from({length:7}, (_, i) => {
       const d = new Date(); d.setDate(d.getDate() - 6 + i);
       const k = d.toISOString().split('T')[0];
       const filled = !!(state.habitLog[k]||{})[h.id];
@@ -4775,17 +4844,26 @@ function renderHabits() {
       return `<span class="hday-dot${filled?' filled':''}${isToday?' today':''}" style="${filled?'background:'+color:''}"></span>`;
     }).join('');
 
+    // Difficulty dots — solid filled circles colored with habit color
+    const diffDots = Array.from({length: diff}, () =>
+      `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${color};margin:0 1px;opacity:0.85;flex-shrink:0"></span>`
+    ).join('');
+
     return `<div class="habit-item${isDone?' habit-item--done':''}">
       <button class="habit-toggle${isDone?' done':''}" onclick="toggleHabit('${h.id}')"
-        style="--hc:${color}" title="${isDone?'Marquer non fait':'Marquer fait'}">
+        style="--hc:${color}" title="${isDone?'Marquer non fait':'Marquer fait (+'+diff+' pt'+(diff>1?'s':'')+')'}">
         ${isDone ? '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><polyline points="1.5,5 4,7.5 8.5,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}
       </button>
       <div class="habit-content">
-        <span class="habit-name${isDone?' done':''}">${esc(h.name)}</span>
-        <div class="habit-week">${dots}</div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="habit-name${isDone?' done':''}">${esc(h.name)}</span>
+          <span style="display:inline-flex;align-items:center;gap:1px;flex-shrink:0" title="${diff} point${diff>1?'s':''} de difficulté">${diffDots}</span>
+        </div>
+        <div class="habit-week">${weekDots}</div>
       </div>
       ${streak > 1 ? `<span class="habit-streak">🔥 ${streak}</span>` : ''}
-      <button class="habit-del-btn" onclick="deleteHabit('${h.id}')" title="Supprimer">×</button>
+      <button class="habit-del-btn" onclick="addHabitPrompt('${h.id}')" title="Modifier" style="color:transparent;font-size:12px">✏</button>
+      <button class="habit-del-btn" onclick="if(confirm('Supprimer cette habitude ?'))deleteHabit('${h.id}')" title="Supprimer">×</button>
     </div>`;
   }).join('') + `</div>`;
 }
@@ -4808,23 +4886,70 @@ function toggleHabit(habitId) {
   const allDone = state.habits.length > 0 && state.habits.every(h => state.habitLog[today][h.id]);
   if (allDone) toast('🌿 Toutes les habitudes du jour ! 🎉', 'success');
 }
-function addHabitPrompt() {
+function addHabitPrompt(editId) {
+  const existing = editId ? state.habits.find(h=>h.id===editId) : null;
+  const isEdit = !!existing;
+  const h = existing || { name:'', color: COLORS[0], difficulty: 1 };
+
   showModal(`
-    <div class="modal-header"><div class="modal-title">🌿 Nouvelle habitude</div><button class="btn btn-icon" onclick="closeModal()">✕</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label class="form-label">Nom</label><input class="input" id="habit-name-inp" placeholder="Ex: Méditation, Sport, Lecture..."></div>
-      <div class="form-group"><label class="form-label">Couleur</label><div class="color-swatches">${COLORS.slice(0,8).map((c,i)=>`<div class="color-swatch${i===0?' active':''}" style="background:${c}" onclick="document.querySelectorAll('.color-swatches .color-swatch').forEach(s=>s.classList.remove('active'));this.classList.add('active');document.getElementById('habit-color-val').value='${c}'"></div>`).join('')}</div><input type="hidden" id="habit-color-val" value="${COLORS[0]}"></div>
+    <div class="modal-header">
+      <div class="modal-title">${isEdit ? '✏ Modifier l\'habitude' : '🌿 Nouvelle habitude'}</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-footer"><button class="btn" onclick="closeModal()">Annuler</button><button class="btn btn-primary" onclick="saveNewHabit()">+ Ajouter</button></div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Nom</label>
+        <input class="input" id="habit-name-inp" placeholder="Ex: Méditation, Sport, Lecture..." value="${esc(h.name)}">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Couleur</label>
+        <div class="color-swatches">
+          ${COLORS.slice(0,10).map((c,i)=>`<div class="color-swatch${c===h.color?' active':''}" style="background:${c}"
+            onclick="document.querySelectorAll('#habit-modal .color-swatch').forEach(s=>s.classList.remove('active'));this.classList.add('active');document.getElementById('habit-color-val').value='${c}'">
+          </div>`).join('')}
+        </div>
+        <input type="hidden" id="habit-color-val" value="${h.color}">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Difficulté (points gagnés par complétion)</label>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap" id="habit-diff-row">
+          ${[1,2,3,4,5].map(d=>`<button type="button"
+            class="habit-diff-btn${(h.difficulty||1)===d?' active':''}"
+            data-diff="${d}"
+            onclick="document.querySelectorAll('.habit-diff-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');document.getElementById('habit-diff-val').value='${d}'"
+            style="display:flex;align-items:center;gap:4px;padding:5px 10px;border-radius:20px;border:1px solid var(--border);background:${(h.difficulty||1)===d?'rgba(var(--accent-rgb),0.18)':'transparent'};color:${(h.difficulty||1)===d?'var(--accent)':'var(--text3)'};cursor:pointer;font-family:var(--font);font-size:11px;font-weight:600;transition:all 0.15s">
+            ${'●'.repeat(d)}<span style="margin-left:4px">${d} pt${d>1?'s':''}</span>
+          </button>`).join('')}
+        </div>
+        <input type="hidden" id="habit-diff-val" value="${h.difficulty||1}">
+        <div style="font-size:10px;color:var(--text3);margin-top:6px">Les points s'affichent sous le nom de l'habitude et représentent sa difficulté.</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="saveNewHabit('${isEdit?editId:''}')">
+        ${isEdit ? '💾 Enregistrer' : '+ Ajouter'}
+      </button>
+    </div>
   `);
-  setTimeout(()=>document.getElementById('habit-name-inp')?.focus(),100);
+  // Mark modal for scoped selector
+  const modal = document.querySelector('.modal');
+  if (modal) modal.id = 'habit-modal';
+  setTimeout(() => document.getElementById('habit-name-inp')?.focus(), 100);
 }
-window.saveNewHabit = function() {
-  const name=document.getElementById('habit-name-inp')?.value.trim();
-  const color=document.getElementById('habit-color-val')?.value||COLORS[0];
-  if(!name)return;
-  state.habits.push({id:uid(),name,color,createdAt:new Date().toISOString()});
-  renderHabits();scheduleSave();closeModal();toast(`🌿 "${name}" ajoutée !`);
+window.saveNewHabit = function(editId) {
+  const name = (document.getElementById('habit-name-inp')?.value || '').trim();
+  const color = document.getElementById('habit-color-val')?.value || COLORS[0];
+  const difficulty = parseInt(document.getElementById('habit-diff-val')?.value) || 1;
+  if (!name) { document.getElementById('habit-name-inp')?.focus(); return; }
+  if (editId) {
+    const h = state.habits.find(x=>x.id===editId);
+    if (h) { h.name = name; h.color = color; h.difficulty = difficulty; }
+    renderHabits(); scheduleSave(); closeModal(); toast(`🌿 "${name}" modifiée !`);
+  } else {
+    state.habits.push({ id:uid(), name, color, difficulty, createdAt: new Date().toISOString() });
+    renderHabits(); scheduleSave(); closeModal(); toast(`🌿 "${name}" ajoutée !`);
+  }
 };
 function deleteHabit(id){state.habits=state.habits.filter(h=>h.id!==id);renderHabits();scheduleSave();}
 function toggleHabitsWidget(){state.settings.habitsCollapsed=!state.settings.habitsCollapsed;renderHabits();scheduleSave();}
