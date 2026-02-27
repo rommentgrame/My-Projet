@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T12:48:01.227Z",
+  "lastUpdated": "2026-02-27T12:48:02.701Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -55,7 +55,7 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "status": "done",
+          "status": "todo",
           "priority": "critical",
           "rank": 0,
           "subtasks": [
@@ -69,10 +69,10 @@
           "dueDate": "",
           "id": "h8zstmjtvmm4qwd2c",
           "text": "Trouver une idée",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
@@ -80,10 +80,10 @@
           "dueDate": "",
           "id": "1exbviajkmm4qwmcb",
           "text": "Modélisation 3D des pièce et du plateaux",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "high",
           "rank": 2,
           "subtasks": [],
@@ -91,10 +91,10 @@
           "dueDate": "",
           "id": "9ltn65vdmmm4qwru4",
           "text": "Créé un cahier des charge",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "high",
           "rank": 3,
           "subtasks": [],
@@ -102,10 +102,10 @@
           "dueDate": "2026-03-20",
           "id": "g8d692v6emm4qwzq4",
           "text": "Faire le schéma des composants et le routage",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "high",
           "rank": 2,
           "subtasks": [],
@@ -113,10 +113,10 @@
           "dueDate": "2026-03-06",
           "id": "zww9q4y49mm4qx57w",
           "text": "Commencé le schéma électronique et choisir la taille de la carte",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 4,
           "subtasks": [],
@@ -124,10 +124,10 @@
           "dueDate": "",
           "id": "qrqiogamemm4qxb6c",
           "text": "Faire le codage et teste du système.",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 6,
           "subtasks": [],
@@ -135,10 +135,10 @@
           "dueDate": "",
           "id": "0kiitz7llmm4qxiik",
           "text": "Changement si besoin",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 7,
           "subtasks": [],
@@ -146,10 +146,10 @@
           "dueDate": "",
           "id": "l4fd9w2k0mm4qxmxn",
           "text": "Créé le schéma du plateau",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 8,
           "subtasks": [],
@@ -157,10 +157,10 @@
           "dueDate": "",
           "id": "xjhv3qf16mm4qxr3n",
           "text": "Créé le plateau",
-          "done": true
+          "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 9,
           "subtasks": [],
@@ -168,7 +168,7 @@
           "dueDate": "",
           "id": "vxbnp1i0rmm4qxvi4",
           "text": "Commencer les assemblages",
-          "done": true
+          "done": false
         }
       ],
       "tags": [],
@@ -184,7 +184,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T12:48:00.723Z"
+      "updatedAt": "2026-02-27T12:48:02.195Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
