@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:45:54.611Z",
+  "lastUpdated": "2026-02-27T09:46:04.715Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -499,6 +499,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:45:54.096Z"
+    },
+    {
+      "id": "xmn5zpip6mm4pj0vk",
+      "text": "Agrémenter ma relation amoureux pour qu'elle dur dans le temps",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:46:04.208Z"
     }
   ],
   "settings": {
