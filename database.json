@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:37:34.433Z",
+  "lastUpdated": "2026-02-27T10:38:24.834Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -273,7 +273,7 @@
       "id": "a0kssl5thmm3rk58o",
       "name": "Mon jeux vidéo",
       "description": "",
-      "icon": "🖥️",
+      "icon": "📱",
       "color": "#f97316",
       "tasks": [],
       "tags": [],
@@ -289,7 +289,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:55:09.576Z",
-      "updatedAt": "2026-02-26T20:52:24.730Z"
+      "updatedAt": "2026-02-27T10:38:24.331Z"
     },
     {
       "id": "8jra8qkuimm3rj05b",
