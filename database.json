@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:56:27.843Z",
+  "lastUpdated": "2026-02-27T14:00:28.109Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -608,7 +608,7 @@
       "m": 1,
       "s": 0
     },
-    "habitsCollapsed": false
+    "habitsCollapsed": true
   },
   "auth": {
     "username": "Tom",
