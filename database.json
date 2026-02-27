@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:14:50.380Z",
+  "lastUpdated": "2026-02-27T13:14:50.990Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -363,8 +363,8 @@
         {
           "id": "icta51pj3mm4wzgev",
           "text": "teste",
-          "done": false,
-          "status": "in_progress",
+          "done": true,
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -385,7 +385,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-27T13:14:49.864Z"
+      "updatedAt": "2026-02-27T13:14:50.472Z"
     }
   ],
   "slots": {
