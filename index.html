@@ -3152,9 +3152,20 @@ function updateProj(id, changes) {
 
 function deleteProject(id) {
   pushUndo();
+  // Libérer les slots
   Object.keys(state.slots).forEach(k => { if (state.slots[k]===id) state.slots[k]=null; });
+  // Arrêter le timer
   if (timers[id]) { stopTimer(id); delete timers[id]; }
+  // Supprimer de la liste principale ET des projets terminés
   state.projects = state.projects.filter(p=>p.id!==id);
+  state.completedProjects = state.completedProjects.filter(p=>p.id!==id);
+  // Nettoyer les Maps de session
+  slotSortMap.delete(id);
+  taskFilterMap.delete(id);
+  // Nettoyer le filtre actif si ce projet était sélectionné
+  if (filterActive.category) {
+    // pas de nettoyage de catégorie nécessaire (catégorie ≠ projet)
+  }
   renderAll(); scheduleSave(); toast('Projet supprimé 🗑', 'warning');
 }
 
@@ -3712,10 +3723,23 @@ function showEditModal(data, isNew_) {
   function editTaskText(i,v) { d.tasks[i].text=v; }
   function renderEditTags() {
     const el = document.getElementById('edit-tags-list'); if(!el)return;
-    el.innerHTML = d.tags.map(t=>`<span class="tag-badge" style="background:${tagColor(t)}22;color:${tagColor(t)};display:inline-flex;align-items:center;gap:4px;padding:3px 8px;cursor:pointer" onclick="removeEditTag('${t}'">#${esc(t)} ×</span>`).join('');
+    // Tags du projet actuel — bouton × pour retirer du projet
+    el.innerHTML = d.tags.map(t=>`<span class="tag-badge" style="background:${tagColor(t)}22;color:${tagColor(t)};display:inline-flex;align-items:center;gap:4px;padding:3px 8px;cursor:pointer" onclick="removeEditTag('${t}')">#${esc(t)} ×</span>`).join('');
+    // Tags existants dans les autres projets
     const existing = [...new Set(state.projects.flatMap(p=>p.tags))].filter(t=>!d.tags.includes(t));
     const sec = document.getElementById('existing-tags-section');
-    if (sec && existing.length) sec.innerHTML = '<label class="form-label">Tags existants</label><div class="tags-wrap">' + existing.map(t=>`<button onclick="addExistingTag('${t}')" style="padding:3px 9px;border-radius:20px;border:1px dashed var(--border2);background:transparent;color:var(--text3);cursor:pointer;font-size:11px">+#${esc(t)}</button>`).join('') + '</div>';
+    if (sec) {
+      if (existing.length) {
+        sec.innerHTML = '<label class="form-label" style="margin-bottom:8px">Tags globaux</label><div class="tags-wrap" style="gap:6px">' +
+          existing.map(t=>`<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 6px 3px 9px;border-radius:20px;border:1px dashed var(--border2);background:transparent;font-size:11px">
+            <button onclick="addExistingTag('${t}')" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:11px;padding:0" title="Ajouter à ce projet">+#${esc(t)}</button>
+            <button onclick="deleteTagGlobally('${t}')" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:12px;padding:0 2px;line-height:1" title="Supprimer le tag de tous les projets">×</button>
+          </span>`).join('') +
+          '</div>';
+      } else {
+        sec.innerHTML = '';
+      }
+    }
   }
   function addEditTag() {
     const inp=document.getElementById('new-tag-inp'); if(!inp||!inp.value.trim())return;
@@ -3724,6 +3748,22 @@ function showEditModal(data, isNew_) {
   }
   function addExistingTag(t) { if(!d.tags.includes(t))d.tags.push(t); renderEditTags(); }
   function removeEditTag(t) { d.tags=d.tags.filter(x=>x!==t); renderEditTags(); }
+  function deleteTagGlobally(tag) {
+    if (!confirm(`Supprimer le tag "#${tag}" de tous les projets ?`)) return;
+    // Remove from all active projects
+    state.projects.forEach(p => { p.tags = (p.tags||[]).filter(t=>t!==tag); });
+    // Remove from all completed projects
+    state.completedProjects.forEach(p => { p.tags = (p.tags||[]).filter(t=>t!==tag); });
+    // Remove from current draft if present
+    d.tags = d.tags.filter(t=>t!==tag);
+    // Remove from active tag filter if present
+    const fi = filterActive.tags.indexOf(tag);
+    if (fi >= 0) filterActive.tags.splice(fi, 1);
+    renderEditTags();
+    renderFilterTags();
+    scheduleSave();
+    toast(`Tag "#${tag}" supprimé 🗑`, 'warning');
+  }
   function renderEditLinks() {
     const el = document.getElementById('edit-links-list'); if(!el)return;
     el.innerHTML = (d.links||[]).map((l,i)=>`<div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">
@@ -3756,6 +3796,7 @@ function showEditModal(data, isNew_) {
   window.addEditTag = addEditTag;
   window.addExistingTag = addExistingTag;
   window.removeEditTag = removeEditTag;
+  window.deleteTagGlobally = deleteTagGlobally;
   window.addEditLink = addEditLink;
   window.removeEditLink = removeEditLink;
   window.saveEditModal = saveEditModal;
