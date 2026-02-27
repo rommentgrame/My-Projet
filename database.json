@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:49:28.443Z",
+  "lastUpdated": "2026-02-27T09:49:30.431Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -388,12 +388,6 @@
       "name": "Teste",
       "color": "#7c3aed",
       "createdAt": "2026-02-27T09:49:17.862Z"
-    },
-    {
-      "id": "qeqv7xwdcmm4pnayy",
-      "name": "Teste 2",
-      "color": "#7c3aed",
-      "createdAt": "2026-02-27T09:49:23.914Z"
     }
   ],
   "habitLog": {
