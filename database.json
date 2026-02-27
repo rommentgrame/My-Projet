@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:41:56.321Z",
+  "lastUpdated": "2026-02-27T09:42:43.351Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -387,7 +387,16 @@
       "yjcmi1fcpmm4pdhr4": true
     }
   },
-  "missions": [],
+  "missions": [
+    {
+      "id": "8df3774rimm4pepi9",
+      "text": "Faire un Exel avec tout les pièce pour le chéquier électronique",
+      "period": "week",
+      "periodKey": "2026-W09",
+      "done": false,
+      "createdAt": "2026-02-27T09:42:42.849Z"
+    }
+  ],
   "settings": {
     "accent": "#ec4899",
     "compact": true,
