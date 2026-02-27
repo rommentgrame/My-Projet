@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:45:47.715Z",
+  "lastUpdated": "2026-02-27T09:45:54.611Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -491,6 +491,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:45:47.208Z"
+    },
+    {
+      "id": "9i9jy07iimm4pit2o",
+      "text": "Continuer de façon régulière mes projets",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:45:54.096Z"
     }
   ],
   "settings": {
