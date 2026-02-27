@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:46:15.299Z",
+  "lastUpdated": "2026-02-27T09:46:21.793Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -523,6 +523,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:46:14.792Z"
+    },
+    {
+      "id": "6q475o3jgmm4pje20",
+      "text": "Finir l’échiquier électroniques",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:46:21.288Z"
     }
   ],
   "settings": {
