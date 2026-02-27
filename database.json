@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T11:40:12.599Z",
+  "lastUpdated": "2026-02-27T11:41:03.744Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -19,6 +19,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "ei3r9lkxomm4tmw6z",
+          "text": "Ajuster les sous tache pour avoir un principe de cochage des sous taches",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 1,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -34,7 +45,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T23:00:31.039Z",
-      "updatedAt": "2026-02-27T11:40:12.082Z"
+      "updatedAt": "2026-02-27T11:41:03.227Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
