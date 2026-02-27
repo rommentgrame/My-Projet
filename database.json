@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:25:31.506Z",
+  "lastUpdated": "2026-02-27T10:25:37.213Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -129,6 +129,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "vxbnp1i0rmm4qxvi4",
+          "text": "Commencer les assemblages",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 9,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -144,7 +155,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T10:25:30.995Z"
+      "updatedAt": "2026-02-27T10:25:36.700Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
