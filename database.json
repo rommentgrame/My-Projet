@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:23:58.120Z",
+  "lastUpdated": "2026-02-27T09:24:01.591Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -409,48 +409,7 @@
       "d18wvy1q1mm3s04zn": true
     }
   },
-  "missions": [
-    {
-      "id": "58rmrlfwumm4oqam3",
-      "text": "rerer",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:43.803Z"
-    },
-    {
-      "id": "78hxo5l4amm4oqbeb",
-      "text": "rerer",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:44.819Z"
-    },
-    {
-      "id": "cvvn88q74mm4oqc3o",
-      "text": "rerer",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:45.732Z"
-    },
-    {
-      "id": "61v6nxzhqmm4oqcur",
-      "text": "rerr",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:46.708Z"
-    },
-    {
-      "id": "kezdw6p1wmm4oqdl6",
-      "text": "rerer",
-      "period": "week",
-      "periodKey": "2026-W09",
-      "done": false,
-      "createdAt": "2026-02-27T09:23:47.658Z"
-    }
-  ],
+  "missions": [],
   "settings": {
     "accent": "#ec4899",
     "compact": true,
