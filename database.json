@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:35:39.299Z",
+  "lastUpdated": "2026-02-27T13:36:40.303Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -270,15 +270,15 @@
       "color": "#ef4444",
       "tasks": [
         {
-          "id": "k7ms9amrgmm4xq9e8",
-          "text": "Choisir mon style",
-          "done": false,
-          "status": "todo",
+          "status": "in_progress",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "k7ms9amrgmm4xq9e8",
+          "text": "Choisir mon style",
+          "done": false
         }
       ],
       "tags": [],
@@ -294,7 +294,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:54:16.319Z",
-      "updatedAt": "2026-02-27T13:35:38.769Z"
+      "updatedAt": "2026-02-27T13:36:39.797Z"
     },
     {
       "id": "54nnzhm83mm3rhtt1",
