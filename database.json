@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T17:25:27.232Z",
+  "lastUpdated": "2026-02-27T17:26:26.913Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -264,7 +264,7 @@
     },
     {
       "id": "8jra8qkuimm3rj05b",
-      "name": "Crée une petit musique",
+      "name": "Crée une petit musique /Vilnio ",
       "description": "Créé une musique électro. Il faut :\n- Un violon\n- Si je peu rajouter des voix \n- Créé un vrai panoramique \n",
       "icon": "🎵",
       "color": "#ef4444",
@@ -305,7 +305,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:54:16.319Z",
-      "updatedAt": "2026-02-27T17:25:26.632Z"
+      "updatedAt": "2026-02-27T17:26:26.375Z"
     },
     {
       "id": "54nnzhm83mm3rhtt1",
