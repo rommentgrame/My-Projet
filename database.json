@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:50:41.856Z",
+  "lastUpdated": "2026-02-27T09:50:49.703Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -8,25 +8,7 @@
       "description": "",
       "icon": "🖥️",
       "color": "#a855f7",
-      "tasks": [
-        {
-          "id": "7hoofrzcsmm4poheb",
-          "text": "Todo",
-          "done": false,
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [
-            {
-              "id": "fh752nvcomm4pormo",
-              "text": "Tetse",
-              "done": false
-            }
-          ],
-          "note": "",
-          "dueDate": ""
-        }
-      ],
+      "tasks": [],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-03-05",
@@ -40,7 +22,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T23:00:31.039Z",
-      "updatedAt": "2026-02-27T09:50:41.341Z"
+      "updatedAt": "2026-02-27T09:50:49.190Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
