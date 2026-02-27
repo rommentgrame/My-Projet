@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:45:13.365Z",
+  "lastUpdated": "2026-02-27T09:45:18.872Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -451,6 +451,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:45:12.865Z"
+    },
+    {
+      "id": "yedtv6n8umm4pi1i8",
+      "text": "Gagné en maturité",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:45:18.368Z"
     }
   ],
   "settings": {
