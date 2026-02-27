@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:52:41.430Z",
+  "lastUpdated": "2026-02-27T09:52:48.327Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -351,7 +351,7 @@
     },
     {
       "id": "81t24qnnfmm4phbl4",
-      "text": "Toujours aller vers l'avan",
+      "text": "Toujours aller vers l'avant",
       "period": "year",
       "periodKey": "2026",
       "done": false,
