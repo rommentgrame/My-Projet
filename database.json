@@ -1,29 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:30:31.656Z",
+  "lastUpdated": "2026-02-27T10:30:59.357Z",
   "projects": [
-    {
-      "id": "hb1umqjxmmm4r3xr7",
-      "name": "App Projet (copie)",
-      "description": "",
-      "icon": "🖥️",
-      "color": "#a855f7",
-      "tasks": [],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-03-05",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-27T10:30:19.555Z",
-      "updatedAt": "2026-02-27T10:30:31.155Z"
-    },
     {
       "id": "702l31ptkmm42gu67",
       "name": "App Projet",
