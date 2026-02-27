@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:22:09.157Z",
+  "lastUpdated": "2026-02-27T09:23:18.864Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -42,7 +42,19 @@
       "description": "",
       "icon": "🎲",
       "color": "#6366f1",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "x8xrh819imm4opqz7",
+          "text": "rerre",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        }
+      ],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-05-30",
@@ -56,7 +68,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-26T23:06:43.585Z"
+      "updatedAt": "2026-02-27T09:23:18.355Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -309,6 +321,7 @@
       "d18wvy1q1mm3s04zn": true
     }
   },
+  "missions": [],
   "settings": {
     "accent": "#ec4899",
     "compact": true,
