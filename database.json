@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:49:42.604Z",
+  "lastUpdated": "2026-02-27T09:49:44.709Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -325,11 +325,11 @@
       "loggedHours": 0,
       "pomodoroCount": 0,
       "categoryId": "cat_tech",
-      "pinned": false,
+      "pinned": true,
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-26T18:06:06.248Z"
+      "updatedAt": "2026-02-27T09:49:44.201Z"
     }
   ],
   "slots": {
