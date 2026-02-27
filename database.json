@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:38:12.156Z",
+  "lastUpdated": "2026-02-27T09:40:08.385Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -44,9 +44,6 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "id": "x8xrh819imm4opqz7",
-          "text": "rerre",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
@@ -58,95 +55,98 @@
             }
           ],
           "note": "",
-          "dueDate": ""
+          "dueDate": "2026-02-28",
+          "id": "x8xrh819imm4opqz7",
+          "text": "rerre",
+          "done": false
         },
         {
-          "id": "gg8imty66mm4opszf",
-          "text": "rere",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "gg8imty66mm4opszf",
+          "text": "rere",
+          "done": false
         },
         {
-          "id": "duc0g9usemm4opug3",
-          "text": "rere",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 2,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "duc0g9usemm4opug3",
+          "text": "rere",
+          "done": false
         },
         {
-          "id": "8oqew5841mm4opvne",
-          "text": "rerer",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 3,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "8oqew5841mm4opvne",
+          "text": "rerer",
+          "done": false
         },
         {
-          "id": "isb95cvykmm4opwtf",
-          "text": "rere",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 4,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "isb95cvykmm4opwtf",
+          "text": "rere",
+          "done": false
         },
         {
-          "id": "yxulhwcnimm4opxya",
-          "text": "rere",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 5,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "yxulhwcnimm4opxya",
+          "text": "rere",
+          "done": false
         },
         {
-          "id": "kzxle2zmymm4opz7f",
-          "text": "rerer",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 6,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "kzxle2zmymm4opz7f",
+          "text": "rerer",
+          "done": false
         },
         {
-          "id": "b99g261qmmm4oq0ij",
-          "text": "rerer",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 7,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "b99g261qmmm4oq0ij",
+          "text": "rerer",
+          "done": false
         },
         {
-          "id": "l4ppwt5pmmm4oq1mj",
-          "text": "rerer",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 8,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "l4ppwt5pmmm4oq1mj",
+          "text": "rerer",
+          "done": false
         }
       ],
       "tags": [],
@@ -162,7 +162,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T09:24:14.556Z"
+      "updatedAt": "2026-02-27T09:40:07.882Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
