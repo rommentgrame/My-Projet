@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:45:27.199Z",
+  "lastUpdated": "2026-02-27T09:45:35.297Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -467,6 +467,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:45:26.697Z"
+    },
+    {
+      "id": "txefhe9xsmm4pie69",
+      "text": "Lire, écrire et améliorer ma culture",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:45:34.785Z"
     }
   ],
   "settings": {
