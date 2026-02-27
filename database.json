@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:48:25.232Z",
+  "lastUpdated": "2026-02-27T09:48:27.895Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -44,7 +44,7 @@
       "color": "#6366f1",
       "tasks": [
         {
-          "status": "done",
+          "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [
@@ -58,7 +58,7 @@
           "dueDate": "2026-02-26",
           "id": "x8xrh819imm4opqz7",
           "text": "rerre",
-          "done": true
+          "done": false
         },
         {
           "status": "in_progress",
@@ -129,7 +129,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T09:48:24.719Z"
+      "updatedAt": "2026-02-27T09:48:27.377Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
