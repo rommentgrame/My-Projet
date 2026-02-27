@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:44:51.516Z",
+  "lastUpdated": "2026-02-27T09:44:57.682Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -427,6 +427,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:44:51.009Z"
+    },
+    {
+      "id": "qrb8g7g0wmm4phl5c",
+      "text": "Économisez et travailler pour m'enrichir",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:44:57.168Z"
     }
   ],
   "settings": {
