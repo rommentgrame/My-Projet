@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T22:54:49.531Z",
+  "lastUpdated": "2026-02-27T22:54:50.848Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -573,7 +573,7 @@
     }
   ],
   "settings": {
-    "accent": "#22c55e",
+    "accent": "#84cc16",
     "compact": true,
     "slotNames": {
       "primary": "Primaire",
