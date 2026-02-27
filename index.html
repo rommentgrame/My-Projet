@@ -278,7 +278,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-card {
   border-radius: var(--radius); border: 2px dashed var(--border);
   background: rgba(255,255,255,0.015);
-  transition: all var(--transition); min-height: 340px; max-height: 720px; overflow: hidden;
+  transition: all var(--transition); min-height: 0; overflow: hidden;
   display: flex; flex-direction: column;
 }
 .slot-card.drag-over {
@@ -296,7 +296,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .slot-meta { display: flex; flex-direction: column; }
 .slot-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; }
 .slot-desc { font-size: 10px; color: var(--text3); margin-top: 1px; }
-.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; min-height: 0; overflow: hidden; }
+.slot-body { flex: 1; padding: 14px 15px; display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow: hidden; }
 .slot-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; color: var(--text3); gap: 10px; }
 .slot-empty-icon { font-size: 38px; opacity: 0.2; }
 .slot-empty p { font-size: 12px; line-height: 1.6; }
@@ -319,18 +319,21 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
   border-radius: 10px;
-  overflow: visible;   /* allow internal scroll to work */
-  flex: 1;             /* take available space */
-  min-height: 0;       /* critical: flex children can shrink below content size */
+  overflow: hidden;   /* clip at border-radius */
+  flex-shrink: 0;
+  /* Fixed height container — tasks scroll inside */
+  height: 220px;
+  min-height: 220px;
+  max-height: 220px;
 }
 .sp-tasklist {
-  max-height: 200px;   /* ~6 tasks, then scroll */
-  min-height: 36px;
+  /* Fill the wrapper height minus the add-task row (~40px) */
+  height: calc(100% - 40px);
   overflow-y: auto;
   overflow-x: hidden;
   display: flex; flex-direction: column;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.12) transparent;
+  scrollbar-color: rgba(255,255,255,0.14) transparent;
 }
 .sp-tasklist::-webkit-scrollbar { width: 4px; }
 .sp-tasklist::-webkit-scrollbar-track { background: transparent; }
@@ -1337,6 +1340,194 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 .habit-item:hover .habit-del-btn { color: var(--text3); }
 .habit-del-btn:hover { color: #f87171 !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   MISSIONS VIEW
+══════════════════════════════════════════════════════════════ */
+.missions-header {
+  margin-bottom: 20px;
+}
+.missions-title {
+  font-family: var(--font-display); font-size: 18px; font-weight: 800;
+  letter-spacing: -0.02em; color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+.missions-subtitle {
+  font-size: 11px; color: var(--text3); margin-top: 4px;
+  text-transform: capitalize;
+}
+.missions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 860px) { .missions-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .missions-grid { grid-template-columns: 1fr; gap: 12px; } }
+
+/* ── Mission block ───────────────────────────────────────── */
+.mission-block {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.mission-block:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+
+.mission-block-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--bc) 10%, transparent), transparent);
+}
+.mission-block-title {
+  display: flex; align-items: center; gap: 10px;
+}
+.mission-block-icon { font-size: 22px; }
+.mission-block-name {
+  font-family: var(--font-display); font-size: 13px; font-weight: 700;
+  color: var(--text);
+}
+.mission-block-period {
+  font-size: 10px; color: var(--text3); margin-top: 2px;
+  text-transform: capitalize;
+}
+.mission-block-meta { display: flex; align-items: center; gap: 8px; }
+.mission-count {
+  font-family: var(--font-display); font-size: 14px; font-weight: 800;
+}
+.mission-count.all-done { color: #4ade80 !important; }
+
+/* ── Progress bar ────────────────────────────────────────── */
+.mission-prog-bar {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.mission-prog-fill {
+  height: 100%;
+  border-radius: 0;
+  transition: width 0.35s ease;
+}
+
+/* ── Missions list ───────────────────────────────────────── */
+.mission-list {
+  flex: 1;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex; flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+.mission-list::-webkit-scrollbar { width: 3px; }
+.mission-list::-webkit-scrollbar-track { background: transparent; }
+.mission-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+
+.mission-empty {
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 11px; color: var(--text3); font-style: italic;
+}
+
+/* ── Mission item ────────────────────────────────────────── */
+.mission-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+.mission-item:last-child { border-bottom: none; }
+.mission-item:hover { background: rgba(255,255,255,0.04); }
+.mission-item.done { opacity: 0.55; }
+
+/* Checkbox */
+.mission-check {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.18);
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--mc, var(--accent));
+  transition: all 0.2s cubic-bezier(0.34,1.4,0.64,1);
+}
+.mission-check:hover {
+  border-color: var(--mc, var(--accent));
+  background: color-mix(in srgb, var(--mc, var(--accent)) 15%, transparent);
+  transform: scale(1.1);
+}
+.mission-check.done {
+  border-color: var(--mc, var(--accent));
+  background: color-mix(in srgb, var(--mc, var(--accent)) 22%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--mc, var(--accent)) 35%, transparent);
+}
+@keyframes mcheckIn {
+  0% { transform: scale(0.5) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.mission-check.done svg { animation: mcheckIn 0.22s cubic-bezier(0.34,1.4,0.64,1); }
+
+/* Text */
+.mission-text {
+  flex: 1; min-width: 0;
+  font-size: 12.5px; color: var(--text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  transition: color 0.2s;
+  cursor: text;
+}
+.mission-text:hover { color: var(--text); }
+.mission-text.done {
+  text-decoration: line-through;
+  color: var(--text3);
+  text-decoration-color: rgba(255,255,255,0.2);
+}
+
+/* Delete button */
+.mission-del {
+  background: none; border: none; cursor: pointer;
+  color: transparent; font-size: 15px; padding: 0 2px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1; flex-shrink: 0;
+}
+.mission-item:hover .mission-del { color: var(--text3); }
+.mission-del:hover { color: #f87171 !important; background: rgba(248,113,113,0.1); }
+
+/* ── Add row ─────────────────────────────────────────────── */
+.mission-add-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,0.015);
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.mission-add-row:focus-within {
+  background: rgba(var(--accent-rgb), 0.04);
+}
+.mission-add-plus {
+  font-size: 18px; flex-shrink: 0;
+  line-height: 1; transition: opacity 0.15s; opacity: 0.6;
+}
+.mission-add-row:focus-within .mission-add-plus { opacity: 1; }
+.mission-add-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-size: 12px; font-family: var(--font); color: var(--text);
+  padding: 0;
+}
+.mission-add-input::placeholder { color: var(--text3); font-style: italic; }
+
+/* ── Inline edit ─────────────────────────────────────────── */
+.mission-inline-edit {
+  flex: 1; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(var(--accent-rgb),0.4);
+  border-radius: 6px; outline: none; padding: 2px 8px;
+  font-size: 12.5px; font-family: var(--font); color: var(--text);
+}
+
+
 </style>
 </head>
 <body>
@@ -1505,6 +1696,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 <!-- ══════ DESKTOP VIEW TABS ══════ -->
 <div class="desktop-view-bar" id="desktop-view-bar">
   <button class="dvtab active" id="dvtab-board" onclick="setDesktopView('board')">⚡ Actifs</button>
+  <button class="dvtab" id="dvtab-missions" onclick="setDesktopView('missions')">🎯 Missions</button>
   <button class="dvtab" id="dvtab-completed" onclick="setDesktopView('completed')">🏆 Terminés</button>
   <button class="dvtab" id="dvtab-stats" onclick="setDesktopView('stats')">📊 Stats</button>
 </div>
@@ -1637,6 +1829,11 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
       </div>
     </div>
 
+    <!-- Missions View -->
+    <div id="view-missions" class="view-hidden">
+      <div id="missions-root"></div>
+    </div>
+
     <!-- Stats View -->
     <div id="view-stats" class="view-hidden">
       <div class="section-title" style="margin-bottom:16px">📊 Tableau de bord</div>
@@ -1654,9 +1851,9 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   <div class="mobile-nav-inner">
     <button class="nav-item active" id="nav-list" onclick="setMobileView('list')"><span>📋</span>Liste</button>
     <button class="nav-item" id="nav-board" onclick="setMobileView('board')"><span>⚡</span>Actifs</button>
+    <button class="nav-item" id="nav-missions" onclick="setMobileView('missions')"><span>🎯</span>Missions</button>
     <button class="nav-item" id="nav-done" onclick="setMobileView('completed')"><span>🏆</span>Terminés</button>
     <button class="nav-item" id="nav-stats" onclick="setMobileView('stats')"><span>📊</span>Stats</button>
-    <button class="nav-item" id="nav-settings" onclick="openSettings()"><span>⚙</span>Réglages</button>
   </div>
 </nav>
 <button class="mobile-fab" onclick="openNew()">＋</button>
@@ -1724,6 +1921,7 @@ let state = {
     { id: 'cat_perso', name: 'Personnel', color: '#f97316', icon: '🏠' },
   ],
   auth: null,
+  missions: [],   // [{ id, text, period:'week'|'month'|'semester'|'year', done, createdAt, periodKey }]
   habits: [],
   habitLog: {},
   settings: {
@@ -2085,6 +2283,7 @@ function applyData(d) {
   if (Array.isArray(d.categories) && d.categories.length) state.categories = d.categories;
   if (Array.isArray(d.habits)) state.habits = d.habits;
   if (d.habitLog) state.habitLog = d.habitLog;
+  if (Array.isArray(d.missions)) state.missions = d.missions;
   if (!state.settings.slotNames) state.settings.slotNames = { primary:'Primaire', secondary:'Secondaire', pleasure:'Plaisir' };
   // Load auth from database (syncs across browsers / private mode)
   if (d.auth && d.auth.hash) {
@@ -2112,6 +2311,7 @@ function dataSnapshot() {
     categories: state.categories,
     habits: state.habits,
     habitLog: state.habitLog,
+    missions: state.missions,
     settings: state.settings,
     auth: state.auth || null
   };
@@ -2201,6 +2401,7 @@ function renderAll() {
   updateAllProjectsOverview();
   renderQuickStats();
   renderHabits();
+  renderMissions();
   renderCategoryFilters();
 }
 
@@ -2968,31 +3169,33 @@ function setMobileView(v) {
   const isMobile = window.innerWidth <= 640;
 
   // Show/hide main views
-  document.getElementById('view-board').classList.toggle('view-hidden', v==='completed'||v==='stats');
+  document.getElementById('view-board').classList.toggle('view-hidden', v==='completed'||v==='stats'||v==='missions');
   document.getElementById('view-completed').classList.toggle('view-hidden', v!=='completed');
   document.getElementById('view-stats').classList.toggle('view-hidden', v!=='stats');
+  document.getElementById('view-missions').classList.toggle('view-hidden', v!=='missions');
 
   if (isMobile) {
     // On mobile: toggle sidebar for 'list' view
     if (v==='list') toggleSidebar();
     else closeSidebar();
     // Update mobile nav
-    ['list','board','done','stats','settings'].forEach(n => {
+    ['list','board','missions','done','stats'].forEach(n => {
       const el = document.getElementById('nav-'+n);
       if (el) el.classList.toggle('active', v===n||(n==='done'&&v==='completed'));
     });
   }
 
   // Sync desktop tab highlights
-  const viewMap = { board:'board', completed:'completed', stats:'stats' };
+  const viewMap = { board:'board', completed:'completed', stats:'stats', missions:'missions' };
   const activeTab = viewMap[v] || 'board';
-  ['board','completed','stats'].forEach(t => {
+  ['board','completed','stats','missions'].forEach(t => {
     const el = document.getElementById('dvtab-'+t);
     if (el) el.classList.toggle('active', t===activeTab);
   });
 
-  // Render completed when switching to that view
+  // Render specific views on switch
   if (v === 'completed') renderCompleted();
+  if (v === 'missions') renderMissions();
 }
 
 function setDesktopView(v) {
@@ -4055,31 +4258,21 @@ function toggleSubtask(projId, taskId, subId) {
   const sub = (t.subtasks||[]).find(x=>x.id===subId); if(!sub) return;
   sub.done = !sub.done;
   p.updatedAt = new Date().toISOString();
-
-  // ── Targeted DOM update — does NOT close the expand panel ────────────
-  // 1. Update the checkbox button class + SVG checkmark
-  const checkBtn = document.querySelector(`[onclick*="toggleSubtask"][onclick*="${subId}"]`);
-  if (checkBtn) {
-    checkBtn.classList.toggle('done', sub.done);
-    checkBtn.innerHTML = sub.done
-      ? '<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6.5 7,1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-      : '';
+  // Re-render just this one task item in-place (fast, no full re-render, panel stays open)
+  const itemEl = document.getElementById('taskitem-' + taskId);
+  if (itemEl) {
+    const idx = [...(itemEl.parentElement?.children || [])].indexOf(itemEl);
+    const newHtml = renderEnhancedTask(t, projId, idx < 0 ? 0 : idx);
+    const tmp = document.createElement('div');
+    tmp.innerHTML = newHtml;
+    const newItem = tmp.firstElementChild;
+    itemEl.replaceWith(newItem);
+    // Re-open the detail panel if it was open
+    const detail = document.getElementById('tdetail-' + taskId);
+    const expandBtn = document.getElementById('texpand-' + taskId);
+    if (detail) { detail.classList.add('open'); }
+    if (expandBtn) { expandBtn.classList.add('open'); }
   }
-  // 2. Strike-through the subtask text
-  const textEl = checkBtn ? checkBtn.nextElementSibling : null;
-  if (textEl) textEl.classList.toggle('done', sub.done);
-
-  // 3. Update the mini progress bar
-  const subDone = (t.subtasks||[]).filter(s=>s.done).length;
-  const subTotal = t.subtasks.length;
-  const fillEl = document.querySelector(`#taskitem-${taskId} .subtask-mini-fill`);
-  if (fillEl) fillEl.style.width = (subTotal ? Math.round(subDone/subTotal*100) : 0) + '%';
-
-  // 4. Update the subtask count pill in the task header
-  const pillEl = document.querySelector(`#taskitem-${taskId} [data-sub-pill]`);
-  if (pillEl) pillEl.textContent = subDone+'/'+subTotal;
-
-  // 5. Save
   scheduleSave();
 }
 function deleteSubtask(projId, taskId, subId) {
@@ -4254,6 +4447,264 @@ function updateSyncTime() {
 }
 
 // ── START ─────────────────────────────────────────────────────────────────
+
+// ════════════════════════════════════════════════════════════════════════════
+//  MISSIONS MODULE
+//  Periods: week | month | semester | year
+// ════════════════════════════════════════════════════════════════════════════
+
+/** Returns the canonical period-key for a given period and date.
+ *  e.g. week → "2025-W04", month → "2025-01",
+ *       semester → "2025-S1", year → "2025" */
+function getMissionPeriodKey(period, date) {
+  const d = date || new Date();
+  const y = d.getFullYear();
+  if (period === 'year') return String(y);
+  if (period === 'month') {
+    return y + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  }
+  if (period === 'semester') {
+    return y + (d.getMonth() < 6 ? '-S1' : '-S2');
+  }
+  if (period === 'week') {
+    // ISO week number
+    const tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    const dayNum = tmp.getUTCDay() || 7;
+    tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1));
+    const weekNo = Math.ceil((((tmp - yearStart) / 86400000) + 1) / 7);
+    return tmp.getUTCFullYear() + '-W' + String(weekNo).padStart(2, '0');
+  }
+  return String(y);
+}
+
+/** Label for a period key (shown in UI) */
+function getMissionPeriodLabel(period) {
+  const d = new Date();
+  if (period === 'week') {
+    const key = getMissionPeriodKey('week');
+    return 'Semaine ' + key.split('-W')[1] + ' · ' + d.getFullYear();
+  }
+  if (period === 'month') {
+    const months = ['Janvier','Février','Mars','Avril','Mai','Juin',
+                    'Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    return months[d.getMonth()] + ' ' + d.getFullYear();
+  }
+  if (period === 'semester') {
+    return (d.getMonth() < 6 ? '1er Semestre' : '2ème Semestre') + ' ' + d.getFullYear();
+  }
+  if (period === 'year') return 'Année ' + d.getFullYear();
+  return '';
+}
+
+/** Get missions for current period */
+function getMissionsForPeriod(period) {
+  const key = getMissionPeriodKey(period);
+  return (state.missions || []).filter(m => m.period === period && m.periodKey === key);
+}
+
+/** Render the full missions view */
+function renderMissions() {
+  const root = document.getElementById('missions-root');
+  if (!root) return;
+
+  const periods = [
+    { id: 'week',     icon: '📅', label: 'Missions de la semaine',   color: '#0ea5e9' },
+    { id: 'month',    icon: '🗓', label: 'Missions du mois',         color: '#a855f7' },
+    { id: 'semester', icon: '📆', label: 'Missions du semestre',     color: '#f97316' },
+    { id: 'year',     icon: '🏆', label: 'Missions de l\'année',     color: '#22c55e' },
+  ];
+
+  root.innerHTML = `
+    <div class="missions-header">
+      <div class="missions-title">🎯 Missions</div>
+      <div class="missions-subtitle">${new Date().toLocaleDateString('fr-FR', {weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
+    </div>
+    <div class="missions-grid">
+      ${periods.map(p => renderMissionBlock(p)).join('')}
+    </div>`;
+}
+
+/** Render one period block */
+function renderMissionBlock(p) {
+  const missions = getMissionsForPeriod(p.id);
+  const done = missions.filter(m => m.done).length;
+  const total = missions.length;
+  const pct = total > 0 ? Math.round(done / total * 100) : 0;
+  const periodLabel = getMissionPeriodLabel(p.id);
+
+  const itemsHtml = missions.length === 0
+    ? `<div class="mission-empty">Aucune mission — cliquez + pour en ajouter</div>`
+    : missions.map(m => `
+        <div class="mission-item${m.done ? ' done' : ''}" id="mitem-${m.id}">
+          <button class="mission-check${m.done ? ' done' : ''}"
+            onclick="toggleMission('${m.id}')"
+            title="${m.done ? 'Marquer non faite' : 'Marquer faite'}"
+            style="--mc:${p.color}">
+            ${m.done ? `<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <polyline points="1.5,5 4,7.5 8.5,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>` : ''}
+          </button>
+          <span class="mission-text${m.done ? ' done' : ''}"
+            ondblclick="editMissionInline('${m.id}', this)"
+            title="Double-cliquer pour modifier">${esc(m.text)}</span>
+          <button class="mission-del" onclick="deleteMission('${m.id}')" title="Supprimer">×</button>
+        </div>`).join('');
+
+  return `
+    <div class="mission-block" id="mblock-${p.id}">
+      <div class="mission-block-header" style="--bc:${p.color}">
+        <div class="mission-block-title">
+          <span class="mission-block-icon">${p.icon}</span>
+          <div>
+            <div class="mission-block-name">${p.label}</div>
+            <div class="mission-block-period">${periodLabel}</div>
+          </div>
+        </div>
+        <div class="mission-block-meta">
+          <span class="mission-count${done === total && total > 0 ? ' all-done' : ''}" style="color:${p.color}">${done}/${total}</span>
+        </div>
+      </div>
+
+      <div class="mission-prog-bar">
+        <div class="mission-prog-fill" style="width:${pct}%;background:${p.color};box-shadow:0 0 8px ${p.color}60"></div>
+      </div>
+
+      <div class="mission-list" id="mlist-${p.id}">
+        ${itemsHtml}
+      </div>
+
+      <div class="mission-add-row">
+        <span class="mission-add-plus" style="color:${p.color}">＋</span>
+        <input class="mission-add-input" id="minput-${p.id}"
+          placeholder="Nouvelle mission…"
+          onkeydown="if(event.key==='Enter')addMission('${p.id}',this)">
+      </div>
+    </div>`;
+}
+
+/** Add a new mission */
+function addMission(period, inputEl) {
+  const text = (inputEl ? inputEl.value : '').trim();
+  if (!text) return;
+  if (!state.missions) state.missions = [];
+  const m = {
+    id: uid(),
+    text,
+    period,
+    periodKey: getMissionPeriodKey(period),
+    done: false,
+    createdAt: new Date().toISOString()
+  };
+  state.missions.push(m);
+  if (inputEl) inputEl.value = '';
+  scheduleSave();
+  // Re-render only the affected block
+  const block = document.getElementById('mblock-' + period);
+  if (block) {
+    const periods = [
+      { id: 'week', icon: '📅', label: 'Missions de la semaine', color: '#0ea5e9' },
+      { id: 'month', icon: '🗓', label: 'Missions du mois', color: '#a855f7' },
+      { id: 'semester', icon: '📆', label: 'Missions du semestre', color: '#f97316' },
+      { id: 'year', icon: '🏆', label: "Missions de l'année", color: '#22c55e' },
+    ];
+    const p = periods.find(x => x.id === period);
+    if (p) block.outerHTML = renderMissionBlock(p);
+    // Restore focus to input
+    setTimeout(() => document.getElementById('minput-' + period)?.focus(), 30);
+  }
+}
+
+/** Toggle done state */
+function toggleMission(id) {
+  if (!state.missions) return;
+  const m = state.missions.find(x => x.id === id);
+  if (!m) return;
+  m.done = !m.done;
+  scheduleSave();
+  // Targeted DOM update
+  const item = document.getElementById('mitem-' + id);
+  if (item) {
+    item.classList.toggle('done', m.done);
+    const chk = item.querySelector('.mission-check');
+    if (chk) {
+      chk.classList.toggle('done', m.done);
+      chk.innerHTML = m.done ? `<svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <polyline points="1.5,5 4,7.5 8.5,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>` : '';
+    }
+    const txt = item.querySelector('.mission-text');
+    if (txt) txt.classList.toggle('done', m.done);
+    // Update progress bar + count for this block
+    const period = m.period;
+    const blockEl = document.getElementById('mblock-' + period);
+    if (blockEl) {
+      const missions = getMissionsForPeriod(period);
+      const done = missions.filter(x => x.done).length;
+      const total = missions.length;
+      const pct = total > 0 ? Math.round(done / total * 100) : 0;
+      const fill = blockEl.querySelector('.mission-prog-fill');
+      if (fill) fill.style.width = pct + '%';
+      const cnt = blockEl.querySelector('.mission-count');
+      if (cnt) {
+        cnt.textContent = done + '/' + total;
+        cnt.classList.toggle('all-done', done === total && total > 0);
+      }
+    }
+  }
+}
+
+/** Delete a mission */
+function deleteMission(id) {
+  if (!state.missions) return;
+  const m = state.missions.find(x => x.id === id);
+  if (!m) return;
+  const period = m.period;
+  state.missions = state.missions.filter(x => x.id !== id);
+  scheduleSave();
+  // Re-render the block
+  const periods = [
+    { id: 'week', icon: '📅', label: 'Missions de la semaine', color: '#0ea5e9' },
+    { id: 'month', icon: '🗓', label: 'Missions du mois', color: '#a855f7' },
+    { id: 'semester', icon: '📆', label: 'Missions du semestre', color: '#f97316' },
+    { id: 'year', icon: '🏆', label: "Missions de l'année", color: '#22c55e' },
+  ];
+  const p = periods.find(x => x.id === period);
+  const block = document.getElementById('mblock-' + period);
+  if (p && block) block.outerHTML = renderMissionBlock(p);
+}
+
+/** Inline edit on double-click */
+function editMissionInline(id, spanEl) {
+  const m = state.missions ? state.missions.find(x => x.id === id) : null;
+  if (!m) return;
+  const input = document.createElement('input');
+  input.className = 'mission-inline-edit';
+  input.value = m.text;
+  spanEl.replaceWith(input);
+  input.focus();
+  input.select();
+  const save = () => {
+    const newText = input.value.trim();
+    if (newText) m.text = newText;
+    input.replaceWith(Object.assign(document.createElement('span'), {
+      className: 'mission-text' + (m.done ? ' done' : ''),
+      textContent: m.text,
+      ondblclick: () => editMissionInline(id, input.parentElement?.querySelector('.mission-text'))
+    }));
+    // Re-attach ondblclick via HTML re-render of the span
+    const txt = document.querySelector('#mitem-' + id + ' .mission-text');
+    if (txt) txt.setAttribute('ondblclick', `editMissionInline('${id}',this)`);
+    scheduleSave();
+  };
+  input.addEventListener('blur', save);
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); save(); }
+    if (e.key === 'Escape') { input.value = m.text; save(); }
+  });
+}
+
+
 init();
 </script>
 </body>
