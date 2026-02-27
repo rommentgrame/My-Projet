@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T12:49:26.378Z",
+  "lastUpdated": "2026-02-27T12:49:28.318Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -420,20 +420,7 @@
       "color": "#ef4444"
     }
   ],
-  "habits": [
-    {
-      "id": "4icwl983hmm4pmx0b",
-      "name": "Voir les erreurs dans le projet",
-      "color": "#0ea5e9",
-      "createdAt": "2026-02-27T09:49:05.819Z"
-    },
-    {
-      "id": "po7mj3nurmm4vujwc",
-      "name": "n",
-      "color": "#0ea5e9",
-      "createdAt": "2026-02-27T12:42:59.772Z"
-    }
-  ],
+  "habits": [],
   "habitLog": {
     "2026-02-26": {
       "d18wvy1q1mm3s04zn": true
