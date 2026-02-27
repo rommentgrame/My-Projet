@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:41:52.496Z",
+  "lastUpdated": "2026-02-27T09:41:55.565Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -377,12 +377,6 @@
     }
   ],
   "habits": [
-    {
-      "id": "yx369lryhmm4pd78y",
-      "name": "ddsds",
-      "color": "#7c3aed",
-      "createdAt": "2026-02-27T09:41:32.530Z"
-    },
     {
       "id": "r53fl9tjvmm4pdb75",
       "name": "ddsds",
