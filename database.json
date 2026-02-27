@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:31:51.120Z",
+  "lastUpdated": "2026-02-27T13:31:54.034Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -82,7 +82,7 @@
           "done": false
         },
         {
-          "status": "done",
+          "status": "todo",
           "priority": "low",
           "rank": 6,
           "subtasks": [],
@@ -90,7 +90,7 @@
           "dueDate": "",
           "id": "l4fd9w2k0mm4qxmxn",
           "text": "Créé le schéma du plateau",
-          "done": true
+          "done": false
         },
         {
           "status": "todo",
@@ -128,7 +128,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T13:31:50.607Z"
+      "updatedAt": "2026-02-27T13:31:53.514Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
