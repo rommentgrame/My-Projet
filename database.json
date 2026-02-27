@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:37:00.554Z",
+  "lastUpdated": "2026-02-27T10:37:09.397Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -69,11 +69,11 @@
           "text": "Faire le schéma des composants",
           "done": false,
           "status": "in_progress",
-          "priority": "medium",
+          "priority": "high",
           "rank": 3,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "2026-03-06"
         },
         {
           "id": "zww9q4y49mm4qx57w",
@@ -155,7 +155,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T10:36:57.235Z"
+      "updatedAt": "2026-02-27T10:37:08.883Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
