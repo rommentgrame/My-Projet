@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:50:09.453Z",
+  "lastUpdated": "2026-02-27T09:50:15.249Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -8,19 +8,7 @@
       "description": "",
       "icon": "🖥️",
       "color": "#a855f7",
-      "tasks": [
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "e2a0jy0lqmm42jbox",
-          "text": "Faire un nouvelle onglet comme state ou projet mais avec les missions du mois, du semestre et de l'année et de la semaine",
-          "done": false
-        }
-      ],
+      "tasks": [],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-03-05",
@@ -34,7 +22,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T23:00:31.039Z",
-      "updatedAt": "2026-02-27T09:49:39.118Z"
+      "updatedAt": "2026-02-27T09:50:14.733Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
