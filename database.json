@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T09:46:10.613Z",
+  "lastUpdated": "2026-02-27T09:46:15.299Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -515,6 +515,14 @@
       "periodKey": "2026",
       "done": false,
       "createdAt": "2026-02-27T09:46:10.113Z"
+    },
+    {
+      "id": "auqv1efq3mm4pj91k",
+      "text": "Commencé la musique",
+      "period": "year",
+      "periodKey": "2026",
+      "done": false,
+      "createdAt": "2026-02-27T09:46:14.792Z"
     }
   ],
   "settings": {
