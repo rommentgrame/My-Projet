@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T10:24:57.498Z",
+  "lastUpdated": "2026-02-27T10:25:03.147Z",
   "projects": [
     {
       "id": "702l31ptkmm42gu67",
@@ -74,6 +74,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "zww9q4y49mm4qx57w",
+          "text": "Commencé le schéma électronique et choisir la taille de la carte",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 4,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -89,7 +100,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T10:24:56.996Z"
+      "updatedAt": "2026-02-27T10:25:02.636Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
