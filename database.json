@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T14:08:19.282Z",
+  "lastUpdated": "2026-02-27T15:22:17.520Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -326,15 +326,15 @@
       "color": "#a855f7",
       "tasks": [
         {
-          "id": "7y04r2zt3mm4yw9qx",
-          "text": "Repprendre l'IA",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "7y04r2zt3mm4yw9qx",
+          "text": "Repprendre l'IA",
+          "done": false
         }
       ],
       "tags": [],
