@@ -1,52 +1,7 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T13:16:42.399Z",
+  "lastUpdated": "2026-02-27T13:16:43.603Z",
   "projects": [
-    {
-      "id": "702l31ptkmm42gu67",
-      "name": "App Projet",
-      "description": "",
-      "icon": "🖥️",
-      "color": "#a855f7",
-      "tasks": [
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "u95b154jfmm4tlsqa",
-          "text": "Ajuster les taches",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 1,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "ei3r9lkxomm4tmw6z",
-          "text": "Ajuster les sous tache pour avoir un principe de cochage des sous taches",
-          "done": true
-        }
-      ],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-03-05",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": true,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T23:00:31.039Z",
-      "updatedAt": "2026-02-27T13:16:41.895Z"
-    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
@@ -379,9 +334,56 @@
   "slots": {
     "primary": "ychuqcj0nmm3r66d5",
     "secondary": "1lu5shi7lmm3rfb7g",
-    "pleasure": "702l31ptkmm42gu67"
+    "pleasure": null
   },
-  "completedProjects": [],
+  "completedProjects": [
+    {
+      "id": "702l31ptkmm42gu67",
+      "name": "App Projet",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#a855f7",
+      "tasks": [
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "u95b154jfmm4tlsqa",
+          "text": "Ajuster les taches",
+          "done": true
+        },
+        {
+          "status": "done",
+          "priority": "medium",
+          "rank": 1,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "ei3r9lkxomm4tmw6z",
+          "text": "Ajuster les sous tache pour avoir un principe de cochage des sous taches",
+          "done": true
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-03-05",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": true,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-02-26T23:00:31.039Z",
+      "updatedAt": "2026-02-27T13:16:41.895Z",
+      "completedAt": "2026-02-27T13:16:43.096Z"
+    }
+  ],
   "categories": [
     {
       "id": "cat_general",
