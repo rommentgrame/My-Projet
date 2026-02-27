@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T12:43:04.607Z",
+  "lastUpdated": "2026-02-27T12:45:43.924Z",
   "projects": [
+    {
+      "id": "jl464mkgsmm4vy0nf",
+      "name": "xxxxxxxx",
+      "description": "",
+      "icon": "🎓",
+      "color": "#0ea5e9",
+      "tasks": [],
+      "tags": [],
+      "priority": "medium",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_general",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-27T12:45:41.451Z",
+      "updatedAt": "2026-02-27T12:45:41.451Z"
+    },
     {
       "id": "702l31ptkmm42gu67",
       "name": "App Projet",
