@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T17:26:55.096Z",
+  "lastUpdated": "2026-02-27T22:54:49.531Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -283,15 +283,15 @@
           "done": true
         },
         {
-          "id": "9hexo0pgkmm55xs6g",
-          "text": "Faire la mélodie et les accompagnement",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "9hexo0pgkmm55xs6g",
+          "text": "Faire la mélodie et les accompagnement",
+          "done": false
         }
       ],
       "tags": [],
@@ -573,7 +573,7 @@
     }
   ],
   "settings": {
-    "accent": "#ec4899",
+    "accent": "#22c55e",
     "compact": true,
     "slotNames": {
       "primary": "Primaire",
