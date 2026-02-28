@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T15:19:21.683Z",
+  "lastUpdated": "2026-02-28T15:23:38.549Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -24,7 +24,7 @@
       "tags": [],
       "priority": "high",
       "dueDate": "2026-03-20",
-      "notes": "",
+      "notes": "Stage (rapport de stage)\nAssociation sportive et audiovisuel \nAccordéon, théâtre, C4F, vidéo en enfance, site internet \nL'outil en main \nFormation personnel et professionnel (BIA, MAO)\nMusic créé \nStop motion ",
       "links": [],
       "estimatedHours": 0,
       "loggedHours": 0,
@@ -34,7 +34,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-02-28T15:14:39.961Z"
+      "updatedAt": "2026-02-28T15:23:37.935Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
