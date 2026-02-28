@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-27T23:00:42.711Z",
+  "lastUpdated": "2026-02-28T11:29:03.132Z",
   "projects": [
+    {
+      "id": "g2kraftv0mm68lc6c",
+      "name": "Faire un document pour parcoursup. Avec mes projets et mes expériences ",
+      "description": "",
+      "icon": "📚",
+      "color": "#06b6d4",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-03-20",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_learning",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-28T11:27:31.044Z",
+      "updatedAt": "2026-02-28T11:27:31.052Z"
+    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
