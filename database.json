@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T16:41:06.820Z",
+  "lastUpdated": "2026-02-28T16:41:14.316Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -466,7 +466,7 @@
       "text": "Finir l’échéquier élétronique",
       "period": "semester",
       "periodKey": "2026-S1",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:43:51.465Z"
     },
     {
@@ -506,7 +506,7 @@
       "text": "Économisez et travailler pour m'enrichir",
       "period": "year",
       "periodKey": "2026",
-      "done": true,
+      "done": false,
       "createdAt": "2026-02-27T09:44:57.168Z"
     },
     {
@@ -514,7 +514,7 @@
       "text": "Avoir mon permis",
       "period": "year",
       "periodKey": "2026",
-      "done": true,
+      "done": false,
       "createdAt": "2026-02-27T09:45:07.120Z"
     },
     {
@@ -522,7 +522,7 @@
       "text": "Gardé et améliorer ma musculation",
       "period": "year",
       "periodKey": "2026",
-      "done": true,
+      "done": false,
       "createdAt": "2026-02-27T09:45:12.865Z"
     },
     {
