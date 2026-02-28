@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T16:40:57.419Z",
+  "lastUpdated": "2026-02-28T16:40:58.820Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -474,7 +474,7 @@
       "text": "Faire un Exel avec tout les pièce pour l'échiquier électronique",
       "period": "month",
       "periodKey": "2026-02",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:44:14.736Z"
     },
     {
