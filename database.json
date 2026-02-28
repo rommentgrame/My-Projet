@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T15:14:32.572Z",
+  "lastUpdated": "2026-02-28T15:14:40.489Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -10,7 +10,7 @@
       "color": "#06b6d4",
       "tasks": [
         {
-          "status": "todo",
+          "status": "in_progress",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -34,7 +34,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-02-28T14:18:27.303Z"
+      "updatedAt": "2026-02-28T15:14:39.961Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
