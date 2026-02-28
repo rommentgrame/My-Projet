@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T16:41:06.166Z",
+  "lastUpdated": "2026-02-28T16:41:06.820Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -522,7 +522,7 @@
       "text": "Gardé et améliorer ma musculation",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:45:12.865Z"
     },
     {
