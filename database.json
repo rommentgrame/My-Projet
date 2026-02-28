@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T14:18:27.859Z",
+  "lastUpdated": "2026-02-28T15:14:32.572Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -10,15 +10,15 @@
       "color": "#06b6d4",
       "tasks": [
         {
-          "id": "3yhnigj2zmm6ep5yf",
-          "text": "Faire une liste des choses à mettre et comment les mettre",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "3yhnigj2zmm6ep5yf",
+          "text": "Faire une liste des choses à mettre et comment les mettre",
+          "done": false
         }
       ],
       "tags": [],
@@ -373,7 +373,7 @@
       "color": "#a855f7",
       "tasks": [
         {
-          "status": "todo",
+          "status": "in_progress",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -397,7 +397,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-27T15:27:35.002Z"
+      "updatedAt": "2026-02-28T15:14:32.025Z"
     }
   ],
   "slots": {
