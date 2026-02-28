@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T22:00:51.256Z",
+  "lastUpdated": "2026-02-28T22:05:31.092Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -19,6 +19,17 @@
           "id": "3yhnigj2zmm6ep5yf",
           "text": "Faire une liste des choses à mettre et comment les mettre",
           "done": false
+        },
+        {
+          "id": "8fg9ad6q4mm6vdsus",
+          "text": "Commencer la première partie",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 1,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [],
@@ -34,7 +45,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-02-28T19:02:56.941Z"
+      "updatedAt": "2026-02-28T22:05:30.580Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
