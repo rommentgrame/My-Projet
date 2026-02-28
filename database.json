@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T16:41:04.322Z",
+  "lastUpdated": "2026-02-28T16:41:05.483Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -506,7 +506,7 @@
       "text": "Économisez et travailler pour m'enrichir",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:44:57.168Z"
     },
     {
