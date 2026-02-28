@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T16:40:55.958Z",
+  "lastUpdated": "2026-02-28T16:40:57.419Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -466,7 +466,7 @@
       "text": "Finir l’échéquier élétronique",
       "period": "semester",
       "periodKey": "2026-S1",
-      "done": true,
+      "done": false,
       "createdAt": "2026-02-27T09:43:51.465Z"
     },
     {
