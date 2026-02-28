@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T11:34:40.085Z",
+  "lastUpdated": "2026-02-28T14:18:27.859Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -8,7 +8,19 @@
       "description": "",
       "icon": "📚",
       "color": "#06b6d4",
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "3yhnigj2zmm6ep5yf",
+          "text": "Faire une liste des choses à mettre et comment les mettre",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        }
+      ],
       "tags": [],
       "priority": "high",
       "dueDate": "2026-03-20",
@@ -22,7 +34,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-02-28T11:27:31.052Z"
+      "updatedAt": "2026-02-28T14:18:27.303Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
