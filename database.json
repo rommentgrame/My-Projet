@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-01T12:43:19.223Z",
+  "lastUpdated": "2026-03-01T12:43:30.658Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -80,13 +80,7 @@
           "status": "in_progress",
           "priority": "critical",
           "rank": 3,
-          "subtasks": [
-            {
-              "id": "6lylj88l9mm4w1sbf",
-              "text": "teste",
-              "done": false
-            }
-          ],
+          "subtasks": [],
           "note": "",
           "dueDate": "2026-03-20",
           "id": "g8d692v6emm4qwzq4",
@@ -175,7 +169,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-02-27T17:26:54.584Z"
+      "updatedAt": "2026-03-01T12:43:30.154Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
