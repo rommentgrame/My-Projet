@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-01T12:41:48.226Z",
+  "lastUpdated": "2026-03-01T12:41:57.802Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -623,7 +623,7 @@
     "slotNames": {
       "primary": "Primaire",
       "secondary": "Secondaire",
-      "pleasure": "Plaisir"
+      "pleasure": "p"
     },
     "timerDefault": {
       "mode": "stopwatch",
