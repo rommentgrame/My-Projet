@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-02-28T22:27:57.029Z",
+  "lastUpdated": "2026-03-01T12:10:40.766Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -21,15 +21,15 @@
           "done": false
         },
         {
-          "id": "8fg9ad6q4mm6vdsus",
-          "text": "Commencer la première partie",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "8fg9ad6q4mm6vdsus",
+          "text": "Commencer la première partie",
+          "done": false
         }
       ],
       "tags": [],
