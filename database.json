@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:57:45.496Z",
+  "lastUpdated": "2026-03-02T07:57:55.856Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -689,6 +689,14 @@
       "periodKey": "2026-03",
       "done": false,
       "createdAt": "2026-03-02T07:57:44.989Z"
+    },
+    {
+      "id": "q38f5ihl8mm8vzi1n",
+      "text": "Faire ma musique",
+      "period": "semester",
+      "periodKey": "2026-S1",
+      "done": false,
+      "createdAt": "2026-03-02T07:57:55.355Z"
     }
   ],
   "settings": {
