@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:57:12.720Z",
+  "lastUpdated": "2026-03-02T07:57:45.496Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -681,6 +681,14 @@
       "periodKey": "2026-03",
       "done": false,
       "createdAt": "2026-03-02T07:56:31.766Z"
+    },
+    {
+      "id": "e8fngff4kmm8vza1p",
+      "text": "Avancer sur la musique",
+      "period": "month",
+      "periodKey": "2026-03",
+      "done": false,
+      "createdAt": "2026-03-02T07:57:44.989Z"
     }
   ],
   "settings": {
