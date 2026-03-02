@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:58:26.950Z",
+  "lastUpdated": "2026-03-02T20:54:52.888Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -628,7 +628,7 @@
     },
     {
       "id": "4ueyttx9pmm8vus9m",
-      "text": "Finir IA",
+      "text": "Continuer l'IA",
       "period": "week",
       "periodKey": "2026-W10",
       "done": false,
