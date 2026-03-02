@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:55:17.795Z",
+  "lastUpdated": "2026-03-02T07:55:29.098Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -649,6 +649,14 @@
       "periodKey": "2026-W10",
       "done": false,
       "createdAt": "2026-03-02T07:55:17.294Z"
+    },
+    {
+      "id": "t92dj44usmm8vwct0",
+      "text": "Avancer l'art appliqué",
+      "period": "week",
+      "periodKey": "2026-W10",
+      "done": false,
+      "createdAt": "2026-03-02T07:55:28.596Z"
     }
   ],
   "settings": {
