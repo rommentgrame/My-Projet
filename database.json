@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:55:56.228Z",
+  "lastUpdated": "2026-03-02T07:56:01.228Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -649,6 +649,14 @@
       "periodKey": "2026-W10",
       "done": false,
       "createdAt": "2026-03-02T07:55:17.294Z"
+    },
+    {
+      "id": "ccsx4o55jmm8vx1lf",
+      "text": "Finir l'art appliqué",
+      "period": "week",
+      "periodKey": "2026-W10",
+      "done": false,
+      "createdAt": "2026-03-02T07:56:00.723Z"
     }
   ],
   "settings": {
