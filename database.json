@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:56:09.624Z",
+  "lastUpdated": "2026-03-02T07:56:27.961Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -665,6 +665,14 @@
       "periodKey": "2026-W10",
       "done": false,
       "createdAt": "2026-03-02T07:56:02.434Z"
+    },
+    {
+      "id": "uj2qbo2itmm8vxm85",
+      "text": "Finir le document pour ce que j'ai fait",
+      "period": "month",
+      "periodKey": "2026-03",
+      "done": false,
+      "createdAt": "2026-03-02T07:56:27.461Z"
     }
   ],
   "settings": {
