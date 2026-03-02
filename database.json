@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:57:55.856Z",
+  "lastUpdated": "2026-03-02T07:58:22.975Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -468,7 +468,7 @@
   "missions": [
     {
       "id": "prfh00s3lmm4pg6g9",
-      "text": "Finir l’échéquier élétronique",
+      "text": "Finir l'électronique de l'échiquier",
       "period": "semester",
       "periodKey": "2026-S1",
       "done": false,
