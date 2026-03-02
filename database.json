@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-01T19:56:24.767Z",
+  "lastUpdated": "2026-03-02T07:53:15.699Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -617,6 +617,14 @@
       "periodKey": "2026-03",
       "done": false,
       "createdAt": "2026-03-01T13:26:07.520Z"
+    },
+    {
+      "id": "gedz941homm8vthtn",
+      "text": "Faire les 3 quart du document pour présentation de mes activités",
+      "period": "week",
+      "periodKey": "2026-W10",
+      "done": false,
+      "createdAt": "2026-03-02T07:53:15.143Z"
     }
   ],
   "settings": {
