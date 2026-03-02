@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-02T07:56:27.961Z",
+  "lastUpdated": "2026-03-02T07:56:32.267Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -673,6 +673,14 @@
       "periodKey": "2026-03",
       "done": false,
       "createdAt": "2026-03-02T07:56:27.461Z"
+    },
+    {
+      "id": "ew77yq9c3mm8vxpjq",
+      "text": "Finir l'IA",
+      "period": "month",
+      "periodKey": "2026-03",
+      "done": false,
+      "createdAt": "2026-03-02T07:56:31.766Z"
     }
   ],
   "settings": {
