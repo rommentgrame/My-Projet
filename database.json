@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-03T20:45:52.901Z",
+  "lastUpdated": "2026-03-03T20:46:39.039Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -636,7 +636,7 @@
     },
     {
       "id": "efwomb4bamm8vvdr6",
-      "text": "Faire valider le schéma électronique de l'échiquier",
+      "text": "Faire valider le schéma électronique de l'échiquier et la taille de la carte",
       "period": "week",
       "periodKey": "2026-W10",
       "done": false,
