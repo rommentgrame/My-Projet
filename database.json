@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-06T22:32:51.021Z",
+  "lastUpdated": "2026-03-06T22:32:57.047Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -143,7 +143,7 @@
           "done": false
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "low",
           "rank": 9,
           "subtasks": [],
@@ -151,7 +151,7 @@
           "dueDate": "",
           "id": "vxbnp1i0rmm4qxvi4",
           "text": "Commencer les assemblages",
-          "done": false
+          "done": true
         },
         {
           "id": "xiqddx4pdmmfgzsuo",
@@ -191,7 +191,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-06T22:32:50.511Z"
+      "updatedAt": "2026-03-06T22:32:56.538Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
