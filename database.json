@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-06T22:32:38.881Z",
+  "lastUpdated": "2026-03-06T22:32:48.576Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -163,6 +163,17 @@
           "subtasks": [],
           "note": "",
           "dueDate": ""
+        },
+        {
+          "id": "9ogji52grmmfh00cf",
+          "text": "Teste pour créé la carte",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 10,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [
@@ -180,7 +191,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-06T22:32:38.352Z"
+      "updatedAt": "2026-03-06T22:32:48.063Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
