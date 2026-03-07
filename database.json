@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T20:30:05.523Z",
+  "lastUpdated": "2026-03-07T20:30:07.123Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -723,18 +723,7 @@
       "createdAt": "2026-03-02T07:57:55.355Z"
     }
   ],
-  "calendarEvents": [
-    {
-      "id": "0u1haj9glmmgs1z1f",
-      "title": "ccxcxc",
-      "date": "2026-03-13",
-      "time": "",
-      "type": "meeting",
-      "color": "#ec4899",
-      "note": "",
-      "createdAt": "2026-03-07T20:30:01.635Z"
-    }
-  ],
+  "calendarEvents": [],
   "settings": {
     "accent": "#eab308",
     "compact": true,
