@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T21:23:46.997Z",
+  "lastUpdated": "2026-03-07T21:23:54.531Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -728,8 +728,8 @@
       "id": "cj6xlwsuqmmgtz3cw",
       "title": "fdfd",
       "date": "2026-03-07",
-      "type": "custom",
-      "color": "#7c3aed",
+      "type": "reminder",
+      "color": "#f97316",
       "time": "",
       "note": "",
       "createdAt": "2026-03-07T21:23:46.496Z"
