@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T20:15:01.984Z",
+  "lastUpdated": "2026-03-07T20:18:06.878Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -391,14 +391,7 @@
       "completed": false,
       "createdAt": "2026-02-26T17:53:21.445Z",
       "updatedAt": "2026-02-26T18:05:14.463Z"
-    }
-  ],
-  "slots": {
-    "primary": null,
-    "secondary": "g2kraftv0mm68lc6c",
-    "pleasure": "8jra8qkuimm3rj05b"
-  },
-  "completedProjects": [
+    },
     {
       "id": "1lu5shi7lmm3rfb7g",
       "name": "l’IA IXA",
@@ -429,12 +422,17 @@
       "categoryId": "cat_tech",
       "pinned": true,
       "archived": false,
-      "completed": true,
+      "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-28T15:14:32.025Z",
-      "completedAt": "2026-03-07T20:11:24.279Z"
+      "updatedAt": "2026-02-28T15:14:32.025Z"
     }
   ],
+  "slots": {
+    "primary": "ychuqcj0nmm3r66d5",
+    "secondary": "g2kraftv0mm68lc6c",
+    "pleasure": "1lu5shi7lmm3rfb7g"
+  },
+  "completedProjects": [],
   "categories": [
     {
       "id": "cat_general",
@@ -723,7 +721,6 @@
       "createdAt": "2026-03-02T07:57:55.355Z"
     }
   ],
-  "calendarEvents": [],
   "settings": {
     "accent": "#eab308",
     "compact": true,
