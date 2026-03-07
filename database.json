@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T20:14:13.153Z",
+  "lastUpdated": "2026-03-07T20:14:16.544Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -723,18 +723,7 @@
       "createdAt": "2026-03-02T07:57:55.355Z"
     }
   ],
-  "calendarEvents": [
-    {
-      "id": "x14y7jx3tmmgrhmse",
-      "title": "ffdfdfdff",
-      "date": "2026-03-12",
-      "type": "custom",
-      "color": "#7c3aed",
-      "time": "",
-      "note": "",
-      "createdAt": "2026-03-07T20:14:12.638Z"
-    }
-  ],
+  "calendarEvents": [],
   "settings": {
     "accent": "#eab308",
     "compact": true,
