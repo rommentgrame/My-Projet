@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T21:26:56.870Z",
+  "lastUpdated": "2026-03-07T21:27:00.809Z",
   "projects": [
     {
       "id": "1lu5shi7lmm3rfb7g",
@@ -10,7 +10,7 @@
       "color": "#a855f7",
       "tasks": [
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -18,7 +18,7 @@
           "dueDate": "",
           "id": "7y04r2zt3mm4yw9qx",
           "text": "Repprendre l'IA",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -34,7 +34,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-03-07T21:26:56.354Z"
+      "updatedAt": "2026-03-07T21:27:00.305Z"
     },
     {
       "id": "g2kraftv0mm68lc6c",
