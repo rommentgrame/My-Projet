@@ -881,6 +881,197 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 
 /* ══════════════════════════════════════════════
+   CALENDAR VIEW — NOTION STYLE
+══════════════════════════════════════════════ */
+.cal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px; flex-wrap: wrap; gap: 10px;
+}
+.cal-title-row { display: flex; align-items: center; gap: 10px; }
+.cal-month-label {
+  font-family: var(--font-display); font-size: 20px; font-weight: 800;
+  letter-spacing: -0.02em; min-width: 180px;
+}
+.cal-nav-btn {
+  width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--glass); color: var(--text2); cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; transition: all var(--transition);
+}
+.cal-nav-btn:hover { background: var(--glass2); color: var(--text); }
+.cal-actions { display: flex; gap: 6px; align-items: center; }
+.cal-view-btns { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.cal-view-btn {
+  padding: 5px 12px; font-size: 11px; font-weight: 600; font-family: var(--font);
+  border: none; background: transparent; color: var(--text3); cursor: pointer;
+  transition: all var(--transition);
+}
+.cal-view-btn.active { background: rgba(var(--accent-rgb),0.15); color: var(--accent); }
+.cal-view-btn:hover:not(.active) { background: var(--glass); color: var(--text2); }
+
+/* Grid */
+.cal-grid-wrap {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.cal-weekdays {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border);
+}
+.cal-weekday {
+  padding: 8px 4px; text-align: center;
+  font-size: 10px; font-weight: 700; color: var(--text3);
+  letter-spacing: 0.07em; text-transform: uppercase;
+}
+.cal-weekday.weekend { color: rgba(var(--accent-rgb),0.6); }
+.cal-cells {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+}
+.cal-cell {
+  min-height: 100px; border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); padding: 6px 5px;
+  cursor: pointer; transition: background var(--transition);
+  position: relative; display: flex; flex-direction: column;
+}
+.cal-cell:nth-child(7n) { border-right: none; }
+.cal-cell:hover { background: rgba(255,255,255,0.025); }
+.cal-cell.other-month { opacity: 0.35; }
+.cal-cell.today .cal-day-num {
+  background: var(--accent); color: white;
+  border-radius: 50%; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+.cal-cell.weekend-cell { background: rgba(255,255,255,0.008); }
+.cal-cell.selected { background: rgba(var(--accent-rgb),0.07); }
+.cal-day-num {
+  font-size: 12px; font-weight: 600; color: var(--text2);
+  width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-bottom: 3px;
+}
+.cal-events { display: flex; flex-direction: column; gap: 2px; flex: 1; overflow: hidden; }
+.cal-event {
+  font-size: 10px; font-weight: 500; padding: 2px 5px;
+  border-radius: 4px; white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; cursor: pointer; transition: filter var(--transition);
+  display: flex; align-items: center; gap: 3px;
+}
+.cal-event:hover { filter: brightness(1.2); }
+.cal-event.task-event { border-left: 2px solid; }
+.cal-event.custom-event { border-left: 2px solid; }
+.cal-more {
+  font-size: 9px; color: var(--text3); padding: 1px 4px;
+  cursor: pointer; transition: color var(--transition);
+}
+.cal-more:hover { color: var(--accent); }
+
+/* Week view */
+.cal-week-grid {
+  display: flex; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg2); overflow: hidden;
+}
+.cal-week-day-col {
+  flex: 1; border-right: 1px solid var(--border); display: flex; flex-direction: column;
+}
+.cal-week-day-col:last-child { border-right: none; }
+.cal-week-day-header {
+  padding: 8px 6px; text-align: center; border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.15); flex-shrink: 0;
+}
+.cal-week-day-name { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; }
+.cal-week-day-num {
+  font-size: 18px; font-weight: 800; color: var(--text2); margin-top: 2px;
+  font-family: var(--font-display);
+}
+.cal-week-day-num.today-num {
+  background: var(--accent); color: white; border-radius: 50%;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  margin: 2px auto 0;
+}
+.cal-week-day-body {
+  flex: 1; padding: 6px 4px; display: flex; flex-direction: column; gap: 3px;
+  min-height: 120px; cursor: pointer; transition: background var(--transition);
+}
+.cal-week-day-body:hover { background: rgba(255,255,255,0.02); }
+
+/* Sidebar — upcoming events */
+.cal-sidebar {
+  width: 260px; flex-shrink: 0; border-left: 1px solid var(--border);
+  background: var(--bg2); border-radius: 0 var(--radius) var(--radius) 0;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.cal-layout { display: flex; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.cal-main-area { flex: 1; min-width: 0; }
+
+.cal-upcoming-header {
+  padding: 12px 14px 8px; border-bottom: 1px solid var(--border);
+  font-family: var(--font-display); font-size: 12px; font-weight: 700;
+  color: var(--text2); display: flex; align-items: center; justify-content: space-between;
+}
+.cal-upcoming-list { flex: 1; overflow-y: auto; padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; }
+.cal-upcoming-item {
+  padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--glass); cursor: pointer; transition: all var(--transition);
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.cal-upcoming-item:hover { background: var(--glass2); border-color: var(--border2); }
+.cal-upcoming-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.cal-upcoming-title { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.cal-upcoming-meta { font-size: 10px; color: var(--text3); margin-top: 2px; }
+.cal-upcoming-empty { text-align: center; padding: 20px; color: var(--text3); font-size: 11px; }
+
+/* Event quick-add bar */
+.cal-quickadd {
+  display: flex; gap: 8px; align-items: center;
+  padding: 10px 0 14px;
+}
+.cal-quickadd-input {
+  flex: 1; padding: 8px 12px; border-radius: var(--radius-xs);
+  border: 1px solid var(--border); background: var(--glass);
+  color: var(--text); font-family: var(--font); font-size: 12px; outline: none;
+  transition: all var(--transition);
+}
+.cal-quickadd-input:focus { border-color: rgba(var(--accent-rgb),0.6); background: var(--glass2); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),0.12); }
+.cal-quickadd-input::placeholder { color: var(--text3); }
+
+/* Event type chips */
+.cal-type-chips { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+.cal-type-chip {
+  padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border);
+  font-size: 10px; font-weight: 600; font-family: var(--font);
+  background: transparent; color: var(--text3); cursor: pointer;
+  transition: all var(--transition);
+}
+.cal-type-chip.active { background: rgba(var(--accent-rgb),0.15); border-color: rgba(var(--accent-rgb),0.4); color: var(--accent); }
+.cal-type-chip:hover:not(.active) { border-color: var(--border2); color: var(--text2); }
+
+/* Event detail popup */
+.cal-event-popup {
+  position: fixed; z-index: 1000;
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 12px; padding: 14px 16px; min-width: 220px; max-width: 300px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: dropIn 0.15s ease;
+}
+.cal-event-popup-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.cal-event-popup-meta { font-size: 11px; color: var(--text3); margin-bottom: 10px; }
+.cal-event-popup-actions { display: flex; gap: 6px; justify-content: flex-end; }
+
+@media (max-width: 900px) {
+  .cal-sidebar { display: none; }
+  .cal-layout { border: none; }
+  .cal-cell { min-height: 70px; }
+}
+@media (max-width: 640px) {
+  .cal-cell { min-height: 52px; padding: 3px; }
+  .cal-day-num { font-size: 11px; width: 20px; height: 20px; }
+  .cal-event { font-size: 9px; padding: 1px 3px; }
+  .cal-month-label { font-size: 16px; min-width: 130px; }
+  .cal-week-grid { flex-direction: column; }
+  .cal-week-day-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .cal-week-day-col:last-child { border-bottom: none; }
+}
+
+/* ══════════════════════════════════════════════
    MOBILE SIDEBAR OVERLAY
 ══════════════════════════════════════════════ */
 .sidebar-overlay {
@@ -1933,6 +2124,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   <button class="dvtab" id="dvtab-missions" onclick="setDesktopView('missions')">🎯 Missions</button>
   <button class="dvtab" id="dvtab-completed" onclick="setDesktopView('completed')">🏆 Terminés</button>
   <button class="dvtab" id="dvtab-stats" onclick="setDesktopView('stats')">📊 Stats</button>
+  <button class="dvtab" id="dvtab-calendar" onclick="setDesktopView('calendar')">📅 Calendrier</button>
 </div>
 
 <!-- ══════ BODY ══════ -->
@@ -2087,6 +2279,11 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
       <div id="all-projects-overview" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px"></div>
     </div>
 
+    <!-- Calendar View -->
+    <div id="view-calendar" class="view-hidden">
+      <div id="calendar-root"></div>
+    </div>
+
   </main>
 </div><!-- end app-body -->
 
@@ -2096,6 +2293,7 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
     <button class="nav-item active" id="nav-list" onclick="setMobileView('list')"><span>📋</span>Liste</button>
     <button class="nav-item" id="nav-board" onclick="setMobileView('board')"><span>⚡</span>Actifs</button>
     <button class="nav-item" id="nav-missions" onclick="setMobileView('missions')"><span>🎯</span>Missions</button>
+    <button class="nav-item" id="nav-calendar" onclick="setMobileView('calendar')"><span>📅</span>Calendrier</button>
     <button class="nav-item" id="nav-done" onclick="setMobileView('completed')"><span>🏆</span>Terminés</button>
     <button class="nav-item" id="nav-stats" onclick="setMobileView('stats')"><span>📊</span>Stats</button>
   </div>
@@ -2167,6 +2365,7 @@ let state = {
   auth: null,
   missions: [],   // [{ id, text, period:'week'|'month'|'semester'|'year', done, createdAt, periodKey }]
   habits: [],
+  calendarEvents: [], // [{ id, title, date, endDate?, time?, type:'custom'|'course'|'reminder', color, note }]
   habitLog: {},
   settings: {
     accent: '#7c3aed',
@@ -2535,6 +2734,7 @@ function applyData(d) {
   if (Array.isArray(d.habits)) state.habits = d.habits;
   if (d.habitLog) state.habitLog = d.habitLog;
   if (Array.isArray(d.missions)) state.missions = d.missions;
+  if (Array.isArray(d.calendarEvents)) state.calendarEvents = d.calendarEvents;
   if (!state.settings.slotNames) state.settings.slotNames = { primary:'Primaire', secondary:'Secondaire', pleasure:'Plaisir' };
   // Load auth from database (syncs across browsers / private mode)
   if (d.auth && d.auth.hash) {
@@ -2563,6 +2763,7 @@ function dataSnapshot() {
     habits: state.habits,
     habitLog: state.habitLog,
     missions: state.missions,
+    calendarEvents: state.calendarEvents || [],
     settings: state.settings,
     auth: state.auth || null
   };
@@ -3476,26 +3677,27 @@ function setMobileView(v) {
   const isMobile = window.innerWidth <= 640;
 
   // Show/hide main views
-  document.getElementById('view-board').classList.toggle('view-hidden', v==='completed'||v==='stats'||v==='missions');
+  document.getElementById('view-board').classList.toggle('view-hidden', v==='completed'||v==='stats'||v==='missions'||v==='calendar');
   document.getElementById('view-completed').classList.toggle('view-hidden', v!=='completed');
   document.getElementById('view-stats').classList.toggle('view-hidden', v!=='stats');
   document.getElementById('view-missions').classList.toggle('view-hidden', v!=='missions');
+  document.getElementById('view-calendar').classList.toggle('view-hidden', v!=='calendar');
 
   if (isMobile) {
     // On mobile: toggle sidebar for 'list' view
     if (v==='list') toggleSidebar();
     else closeSidebar();
     // Update mobile nav
-    ['list','board','missions','done','stats'].forEach(n => {
+    ['list','board','missions','calendar','done','stats'].forEach(n => {
       const el = document.getElementById('nav-'+n);
       if (el) el.classList.toggle('active', v===n||(n==='done'&&v==='completed'));
     });
   }
 
   // Sync desktop tab highlights
-  const viewMap = { board:'board', completed:'completed', stats:'stats', missions:'missions' };
+  const viewMap = { board:'board', completed:'completed', stats:'stats', missions:'missions', calendar:'calendar' };
   const activeTab = viewMap[v] || 'board';
-  ['board','completed','stats','missions'].forEach(t => {
+  ['board','completed','stats','missions','calendar'].forEach(t => {
     const el = document.getElementById('dvtab-'+t);
     if (el) el.classList.toggle('active', t===activeTab);
   });
@@ -3503,6 +3705,7 @@ function setMobileView(v) {
   // Render specific views on switch
   if (v === 'completed') renderCompleted();
   if (v === 'missions') renderMissions();
+  if (v === 'calendar') renderCalendar();
 }
 
 function setDesktopView(v) {
@@ -5554,6 +5757,650 @@ function patchKeyDown() {
   // Shortcuts are now directly in onKeyDown — nothing else needed
 }
 
+
+// ══════════════════════════════════════════════════════════════
+// CALENDAR SYSTEM
+// ══════════════════════════════════════════════════════════════
+
+let calState = {
+  year: new Date().getFullYear(),
+  month: new Date().getMonth(), // 0-based
+  view: 'month', // 'month' | 'week'
+  selectedDate: null,
+  newEventType: 'custom',
+  newEventDate: '',
+};
+
+const CAL_EVENT_TYPES = {
+  custom:   { label: 'Événement', icon: '📌', color: '#7c3aed' },
+  course:   { label: 'Cours',     icon: '📚', color: '#0ea5e9' },
+  reminder: { label: 'Rappel',    icon: '🔔', color: '#f97316' },
+  task:     { label: 'Tâche',     icon: '✅', color: '#22c55e' },
+};
+
+function renderCalendar() {
+  const root = document.getElementById('calendar-root');
+  if (!root) return;
+  if (!state.calendarEvents) state.calendarEvents = [];
+  root.innerHTML = buildCalendarHTML();
+  bindCalendarEvents();
+}
+
+function buildCalendarHTML() {
+  const now = new Date();
+  const yr = calState.year, mo = calState.month;
+  const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+  // Collect all dated items: task dueDates + custom events
+  const allEvents = getAllCalendarItems();
+
+  const typeChips = Object.entries(CAL_EVENT_TYPES).filter(([k])=>k!=='task').map(([k,v]) =>
+    `<button class="cal-type-chip${calState.newEventType===k?' active':''}" onclick="calSetType('${k}')">${v.icon} ${v.label}</button>`
+  ).join('');
+
+  const quickAddDate = calState.newEventDate || '';
+
+  const mainGrid = calState.view === 'month'
+    ? buildMonthGrid(yr, mo, allEvents, now)
+    : buildWeekGrid(yr, mo, allEvents, now);
+
+  const upcoming = buildUpcomingList(allEvents, now);
+
+  return `
+    <div class="cal-header">
+      <div class="cal-title-row">
+        <button class="cal-nav-btn" onclick="calNav(-1)">‹</button>
+        <div class="cal-month-label" id="cal-month-label">
+          ${calState.view==='week' ? getWeekLabel(yr, mo) : monthNames[mo] + ' ' + yr}
+        </div>
+        <button class="cal-nav-btn" onclick="calNav(1)">›</button>
+        <button class="btn" onclick="calGoToday()" style="font-size:11px;padding:5px 10px">Aujourd'hui</button>
+      </div>
+      <div class="cal-actions">
+        <div class="cal-view-btns">
+          <button class="cal-view-btn${calState.view==='month'?' active':''}" onclick="calSetView('month')">Mois</button>
+          <button class="cal-view-btn${calState.view==='week'?' active':''}" onclick="calSetView('week')">Semaine</button>
+        </div>
+        <button class="btn btn-primary" onclick="openAddEventModal()" style="font-size:11px">+ Événement</button>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap">
+      <div class="cal-type-chips" style="margin-bottom:0">${typeChips}</div>
+      <div style="display:flex;gap:6px;flex:1;min-width:200px">
+        <input class="cal-quickadd-input" id="cal-quickadd-inp"
+          placeholder="Ajout rapide : titre d'événement..."
+          onkeydown="if(event.key==='Enter')calQuickAdd()"
+          style="flex:1">
+        <input type="date" class="input" id="cal-quickadd-date"
+          value="${quickAddDate}"
+          style="width:140px;font-size:12px;padding:8px 10px;color-scheme:dark"
+          onchange="calState.newEventDate=this.value">
+        <button class="btn btn-primary" onclick="calQuickAdd()" style="font-size:12px;padding:8px 10px">+</button>
+      </div>
+    </div>
+
+    <div class="cal-layout">
+      <div class="cal-main-area">
+        ${mainGrid}
+      </div>
+      <div class="cal-sidebar">
+        <div class="cal-upcoming-header">
+          📆 À venir
+          <span style="font-size:10px;font-weight:400;color:var(--text3)">${upcoming.total} événements</span>
+        </div>
+        <div class="cal-upcoming-list">
+          ${upcoming.html || '<div class="cal-upcoming-empty">Aucun événement à venir</div>'}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function getAllCalendarItems() {
+  const items = [];
+
+  // Custom calendar events
+  (state.calendarEvents || []).forEach(ev => {
+    items.push({ ...ev, source: 'custom' });
+  });
+
+  // Task due dates from all projects
+  state.projects.forEach(p => {
+    (p.tasks || []).forEach(t => {
+      if (t.dueDate && !t.done) {
+        items.push({
+          id: 'task_' + t.id,
+          title: t.text,
+          date: t.dueDate,
+          type: 'task',
+          color: p.color || '#22c55e',
+          source: 'task',
+          projectName: p.name,
+          projectIcon: p.icon,
+          projId: p.id,
+          taskId: t.id,
+          done: t.done,
+        });
+      }
+    });
+  });
+
+  // Project due dates
+  state.projects.forEach(p => {
+    if (p.dueDate && !p.completed && !p.archived) {
+      items.push({
+        id: 'proj_' + p.id,
+        title: p.icon + ' ' + p.name + ' (projet)',
+        date: p.dueDate,
+        type: 'task',
+        color: p.color || '#7c3aed',
+        source: 'project',
+        done: false,
+      });
+    }
+  });
+
+  return items;
+}
+
+function getEventsForDate(dateStr, allEvents) {
+  return allEvents.filter(ev => ev.date === dateStr);
+}
+
+function buildMonthGrid(yr, mo, allEvents, now) {
+  const firstDay = new Date(yr, mo, 1);
+  const lastDay = new Date(yr, mo + 1, 0);
+  const startDow = (firstDay.getDay() + 6) % 7; // Mon=0
+  const todayStr = toDateStr(now);
+
+  const weekdays = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+  const weekdaysHtml = weekdays.map((d,i) =>
+    `<div class="cal-weekday${i>=5?' weekend':''}">${d}</div>`
+  ).join('');
+
+  let cells = '';
+  // Previous month padding
+  for (let i = 0; i < startDow; i++) {
+    const d = new Date(yr, mo, 1 - (startDow - i));
+    const ds = toDateStr(d);
+    const evs = getEventsForDate(ds, allEvents);
+    cells += buildCell(d, ds, evs, true, todayStr);
+  }
+  // Current month
+  for (let d = 1; d <= lastDay.getDate(); d++) {
+    const date = new Date(yr, mo, d);
+    const ds = toDateStr(date);
+    const evs = getEventsForDate(ds, allEvents);
+    const dow = (date.getDay() + 6) % 7;
+    cells += buildCell(date, ds, evs, false, todayStr, dow >= 5);
+  }
+  // Next month padding
+  const totalCells = Math.ceil((startDow + lastDay.getDate()) / 7) * 7;
+  let nextDay = 1;
+  for (let i = startDow + lastDay.getDate(); i < totalCells; i++) {
+    const date = new Date(yr, mo + 1, nextDay++);
+    const ds = toDateStr(date);
+    const evs = getEventsForDate(ds, allEvents);
+    cells += buildCell(date, ds, evs, true, todayStr);
+  }
+
+  return `
+    <div class="cal-grid-wrap">
+      <div class="cal-weekdays">${weekdaysHtml}</div>
+      <div class="cal-cells" id="cal-cells">${cells}</div>
+    </div>`;
+}
+
+function buildCell(date, ds, evs, otherMonth, todayStr, isWeekend) {
+  const isToday = ds === todayStr;
+  const cls = ['cal-cell',
+    otherMonth?'other-month':'',
+    isToday?'today':'',
+    isWeekend?'weekend-cell':''
+  ].filter(Boolean).join(' ');
+
+  const maxShow = 3;
+  const shown = evs.slice(0, maxShow);
+  const hidden = evs.length - maxShow;
+
+  const evHtml = shown.map(ev => buildEventChip(ev)).join('');
+  const moreHtml = hidden > 0 ? `<div class="cal-more" onclick="event.stopPropagation();calShowDayEvents('${ds}')">+${hidden} autres</div>` : '';
+
+  return `<div class="${cls}" onclick="calCellClick('${ds}')">
+    <div class="cal-day-num">${date.getDate()}</div>
+    <div class="cal-events">${evHtml}${moreHtml}</div>
+  </div>`;
+}
+
+function buildEventChip(ev) {
+  const typeMeta = CAL_EVENT_TYPES[ev.type] || CAL_EVENT_TYPES.custom;
+  const color = ev.color || typeMeta.color;
+  const title = esc(ev.title || ev.text || '');
+  const icon = ev.source === 'task' ? '✅' : (ev.source === 'project' ? '📁' : typeMeta.icon);
+  return `<div class="cal-event" 
+    style="background:${color}22;color:${color};border-left-color:${color}"
+    onclick="event.stopPropagation();calEventClick('${ev.id}',event)"
+    title="${title}"
+    >${icon} ${title}</div>`;
+}
+
+function buildWeekGrid(yr, mo, allEvents, now) {
+  // Find start of current week (Monday)
+  const anchor = new Date(yr, mo, 1);
+  const dow = (anchor.getDay() + 6) % 7;
+  const weekStart = new Date(anchor);
+  weekStart.setDate(anchor.getDate() - dow);
+
+  const todayStr = toDateStr(now);
+  const days = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+
+  let cols = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(weekStart);
+    d.setDate(weekStart.getDate() + i);
+    const ds = toDateStr(d);
+    const evs = getEventsForDate(ds, allEvents);
+    const isToday = ds === todayStr;
+    const evHtml = evs.map(ev => buildEventChip(ev)).join('');
+    cols += `<div class="cal-week-day-col">
+      <div class="cal-week-day-header">
+        <div class="cal-week-day-name">${days[i]}</div>
+        <div class="cal-week-day-num${isToday?' today-num':''}">${d.getDate()}</div>
+      </div>
+      <div class="cal-week-day-body" onclick="calCellClick('${ds}')">
+        ${evHtml || '<div style="flex:1"></div>'}
+      </div>
+    </div>`;
+  }
+  return `<div class="cal-week-grid">${cols}</div>`;
+}
+
+function buildUpcomingList(allEvents, now) {
+  const todayStr = toDateStr(now);
+  const future = allEvents
+    .filter(ev => ev.date >= todayStr)
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .slice(0, 20);
+
+  if (!future.length) return { html: '', total: 0 };
+
+  const html = future.map(ev => {
+    const typeMeta = CAL_EVENT_TYPES[ev.type] || CAL_EVENT_TYPES.custom;
+    const color = ev.color || typeMeta.color;
+    const dstr = formatCalDate(ev.date);
+    const icon = ev.source === 'task' ? '✅' : (ev.source === 'project' ? '📁' : typeMeta.icon);
+    return `<div class="cal-upcoming-item" onclick="calEventClick('${ev.id}',event)">
+      <div class="cal-upcoming-dot" style="background:${color}"></div>
+      <div style="flex:1;min-width:0">
+        <div class="cal-upcoming-title">${icon} ${esc(ev.title || ev.text || '')}</div>
+        <div class="cal-upcoming-meta">${dstr}${ev.time ? ' · ' + ev.time : ''}${ev.source==='task'?' · '+esc(ev.projectName||''):''}${ev.source==='project'?' · Projet':''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  return { html, total: future.length };
+}
+
+function getWeekLabel(yr, mo) {
+  const anchor = new Date(yr, mo, 1);
+  const dow = (anchor.getDay() + 6) % 7;
+  const weekStart = new Date(anchor);
+  weekStart.setDate(anchor.getDate() - dow);
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+  const opts = { day: 'numeric', month: 'short' };
+  return weekStart.toLocaleDateString('fr-FR', opts) + ' – ' + weekEnd.toLocaleDateString('fr-FR', opts) + ' ' + yr;
+}
+
+function formatCalDate(ds) {
+  if (!ds) return '';
+  const d = new Date(ds + 'T00:00:00');
+  return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function toDateStr(d) {
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+function bindCalendarEvents() {
+  // nothing extra needed — all inline
+}
+
+function calNav(dir) {
+  if (calState.view === 'month') {
+    calState.month += dir;
+    if (calState.month > 11) { calState.month = 0; calState.year++; }
+    if (calState.month < 0)  { calState.month = 11; calState.year--; }
+  } else {
+    // Week view: advance by 7 days
+    const anchor = new Date(calState.year, calState.month, 1);
+    anchor.setDate(anchor.getDate() + dir * 7);
+    calState.year = anchor.getFullYear();
+    calState.month = anchor.getMonth();
+  }
+  renderCalendar();
+}
+
+function calGoToday() {
+  const now = new Date();
+  calState.year = now.getFullYear();
+  calState.month = now.getMonth();
+  renderCalendar();
+}
+
+function calSetView(v) {
+  calState.view = v;
+  renderCalendar();
+}
+
+function calSetType(t) {
+  calState.newEventType = t;
+  // Update chip UI without full re-render
+  document.querySelectorAll('.cal-type-chip').forEach(el => {
+    el.classList.toggle('active', el.textContent.trim().toLowerCase().includes(CAL_EVENT_TYPES[t].label.toLowerCase()) || el.onclick?.toString().includes("'"+t+"'"));
+  });
+  renderCalendar();
+}
+
+function calCellClick(ds) {
+  calState.newEventDate = ds;
+  openAddEventModal(ds);
+}
+
+function calQuickAdd() {
+  const inp = document.getElementById('cal-quickadd-inp');
+  const dateInp = document.getElementById('cal-quickadd-date');
+  const title = (inp?.value || '').trim();
+  const date = dateInp?.value || calState.newEventDate || toDateStr(new Date());
+  if (!title) { toast('Saisissez un titre', 'warning'); return; }
+  if (!date) { toast('Choisissez une date', 'warning'); return; }
+  if (!state.calendarEvents) state.calendarEvents = [];
+  const typeMeta = CAL_EVENT_TYPES[calState.newEventType] || CAL_EVENT_TYPES.custom;
+  state.calendarEvents.push({
+    id: uid(),
+    title,
+    date,
+    type: calState.newEventType,
+    color: typeMeta.color,
+    time: '',
+    note: '',
+    createdAt: new Date().toISOString(),
+  });
+  scheduleSave();
+  toast(`Événement ajouté 📅`, 'success');
+  if (inp) inp.value = '';
+  renderCalendar();
+}
+
+function openAddEventModal(prefillDate) {
+  if (!state.calendarEvents) state.calendarEvents = [];
+  const date = prefillDate || calState.newEventDate || toDateStr(new Date());
+  const typeMeta = CAL_EVENT_TYPES[calState.newEventType] || CAL_EVENT_TYPES.custom;
+
+  const typeOptions = Object.entries(CAL_EVENT_TYPES).filter(([k])=>k!=='task').map(([k,v]) =>
+    `<option value="${k}"${calState.newEventType===k?' selected':''}>${v.icon} ${v.label}</option>`
+  ).join('');
+
+  const colorOptions = ['#7c3aed','#4f46e5','#0ea5e9','#06b6d4','#10b981','#22c55e','#f97316','#ef4444','#ec4899','#f59e0b'].map(c =>
+    `<div class="color-swatch${typeMeta.color===c?' active':''}" data-c="${c}" onclick="calSelectColor('${c}',this)" style="background:${c};width:24px;height:24px;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border-color 0.15s"></div>`
+  ).join('');
+
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">📅 Nouvel événement</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="form-group">
+        <label class="form-label">Titre</label>
+        <input class="input" id="calevent-title" placeholder="Titre de l'événement..." autofocus
+          onkeydown="if(event.key==='Enter')saveNewCalEvent()">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Type</label>
+          <select class="input" id="calevent-type" onchange="calUpdateModalColor(this.value)">${typeOptions}</select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date</label>
+          <input type="date" class="input" id="calevent-date" value="${date}" style="color-scheme:dark">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Heure (optionnel)</label>
+          <input type="time" class="input" id="calevent-time" style="color-scheme:dark">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Couleur</label>
+        <div style="display:flex;gap:6px;flex-wrap:wrap" id="calevent-colors">${colorOptions}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Note (optionnel)</label>
+        <textarea class="input" id="calevent-note" placeholder="Description, lieu, lien..." style="min-height:60px"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="saveNewCalEvent()">📅 Ajouter</button>
+    </div>
+  `);
+  setTimeout(() => document.getElementById('calevent-title')?.focus(), 100);
+  // Store selected color in closure
+  window._calNewEventColor = typeMeta.color;
+}
+
+window.calSelectColor = function(color, el) {
+  window._calNewEventColor = color;
+  document.querySelectorAll('#calevent-colors .color-swatch').forEach(s => s.style.borderColor = 'transparent');
+  if (el) el.style.borderColor = 'white';
+};
+
+window.calUpdateModalColor = function(type) {
+  const typeMeta = CAL_EVENT_TYPES[type] || CAL_EVENT_TYPES.custom;
+  window._calNewEventColor = typeMeta.color;
+  // Highlight matching color swatch
+  document.querySelectorAll('#calevent-colors .color-swatch').forEach(s => {
+    s.style.borderColor = s.dataset.c === typeMeta.color ? 'white' : 'transparent';
+  });
+};
+
+window.saveNewCalEvent = function() {
+  const title = (document.getElementById('calevent-title')?.value || '').trim();
+  const date = document.getElementById('calevent-date')?.value || '';
+  const time = document.getElementById('calevent-time')?.value || '';
+  const type = document.getElementById('calevent-type')?.value || 'custom';
+  const note = document.getElementById('calevent-note')?.value || '';
+  const color = window._calNewEventColor || CAL_EVENT_TYPES[type]?.color || '#7c3aed';
+  if (!title) { toast('Saisissez un titre', 'warning'); return; }
+  if (!date) { toast('Choisissez une date', 'warning'); return; }
+  if (!state.calendarEvents) state.calendarEvents = [];
+  state.calendarEvents.push({ id: uid(), title, date, time, type, color, note, createdAt: new Date().toISOString() });
+  scheduleSave(); closeModal();
+  toast('Événement ajouté 📅', 'success');
+  renderCalendar();
+};
+
+function calEventClick(id, event) {
+  if (event) { event.stopPropagation(); }
+  // Close any existing popup
+  document.querySelectorAll('.cal-event-popup').forEach(p => p.remove());
+
+  // Find the event
+  let ev = (state.calendarEvents || []).find(x => x.id === id);
+  let isTask = false;
+
+  if (!ev) {
+    // Might be a task or project
+    if (id.startsWith('task_')) {
+      const taskId = id.replace('task_','');
+      for (const p of state.projects) {
+        const t = (p.tasks||[]).find(x=>x.id===taskId);
+        if (t) { ev = { id, title: t.text, date: t.dueDate, type:'task', color:p.color, source:'task', projectName:p.name }; isTask=true; break; }
+      }
+    } else if (id.startsWith('proj_')) {
+      const pId = id.replace('proj_','');
+      const p = state.projects.find(x=>x.id===pId);
+      if (p) { ev = { id, title: p.icon+' '+p.name, date: p.dueDate, type:'task', color:p.color, source:'project' }; isTask=true; }
+    }
+    if (!ev) return;
+  }
+
+  const typeMeta = CAL_EVENT_TYPES[ev.type] || CAL_EVENT_TYPES.custom;
+  const color = ev.color || typeMeta.color;
+  const popup = document.createElement('div');
+  popup.className = 'cal-event-popup';
+  popup.innerHTML = `
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div style="width:10px;height:10px;border-radius:50%;background:${color};flex-shrink:0"></div>
+      <div class="cal-event-popup-title">${esc(ev.title||'')}</div>
+    </div>
+    <div class="cal-event-popup-meta">
+      ${formatCalDate(ev.date)}${ev.time?' · '+ev.time:''}
+      ${ev.source==='task'?' · 📋 '+esc(ev.projectName||''):''}
+      ${ev.source==='project'?' · 📁 Projet':''}
+      <br><span style="opacity:0.6">${typeMeta.icon} ${typeMeta.label}</span>
+    </div>
+    ${ev.note?`<div style="font-size:11px;color:var(--text2);background:var(--glass);border-radius:6px;padding:6px 8px;margin-bottom:8px">${esc(ev.note)}</div>`:''}
+    <div class="cal-event-popup-actions">
+      ${!isTask?`<button class="btn" onclick="calEditEvent('${id}');document.querySelectorAll('.cal-event-popup').forEach(p=>p.remove())" style="font-size:11px">✏ Modifier</button>`:''}
+      ${!isTask?`<button class="btn btn-danger" onclick="calDeleteEvent('${id}');document.querySelectorAll('.cal-event-popup').forEach(p=>p.remove())" style="font-size:11px">🗑</button>`:''}
+      <button class="btn" onclick="document.querySelectorAll('.cal-event-popup').forEach(p=>p.remove())" style="font-size:11px">✕</button>
+    </div>
+  `;
+
+  // Position popup near click
+  document.body.appendChild(popup);
+  const rect = popup.getBoundingClientRect();
+  const x = event ? Math.min(event.clientX, window.innerWidth - rect.width - 10) : 100;
+  const y = event ? Math.min(event.clientY + 10, window.innerHeight - rect.height - 10) : 100;
+  popup.style.left = x + 'px';
+  popup.style.top = y + 'px';
+
+  // Close on outside click
+  setTimeout(() => {
+    document.addEventListener('click', function closePopup(e) {
+      if (!popup.contains(e.target)) { popup.remove(); document.removeEventListener('click', closePopup); }
+    });
+  }, 10);
+}
+
+window.calEditEvent = function(id) {
+  const ev = (state.calendarEvents || []).find(x => x.id === id);
+  if (!ev) return;
+
+  const typeOptions = Object.entries(CAL_EVENT_TYPES).filter(([k])=>k!=='task').map(([k,v]) =>
+    `<option value="${k}"${ev.type===k?' selected':''}>${v.icon} ${v.label}</option>`
+  ).join('');
+  const colorOptions = ['#7c3aed','#4f46e5','#0ea5e9','#06b6d4','#10b981','#22c55e','#f97316','#ef4444','#ec4899','#f59e0b'].map(c =>
+    `<div class="color-swatch${ev.color===c?' active':''}" data-c="${c}" onclick="calSelectColor('${c}',this)" style="background:${c};width:24px;height:24px;border-radius:6px;cursor:pointer;border:2px solid ${ev.color===c?'white':'transparent'};transition:border-color 0.15s"></div>`
+  ).join('');
+  window._calNewEventColor = ev.color;
+
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">✏ Modifier l'événement</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="form-group">
+        <label class="form-label">Titre</label>
+        <input class="input" id="calevent-title" value="${esc(ev.title)}" onkeydown="if(event.key==='Enter')updateCalEvent('${id}')">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Type</label>
+          <select class="input" id="calevent-type" onchange="calUpdateModalColor(this.value)">${typeOptions}</select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date</label>
+          <input type="date" class="input" id="calevent-date" value="${ev.date}" style="color-scheme:dark">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Heure</label>
+          <input type="time" class="input" id="calevent-time" value="${ev.time||''}" style="color-scheme:dark">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Couleur</label>
+        <div style="display:flex;gap:6px;flex-wrap:wrap" id="calevent-colors">${colorOptions}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Note</label>
+        <textarea class="input" id="calevent-note" style="min-height:60px">${esc(ev.note||'')}</textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" onclick="calDeleteEvent('${id}');closeModal()" style="margin-right:auto">🗑 Supprimer</button>
+      <button class="btn" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="updateCalEvent('${id}')">💾 Enregistrer</button>
+    </div>
+  `);
+  setTimeout(() => document.getElementById('calevent-title')?.focus(), 100);
+};
+
+window.updateCalEvent = function(id) {
+  const ev = (state.calendarEvents || []).find(x => x.id === id);
+  if (!ev) return;
+  ev.title = (document.getElementById('calevent-title')?.value || '').trim() || ev.title;
+  ev.date = document.getElementById('calevent-date')?.value || ev.date;
+  ev.time = document.getElementById('calevent-time')?.value || '';
+  ev.type = document.getElementById('calevent-type')?.value || ev.type;
+  ev.note = document.getElementById('calevent-note')?.value || '';
+  ev.color = window._calNewEventColor || ev.color;
+  scheduleSave(); closeModal();
+  toast('Événement mis à jour ✏', 'success');
+  renderCalendar();
+};
+
+window.calDeleteEvent = function(id) {
+  if (!state.calendarEvents) return;
+  state.calendarEvents = state.calendarEvents.filter(x => x.id !== id);
+  scheduleSave();
+  toast('Événement supprimé 🗑', 'warning');
+  renderCalendar();
+};
+
+window.calShowDayEvents = function(ds) {
+  const allEvents = getAllCalendarItems();
+  const evs = getEventsForDate(ds, allEvents);
+  const dateLabel = formatCalDate(ds);
+  const html = evs.map(ev => {
+    const typeMeta = CAL_EVENT_TYPES[ev.type] || CAL_EVENT_TYPES.custom;
+    const color = ev.color || typeMeta.color;
+    const isCustom = ev.source === 'custom';
+    return `<div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--glass);border:1px solid ${color}30;border-radius:8px;border-left:3px solid ${color};cursor:pointer" onclick="calEventClick('${ev.id}',event)">
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:600">${esc(ev.title||ev.text||'')}</div>
+        <div style="font-size:10px;color:var(--text3)">${typeMeta.icon} ${typeMeta.label}${ev.time?' · '+ev.time:''}${ev.projectName?' · '+esc(ev.projectName):''}</div>
+      </div>
+      ${isCustom?`<button class="btn btn-icon btn-danger" style="font-size:11px" onclick="event.stopPropagation();calDeleteEvent('${ev.id}');closeModal()">🗑</button>`:''}
+    </div>`;
+  }).join('');
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">📅 ${dateLabel}</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:8px">
+      ${html || '<p style="color:var(--text3);text-align:center;padding:20px">Aucun événement ce jour</p>'}
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Fermer</button>
+      <button class="btn btn-primary" onclick="closeModal();openAddEventModal('${ds}')">+ Ajouter</button>
+    </div>
+  `);
+};
+
+// Expose to global scope
+window.calNav = calNav;
+window.calGoToday = calGoToday;
+window.calSetView = calSetView;
+window.calSetType = calSetType;
+window.calCellClick = calCellClick;
+window.calQuickAdd = calQuickAdd;
+window.openAddEventModal = openAddEventModal;
+window.calEventClick = calEventClick;
 
 init();
 </script>
