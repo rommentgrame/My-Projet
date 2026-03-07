@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T08:32:01.490Z",
+  "lastUpdated": "2026-03-07T10:33:03.150Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -154,7 +154,7 @@
           "done": false
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "high",
           "rank": 9,
           "subtasks": [],
@@ -162,7 +162,7 @@
           "dueDate": "2026-03-10",
           "id": "xiqddx4pdmmfgzsuo",
           "text": "Calcule puissance, intensité et voltages",
-          "done": false
+          "done": true
         },
         {
           "status": "in_progress",
@@ -191,7 +191,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-07T08:32:00.976Z"
+      "updatedAt": "2026-03-07T10:33:02.646Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
