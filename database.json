@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-06T22:33:04.451Z",
+  "lastUpdated": "2026-03-07T08:32:01.490Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -154,26 +154,26 @@
           "done": false
         },
         {
-          "id": "xiqddx4pdmmfgzsuo",
-          "text": "Calcule puissance, intensité et voltages",
-          "done": false,
           "status": "in_progress",
-          "priority": "medium",
+          "priority": "high",
           "rank": 9,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "2026-03-10",
+          "id": "xiqddx4pdmmfgzsuo",
+          "text": "Calcule puissance, intensité et voltages",
+          "done": false
         },
         {
-          "id": "9ogji52grmmfh00cf",
-          "text": "Teste pour créé la carte",
-          "done": false,
           "status": "in_progress",
           "priority": "medium",
           "rank": 10,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "9ogji52grmmfh00cf",
+          "text": "Teste pour créé la carte",
+          "done": false
         }
       ],
       "tags": [
@@ -191,7 +191,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-06T22:33:03.941Z"
+      "updatedAt": "2026-03-07T08:32:00.976Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
