@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T20:12:04.015Z",
+  "lastUpdated": "2026-03-07T20:12:15.100Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -723,18 +723,7 @@
       "createdAt": "2026-03-02T07:57:55.355Z"
     }
   ],
-  "calendarEvents": [
-    {
-      "id": "g951mfxmkmmgrev5d",
-      "title": "tesr",
-      "date": "2026-03-13",
-      "time": "10:20",
-      "type": "course",
-      "color": "#0ea5e9",
-      "note": "hn",
-      "createdAt": "2026-03-07T20:12:03.505Z"
-    }
-  ],
+  "calendarEvents": [],
   "settings": {
     "accent": "#eab308",
     "compact": true,
