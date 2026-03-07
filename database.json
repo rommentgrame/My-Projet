@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T20:08:06.892Z",
+  "lastUpdated": "2026-03-07T20:11:19.379Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -430,7 +430,7 @@
   "slots": {
     "primary": "ychuqcj0nmm3r66d5",
     "secondary": "g2kraftv0mm68lc6c",
-    "pleasure": "1lu5shi7lmm3rfb7g"
+    "pleasure": null
   },
   "completedProjects": [],
   "categories": [
@@ -721,6 +721,7 @@
       "createdAt": "2026-03-02T07:57:55.355Z"
     }
   ],
+  "calendarEvents": [],
   "settings": {
     "accent": "#eab308",
     "compact": true,
