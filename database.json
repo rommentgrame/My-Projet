@@ -1,7 +1,41 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T21:26:36.157Z",
+  "lastUpdated": "2026-03-07T21:26:51.960Z",
   "projects": [
+    {
+      "id": "1lu5shi7lmm3rfb7g",
+      "name": "l’IA IXA",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#a855f7",
+      "tasks": [
+        {
+          "status": "in_progress",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": "",
+          "id": "7y04r2zt3mm4yw9qx",
+          "text": "Repprendre l'IA",
+          "done": false
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-03-10",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": true,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-02-26T17:51:24.028Z",
+      "updatedAt": "2026-02-28T15:14:32.025Z"
+    },
     {
       "id": "g2kraftv0mm68lc6c",
       "name": "Faire un document pour parcoursup. Avec mes projets et mes expériences ",
@@ -398,43 +432,7 @@
     "secondary": "g2kraftv0mm68lc6c",
     "pleasure": "8jra8qkuimm3rj05b"
   },
-  "completedProjects": [
-    {
-      "id": "1lu5shi7lmm3rfb7g",
-      "name": "l’IA IXA",
-      "description": "",
-      "icon": "🖥️",
-      "color": "#a855f7",
-      "tasks": [
-        {
-          "status": "in_progress",
-          "priority": "medium",
-          "rank": 0,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "7y04r2zt3mm4yw9qx",
-          "text": "Repprendre l'IA",
-          "done": false
-        }
-      ],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "2026-03-10",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": true,
-      "archived": false,
-      "completed": true,
-      "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-28T15:14:32.025Z",
-      "completedAt": "2026-03-07T20:29:22.536Z"
-    }
-  ],
+  "completedProjects": [],
   "categories": [
     {
       "id": "cat_general",
