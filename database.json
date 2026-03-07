@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T17:28:06.910Z",
+  "lastUpdated": "2026-03-07T17:29:11.904Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -391,7 +391,14 @@
       "completed": false,
       "createdAt": "2026-02-26T17:53:21.445Z",
       "updatedAt": "2026-02-26T18:05:14.463Z"
-    },
+    }
+  ],
+  "slots": {
+    "primary": "ychuqcj0nmm3r66d5",
+    "secondary": "g2kraftv0mm68lc6c",
+    "pleasure": "8jra8qkuimm3rj05b"
+  },
+  "completedProjects": [
     {
       "id": "1lu5shi7lmm3rfb7g",
       "name": "l’IA IXA",
@@ -400,7 +407,7 @@
       "color": "#a855f7",
       "tasks": [
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -408,7 +415,7 @@
           "dueDate": "",
           "id": "7y04r2zt3mm4yw9qx",
           "text": "Repprendre l'IA",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -422,17 +429,12 @@
       "categoryId": "cat_tech",
       "pinned": true,
       "archived": false,
-      "completed": false,
+      "completed": true,
       "createdAt": "2026-02-26T17:51:24.028Z",
-      "updatedAt": "2026-02-28T15:14:32.025Z"
+      "updatedAt": "2026-03-07T17:24:20.722Z",
+      "completedAt": "2026-03-07T17:24:21.827Z"
     }
   ],
-  "slots": {
-    "primary": "ychuqcj0nmm3r66d5",
-    "secondary": "g2kraftv0mm68lc6c",
-    "pleasure": "1lu5shi7lmm3rfb7g"
-  },
-  "completedProjects": [],
   "categories": [
     {
       "id": "cat_general",
