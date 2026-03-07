@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-07T21:25:57.885Z",
+  "lastUpdated": "2026-03-07T21:26:28.407Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -725,7 +725,7 @@
   ],
   "calendarEvents": [],
   "settings": {
-    "accent": "#eab308",
+    "accent": "#10b981",
     "compact": true,
     "slotNames": {
       "primary": "Primaire",
