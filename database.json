@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:38:14.693Z",
+  "lastUpdated": "2026-03-08T18:39:55.948Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -738,7 +738,7 @@
       {
         "id": "fm9uklkmvmmi3gs4s",
         "type": "expense",
-        "amount": 20,
+        "amount": 200,
         "desc": "Trste",
         "category": "Alimentation",
         "date": "2026-03-08",
