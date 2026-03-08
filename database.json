@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:34:58.677Z",
+  "lastUpdated": "2026-03-08T18:34:59.340Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -730,10 +730,10 @@
       "title": "ssqsqs",
       "content": "",
       "color": "#7c3aed",
-      "pinned": true,
+      "pinned": false,
       "tags": [],
       "createdAt": "2026-03-08T18:34:55.519Z",
-      "updatedAt": "2026-03-08T18:34:58.176Z"
+      "updatedAt": "2026-03-08T18:34:58.840Z"
     },
     {
       "id": "w9i8py8nhmmi3dpnk",
