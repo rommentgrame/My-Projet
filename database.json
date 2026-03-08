@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:37:58.980Z",
+  "lastUpdated": "2026-03-08T18:38:14.693Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -743,7 +743,7 @@
         "category": "Alimentation",
         "date": "2026-03-08",
         "walletId": "wallet_general",
-        "projId": "t1u9kwj53mm3rnax1",
+        "projId": null,
         "recurring": false,
         "createdAt": "2026-03-08T18:37:14.476Z"
       },
