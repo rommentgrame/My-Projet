@@ -2035,23 +2035,57 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .task-due-ok   { background: rgba(255,255,255,.05); color:var(--text3); border:1px solid rgba(255,255,255,.08); }
 
 /* ══════════════════════════════════════════════
-   NOTES VIEW
+   NOTES VIEW  v2
 ══════════════════════════════════════════════ */
-.notes-toolbar {
-  display: flex; align-items: center; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+/* Top toolbar */
+.notes-topbar {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;
 }
+.notes-title-row { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; flex-wrap: wrap; }
 .notes-search {
-  flex: 1; min-width: 160px; padding: 8px 12px; border-radius: var(--radius-xs);
+  flex: 1; min-width: 130px; padding: 7px 11px; border-radius: var(--radius-xs);
   border: 1px solid var(--border); background: var(--glass); color: var(--text);
   font-family: var(--font); font-size: 12px; outline: none; transition: all var(--transition);
 }
 .notes-search:focus { border-color: rgba(var(--accent-rgb),.6); background: var(--glass2); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.1); }
 .notes-search::placeholder { color: var(--text3); }
-.notes-layout { display: flex; gap: 16px; align-items: flex-start; }
+
+/* Mobile tab switcher (list ↔ editor) */
+.notes-mobile-tabs {
+  display: none; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; flex-shrink: 0;
+}
+.notes-mobile-tab {
+  padding: 6px 14px; font-size: 11px; font-weight: 700; font-family: var(--font);
+  border: none; background: transparent; color: var(--text3); cursor: pointer; transition: all var(--transition);
+}
+.notes-mobile-tab.active { background: rgba(var(--accent-rgb),.15); color: var(--accent); }
+
+/* Sort + filter bar */
+.notes-filters-bar {
+  display: flex; gap: 6px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;
+}
+.notes-tag-chip {
+  padding: 3px 9px; border-radius: 20px; border: 1px solid var(--border);
+  font-size: 10px; font-weight: 600; font-family: var(--font);
+  background: transparent; color: var(--text3); cursor: pointer; transition: all var(--transition);
+  white-space: nowrap;
+}
+.notes-tag-chip.active { background: rgba(var(--accent-rgb),.12); border-color: rgba(var(--accent-rgb),.4); color: var(--accent); }
+.notes-tag-chip:hover:not(.active) { border-color: var(--border2); color: var(--text2); }
+.notes-sort-sel {
+  padding: 4px 8px; font-size: 10px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--glass); color: var(--text3);
+  font-family: var(--font); outline: none; cursor: pointer;
+}
+
+/* Desktop two-column layout */
+.notes-layout { display: flex; gap: 14px; align-items: flex-start; }
 .notes-list-col {
-  width: 260px; flex-shrink: 0; display: flex; flex-direction: column; gap: 6px;
+  width: 270px; flex-shrink: 0; display: flex; flex-direction: column; gap: 5px;
 }
 .notes-editor-col { flex: 1; min-width: 0; }
+
+/* Note card */
 .note-card {
   padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);
   background: var(--glass); cursor: pointer; transition: all var(--transition);
@@ -2061,8 +2095,8 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
   background: var(--nc, var(--accent));
 }
-.note-card:hover { background: var(--glass2); border-color: var(--border2); transform: translateX(2px); }
-.note-card.active { background: rgba(var(--accent-rgb),.1); border-color: rgba(var(--accent-rgb),.35); }
+.note-card:hover { background: var(--glass2); border-color: var(--border2); }
+.note-card.active { background: rgba(var(--accent-rgb),.09); border-color: rgba(var(--accent-rgb),.4); }
 .note-card-title {
   font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-left: 2px;
@@ -2074,116 +2108,234 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 }
 .note-card-meta {
   font-size: 9px; color: var(--text3); margin-top: 5px; display: flex;
-  align-items: center; justify-content: space-between; padding-left: 2px;
+  align-items: center; gap: 5px; padding-left: 2px; flex-wrap: wrap;
 }
-.note-card-pin { font-size: 10px; opacity: .7; }
+.note-card-tag {
+  padding: 1px 5px; border-radius: 4px; font-size: 9px; font-weight: 600;
+  opacity: .8;
+}
+.note-card-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-left: auto;
+}
 
-.notes-editor {
-  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
-  display: flex; flex-direction: column; min-height: 420px; overflow: hidden;
-}
-.notes-editor-header {
-  display: flex; align-items: center; gap: 8px; padding: 12px 14px;
-  border-bottom: 1px solid var(--border); flex-shrink: 0;
-}
-.notes-editor-title-input {
-  flex: 1; background: transparent; border: none; outline: none;
-  font-family: var(--font-display); font-size: 18px; font-weight: 800;
-  color: var(--text); letter-spacing: -0.02em;
-}
-.notes-editor-title-input::placeholder { color: var(--text3); font-weight: 400; }
-.notes-editor-body {
-  flex: 1; padding: 14px 16px; display: flex; flex-direction: column;
-}
-.notes-editor-textarea {
-  flex: 1; background: transparent; border: none; outline: none; resize: none;
-  font-family: var(--font); font-size: 13px; line-height: 1.7; color: var(--text);
-  min-height: 300px;
-}
-.notes-editor-textarea::placeholder { color: var(--text3); }
-.notes-editor-footer {
-  display: flex; align-items: center; justify-content: space-between; padding: 8px 14px;
-  border-top: 1px solid var(--border); flex-shrink: 0; gap: 8px; flex-wrap: wrap;
-}
-.notes-editor-meta { font-size: 10px; color: var(--text3); }
-.notes-empty-state {
-  text-align: center; padding: 60px 20px; color: var(--text3);
-}
-.notes-color-dots { display: flex; gap: 5px; }
-.notes-color-dot {
-  width: 16px; height: 16px; border-radius: 50%; cursor: pointer;
-  border: 2px solid transparent; transition: all var(--transition); flex-shrink: 0;
-}
-.notes-color-dot.active { border-color: white; transform: scale(1.2); }
-.notes-pin-btn {
-  background: none; border: none; cursor: pointer; font-size: 14px; opacity: .5;
-  transition: opacity var(--transition); padding: 2px;
-}
-.notes-pin-btn.pinned { opacity: 1; }
+/* Note add button */
 .note-add-btn {
-  display: flex; align-items: center; gap: 6px; width: 100%;
+  display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%;
   padding: 8px 10px; background: transparent; border: 1px dashed var(--border);
   border-radius: var(--radius-sm); color: var(--text3); cursor: pointer;
   font-size: 11px; font-family: var(--font); transition: all var(--transition);
 }
 .note-add-btn:hover { border-color: rgba(var(--accent-rgb),.5); color: var(--accent); background: rgba(var(--accent-rgb),.05); }
+
+/* Editor */
+.notes-editor {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; min-height: 450px; overflow: hidden;
+}
+.notes-editor-header {
+  display: flex; align-items: center; gap: 6px; padding: 10px 14px;
+  border-bottom: 1px solid var(--border); flex-shrink: 0; flex-wrap: wrap;
+}
+.notes-editor-title-input {
+  flex: 1; min-width: 0; background: transparent; border: none; outline: none;
+  font-family: var(--font-display); font-size: 17px; font-weight: 800;
+  color: var(--text); letter-spacing: -0.02em;
+}
+.notes-editor-title-input::placeholder { color: var(--text3); font-weight: 400; }
+.notes-editor-toolbar {
+  display: flex; gap: 4px; padding: 6px 14px; border-bottom: 1px solid var(--border);
+  flex-shrink: 0; flex-wrap: wrap; align-items: center;
+}
+.notes-tb-btn {
+  padding: 3px 7px; border-radius: 5px; border: none; background: transparent;
+  color: var(--text3); font-size: 11px; cursor: pointer; font-family: var(--font);
+  transition: all var(--transition); white-space: nowrap;
+}
+.notes-tb-btn:hover { background: var(--glass2); color: var(--text); }
+.notes-tb-btn.active { background: rgba(var(--accent-rgb),.12); color: var(--accent); }
+.notes-tb-sep { width: 1px; height: 16px; background: var(--border); flex-shrink: 0; margin: 0 2px; }
+.notes-tag-input-wrap {
+  display: flex; align-items: center; gap: 5px; flex: 1; flex-wrap: wrap; padding: 5px 14px;
+  border-bottom: 1px solid var(--border); min-height: 32px;
+}
+.notes-tag-inp {
+  flex: 1; min-width: 80px; background: transparent; border: none; outline: none;
+  font-size: 11px; color: var(--text2); font-family: var(--font);
+}
+.notes-tag-inp::placeholder { color: var(--text3); }
+.notes-inline-tag {
+  display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px 1px 7px;
+  border-radius: 10px; font-size: 10px; font-weight: 600; cursor: default;
+}
+.notes-inline-tag button {
+  background: none; border: none; cursor: pointer; font-size: 9px; opacity: .7; padding: 0; line-height: 1;
+}
+.notes-editor-body {
+  flex: 1; padding: 12px 16px; display: flex; flex-direction: column; position: relative;
+}
+.notes-editor-textarea {
+  flex: 1; background: transparent; border: none; outline: none; resize: none;
+  font-family: var(--font); font-size: 13px; line-height: 1.75; color: var(--text);
+  min-height: 260px;
+}
+.notes-editor-textarea::placeholder { color: var(--text3); }
+.notes-preview-body {
+  flex: 1; min-height: 260px; font-size: 13px; line-height: 1.75; color: var(--text);
+  overflow-y: auto;
+}
+.notes-preview-body h1 { font-size: 20px; font-weight: 800; margin: 8px 0 4px; }
+.notes-preview-body h2 { font-size: 16px; font-weight: 700; margin: 6px 0 3px; }
+.notes-preview-body h3 { font-size: 14px; font-weight: 700; margin: 5px 0 2px; }
+.notes-preview-body strong { font-weight: 700; }
+.notes-preview-body em { font-style: italic; }
+.notes-preview-body code { font-family: var(--font-mono); background: var(--glass2); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+.notes-preview-body ul, .notes-preview-body ol { padding-left: 20px; margin: 6px 0; }
+.notes-preview-body li { margin: 2px 0; }
+.notes-preview-body hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+.notes-preview-body blockquote { border-left: 3px solid var(--accent); padding-left: 10px; color: var(--text2); margin: 8px 0; }
+.notes-editor-footer {
+  display: flex; align-items: center; justify-content: space-between; padding: 7px 14px;
+  border-top: 1px solid var(--border); flex-shrink: 0; gap: 8px; flex-wrap: wrap;
+}
+.notes-editor-meta { font-size: 10px; color: var(--text3); }
+.notes-color-dots { display: flex; gap: 5px; align-items: center; }
+.notes-color-dot {
+  width: 15px; height: 15px; border-radius: 50%; cursor: pointer;
+  border: 2px solid transparent; transition: all var(--transition); flex-shrink: 0;
+}
+.notes-color-dot.active { border-color: white; transform: scale(1.25); }
+.notes-pin-btn {
+  background: none; border: none; cursor: pointer; font-size: 14px; opacity: .45;
+  transition: opacity var(--transition); padding: 2px;
+}
+.notes-pin-btn.pinned { opacity: 1; }
+.notes-empty-state { text-align: center; padding: 60px 20px; color: var(--text3); }
+
+/* Stats bar */
+.notes-stats-bar {
+  display: flex; gap: 12px; align-items: center; padding: 8px 12px;
+  background: var(--glass); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  margin-bottom: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text3);
+}
+.notes-stats-bar span { white-space: nowrap; }
+.notes-stat-val { color: var(--text2); font-weight: 700; }
+
+/* Reminder badge on note card */
+.note-reminder-badge {
+  font-size: 9px; padding: 1px 5px; border-radius: 4px; font-weight: 600;
+}
+
+/* Mobile: full-screen note mode */
 @media (max-width: 720px) {
-  .notes-layout { flex-direction: column; }
-  .notes-list-col { width: 100%; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; gap: 8px; }
-  .note-card { min-width: 160px; max-width: 220px; flex-shrink: 0; }
-  .notes-editor { min-height: 300px; }
+  .notes-mobile-tabs { display: flex; }
+  .notes-layout { gap: 0; }
+  .notes-list-col { width: 100%; }
+  .notes-layout.mobile-editor .notes-list-col { display: none; }
+  .notes-layout.mobile-list .notes-editor-col { display: none; }
+  .notes-editor { min-height: calc(100dvh - 260px); border-radius: var(--radius); }
+  .notes-list-col { gap: 6px; }
 }
 
 /* ══════════════════════════════════════════════
-   BUDGET VIEW
+   BUDGET VIEW  v2
 ══════════════════════════════════════════════ */
-.budget-header {
+.budget-topbar {
   display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
 }
 .budget-summary-cards {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px; margin-bottom: 20px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px; margin-bottom: 18px;
 }
 .budget-summary-card {
-  padding: 14px 16px; border-radius: var(--radius); border: 1px solid var(--border);
+  padding: 13px 15px; border-radius: var(--radius); border: 1px solid var(--border);
   background: var(--bg2); display: flex; flex-direction: column; gap: 4px;
 }
 .bsc-label { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
-.bsc-amount { font-family: var(--font-display); font-size: 22px; font-weight: 900; letter-spacing: -0.02em; }
+.bsc-amount { font-family: var(--font-display); font-size: 20px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.2; }
 .bsc-sub { font-size: 10px; color: var(--text3); }
 
-.budget-layout { display: grid; grid-template-columns: 1fr 340px; gap: 16px; align-items: flex-start; }
-@media (max-width: 900px) { .budget-layout { grid-template-columns: 1fr; } }
+/* Wallet chips row — scrollable on mobile */
+.budget-wallets-section { margin-bottom: 16px; }
+.budget-wallets-row {
+  display: flex; gap: 7px; flex-wrap: wrap;
+  overflow-x: auto; padding-bottom: 2px;
+}
+.budget-wallet-chip {
+  padding: 6px 11px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--glass); font-size: 11px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; gap: 5px; transition: all var(--transition);
+  white-space: nowrap; flex-shrink: 0;
+}
+.budget-wallet-chip.active { border-color: rgba(var(--accent-rgb),.5); background: rgba(var(--accent-rgb),.12); color: var(--accent); }
+.budget-wallet-chip:hover:not(.active) { background: var(--glass2); border-color: var(--border2); }
+.budget-wallet-chip-balance { font-size: 10px; font-weight: 400; opacity: .7; }
+.budget-wallet-chip-actions {
+  display: flex; gap: 3px; margin-left: 3px;
+}
+.budget-wallet-act-btn {
+  background: none; border: none; cursor: pointer; font-size: 10px; opacity: .6;
+  padding: 0 2px; transition: opacity var(--transition), color var(--transition); line-height: 1;
+}
+.budget-wallet-act-btn:hover { opacity: 1; }
 
-.budget-tx-list { display: flex; flex-direction: column; gap: 4px; }
+/* Main layout */
+.budget-layout {
+  display: grid; grid-template-columns: 1fr 330px; gap: 16px; align-items: flex-start;
+}
+@media (max-width: 960px) { .budget-layout { grid-template-columns: 1fr; } }
+
+/* Transaction list */
+.budget-tx-list { display: flex; flex-direction: column; gap: 3px; }
 .budget-tx-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 12px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 11px; border-radius: var(--radius-sm);
   background: var(--glass); border: 1px solid var(--border);
   transition: all var(--transition); cursor: default;
 }
 .budget-tx-item:hover { background: var(--glass2); border-color: var(--border2); }
 .budget-tx-icon {
-  width: 32px; height: 32px; border-radius: 8px; display: flex;
-  align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 8px; display: flex;
+  align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0;
 }
 .budget-tx-info { flex: 1; min-width: 0; }
-.budget-tx-desc { font-size: 12px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.budget-tx-meta { font-size: 10px; color: var(--text3); margin-top: 1px; }
-.budget-tx-amount { font-family: var(--font-display); font-size: 14px; font-weight: 800; flex-shrink: 0; }
-.budget-tx-del { opacity: 0; background: none; border: none; cursor: pointer; color: var(--text3); font-size: 12px; padding: 2px 4px; transition: opacity var(--transition), color var(--transition); }
-.budget-tx-item:hover .budget-tx-del { opacity: 1; }
-.budget-tx-del:hover { color: #ef4444; }
-
-.budget-add-form {
-  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 16px; display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px;
+.budget-tx-desc {
+  font-size: 12px; font-weight: 600; color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.budget-add-form-title { font-family: var(--font-display); font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+.budget-tx-meta { font-size: 10px; color: var(--text3); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.budget-tx-amount { font-family: var(--font-display); font-size: 13px; font-weight: 800; flex-shrink: 0; }
+.budget-tx-actions {
+  display: flex; gap: 2px; opacity: 0; transition: opacity var(--transition); flex-shrink: 0;
+}
+.budget-tx-item:hover .budget-tx-actions { opacity: 1; }
+.budget-tx-act {
+  background: none; border: none; cursor: pointer; color: var(--text3);
+  font-size: 11px; padding: 3px 5px; border-radius: 4px;
+  transition: all var(--transition);
+}
+.budget-tx-act:hover { background: var(--glass2); color: var(--text); }
+.budget-tx-act.del:hover { color: #ef4444; }
+/* Always show on touch devices */
+@media (hover: none) { .budget-tx-actions { opacity: 1; } }
+
+/* Add/form panel */
+.budget-add-panel {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.budget-add-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer;
+  user-select: none;
+}
+.budget-add-panel-title { font-family: var(--font-display); font-size: 13px; font-weight: 800; }
+.budget-add-panel-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 11px; }
+.budget-add-panel-body.collapsed { display: none; }
+
 .budget-type-toggle { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
 .budget-type-btn {
-  flex: 1; padding: 7px 4px; font-size: 11px; font-weight: 700; font-family: var(--font);
+  flex: 1; padding: 8px 4px; font-size: 11px; font-weight: 700; font-family: var(--font);
   border: none; background: transparent; cursor: pointer; transition: all var(--transition);
 }
 .budget-type-btn.income.active  { background: rgba(34,197,94,.15); color: #4ade80; }
@@ -2191,38 +2343,66 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .budget-type-btn:not(.active) { color: var(--text3); }
 .budget-type-btn:hover:not(.active) { background: var(--glass); }
 
-.budget-wallets-section { margin-bottom: 20px; }
-.budget-wallets-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.budget-wallet-chip {
-  padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border);
-  background: var(--glass); font-size: 11px; font-weight: 600; cursor: pointer;
-  display: flex; align-items: center; gap: 5px; transition: all var(--transition);
+/* Filters + search */
+.budget-ctrl-bar {
+  display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; align-items: center;
 }
-.budget-wallet-chip.active { border-color: rgba(var(--accent-rgb),.5); background: rgba(var(--accent-rgb),.12); color: var(--accent); }
-.budget-wallet-chip:hover:not(.active) { background: var(--glass2); border-color: var(--border2); }
-.budget-wallet-chip-balance { font-size: 10px; font-weight: 400; opacity: .7; }
-
-.budget-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.budget-tx-search {
+  flex: 1; min-width: 120px; padding: 6px 10px; border-radius: var(--radius-xs);
+  border: 1px solid var(--border); background: var(--glass); color: var(--text);
+  font-family: var(--font); font-size: 11px; outline: none; transition: all var(--transition);
+}
+.budget-tx-search:focus { border-color: rgba(var(--accent-rgb),.5); }
+.budget-tx-search::placeholder { color: var(--text3); }
 .budget-filter-chip {
-  padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border);
+  padding: 4px 9px; border-radius: 20px; border: 1px solid var(--border);
   background: transparent; font-size: 10px; font-weight: 600; cursor: pointer;
-  color: var(--text3); font-family: var(--font); transition: all var(--transition);
+  color: var(--text3); font-family: var(--font); transition: all var(--transition); white-space: nowrap;
 }
 .budget-filter-chip.active { background: rgba(var(--accent-rgb),.12); border-color: rgba(var(--accent-rgb),.4); color: var(--accent); }
 .budget-filter-chip:hover:not(.active) { border-color: var(--border2); color: var(--text2); }
 
+/* Category breakdown chart */
+.budget-cat-chart { margin-top: 16px; }
+.budget-cat-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 11px;
+}
+.budget-cat-row-label { width: 110px; flex-shrink: 0; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.budget-cat-bar-wrap { flex: 1; background: var(--glass); border-radius: 4px; height: 6px; overflow: hidden; }
+.budget-cat-bar-fill { height: 100%; border-radius: 4px; transition: width .4s ease; }
+.budget-cat-row-val { font-size: 10px; color: var(--text3); flex-shrink: 0; min-width: 60px; text-align: right; }
+
+/* Goal progress */
+.budget-goal-bar { margin-top: 6px; }
 .budget-bar-wrap {
-  background: var(--glass); border-radius: 6px; height: 6px; overflow: hidden;
-  margin-top: 8px;
+  background: var(--glass); border-radius: 6px; height: 6px; overflow: hidden; margin-top: 6px;
 }
-.budget-bar-fill {
-  height: 100%; border-radius: 6px; transition: width .4s ease;
-}
+.budget-bar-fill { height: 100%; border-radius: 6px; transition: width .4s ease; }
+
 .budget-section-header {
-  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 6px;
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 6px; flex-wrap: wrap;
 }
 .budget-section-title { font-family: var(--font-display); font-size: 13px; font-weight: 800; }
-.budget-empty { text-align: center; padding: 40px 20px; color: var(--text3); font-size: 12px; }
+.budget-empty { text-align: center; padding: 36px 20px; color: var(--text3); font-size: 12px; }
+
+/* Month picker */
+.budget-month-nav {
+  display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+}
+.budget-month-btn {
+  width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--glass); color: var(--text2); cursor: pointer; font-size: 12px;
+  display: flex; align-items: center; justify-content: center; transition: all var(--transition);
+}
+.budget-month-btn:hover { background: var(--glass2); color: var(--text); }
+.budget-month-label { font-size: 12px; font-weight: 700; min-width: 100px; text-align: center; }
+
+/* Mobile: collapse add form */
+@media (max-width: 640px) {
+  .budget-summary-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bsc-amount { font-size: 16px; }
+  .budget-add-panel-body { padding: 12px 14px; gap: 9px; }
+}
 </style>
 </head>
 <body>
@@ -6909,63 +7089,156 @@ window.calDragLeave = calDragLeave;
 window.calDrop = calDrop;
 
 // ══════════════════════════════════════════════════════════════
-// NOTES MODULE
+// NOTES MODULE  v2  — 10 nouvelles fonctionnalités
 // ══════════════════════════════════════════════════════════════
 
 let notesState = {
   activeId: null,
   search: '',
   saveTimer: null,
+  mobileTab: 'list',   // 'list' | 'editor'
+  sortBy: 'updated',   // 'updated' | 'created' | 'title' | 'length'
+  filterTag: '',       // '' = all
+  previewMode: false,  // markdown preview toggle
+  formPanelOpen: false,
 };
 
 const NOTE_COLORS = ['#7c3aed','#0ea5e9','#22c55e','#f97316','#ec4899','#f59e0b','#64748b'];
+const NOTE_TAGS_PRESET = ['💡 Idée','✅ Action','📌 Important','📚 Apprentissage','💼 Travail','🏠 Personnel'];
 
+// ── Markdown simple renderer ─────────────────────────────────
+function notesRenderMd(text) {
+  if (!text) return '';
+  let h = esc(text);
+  // Block elements (must run before inline)
+  h = h.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^## (.+)$/gm,  '<h2>$1</h2>');
+  h = h.replace(/^# (.+)$/gm,   '<h1>$1</h1>');
+  h = h.replace(/^---$/gm, '<hr>');
+  h = h.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
+  h = h.replace(/^\* (.+)$/gm, '<li>$1</li>');
+  h = h.replace(/^- (.+)$/gm,  '<li>$1</li>');
+  h = h.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
+  // Inline
+  h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  h = h.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  h = h.replace(/`(.+?)`/g, '<code>$1</code>');
+  h = h.replace(/\n/g, '<br>');
+  return h;
+}
+
+// ── Get all tags used across all notes ──────────────────────
+function notesAllTags() {
+  const t = new Set();
+  (state.notes||[]).forEach(n => (n.tags||[]).forEach(tag => t.add(tag)));
+  return [...t];
+}
+
+// ── Main render ───────────────────────────────────────────────
 function renderNotes() {
   const root = document.getElementById('notes-root');
   if (!root) return;
   if (!state.notes) state.notes = [];
 
+  const isMobile = window.innerWidth <= 720;
+
+  // Filter
   const q = notesState.search.toLowerCase();
-  let notes = state.notes.filter(n =>
-    !q || n.title.toLowerCase().includes(q) || (n.content||'').toLowerCase().includes(q)
-  );
-  // pinned first, then by updatedAt desc
-  notes.sort((a, b) => {
-    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
-    return (b.updatedAt||'').localeCompare(a.updatedAt||'');
+  let notes = state.notes.filter(n => {
+    if (q && !n.title.toLowerCase().includes(q) && !(n.content||'').toLowerCase().includes(q)) return false;
+    if (notesState.filterTag && !(n.tags||[]).includes(notesState.filterTag)) return false;
+    return true;
   });
 
-  // Ensure activeId is valid
-  if (notesState.activeId && !state.notes.find(n => n.id === notesState.activeId)) {
-    notesState.activeId = null;
-  }
+  // Sort
+  notes.sort((a,b) => {
+    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+    if (notesState.sortBy === 'updated') return (b.updatedAt||'').localeCompare(a.updatedAt||'');
+    if (notesState.sortBy === 'created') return (b.createdAt||'').localeCompare(a.createdAt||'');
+    if (notesState.sortBy === 'title')   return (a.title||'').localeCompare(b.title||'', 'fr');
+    if (notesState.sortBy === 'length')  return (b.content||'').length - (a.content||'').length;
+    return 0;
+  });
+
+  // Ensure activeId valid
+  if (notesState.activeId && !state.notes.find(n => n.id === notesState.activeId)) notesState.activeId = null;
   if (!notesState.activeId && state.notes.length > 0) {
-    notesState.activeId = state.notes.sort((a,b)=>{
+    const sorted = [...state.notes].sort((a,b) => {
       if (a.pinned!==b.pinned) return a.pinned?-1:1;
       return (b.updatedAt||'').localeCompare(a.updatedAt||'');
-    })[0].id;
+    });
+    notesState.activeId = sorted[0].id;
   }
 
   const activeNote = state.notes.find(n => n.id === notesState.activeId);
 
+  // Stats
+  const totalWords  = (state.notes||[]).reduce((s,n) => s + (n.content||'').split(/\s+/).filter(Boolean).length, 0);
+  const totalChars  = (state.notes||[]).reduce((s,n) => s + (n.content||'').length, 0);
+  const pinnedCount = (state.notes||[]).filter(n=>n.pinned).length;
+
+  // Tag filter chips
+  const allTags = notesAllTags();
+  const tagChips = allTags.map(t =>
+    `<button class="notes-tag-chip${notesState.filterTag===t?' active':''}" onclick="notesSetTagFilter('${esc(t)}')">${esc(t)}</button>`
+  ).join('');
+
+  // Sort select
+  const sortSel = `<select class="notes-sort-sel" onchange="notesSetSort(this.value)">
+    <option value="updated"${notesState.sortBy==='updated'?' selected':''}>Récent</option>
+    <option value="created"${notesState.sortBy==='created'?' selected':''}>Créé</option>
+    <option value="title"${notesState.sortBy==='title'?' selected':''}>A→Z</option>
+    <option value="length"${notesState.sortBy==='length'?' selected':''}>Longueur</option>
+  </select>`;
+
+  // Note cards
   const noteCards = notes.map(n => {
     const isActive = n.id === notesState.activeId;
-    const preview = (n.content||'').replace(/\n/g,' ').slice(0, 90);
-    const dateStr = n.updatedAt ? new Date(n.updatedAt).toLocaleDateString('fr-FR',{day:'numeric',month:'short'}) : '';
-    return `<div class="note-card${isActive?' active':''}"
-      style="--nc:${n.color||'var(--accent)'}"
+    const preview  = (n.content||'').replace(/[#*`>-]/g,'').replace(/\n/g,' ').slice(0, 80);
+    const dateStr  = n.updatedAt ? new Date(n.updatedAt).toLocaleDateString('fr-FR',{day:'numeric',month:'short'}) : '';
+    const tags = (n.tags||[]).slice(0,2).map(t =>
+      `<span class="note-card-tag" style="background:${n.color||'var(--accent)'}20;color:${n.color||'var(--accent)'}">${esc(t)}</span>`
+    ).join('');
+    const reminder = n.reminder ? (() => {
+      const dl = Math.ceil((new Date(n.reminder) - new Date()) / 86400000);
+      const lab = dl < 0 ? 'Expiré' : dl === 0 ? 'Aujourd\'hui' : `J−${dl}`;
+      const col = dl < 0 ? '#f87171' : dl <= 1 ? '#fb923c' : '#4ade80';
+      return `<span class="note-reminder-badge" style="background:${col}20;color:${col}">⏰ ${lab}</span>`;
+    })() : '';
+    return `<div class="note-card${isActive?' active':''}" style="--nc:${n.color||'var(--accent)'}"
       onclick="notesSetActive('${n.id}')">
-      ${n.pinned ? `<div class="note-card-pin" style="position:absolute;top:6px;right:8px">📌</div>` : ''}
-      <div class="note-card-title" style="padding-right:${n.pinned?'18px':'0'}">${esc(n.title)||'<span style="opacity:.4">Sans titre</span>'}</div>
-      <div class="note-card-preview">${esc(preview)||'<span style="opacity:.4">Vide…</span>'}</div>
+      ${n.pinned?`<div style="position:absolute;top:6px;right:7px;font-size:10px;opacity:.7">📌</div>`:''}
+      <div class="note-card-title" style="padding-right:${n.pinned?'16px':'0'}">${esc(n.title)||'<span style="opacity:.35">Sans titre</span>'}</div>
+      <div class="note-card-preview">${esc(preview)||'<span style="opacity:.35">Vide…</span>'}</div>
       <div class="note-card-meta">
         <span>${dateStr}</span>
-        <span style="width:8px;height:8px;border-radius:50%;background:${n.color||'var(--accent)'};display:inline-block"></span>
+        ${reminder}
+        ${tags}
+        <div class="note-card-dot" style="background:${n.color||'var(--accent)'}"></div>
       </div>
     </div>`;
   }).join('');
 
-  const editorContent = activeNote ? `
+  // Tag management in editor
+  const editorTagsHtml = activeNote ? (activeNote.tags||[]).map(t =>
+    `<span class="notes-inline-tag" style="background:${activeNote.color||'var(--accent)'}20;color:${activeNote.color||'var(--accent)'}">
+      ${esc(t)}<button onclick="notesRemoveTag('${activeNote.id}','${esc(t)}')" title="Retirer">×</button>
+    </span>`
+  ).join('') : '';
+
+  // Reminder HTML
+  const remHtml = activeNote ? `<input type="date" class="input" id="note-reminder-inp"
+    value="${activeNote.reminder||''}"
+    style="font-size:11px;padding:4px 8px;color-scheme:dark;width:140px"
+    title="Rappel"
+    onchange="notesSetReminder('${activeNote.id}',this.value)"
+    placeholder="Rappel…">` : '';
+
+  // Editor content
+  let editorContent;
+  if (activeNote) {
+    const wordCount = (activeNote.content||'').split(/\s+/).filter(Boolean).length;
+    editorContent = `
     <div class="notes-editor">
       <div class="notes-editor-header">
         <input class="notes-editor-title-input" id="note-title-inp"
@@ -6973,69 +7246,134 @@ function renderNotes() {
           placeholder="Titre de la note…"
           oninput="notesDraftSave('title',this.value)">
         <button class="notes-pin-btn${activeNote.pinned?' pinned':''}"
-          onclick="notesTogglePin('${activeNote.id}')"
-          title="${activeNote.pinned?'Désépingler':'Épingler'}">📌</button>
+          onclick="notesTogglePin('${activeNote.id}')" title="${activeNote.pinned?'Désépingler':'Épingler'}">📌</button>
+        <button class="btn btn-icon" onclick="notesDuplicate('${activeNote.id}')" title="Dupliquer">⧉</button>
         <button class="btn btn-icon btn-danger" onclick="notesDelete('${activeNote.id}')" title="Supprimer">🗑</button>
       </div>
+      <div class="notes-editor-toolbar">
+        <button class="notes-tb-btn${notesState.previewMode?'':' active'}" onclick="notesSetPreview(false)" title="Éditer">✏ Éditer</button>
+        <button class="notes-tb-btn${notesState.previewMode?' active':''}" onclick="notesSetPreview(true)" title="Aperçu Markdown">👁 Aperçu</button>
+        <div class="notes-tb-sep"></div>
+        <button class="notes-tb-btn" onclick="notesInsert('**','**')" title="Gras"><b>B</b></button>
+        <button class="notes-tb-btn" onclick="notesInsert('*','*')" title="Italique"><i>I</i></button>
+        <button class="notes-tb-btn" onclick="notesInsert('\`','\`')" title="Code">{"}"}</button>
+        <button class="notes-tb-btn" onclick="notesInsert('# ','')" title="Titre">H</button>
+        <button class="notes-tb-btn" onclick="notesInsert('- ','')" title="Liste">≡</button>
+        <div class="notes-tb-sep"></div>
+        <button class="notes-tb-btn" onclick="notesExport('${activeNote.id}')" title="Exporter .txt">↓ Export</button>
+        <button class="notes-tb-btn" onclick="notesCopyAll('${activeNote.id}')" title="Copier tout">⎘ Copier</button>
+      </div>
+      <div class="notes-tag-input-wrap" id="note-tags-wrap">
+        <span style="font-size:10px;color:var(--text3);flex-shrink:0">Tags:</span>
+        ${editorTagsHtml}
+        <input class="notes-tag-inp" id="note-tag-inp" placeholder="+ Ajouter un tag…"
+          list="note-tags-datalist"
+          onkeydown="if(event.key==='Enter'||event.key===','){event.preventDefault();notesAddTag('${activeNote.id}',this.value);this.value=''}">
+        <datalist id="note-tags-datalist">
+          ${NOTE_TAGS_PRESET.map(t=>`<option value="${esc(t)}">`).join('')}
+          ${allTags.map(t=>`<option value="${esc(t)}">`).join('')}
+        </datalist>
+      </div>
       <div class="notes-editor-body">
-        <textarea class="notes-editor-textarea" id="note-content-inp"
-          placeholder="Écrivez ici…"
-          oninput="notesDraftSave('content',this.value)">${esc(activeNote.content||'')}</textarea>
+        ${notesState.previewMode
+          ? `<div class="notes-preview-body">${notesRenderMd(activeNote.content||'')}</div>`
+          : `<textarea class="notes-editor-textarea" id="note-content-inp"
+              placeholder="Écrivez ici… (supporte le Markdown : **gras**, *italique*, # Titre, - liste)"
+              oninput="notesDraftSave('content',this.value)">${esc(activeNote.content||'')}</textarea>`
+        }
+        ${remHtml ? `<div style="margin-top:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+          <span style="font-size:10px;color:var(--text3)">⏰ Rappel:</span>
+          ${remHtml}
+          ${activeNote.reminder?`<button class="btn btn-icon" style="font-size:10px" onclick="notesSetReminder('${activeNote.id}','')">✕</button>`:''}
+        </div>` : ''}
       </div>
       <div class="notes-editor-footer">
         <div class="notes-editor-meta">
           Modifié ${activeNote.updatedAt ? new Date(activeNote.updatedAt).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : 'jamais'}
-          · ${(activeNote.content||'').length} caractères
+          · ${wordCount} mot${wordCount!==1?'s':''} · ${(activeNote.content||'').length} car.
         </div>
         <div class="notes-color-dots">
           ${NOTE_COLORS.map(c => `<div class="notes-color-dot${(activeNote.color||NOTE_COLORS[0])===c?' active':''}"
-            style="background:${c}" onclick="notesSetColor('${activeNote.id}','${c}')" title="${c}"></div>`).join('')}
+            style="background:${c}" onclick="notesSetColor('${activeNote.id}','${c}')"></div>`).join('')}
         </div>
       </div>
-    </div>` : `<div class="notes-empty-state">
-      <div style="font-size:48px;margin-bottom:14px">📝</div>
-      <p style="font-size:14px;margin-bottom:8px">Sélectionnez une note ou créez-en une nouvelle.</p>
     </div>`;
+  } else {
+    editorContent = `<div class="notes-empty-state">
+      <div style="font-size:48px;margin-bottom:14px">📝</div>
+      <p style="font-size:14px;margin-bottom:12px;color:var(--text2)">Sélectionnez une note<br>ou créez-en une nouvelle.</p>
+      <button class="btn btn-primary" onclick="notesNew()">+ Nouvelle note</button>
+    </div>`;
+  }
+
+  // Mobile: show/hide panels based on mobileTab
+  const mobileLayoutClass = isMobile
+    ? (notesState.mobileTab === 'editor' ? 'notes-layout mobile-editor' : 'notes-layout mobile-list')
+    : 'notes-layout';
 
   root.innerHTML = `
-    <div class="notes-toolbar">
-      <div style="font-family:var(--font-display);font-size:20px;font-weight:900;flex-shrink:0">📝 Notes</div>
-      <input class="notes-search" placeholder="Rechercher…" value="${esc(notesState.search)}"
-        oninput="notesState.search=this.value;renderNotes()">
-      <button class="btn btn-primary" onclick="notesNew()" style="flex-shrink:0;font-size:12px">+ Nouvelle note</button>
+    <div class="notes-topbar">
+      <div style="font-family:var(--font-display);font-size:19px;font-weight:900;flex-shrink:0">📝 Notes</div>
+      <div class="notes-title-row">
+        <input class="notes-search" placeholder="Rechercher dans les notes…" value="${esc(notesState.search)}"
+          oninput="notesState.search=this.value;renderNotes()">
+        ${sortSel}
+      </div>
+      <div class="notes-mobile-tabs">
+        <button class="notes-mobile-tab${notesState.mobileTab==='list'?' active':''}" onclick="notesSetMobileTab('list')">📋 Liste</button>
+        <button class="notes-mobile-tab${notesState.mobileTab==='editor'?' active':''}" onclick="notesSetMobileTab('editor')">✏ Éditer</button>
+      </div>
+      <button class="btn btn-primary" onclick="notesNew()" style="flex-shrink:0;font-size:11px;padding:7px 11px">+ Note</button>
     </div>
-    <div class="notes-layout">
+
+    <div class="notes-stats-bar">
+      <span>📝 <span class="notes-stat-val">${state.notes.length}</span> note${state.notes.length!==1?'s':''}</span>
+      <span>📌 <span class="notes-stat-val">${pinnedCount}</span> épinglée${pinnedCount!==1?'s':''}</span>
+      <span>📊 <span class="notes-stat-val">${totalWords.toLocaleString('fr')}</span> mots</span>
+      <span style="color:var(--text3)">·</span>
+      <span><span class="notes-stat-val">${totalChars.toLocaleString('fr')}</span> car.</span>
+      ${allTags.length>0?`<span>🏷 <span class="notes-stat-val">${allTags.length}</span> tag${allTags.length!==1?'s':''}</span>`:''}
+    </div>
+
+    ${(allTags.length > 0 || notesState.filterTag) ? `<div class="notes-filters-bar">
+      <span style="font-size:10px;color:var(--text3);flex-shrink:0">Tags:</span>
+      <button class="notes-tag-chip${!notesState.filterTag?' active':''}" onclick="notesSetTagFilter('')">Tous</button>
+      ${tagChips}
+    </div>` : ''}
+
+    <div class="${mobileLayoutClass}">
       <div class="notes-list-col">
         <button class="note-add-btn" onclick="notesNew()">+ Nouvelle note</button>
-        ${noteCards || `<div style="text-align:center;padding:20px;color:var(--text3);font-size:11px">${notesState.search?'Aucun résultat':'Aucune note'}</div>`}
+        ${noteCards || `<div style="text-align:center;padding:20px;color:var(--text3);font-size:11px">${notesState.search||notesState.filterTag?'Aucun résultat':'Aucune note encore'}</div>`}
       </div>
       <div class="notes-editor-col">${editorContent}</div>
     </div>`;
 }
 
+// ── Notes actions ─────────────────────────────────────────────
 function notesNew() {
   if (!state.notes) state.notes = [];
   const id = uid();
-  state.notes.unshift({
-    id, title: '', content: '',
-    color: NOTE_COLORS[Math.floor(Math.random()*3)],
-    pinned: false,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  });
+  state.notes.unshift({ id, title:'', content:'', color:NOTE_COLORS[0], pinned:false, tags:[],
+    createdAt:new Date().toISOString(), updatedAt:new Date().toISOString() });
   notesState.activeId = id;
-  scheduleSave();
-  renderNotes();
+  notesState.mobileTab = 'editor';
+  scheduleSave(); renderNotes();
   setTimeout(() => document.getElementById('note-title-inp')?.focus(), 60);
 }
 
 function notesSetActive(id) {
-  // Save current draft first
   notesFlushSave();
   notesState.activeId = id;
+  notesState.mobileTab = 'editor';
   renderNotes();
   setTimeout(() => document.getElementById('note-content-inp')?.focus(), 60);
 }
+
+function notesSetMobileTab(tab) { notesState.mobileTab = tab; renderNotes(); }
+function notesSetSort(s) { notesState.sortBy = s; renderNotes(); }
+function notesSetTagFilter(t) { notesState.filterTag = t; renderNotes(); }
+function notesSetPreview(v) { notesFlushSave(); notesState.previewMode = v; renderNotes(); }
 
 function notesDraftSave(field, val) {
   const note = (state.notes||[]).find(n => n.id === notesState.activeId);
@@ -7045,15 +7383,13 @@ function notesDraftSave(field, val) {
   clearTimeout(notesState.saveTimer);
   notesState.saveTimer = setTimeout(() => {
     scheduleSave();
-    // Refresh card list only
+    // Partial DOM update for cards (avoid full re-render while typing)
     document.querySelectorAll('.note-card').forEach(el => {
-      const match = el.getAttribute('onclick')?.includes(notesState.activeId);
-      if (match && field === 'title') {
-        el.querySelector('.note-card-title').innerHTML = esc(val) || '<span style="opacity:.4">Sans titre</span>';
-      }
-      if (match && field === 'content') {
-        const prev = val.replace(/\n/g,' ').slice(0, 90);
-        el.querySelector('.note-card-preview').innerHTML = esc(prev) || '<span style="opacity:.4">Vide…</span>';
+      if (!el.getAttribute('onclick')?.includes(notesState.activeId)) return;
+      if (field==='title') el.querySelector('.note-card-title').innerHTML = esc(val)||'<span style="opacity:.35">Sans titre</span>';
+      if (field==='content') {
+        const prev = val.replace(/[#*`>-]/g,'').replace(/\n/g,' ').slice(0,80);
+        el.querySelector('.note-card-preview').innerHTML = esc(prev)||'<span style="opacity:.35">Vide…</span>';
       }
     });
   }, 400);
@@ -7065,103 +7401,177 @@ function notesFlushSave() {
   if (!note) return;
   const ti = document.getElementById('note-title-inp');
   const co = document.getElementById('note-content-inp');
-  if (ti) note.title = ti.value;
+  if (ti) note.title   = ti.value;
   if (co) { note.content = co.value; note.updatedAt = new Date().toISOString(); }
   scheduleSave();
 }
 
 function notesTogglePin(id) {
   notesFlushSave();
-  const note = (state.notes||[]).find(n => n.id === id);
-  if (note) { note.pinned = !note.pinned; scheduleSave(); renderNotes(); }
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (n) { n.pinned = !n.pinned; scheduleSave(); renderNotes(); }
 }
-
 function notesSetColor(id, color) {
   notesFlushSave();
-  const note = (state.notes||[]).find(n => n.id === id);
-  if (note) { note.color = color; scheduleSave(); renderNotes(); }
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (n) { n.color = color; scheduleSave(); renderNotes(); }
 }
-
 function notesDelete(id) {
   notesFlushSave();
-  state.notes = (state.notes||[]).filter(n => n.id !== id);
-  if (notesState.activeId === id) notesState.activeId = null;
+  state.notes = (state.notes||[]).filter(n=>n.id!==id);
+  if (notesState.activeId===id) notesState.activeId=null;
+  scheduleSave(); toast('Note supprimée 🗑','warning'); renderNotes();
+}
+function notesDuplicate(id) {
+  notesFlushSave();
+  const src = (state.notes||[]).find(n=>n.id===id);
+  if (!src) return;
+  const copy = { ...src, id:uid(), title:(src.title?src.title+' (copie)':'Copie'), tags:[...(src.tags||[])],
+    pinned:false, createdAt:new Date().toISOString(), updatedAt:new Date().toISOString() };
+  state.notes.unshift(copy);
+  notesState.activeId = copy.id;
+  scheduleSave(); toast('⧉ Note dupliquée','success'); renderNotes();
+}
+function notesAddTag(id, tag) {
+  const t = tag.replace(/,$/, '').trim();
+  if (!t) return;
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (!n) return;
+  if (!n.tags) n.tags = [];
+  if (!n.tags.includes(t)) { n.tags.push(t); scheduleSave(); renderNotes(); }
+}
+function notesRemoveTag(id, tag) {
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (!n) return;
+  n.tags = (n.tags||[]).filter(t=>t!==tag);
+  scheduleSave(); renderNotes();
+}
+function notesSetReminder(id, date) {
+  notesFlushSave();
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (!n) return;
+  n.reminder = date || null;
   scheduleSave();
-  toast('Note supprimée 🗑', 'warning');
+  if (date) toast(`⏰ Rappel fixé au ${new Date(date+'T00:00:00').toLocaleDateString('fr-FR')}`, 'success');
   renderNotes();
 }
+function notesInsert(before, after) {
+  const ta = document.getElementById('note-content-inp');
+  if (!ta) return;
+  const start = ta.selectionStart, end = ta.selectionEnd;
+  const sel = ta.value.slice(start, end);
+  const newVal = ta.value.slice(0, start) + before + sel + after + ta.value.slice(end);
+  ta.value = newVal;
+  ta.focus();
+  ta.setSelectionRange(start + before.length, start + before.length + sel.length);
+  notesDraftSave('content', newVal);
+}
+function notesExport(id) {
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (!n) return;
+  const text = `${n.title||'Sans titre'}\n${'='.repeat(40)}\n${n.content||''}`;
+  const a = document.createElement('a');
+  a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+  a.download = (n.title||'note').replace(/[^a-zA-Z0-9]/g,'_') + '.txt';
+  a.click();
+  toast('↓ Note exportée', 'success');
+}
+function notesCopyAll(id) {
+  const n = (state.notes||[]).find(x=>x.id===id);
+  if (!n) return;
+  const text = `${n.title||'Sans titre'}\n\n${n.content||''}`;
+  navigator.clipboard?.writeText(text).then(()=>toast('⎘ Copié dans le presse-papier','success'));
+}
 
-window.renderNotes = renderNotes;
-window.notesNew = notesNew;
-window.notesSetActive = notesSetActive;
-window.notesDraftSave = notesDraftSave;
-window.notesTogglePin = notesTogglePin;
-window.notesSetColor = notesSetColor;
-window.notesDelete = notesDelete;
+// Expose
+window.renderNotes=renderNotes; window.notesNew=notesNew; window.notesSetActive=notesSetActive;
+window.notesDraftSave=notesDraftSave; window.notesTogglePin=notesTogglePin;
+window.notesSetColor=notesSetColor; window.notesDelete=notesDelete;
+window.notesDuplicate=notesDuplicate; window.notesAddTag=notesAddTag; window.notesRemoveTag=notesRemoveTag;
+window.notesSetReminder=notesSetReminder; window.notesInsert=notesInsert;
+window.notesExport=notesExport; window.notesCopyAll=notesCopyAll;
+window.notesSetMobileTab=notesSetMobileTab; window.notesSetSort=notesSetSort;
+window.notesSetTagFilter=notesSetTagFilter; window.notesSetPreview=notesSetPreview;
 
 
 // ══════════════════════════════════════════════════════════════
-// BUDGET MODULE
+// BUDGET MODULE  v2  — 10 nouvelles fonctionnalités
 // ══════════════════════════════════════════════════════════════
 
 let budgetState = {
-  addType: 'expense',      // 'income' | 'expense'
-  filterWallet: 'all',     // walletId or 'all'
-  filterType: 'all',       // 'all' | 'income' | 'expense'
+  addType: 'expense',
+  filterWallet: 'all',
+  filterType: 'all',
+  search: '',
+  formOpen: true,      // collapsible add form
+  filterMonth: null,   // 'YYYY-MM' or null = all
 };
 
-const BUDGET_CATS = ['Alimentation','Transport','Logement','Loisirs','Santé','Éducation','Travail','Autre'];
-const BUDGET_CAT_ICONS = { Alimentation:'🍔', Transport:'🚗', Logement:'🏠', Loisirs:'🎮', Santé:'💊', Éducation:'📚', Travail:'💼', Autre:'📦' };
+const BUDGET_CATS = ['Alimentation','Transport','Logement','Loisirs','Santé','Éducation','Travail','Épargne','Autre'];
+const BUDGET_CAT_ICONS = { Alimentation:'🍔', Transport:'🚗', Logement:'🏠', Loisirs:'🎮', Santé:'💊', Éducation:'📚', Travail:'💼', Épargne:'🏦', Autre:'📦' };
+const BUDGET_CAT_COLORS = { Alimentation:'#f97316', Transport:'#0ea5e9', Logement:'#7c3aed', Loisirs:'#ec4899', Santé:'#22c55e', Éducation:'#f59e0b', Travail:'#64748b', Épargne:'#4ade80', Autre:'#94a3b8' };
 
 function budgetFmt(amount) {
   return new Intl.NumberFormat('fr-FR', { style:'currency', currency:'EUR', minimumFractionDigits:2 }).format(amount);
 }
-
-function budgetGetTx() {
-  return (state.budget?.transactions || []);
-}
+function budgetGetTx()      { return (state.budget?.transactions || []); }
 function budgetGetWallets() {
-  return (state.budget?.wallets || [{ id:'wallet_general', name:'Général', icon:'💼', color:'#7c3aed' }]);
+  const ws = state.budget?.wallets || [];
+  if (!ws.find(w=>w.id==='wallet_general'))
+    ws.unshift({ id:'wallet_general', name:'Général', icon:'💼', color:'#7c3aed' });
+  return ws;
+}
+function budgetCalcSummary(txList) {
+  const income  = txList.filter(t=>t.type==='income' ).reduce((s,t)=>s+Number(t.amount),0);
+  const expense = txList.filter(t=>t.type==='expense').reduce((s,t)=>s+Number(t.amount),0);
+  return { income, expense, balance: income-expense };
 }
 
-function budgetCalcSummary(txList) {
-  const income  = txList.filter(t=>t.type==='income').reduce((s,t)=>s+Number(t.amount),0);
-  const expense = txList.filter(t=>t.type==='expense').reduce((s,t)=>s+Number(t.amount),0);
-  return { income, expense, balance: income - expense };
+// Current month navigation
+function budgetNavMonth(dir) {
+  if (!budgetState.filterMonth) {
+    const n = new Date(); budgetState.filterMonth = `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`;
+  }
+  const [y,m] = budgetState.filterMonth.split('-').map(Number);
+  const d = new Date(y, m-1+dir, 1);
+  budgetState.filterMonth = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+  renderBudget();
+}
+window.budgetNavMonth = budgetNavMonth;
+
+// Format month label
+function budgetMonthLabel(ym) {
+  if (!ym) return 'Tout';
+  const [y,m] = ym.split('-');
+  return new Date(+y, +m-1, 1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
 }
 
 function renderBudget() {
   const root = document.getElementById('budget-root');
   if (!root) return;
-  if (!state.budget) state.budget = { wallets: [], transactions: [] };
+  if (!state.budget) state.budget = { wallets:[], transactions:[] };
   if (!Array.isArray(state.budget.wallets)) state.budget.wallets = [];
   if (!Array.isArray(state.budget.transactions)) state.budget.transactions = [];
-  // Ensure default wallet exists
-  if (!state.budget.wallets.find(w=>w.id==='wallet_general')) {
-    state.budget.wallets.unshift({ id:'wallet_general', name:'Général', icon:'💼', color:'#7c3aed' });
-  }
-
+  const wl = budgetGetWallets();
   const allTx = budgetGetTx();
-  const wallets = budgetGetWallets();
 
-  // Filter transactions
+  // Filter
   let filtered = allTx;
-  if (budgetState.filterWallet !== 'all') {
-    filtered = filtered.filter(t => t.walletId === budgetState.filterWallet);
+  if (budgetState.filterWallet !== 'all') filtered = filtered.filter(t=>t.walletId===budgetState.filterWallet);
+  if (budgetState.filterType   !== 'all') filtered = filtered.filter(t=>t.type===budgetState.filterType);
+  if (budgetState.filterMonth)  filtered = filtered.filter(t=>(t.date||'').startsWith(budgetState.filterMonth));
+  if (budgetState.search) {
+    const q = budgetState.search.toLowerCase();
+    filtered = filtered.filter(t=>(t.desc||'').toLowerCase().includes(q)||(t.category||'').toLowerCase().includes(q));
   }
-  if (budgetState.filterType !== 'all') {
-    filtered = filtered.filter(t => t.type === budgetState.filterType);
-  }
-  filtered = [...filtered].sort((a,b) => (b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||''));
+  filtered = [...filtered].sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||''));
 
-  // Global summary (all tx)
-  const globalSummary = budgetCalcSummary(allTx);
-
-  // Per-wallet summaries
-  const walletSummaries = wallets.map(w => {
-    const wtx = allTx.filter(t => t.walletId === w.id);
-    const s = budgetCalcSummary(wtx);
-    return { ...w, ...s, txCount: wtx.length };
+  // Summaries
+  const globalSummary  = budgetCalcSummary(allTx);
+  const periodSummary  = budgetCalcSummary(filtered);
+  const walletSummaries = wl.map(w => {
+    const wtx = allTx.filter(t=>t.walletId===w.id);
+    return { ...w, ...budgetCalcSummary(wtx), txCount: wtx.length };
   });
 
   // Summary cards
@@ -7179,185 +7589,292 @@ function renderBudget() {
     <div class="budget-summary-card">
       <div class="bsc-label">Solde net</div>
       <div class="bsc-amount" style="color:${globalSummary.balance>=0?'#4ade80':'#f87171'}">${budgetFmt(globalSummary.balance)}</div>
-      <div class="bsc-sub">${allTx.length} transaction(s) au total</div>
+      <div class="bsc-sub">${allTx.length} transaction(s) total</div>
     </div>
     <div class="budget-summary-card">
-      <div class="bsc-label">Taux épargne</div>
-      <div class="bsc-amount" style="color:#818cf8">${globalSummary.income>0?Math.round((globalSummary.balance/globalSummary.income)*100):0}%</div>
-      <div class="budget-bar-wrap" style="margin-top:8px">
+      <div class="bsc-label">Taux d'épargne</div>
+      <div class="bsc-amount" style="color:#818cf8">${globalSummary.income>0?Math.max(0,Math.round((globalSummary.balance/globalSummary.income)*100)):0}%</div>
+      <div class="budget-bar-wrap">
         <div class="budget-bar-fill" style="width:${Math.max(0,Math.min(100,globalSummary.income>0?((globalSummary.balance/globalSummary.income)*100):0))}%;background:#818cf8"></div>
       </div>
     </div>`;
 
-  // Wallet chips
+  // Wallet chips with edit/delete
   const walletChips = `
-    <div class="budget-wallet-chip${budgetState.filterWallet==='all'?' active':''}"
-      onclick="budgetSetWalletFilter('all')">
+    <div class="budget-wallet-chip${budgetState.filterWallet==='all'?' active':''}" onclick="budgetSetWalletFilter('all')">
       📊 Tout <span class="budget-wallet-chip-balance">${budgetFmt(globalSummary.balance)}</span>
     </div>
     ${walletSummaries.map(w => {
       const active = budgetState.filterWallet === w.id;
+      const isDefault = w.id === 'wallet_general';
       return `<div class="budget-wallet-chip${active?' active':''}"
-        style="${active?`--nc:${w.color};border-color:${w.color}40;background:${w.color}15;color:${w.color}`:''}; position:relative"
+        style="${active?`border-color:${w.color}50;background:${w.color}15;color:${w.color}`:''}"
         onclick="budgetSetWalletFilter('${w.id}')">
         ${w.icon} ${esc(w.name)}
         <span class="budget-wallet-chip-balance">${budgetFmt(w.balance)}</span>
+        <div class="budget-wallet-chip-actions" onclick="event.stopPropagation()">
+          <button class="budget-wallet-act-btn" onclick="budgetEditWallet('${w.id}')" title="Modifier">✏</button>
+          ${!isDefault?`<button class="budget-wallet-act-btn" style="color:#f87171" onclick="budgetDeleteWallet('${w.id}')" title="Supprimer">🗑</button>`:''}
+        </div>
       </div>`;
     }).join('')}
-    <div class="budget-wallet-chip" onclick="budgetAddWallet()" title="Nouveau portefeuille" style="color:var(--accent)">+ Portefeuille</div>`;
+    <div class="budget-wallet-chip" onclick="budgetAddWallet()" style="color:var(--accent);border-style:dashed">+ Portefeuille</div>`;
+
+  // Category breakdown (expenses only, for filtered period)
+  const expByCAT = {};
+  filtered.filter(t=>t.type==='expense').forEach(t => {
+    const c = t.category||'Autre';
+    expByCAT[c] = (expByCAT[c]||0) + Number(t.amount);
+  });
+  const maxCat = Math.max(...Object.values(expByCAT), 1);
+  const catChart = Object.entries(expByCAT)
+    .sort((a,b)=>b[1]-a[1])
+    .slice(0, 6)
+    .map(([c, v]) => {
+      const col = BUDGET_CAT_COLORS[c]||'#94a3b8';
+      const pct = Math.round((v/periodSummary.expense)*100)||0;
+      return `<div class="budget-cat-row">
+        <div class="budget-cat-row-label">${BUDGET_CAT_ICONS[c]||'📦'} ${c}</div>
+        <div class="budget-cat-bar-wrap"><div class="budget-cat-bar-fill" style="width:${Math.round(v/maxCat*100)}%;background:${col}"></div></div>
+        <div class="budget-cat-row-val">${budgetFmt(v)} (${pct}%)</div>
+      </div>`;
+    }).join('');
 
   // Transactions
   const txHtml = filtered.length === 0
-    ? `<div class="budget-empty">
-        <div style="font-size:36px;margin-bottom:10px">💸</div>
-        <p>Aucune transaction${budgetState.filterWallet!=='all'||budgetState.filterType!=='all'?' pour ce filtre':''}</p>
-      </div>`
+    ? `<div class="budget-empty"><div style="font-size:36px;margin-bottom:10px">💸</div><p>Aucune transaction pour ce filtre</p></div>`
     : filtered.map(t => {
-        const w = wallets.find(x=>x.id===t.walletId);
-        const isIncome = t.type === 'income';
-        const catIcon = BUDGET_CAT_ICONS[t.category] || '📦';
+        const w = wl.find(x=>x.id===t.walletId);
+        const isIncome = t.type==='income';
+        const catIcon = BUDGET_CAT_ICONS[t.category]||'📦';
         const dateStr = t.date ? new Date(t.date+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'}) : '';
         const proj = t.projId ? state.projects.find(p=>p.id===t.projId) : null;
+        const recBadge = t.recurring ? `<span style="font-size:9px;background:rgba(129,140,248,.15);color:#818cf8;border-radius:4px;padding:1px 4px">🔄 récurrent</span>` : '';
         return `<div class="budget-tx-item">
-          <div class="budget-tx-icon" style="background:${isIncome?'rgba(34,197,94,.15)':'rgba(239,68,68,.15)'}">
-            ${catIcon}
-          </div>
+          <div class="budget-tx-icon" style="background:${isIncome?'rgba(34,197,94,.13)':'rgba(239,68,68,.13)'}; color:${isIncome?'#4ade80':'#f87171'}">${catIcon}</div>
           <div class="budget-tx-info">
-            <div class="budget-tx-desc">${esc(t.desc||t.category||'Transaction')}</div>
-            <div class="budget-tx-meta">${dateStr}${w?' · '+w.icon+' '+esc(w.name):''}${proj?' · '+esc(proj.icon+' '+proj.name):''}${t.category?' · '+t.category:''}</div>
+            <div class="budget-tx-desc">${esc(t.desc||t.category||'Transaction')} ${recBadge}</div>
+            <div class="budget-tx-meta">${dateStr}${w?' · '+w.icon+' '+esc(w.name):''}${proj?' · '+esc(proj.icon+' '+proj.name):''}${t.category?' · '+esc(t.category):''}</div>
           </div>
-          <div class="budget-tx-amount" style="color:${isIncome?'#4ade80':'#f87171'}">
-            ${isIncome?'+':'−'}${budgetFmt(Number(t.amount))}
+          <div class="budget-tx-amount" style="color:${isIncome?'#4ade80':'#f87171'}">${isIncome?'+':'−'}${budgetFmt(Number(t.amount))}</div>
+          <div class="budget-tx-actions">
+            <button class="budget-tx-act" onclick="budgetEditTx('${t.id}')" title="Modifier">✏</button>
+            <button class="budget-tx-act del" onclick="budgetDeleteTx('${t.id}')" title="Supprimer">🗑</button>
           </div>
-          <button class="budget-tx-del" onclick="budgetDeleteTx('${t.id}')" title="Supprimer">🗑</button>
         </div>`;
       }).join('');
 
-  // Project options for add form
-  const projOptions = state.projects
-    .filter(p=>!p.completed&&!p.archived)
+  // Selects for form
+  const walletOptions  = wl.map(w=>`<option value="${w.id}">${w.icon} ${esc(w.name)}</option>`).join('');
+  const catOptions     = BUDGET_CATS.map(c=>`<option value="${c}">${BUDGET_CAT_ICONS[c]} ${c}</option>`).join('');
+  const projOptions    = state.projects.filter(p=>!p.completed&&!p.archived)
     .map(p=>`<option value="${p.id}">${esc(p.icon+' '+p.name)}</option>`).join('');
-
-  // Wallet options for add form
-  const walletOptions = wallets.map(w=>`<option value="${w.id}">${w.icon} ${esc(w.name)}</option>`).join('');
-
-  // Category options
-  const catOptions = BUDGET_CATS.map(c=>`<option value="${c}">${BUDGET_CAT_ICONS[c]} ${c}</option>`).join('');
-
-  // Filter chips for type
-  const typeFilters = ['all','income','expense'].map(t=>{
-    const labels={all:'Tous',income:'Revenus',expense:'Dépenses'};
-    return `<button class="budget-filter-chip${budgetState.filterType===t?' active':''}"
-      onclick="budgetSetTypeFilter('${t}')">${labels[t]}</button>`;
-  }).join('');
-
-  // Today's date for default
   const todayStr = new Date().toISOString().slice(0,10);
 
+  // Type filters
+  const typeFilters = ['all','income','expense'].map(f => {
+    const lbl = {all:'Tous',income:'Revenus',expense:'Dépenses'}[f];
+    return `<button class="budget-filter-chip${budgetState.filterType===f?' active':''}" onclick="budgetSetTypeFilter('${f}')">${lbl}</button>`;
+  }).join('');
+
+  // Month period summary
+  const periodLabel = budgetState.filterMonth ? `${budgetMonthLabel(budgetState.filterMonth)} : ` : '';
+  const periodSub = filtered.length > 0 ? `<span style="font-size:11px;color:var(--text3)">
+    ${periodLabel}
+    <span style="color:#4ade80">+${budgetFmt(periodSummary.income)}</span>
+    / <span style="color:#f87171">−${budgetFmt(periodSummary.expense)}</span>
+    / Solde <span style="color:${periodSummary.balance>=0?'#4ade80':'#f87171'}">${budgetFmt(periodSummary.balance)}</span>
+  </span>` : '';
+
   root.innerHTML = `
-    <div class="budget-header">
-      <div style="font-family:var(--font-display);font-size:20px;font-weight:900">💰 Budget & Finances</div>
+    <div class="budget-topbar">
+      <div style="font-family:var(--font-display);font-size:19px;font-weight:900">💰 Budget & Finances</div>
+      <button class="btn" onclick="budgetExportCSV()" style="font-size:11px">↓ Export CSV</button>
     </div>
 
     <div class="budget-summary-cards">${summaryCards}</div>
 
     <div class="budget-wallets-section">
-      <div class="budget-section-header">
-        <div class="budget-section-title">💼 Portefeuilles</div>
-      </div>
+      <div class="budget-section-header"><div class="budget-section-title">💼 Portefeuilles</div></div>
       <div class="budget-wallets-row">${walletChips}</div>
     </div>
 
     <div class="budget-layout">
-      <!-- Left: transaction list -->
+      <!-- Left: transactions -->
       <div>
+        <!-- Month nav -->
         <div class="budget-section-header">
-          <div class="budget-section-title">📋 Transactions <span style="font-size:11px;font-weight:400;color:var(--text3)">(${filtered.length})</span></div>
-          <div class="budget-filters">${typeFilters}</div>
+          <div class="budget-section-title">📋 Transactions</div>
+          <div class="budget-month-nav">
+            <button class="budget-month-btn" onclick="budgetNavMonth(-1)">‹</button>
+            <div class="budget-month-label" onclick="budgetState.filterMonth=null;renderBudget()" title="Tout afficher" style="cursor:pointer">
+              ${budgetState.filterMonth ? budgetMonthLabel(budgetState.filterMonth) : 'Tout'}
+            </div>
+            <button class="budget-month-btn" onclick="budgetNavMonth(1)">›</button>
+          </div>
         </div>
+        <!-- Controls -->
+        <div class="budget-ctrl-bar">
+          <input class="budget-tx-search" placeholder="Rechercher…" value="${esc(budgetState.search)}"
+            oninput="budgetState.search=this.value;renderBudget()">
+          ${typeFilters}
+        </div>
+        ${periodSub ? `<div style="margin-bottom:8px;padding:8px 12px;background:var(--glass);border-radius:8px;border:1px solid var(--border)">${periodSub}</div>` : ''}
         <div class="budget-tx-list">${txHtml}</div>
+
+        <!-- Category breakdown -->
+        ${catChart ? `<div class="budget-cat-chart" style="margin-top:20px">
+          <div class="budget-section-header"><div class="budget-section-title">📊 Répartition des dépenses</div></div>
+          ${catChart}
+        </div>` : ''}
       </div>
 
       <!-- Right: add form -->
-      <div class="budget-add-form">
-        <div class="budget-add-form-title">+ Nouvelle transaction</div>
-        <div class="budget-type-toggle">
-          <button class="budget-type-btn income${budgetState.addType==='income'?' active':''}"
-            onclick="budgetSetAddType('income')">📈 Revenu</button>
-          <button class="budget-type-btn expense${budgetState.addType==='expense'?' active':''}"
-            onclick="budgetSetAddType('expense')">📉 Dépense</button>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Montant (€) *</label>
-          <input class="input" id="budget-inp-amount" type="number" min="0" step="0.01"
-            placeholder="0,00" style="font-size:18px;font-weight:700;font-family:var(--font-display)"
-            onkeydown="if(event.key==='Enter')budgetAddTx()">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Description</label>
-          <input class="input" id="budget-inp-desc" type="text" placeholder="Ex: Courses alimentaires…"
-            onkeydown="if(event.key==='Enter')budgetAddTx()">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Catégorie</label>
-            <select class="input" id="budget-inp-cat">${catOptions}</select>
+      <div>
+        <div class="budget-add-panel">
+          <div class="budget-add-panel-header" onclick="budgetState.formOpen=!budgetState.formOpen;renderBudget()">
+            <div class="budget-add-panel-title">+ Nouvelle transaction</div>
+            <span style="color:var(--text3);font-size:12px">${budgetState.formOpen?'▲':'▼'}</span>
           </div>
-          <div class="form-group">
-            <label class="form-label">Date</label>
-            <input class="input" id="budget-inp-date" type="date" value="${todayStr}" style="color-scheme:dark">
+          <div class="budget-add-panel-body${budgetState.formOpen?'':' collapsed'}">
+            <div class="budget-type-toggle">
+              <button class="budget-type-btn income${budgetState.addType==='income'?' active':''}" onclick="budgetSetAddType('income')">📈 Revenu</button>
+              <button class="budget-type-btn expense${budgetState.addType==='expense'?' active':''}" onclick="budgetSetAddType('expense')">📉 Dépense</button>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Montant (€) *</label>
+              <input class="input" id="budget-inp-amount" type="number" min="0" step="0.01"
+                placeholder="0,00" style="font-size:16px;font-weight:700;font-family:var(--font-display)"
+                onkeydown="if(event.key==='Enter')budgetAddTx()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <input class="input" id="budget-inp-desc" type="text" placeholder="Ex: Loyer, courses…"
+                onkeydown="if(event.key==='Enter')budgetAddTx()">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Catégorie</label>
+                <select class="input" id="budget-inp-cat">${catOptions}</select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date</label>
+                <input class="input" id="budget-inp-date" type="date" value="${todayStr}" style="color-scheme:dark">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Portefeuille</label>
+              <select class="input" id="budget-inp-wallet">${walletOptions}</select>
+            </div>
+            ${projOptions?`<div class="form-group">
+              <label class="form-label">Projet associé</label>
+              <select class="input" id="budget-inp-proj"><option value="">— Aucun —</option>${projOptions}</select>
+            </div>`:''}
+            <div class="form-group" style="display:flex;align-items:center;gap:8px">
+              <input type="checkbox" id="budget-inp-recurring" style="width:16px;height:16px">
+              <label for="budget-inp-recurring" class="form-label" style="margin:0;cursor:pointer">🔄 Transaction récurrente</label>
+            </div>
+            <button class="btn btn-primary" onclick="budgetAddTx()" style="width:100%;font-size:13px;padding:10px">
+              ${budgetState.addType==='income'?'📈 Ajouter le revenu':'📉 Ajouter la dépense'}
+            </button>
           </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Portefeuille</label>
-          <select class="input" id="budget-inp-wallet">${walletOptions}</select>
-        </div>
-        ${projOptions ? `<div class="form-group">
-          <label class="form-label">Projet associé (optionnel)</label>
-          <select class="input" id="budget-inp-proj"><option value="">— Aucun —</option>${projOptions}</select>
-        </div>` : ''}
-        <button class="btn btn-primary" onclick="budgetAddTx()" style="width:100%;font-size:13px;padding:10px">
-          ${budgetState.addType==='income'?'📈 Ajouter le revenu':'📉 Ajouter la dépense'}
-        </button>
       </div>
     </div>`;
 }
 
+// ── Budget actions ────────────────────────────────────────────
 function budgetSetAddType(t) { budgetState.addType = t; renderBudget(); }
 function budgetSetWalletFilter(id) { budgetState.filterWallet = id; renderBudget(); }
 function budgetSetTypeFilter(t) { budgetState.filterType = t; renderBudget(); }
 
 function budgetAddTx() {
-  const amountRaw = document.getElementById('budget-inp-amount')?.value || '';
+  const amountRaw = document.getElementById('budget-inp-amount')?.value||'';
   const amount = parseFloat(amountRaw.replace(',','.'));
-  if (!amount || amount <= 0) { toast('Saisissez un montant valide', 'warning'); document.getElementById('budget-inp-amount')?.focus(); return; }
-  const desc     = (document.getElementById('budget-inp-desc')?.value || '').trim();
-  const category = document.getElementById('budget-inp-cat')?.value || 'Autre';
-  const date     = document.getElementById('budget-inp-date')?.value || new Date().toISOString().slice(0,10);
-  const walletId = document.getElementById('budget-inp-wallet')?.value || 'wallet_general';
-  const projId   = document.getElementById('budget-inp-proj')?.value || null;
-  if (!state.budget) state.budget = { wallets: [], transactions: [] };
-  if (!Array.isArray(state.budget.transactions)) state.budget.transactions = [];
-  state.budget.transactions.push({
-    id: uid(), type: budgetState.addType,
-    amount, desc, category, date,
-    walletId, projId: projId||null,
-    createdAt: new Date().toISOString(),
-  });
+  if (!amount||amount<=0) { toast('Saisissez un montant valide','warning'); document.getElementById('budget-inp-amount')?.focus(); return; }
+  const desc      = (document.getElementById('budget-inp-desc')?.value||'').trim();
+  const category  = document.getElementById('budget-inp-cat')?.value||'Autre';
+  const date      = document.getElementById('budget-inp-date')?.value||new Date().toISOString().slice(0,10);
+  const walletId  = document.getElementById('budget-inp-wallet')?.value||'wallet_general';
+  const projId    = document.getElementById('budget-inp-proj')?.value||null;
+  const recurring = document.getElementById('budget-inp-recurring')?.checked||false;
+  if (!state.budget) state.budget = { wallets:[], transactions:[] };
+  state.budget.transactions.push({ id:uid(), type:budgetState.addType, amount, desc, category, date, walletId, projId:projId||null, recurring, createdAt:new Date().toISOString() });
   scheduleSave();
-  const sign = budgetState.addType === 'income' ? '+' : '−';
-  toast(`${budgetState.addType==='income'?'📈':'📉'} ${sign}${budgetFmt(amount)} ajouté`, 'success');
+  toast(`${budgetState.addType==='income'?'📈':'📉'} ${budgetFmt(amount)} ajouté`, 'success');
   renderBudget();
-  setTimeout(() => document.getElementById('budget-inp-amount')?.focus(), 80);
+  setTimeout(()=>document.getElementById('budget-inp-amount')?.focus(), 80);
 }
 
 function budgetDeleteTx(id) {
   if (!state.budget?.transactions) return;
-  state.budget.transactions = state.budget.transactions.filter(t => t.id !== id);
-  scheduleSave();
-  toast('Transaction supprimée', 'warning');
-  renderBudget();
+  state.budget.transactions = state.budget.transactions.filter(t=>t.id!==id);
+  scheduleSave(); toast('Transaction supprimée','warning'); renderBudget();
 }
+
+function budgetEditTx(id) {
+  const t = (state.budget?.transactions||[]).find(x=>x.id===id);
+  if (!t) return;
+  const wallets = budgetGetWallets();
+  const walletOpts = wallets.map(w=>`<option value="${w.id}"${t.walletId===w.id?' selected':''}>${w.icon} ${esc(w.name)}</option>`).join('');
+  const catOpts = BUDGET_CATS.map(c=>`<option value="${c}"${t.category===c?' selected':''}>${BUDGET_CAT_ICONS[c]} ${c}</option>`).join('');
+  const projOpts = state.projects.filter(p=>!p.completed&&!p.archived)
+    .map(p=>`<option value="${p.id}"${t.projId===p.id?' selected':''}>${esc(p.icon+' '+p.name)}</option>`).join('');
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">✏ Modifier la transaction</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="budget-type-toggle" style="border:1px solid var(--border);border-radius:8px;overflow:hidden">
+        <button class="budget-type-btn income${t.type==='income'?' active':''}" id="etx-income" onclick="document.getElementById('etx-income').classList.add('active');document.getElementById('etx-expense').classList.remove('active');document.getElementById('etx-type').value='income'">📈 Revenu</button>
+        <button class="budget-type-btn expense${t.type==='expense'?' active':''}" id="etx-expense" onclick="document.getElementById('etx-expense').classList.add('active');document.getElementById('etx-income').classList.remove('active');document.getElementById('etx-type').value='expense'">📉 Dépense</button>
+      </div>
+      <input type="hidden" id="etx-type" value="${t.type}">
+      <div class="form-group">
+        <label class="form-label">Montant *</label>
+        <input class="input" id="etx-amount" type="number" min="0" step="0.01" value="${t.amount}" style="font-size:16px;font-weight:700;font-family:var(--font-display)">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <input class="input" id="etx-desc" type="text" value="${esc(t.desc||'')}">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Catégorie</label>
+          <select class="input" id="etx-cat">${catOpts}</select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date</label>
+          <input class="input" id="etx-date" type="date" value="${t.date}" style="color-scheme:dark">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Portefeuille</label>
+        <select class="input" id="etx-wallet">${walletOpts}</select>
+      </div>
+      ${projOpts?`<div class="form-group"><label class="form-label">Projet</label><select class="input" id="etx-proj"><option value="">— Aucun —</option>${projOpts}</select></div>`:''}
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" onclick="budgetDeleteTx('${id}');closeModal()" style="margin-right:auto">🗑 Supprimer</button>
+      <button class="btn" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="budgetUpdateTx('${id}')">💾 Enregistrer</button>
+    </div>`);
+}
+window.budgetUpdateTx = function(id) {
+  const t = (state.budget?.transactions||[]).find(x=>x.id===id);
+  if (!t) return;
+  const amount = parseFloat((document.getElementById('etx-amount')?.value||'0').replace(',','.'));
+  if (!amount||amount<=0) { toast('Montant invalide','warning'); return; }
+  t.type     = document.getElementById('etx-type')?.value || t.type;
+  t.amount   = amount;
+  t.desc     = (document.getElementById('etx-desc')?.value||'').trim();
+  t.category = document.getElementById('etx-cat')?.value || t.category;
+  t.date     = document.getElementById('etx-date')?.value || t.date;
+  t.walletId = document.getElementById('etx-wallet')?.value || t.walletId;
+  t.projId   = document.getElementById('etx-proj')?.value || null;
+  scheduleSave(); closeModal(); toast('✏ Transaction mise à jour','success'); renderBudget();
+};
 
 function budgetAddWallet() {
   openModal(`
@@ -7366,48 +7883,102 @@ function budgetAddWallet() {
       <button class="btn btn-icon" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body" style="display:flex;flex-direction:column;gap:12px">
-      <div class="form-group">
-        <label class="form-label">Nom *</label>
-        <input class="input" id="bw-name" placeholder="Ex: Épargne, Vacances…" onkeydown="if(event.key==='Enter')budgetSaveWallet()">
-      </div>
+      <div class="form-group"><label class="form-label">Nom *</label>
+        <input class="input" id="bw-name" placeholder="Ex: Épargne, Vacances…" onkeydown="if(event.key==='Enter')budgetSaveWallet(null)"></div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Icône</label>
-          <input class="input" id="bw-icon" value="💼" style="font-size:20px;text-align:center;width:64px">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Couleur</label>
-          <input type="color" class="input" id="bw-color" value="#7c3aed" style="height:38px;padding:2px 6px;cursor:pointer">
-        </div>
+        <div class="form-group"><label class="form-label">Icône</label>
+          <input class="input" id="bw-icon" value="💼" style="font-size:20px;text-align:center;width:64px"></div>
+        <div class="form-group"><label class="form-label">Couleur</label>
+          <input type="color" class="input" id="bw-color" value="#7c3aed" style="height:38px;padding:2px 6px;cursor:pointer"></div>
       </div>
     </div>
     <div class="modal-footer">
       <button class="btn" onclick="closeModal()">Annuler</button>
-      <button class="btn btn-primary" onclick="budgetSaveWallet()">Créer</button>
+      <button class="btn btn-primary" onclick="budgetSaveWallet(null)">Créer</button>
     </div>`);
-  setTimeout(() => document.getElementById('bw-name')?.focus(), 80);
+  setTimeout(()=>document.getElementById('bw-name')?.focus(), 80);
 }
 
-window.budgetSaveWallet = function() {
+function budgetEditWallet(id) {
+  const w = budgetGetWallets().find(x=>x.id===id);
+  if (!w) return;
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">✏ Modifier le portefeuille</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="form-group"><label class="form-label">Nom *</label>
+        <input class="input" id="bw-name" value="${esc(w.name)}" onkeydown="if(event.key==='Enter')budgetSaveWallet('${id}')"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Icône</label>
+          <input class="input" id="bw-icon" value="${esc(w.icon)}" style="font-size:20px;text-align:center;width:64px"></div>
+        <div class="form-group"><label class="form-label">Couleur</label>
+          <input type="color" class="input" id="bw-color" value="${w.color||'#7c3aed'}" style="height:38px;padding:2px 6px;cursor:pointer"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="budgetSaveWallet('${id}')">💾 Enregistrer</button>
+    </div>`);
+  setTimeout(()=>document.getElementById('bw-name')?.focus(), 80);
+}
+
+window.budgetSaveWallet = function(editId) {
   const name  = (document.getElementById('bw-name')?.value||'').trim();
   const icon  = (document.getElementById('bw-icon')?.value||'💼').trim();
-  const color = document.getElementById('bw-color')?.value || '#7c3aed';
-  if (!name) { toast('Saisissez un nom', 'warning'); return; }
-  if (!state.budget) state.budget = { wallets: [], transactions: [] };
+  const color = document.getElementById('bw-color')?.value||'#7c3aed';
+  if (!name) { toast('Saisissez un nom','warning'); return; }
+  if (!state.budget) state.budget = { wallets:[], transactions:[] };
   if (!Array.isArray(state.budget.wallets)) state.budget.wallets = [];
-  state.budget.wallets.push({ id: uid(), name, icon, color });
+  if (editId) {
+    const w = state.budget.wallets.find(x=>x.id===editId);
+    if (w) { w.name=name; w.icon=icon; w.color=color; }
+  } else {
+    state.budget.wallets.push({ id:uid(), name, icon, color });
+  }
   scheduleSave(); closeModal();
-  toast('💼 Portefeuille créé', 'success');
+  toast(editId?'✏ Portefeuille modifié':'💼 Portefeuille créé','success');
   renderBudget();
 };
 
-window.renderBudget = renderBudget;
-window.budgetSetAddType = budgetSetAddType;
-window.budgetSetWalletFilter = budgetSetWalletFilter;
-window.budgetSetTypeFilter = budgetSetTypeFilter;
-window.budgetAddTx = budgetAddTx;
-window.budgetDeleteTx = budgetDeleteTx;
-window.budgetAddWallet = budgetAddWallet;
+function budgetDeleteWallet(id) {
+  if (id==='wallet_general') { toast('Impossible de supprimer le portefeuille général','warning'); return; }
+  const w = budgetGetWallets().find(x=>x.id===id);
+  if (!w) return;
+  // Move transactions to general
+  const movedCount = (state.budget.transactions||[]).filter(t=>t.walletId===id).length;
+  state.budget.transactions.forEach(t => { if (t.walletId===id) t.walletId='wallet_general'; });
+  state.budget.wallets = state.budget.wallets.filter(x=>x.id!==id);
+  if (budgetState.filterWallet===id) budgetState.filterWallet='all';
+  scheduleSave();
+  toast(`🗑 Portefeuille supprimé. ${movedCount} transaction(s) déplacée(s) vers Général.`, 'warning');
+  renderBudget();
+}
+
+function budgetExportCSV() {
+  const allTx = budgetGetTx();
+  const wallets = budgetGetWallets();
+  const rows = [['Date','Type','Montant','Description','Catégorie','Portefeuille','Projet']];
+  allTx.sort((a,b)=>(b.date||'').localeCompare(a.date||'')).forEach(t => {
+    const w = wallets.find(x=>x.id===t.walletId)?.name||'';
+    const p = t.projId ? (state.projects.find(x=>x.id===t.projId)?.name||'') : '';
+    rows.push([t.date||'', t.type, t.amount, t.desc||'', t.category||'', w, p]);
+  });
+  const csv = rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,\uFEFF'+encodeURIComponent(csv);
+  a.download = 'budget_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  toast('↓ CSV exporté', 'success');
+}
+
+// Expose
+window.renderBudget=renderBudget; window.budgetSetAddType=budgetSetAddType;
+window.budgetSetWalletFilter=budgetSetWalletFilter; window.budgetSetTypeFilter=budgetSetTypeFilter;
+window.budgetAddTx=budgetAddTx; window.budgetDeleteTx=budgetDeleteTx; window.budgetEditTx=budgetEditTx;
+window.budgetAddWallet=budgetAddWallet; window.budgetEditWallet=budgetEditWallet;
+window.budgetDeleteWallet=budgetDeleteWallet; window.budgetExportCSV=budgetExportCSV;
 
 init();
 </script>
