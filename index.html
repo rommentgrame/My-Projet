@@ -2033,6 +2033,196 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 .task-due-late { background: rgba(248,113,113,.15); color:#f87171; border:1px solid rgba(248,113,113,.25); }
 .task-due-soon { background: rgba(251,146,60,.15);  color:#fb923c; border:1px solid rgba(251,146,60,.25); }
 .task-due-ok   { background: rgba(255,255,255,.05); color:var(--text3); border:1px solid rgba(255,255,255,.08); }
+
+/* ══════════════════════════════════════════════
+   NOTES VIEW
+══════════════════════════════════════════════ */
+.notes-toolbar {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+}
+.notes-search {
+  flex: 1; min-width: 160px; padding: 8px 12px; border-radius: var(--radius-xs);
+  border: 1px solid var(--border); background: var(--glass); color: var(--text);
+  font-family: var(--font); font-size: 12px; outline: none; transition: all var(--transition);
+}
+.notes-search:focus { border-color: rgba(var(--accent-rgb),.6); background: var(--glass2); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.1); }
+.notes-search::placeholder { color: var(--text3); }
+.notes-layout { display: flex; gap: 16px; align-items: flex-start; }
+.notes-list-col {
+  width: 260px; flex-shrink: 0; display: flex; flex-direction: column; gap: 6px;
+}
+.notes-editor-col { flex: 1; min-width: 0; }
+.note-card {
+  padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--glass); cursor: pointer; transition: all var(--transition);
+  position: relative; overflow: hidden;
+}
+.note-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--nc, var(--accent));
+}
+.note-card:hover { background: var(--glass2); border-color: var(--border2); transform: translateX(2px); }
+.note-card.active { background: rgba(var(--accent-rgb),.1); border-color: rgba(var(--accent-rgb),.35); }
+.note-card-title {
+  font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-left: 2px;
+}
+.note-card-preview {
+  font-size: 11px; color: var(--text3); line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; padding-left: 2px;
+}
+.note-card-meta {
+  font-size: 9px; color: var(--text3); margin-top: 5px; display: flex;
+  align-items: center; justify-content: space-between; padding-left: 2px;
+}
+.note-card-pin { font-size: 10px; opacity: .7; }
+
+.notes-editor {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; min-height: 420px; overflow: hidden;
+}
+.notes-editor-header {
+  display: flex; align-items: center; gap: 8px; padding: 12px 14px;
+  border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.notes-editor-title-input {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: var(--font-display); font-size: 18px; font-weight: 800;
+  color: var(--text); letter-spacing: -0.02em;
+}
+.notes-editor-title-input::placeholder { color: var(--text3); font-weight: 400; }
+.notes-editor-body {
+  flex: 1; padding: 14px 16px; display: flex; flex-direction: column;
+}
+.notes-editor-textarea {
+  flex: 1; background: transparent; border: none; outline: none; resize: none;
+  font-family: var(--font); font-size: 13px; line-height: 1.7; color: var(--text);
+  min-height: 300px;
+}
+.notes-editor-textarea::placeholder { color: var(--text3); }
+.notes-editor-footer {
+  display: flex; align-items: center; justify-content: space-between; padding: 8px 14px;
+  border-top: 1px solid var(--border); flex-shrink: 0; gap: 8px; flex-wrap: wrap;
+}
+.notes-editor-meta { font-size: 10px; color: var(--text3); }
+.notes-empty-state {
+  text-align: center; padding: 60px 20px; color: var(--text3);
+}
+.notes-color-dots { display: flex; gap: 5px; }
+.notes-color-dot {
+  width: 16px; height: 16px; border-radius: 50%; cursor: pointer;
+  border: 2px solid transparent; transition: all var(--transition); flex-shrink: 0;
+}
+.notes-color-dot.active { border-color: white; transform: scale(1.2); }
+.notes-pin-btn {
+  background: none; border: none; cursor: pointer; font-size: 14px; opacity: .5;
+  transition: opacity var(--transition); padding: 2px;
+}
+.notes-pin-btn.pinned { opacity: 1; }
+.note-add-btn {
+  display: flex; align-items: center; gap: 6px; width: 100%;
+  padding: 8px 10px; background: transparent; border: 1px dashed var(--border);
+  border-radius: var(--radius-sm); color: var(--text3); cursor: pointer;
+  font-size: 11px; font-family: var(--font); transition: all var(--transition);
+}
+.note-add-btn:hover { border-color: rgba(var(--accent-rgb),.5); color: var(--accent); background: rgba(var(--accent-rgb),.05); }
+@media (max-width: 720px) {
+  .notes-layout { flex-direction: column; }
+  .notes-list-col { width: 100%; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; gap: 8px; }
+  .note-card { min-width: 160px; max-width: 220px; flex-shrink: 0; }
+  .notes-editor { min-height: 300px; }
+}
+
+/* ══════════════════════════════════════════════
+   BUDGET VIEW
+══════════════════════════════════════════════ */
+.budget-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+}
+.budget-summary-cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px; margin-bottom: 20px;
+}
+.budget-summary-card {
+  padding: 14px 16px; border-radius: var(--radius); border: 1px solid var(--border);
+  background: var(--bg2); display: flex; flex-direction: column; gap: 4px;
+}
+.bsc-label { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
+.bsc-amount { font-family: var(--font-display); font-size: 22px; font-weight: 900; letter-spacing: -0.02em; }
+.bsc-sub { font-size: 10px; color: var(--text3); }
+
+.budget-layout { display: grid; grid-template-columns: 1fr 340px; gap: 16px; align-items: flex-start; }
+@media (max-width: 900px) { .budget-layout { grid-template-columns: 1fr; } }
+
+.budget-tx-list { display: flex; flex-direction: column; gap: 4px; }
+.budget-tx-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: var(--radius-sm);
+  background: var(--glass); border: 1px solid var(--border);
+  transition: all var(--transition); cursor: default;
+}
+.budget-tx-item:hover { background: var(--glass2); border-color: var(--border2); }
+.budget-tx-icon {
+  width: 32px; height: 32px; border-radius: 8px; display: flex;
+  align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0;
+}
+.budget-tx-info { flex: 1; min-width: 0; }
+.budget-tx-desc { font-size: 12px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.budget-tx-meta { font-size: 10px; color: var(--text3); margin-top: 1px; }
+.budget-tx-amount { font-family: var(--font-display); font-size: 14px; font-weight: 800; flex-shrink: 0; }
+.budget-tx-del { opacity: 0; background: none; border: none; cursor: pointer; color: var(--text3); font-size: 12px; padding: 2px 4px; transition: opacity var(--transition), color var(--transition); }
+.budget-tx-item:hover .budget-tx-del { opacity: 1; }
+.budget-tx-del:hover { color: #ef4444; }
+
+.budget-add-form {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px;
+}
+.budget-add-form-title { font-family: var(--font-display); font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+.budget-type-toggle { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.budget-type-btn {
+  flex: 1; padding: 7px 4px; font-size: 11px; font-weight: 700; font-family: var(--font);
+  border: none; background: transparent; cursor: pointer; transition: all var(--transition);
+}
+.budget-type-btn.income.active  { background: rgba(34,197,94,.15); color: #4ade80; }
+.budget-type-btn.expense.active { background: rgba(239,68,68,.15);  color: #f87171; }
+.budget-type-btn:not(.active) { color: var(--text3); }
+.budget-type-btn:hover:not(.active) { background: var(--glass); }
+
+.budget-wallets-section { margin-bottom: 20px; }
+.budget-wallets-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.budget-wallet-chip {
+  padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--glass); font-size: 11px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; gap: 5px; transition: all var(--transition);
+}
+.budget-wallet-chip.active { border-color: rgba(var(--accent-rgb),.5); background: rgba(var(--accent-rgb),.12); color: var(--accent); }
+.budget-wallet-chip:hover:not(.active) { background: var(--glass2); border-color: var(--border2); }
+.budget-wallet-chip-balance { font-size: 10px; font-weight: 400; opacity: .7; }
+
+.budget-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.budget-filter-chip {
+  padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border);
+  background: transparent; font-size: 10px; font-weight: 600; cursor: pointer;
+  color: var(--text3); font-family: var(--font); transition: all var(--transition);
+}
+.budget-filter-chip.active { background: rgba(var(--accent-rgb),.12); border-color: rgba(var(--accent-rgb),.4); color: var(--accent); }
+.budget-filter-chip:hover:not(.active) { border-color: var(--border2); color: var(--text2); }
+
+.budget-bar-wrap {
+  background: var(--glass); border-radius: 6px; height: 6px; overflow: hidden;
+  margin-top: 8px;
+}
+.budget-bar-fill {
+  height: 100%; border-radius: 6px; transition: width .4s ease;
+}
+.budget-section-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 6px;
+}
+.budget-section-title { font-family: var(--font-display); font-size: 13px; font-weight: 800; }
+.budget-empty { text-align: center; padding: 40px 20px; color: var(--text3); font-size: 12px; }
 </style>
 </head>
 <body>
@@ -2205,6 +2395,8 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   <button class="dvtab" id="dvtab-completed" onclick="setDesktopView('completed')">🏆 Terminés</button>
   <button class="dvtab" id="dvtab-stats" onclick="setDesktopView('stats')">📊 Stats</button>
   <button class="dvtab" id="dvtab-calendar" onclick="setDesktopView('calendar')">📅 Calendrier</button>
+  <button class="dvtab" id="dvtab-notes" onclick="setDesktopView('notes')">📝 Notes</button>
+  <button class="dvtab" id="dvtab-budget" onclick="setDesktopView('budget')">💰 Budget</button>
 </div>
 
 <!-- ══════ BODY ══════ -->
@@ -2364,6 +2556,16 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
       <div id="calendar-root"></div>
     </div>
 
+    <!-- Notes View -->
+    <div id="view-notes" class="view-hidden">
+      <div id="notes-root"></div>
+    </div>
+
+    <!-- Budget View -->
+    <div id="view-budget" class="view-hidden">
+      <div id="budget-root"></div>
+    </div>
+
   </main>
 </div><!-- end app-body -->
 
@@ -2373,7 +2575,9 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
     <button class="nav-item active" id="nav-list" onclick="setMobileView('list')"><span>📋</span>Liste</button>
     <button class="nav-item" id="nav-board" onclick="setMobileView('board')"><span>⚡</span>Actifs</button>
     <button class="nav-item" id="nav-missions" onclick="setMobileView('missions')"><span>🎯</span>Missions</button>
-    <button class="nav-item" id="nav-calendar" onclick="setMobileView('calendar')"><span>📅</span>Calendrier</button>
+    <button class="nav-item" id="nav-calendar" onclick="setMobileView('calendar')"><span>📅</span>Agenda</button>
+    <button class="nav-item" id="nav-notes" onclick="setMobileView('notes')"><span>📝</span>Notes</button>
+    <button class="nav-item" id="nav-budget" onclick="setMobileView('budget')"><span>💰</span>Budget</button>
     <button class="nav-item" id="nav-done" onclick="setMobileView('completed')"><span>🏆</span>Terminés</button>
     <button class="nav-item" id="nav-stats" onclick="setMobileView('stats')"><span>📊</span>Stats</button>
   </div>
@@ -2446,6 +2650,13 @@ let state = {
   missions: [],   // [{ id, text, period:'week'|'month'|'semester'|'year', done, createdAt, periodKey }]
   habits: [],
   calendarEvents: [], // [{ id, title, date, endDate?, time?, type:'custom'|'course'|'reminder', color, note }]
+  notes: [],          // [{ id, title, content, color, pinned, updatedAt, createdAt }]
+  budget: {
+    wallets: [        // budget wallets / envelopes
+      { id: 'wallet_general', name: 'Général', icon: '💼', color: '#7c3aed' },
+    ],
+    transactions: [], // [{ id, type:'income'|'expense', amount, desc, date, walletId, projId?, category, createdAt }]
+  },
   habitLog: {},
   settings: {
     accent: '#7c3aed',
@@ -2815,6 +3026,13 @@ function applyData(d) {
   if (d.habitLog) state.habitLog = d.habitLog;
   if (Array.isArray(d.missions)) state.missions = d.missions;
   if (Array.isArray(d.calendarEvents)) state.calendarEvents = d.calendarEvents;
+  if (Array.isArray(d.notes)) state.notes = d.notes;
+  if (d.budget) {
+    state.budget = {
+      wallets: Array.isArray(d.budget.wallets) ? d.budget.wallets : state.budget.wallets,
+      transactions: Array.isArray(d.budget.transactions) ? d.budget.transactions : [],
+    };
+  }
   if (!state.settings.slotNames) state.settings.slotNames = { primary:'Primaire', secondary:'Secondaire', pleasure:'Plaisir' };
   // Load auth from database (syncs across browsers / private mode)
   if (d.auth && d.auth.hash) {
@@ -2844,6 +3062,8 @@ function dataSnapshot() {
     habitLog: state.habitLog,
     missions: state.missions,
     calendarEvents: state.calendarEvents || [],
+    notes: state.notes || [],
+    budget: state.budget || { wallets: [], transactions: [] },
     settings: state.settings,
     auth: state.auth || null
   };
@@ -3757,35 +3977,42 @@ function setMobileView(v) {
   const isMobile = window.innerWidth <= 640;
 
   // Show/hide main views
-  document.getElementById('view-board').classList.toggle('view-hidden', v==='completed'||v==='stats'||v==='missions'||v==='calendar');
+  const allViews = ['board','completed','stats','missions','calendar','notes','budget'];
+  const hideBoard = v==='completed'||v==='stats'||v==='missions'||v==='calendar'||v==='notes'||v==='budget';
+  document.getElementById('view-board').classList.toggle('view-hidden', hideBoard);
   document.getElementById('view-completed').classList.toggle('view-hidden', v!=='completed');
   document.getElementById('view-stats').classList.toggle('view-hidden', v!=='stats');
   document.getElementById('view-missions').classList.toggle('view-hidden', v!=='missions');
   document.getElementById('view-calendar').classList.toggle('view-hidden', v!=='calendar');
+  document.getElementById('view-notes').classList.toggle('view-hidden', v!=='notes');
+  document.getElementById('view-budget').classList.toggle('view-hidden', v!=='budget');
 
   if (isMobile) {
-    // On mobile: toggle sidebar for 'list' view
     if (v==='list') toggleSidebar();
     else closeSidebar();
-    // Update mobile nav
-    ['list','board','missions','calendar','done','stats'].forEach(n => {
+    ['list','board','missions','calendar','notes','budget','done','stats'].forEach(n => {
       const el = document.getElementById('nav-'+n);
       if (el) el.classList.toggle('active', v===n||(n==='done'&&v==='completed'));
     });
   }
 
   // Sync desktop tab highlights
-  const viewMap = { board:'board', completed:'completed', stats:'stats', missions:'missions', calendar:'calendar' };
-  const activeTab = viewMap[v] || 'board';
-  ['board','completed','stats','missions','calendar'].forEach(t => {
+  const tabIds = ['board','completed','stats','missions','calendar','notes','budget'];
+  tabIds.forEach(t => {
     const el = document.getElementById('dvtab-'+t);
-    if (el) el.classList.toggle('active', t===activeTab);
+    if (el) el.classList.toggle('active', t===v);
   });
+  if (!tabIds.includes(v)) {
+    const el = document.getElementById('dvtab-board');
+    if (el) el.classList.add('active');
+  }
 
   // Render specific views on switch
   if (v === 'completed') renderCompleted();
   if (v === 'missions') renderMissions();
   if (v === 'calendar') renderCalendar();
+  if (v === 'notes') renderNotes();
+  if (v === 'budget') renderBudget();
 }
 
 function setDesktopView(v) {
@@ -6680,6 +6907,507 @@ window.calDragEnd = calDragEnd;
 window.calDragOver = calDragOver;
 window.calDragLeave = calDragLeave;
 window.calDrop = calDrop;
+
+// ══════════════════════════════════════════════════════════════
+// NOTES MODULE
+// ══════════════════════════════════════════════════════════════
+
+let notesState = {
+  activeId: null,
+  search: '',
+  saveTimer: null,
+};
+
+const NOTE_COLORS = ['#7c3aed','#0ea5e9','#22c55e','#f97316','#ec4899','#f59e0b','#64748b'];
+
+function renderNotes() {
+  const root = document.getElementById('notes-root');
+  if (!root) return;
+  if (!state.notes) state.notes = [];
+
+  const q = notesState.search.toLowerCase();
+  let notes = state.notes.filter(n =>
+    !q || n.title.toLowerCase().includes(q) || (n.content||'').toLowerCase().includes(q)
+  );
+  // pinned first, then by updatedAt desc
+  notes.sort((a, b) => {
+    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+    return (b.updatedAt||'').localeCompare(a.updatedAt||'');
+  });
+
+  // Ensure activeId is valid
+  if (notesState.activeId && !state.notes.find(n => n.id === notesState.activeId)) {
+    notesState.activeId = null;
+  }
+  if (!notesState.activeId && state.notes.length > 0) {
+    notesState.activeId = state.notes.sort((a,b)=>{
+      if (a.pinned!==b.pinned) return a.pinned?-1:1;
+      return (b.updatedAt||'').localeCompare(a.updatedAt||'');
+    })[0].id;
+  }
+
+  const activeNote = state.notes.find(n => n.id === notesState.activeId);
+
+  const noteCards = notes.map(n => {
+    const isActive = n.id === notesState.activeId;
+    const preview = (n.content||'').replace(/\n/g,' ').slice(0, 90);
+    const dateStr = n.updatedAt ? new Date(n.updatedAt).toLocaleDateString('fr-FR',{day:'numeric',month:'short'}) : '';
+    return `<div class="note-card${isActive?' active':''}"
+      style="--nc:${n.color||'var(--accent)'}"
+      onclick="notesSetActive('${n.id}')">
+      ${n.pinned ? `<div class="note-card-pin" style="position:absolute;top:6px;right:8px">📌</div>` : ''}
+      <div class="note-card-title" style="padding-right:${n.pinned?'18px':'0'}">${esc(n.title)||'<span style="opacity:.4">Sans titre</span>'}</div>
+      <div class="note-card-preview">${esc(preview)||'<span style="opacity:.4">Vide…</span>'}</div>
+      <div class="note-card-meta">
+        <span>${dateStr}</span>
+        <span style="width:8px;height:8px;border-radius:50%;background:${n.color||'var(--accent)'};display:inline-block"></span>
+      </div>
+    </div>`;
+  }).join('');
+
+  const editorContent = activeNote ? `
+    <div class="notes-editor">
+      <div class="notes-editor-header">
+        <input class="notes-editor-title-input" id="note-title-inp"
+          value="${esc(activeNote.title)}"
+          placeholder="Titre de la note…"
+          oninput="notesDraftSave('title',this.value)">
+        <button class="notes-pin-btn${activeNote.pinned?' pinned':''}"
+          onclick="notesTogglePin('${activeNote.id}')"
+          title="${activeNote.pinned?'Désépingler':'Épingler'}">📌</button>
+        <button class="btn btn-icon btn-danger" onclick="notesDelete('${activeNote.id}')" title="Supprimer">🗑</button>
+      </div>
+      <div class="notes-editor-body">
+        <textarea class="notes-editor-textarea" id="note-content-inp"
+          placeholder="Écrivez ici…"
+          oninput="notesDraftSave('content',this.value)">${esc(activeNote.content||'')}</textarea>
+      </div>
+      <div class="notes-editor-footer">
+        <div class="notes-editor-meta">
+          Modifié ${activeNote.updatedAt ? new Date(activeNote.updatedAt).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : 'jamais'}
+          · ${(activeNote.content||'').length} caractères
+        </div>
+        <div class="notes-color-dots">
+          ${NOTE_COLORS.map(c => `<div class="notes-color-dot${(activeNote.color||NOTE_COLORS[0])===c?' active':''}"
+            style="background:${c}" onclick="notesSetColor('${activeNote.id}','${c}')" title="${c}"></div>`).join('')}
+        </div>
+      </div>
+    </div>` : `<div class="notes-empty-state">
+      <div style="font-size:48px;margin-bottom:14px">📝</div>
+      <p style="font-size:14px;margin-bottom:8px">Sélectionnez une note ou créez-en une nouvelle.</p>
+    </div>`;
+
+  root.innerHTML = `
+    <div class="notes-toolbar">
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:900;flex-shrink:0">📝 Notes</div>
+      <input class="notes-search" placeholder="Rechercher…" value="${esc(notesState.search)}"
+        oninput="notesState.search=this.value;renderNotes()">
+      <button class="btn btn-primary" onclick="notesNew()" style="flex-shrink:0;font-size:12px">+ Nouvelle note</button>
+    </div>
+    <div class="notes-layout">
+      <div class="notes-list-col">
+        <button class="note-add-btn" onclick="notesNew()">+ Nouvelle note</button>
+        ${noteCards || `<div style="text-align:center;padding:20px;color:var(--text3);font-size:11px">${notesState.search?'Aucun résultat':'Aucune note'}</div>`}
+      </div>
+      <div class="notes-editor-col">${editorContent}</div>
+    </div>`;
+}
+
+function notesNew() {
+  if (!state.notes) state.notes = [];
+  const id = uid();
+  state.notes.unshift({
+    id, title: '', content: '',
+    color: NOTE_COLORS[Math.floor(Math.random()*3)],
+    pinned: false,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  });
+  notesState.activeId = id;
+  scheduleSave();
+  renderNotes();
+  setTimeout(() => document.getElementById('note-title-inp')?.focus(), 60);
+}
+
+function notesSetActive(id) {
+  // Save current draft first
+  notesFlushSave();
+  notesState.activeId = id;
+  renderNotes();
+  setTimeout(() => document.getElementById('note-content-inp')?.focus(), 60);
+}
+
+function notesDraftSave(field, val) {
+  const note = (state.notes||[]).find(n => n.id === notesState.activeId);
+  if (!note) return;
+  note[field] = val;
+  note.updatedAt = new Date().toISOString();
+  clearTimeout(notesState.saveTimer);
+  notesState.saveTimer = setTimeout(() => {
+    scheduleSave();
+    // Refresh card list only
+    document.querySelectorAll('.note-card').forEach(el => {
+      const match = el.getAttribute('onclick')?.includes(notesState.activeId);
+      if (match && field === 'title') {
+        el.querySelector('.note-card-title').innerHTML = esc(val) || '<span style="opacity:.4">Sans titre</span>';
+      }
+      if (match && field === 'content') {
+        const prev = val.replace(/\n/g,' ').slice(0, 90);
+        el.querySelector('.note-card-preview').innerHTML = esc(prev) || '<span style="opacity:.4">Vide…</span>';
+      }
+    });
+  }, 400);
+}
+
+function notesFlushSave() {
+  clearTimeout(notesState.saveTimer);
+  const note = (state.notes||[]).find(n => n.id === notesState.activeId);
+  if (!note) return;
+  const ti = document.getElementById('note-title-inp');
+  const co = document.getElementById('note-content-inp');
+  if (ti) note.title = ti.value;
+  if (co) { note.content = co.value; note.updatedAt = new Date().toISOString(); }
+  scheduleSave();
+}
+
+function notesTogglePin(id) {
+  notesFlushSave();
+  const note = (state.notes||[]).find(n => n.id === id);
+  if (note) { note.pinned = !note.pinned; scheduleSave(); renderNotes(); }
+}
+
+function notesSetColor(id, color) {
+  notesFlushSave();
+  const note = (state.notes||[]).find(n => n.id === id);
+  if (note) { note.color = color; scheduleSave(); renderNotes(); }
+}
+
+function notesDelete(id) {
+  notesFlushSave();
+  state.notes = (state.notes||[]).filter(n => n.id !== id);
+  if (notesState.activeId === id) notesState.activeId = null;
+  scheduleSave();
+  toast('Note supprimée 🗑', 'warning');
+  renderNotes();
+}
+
+window.renderNotes = renderNotes;
+window.notesNew = notesNew;
+window.notesSetActive = notesSetActive;
+window.notesDraftSave = notesDraftSave;
+window.notesTogglePin = notesTogglePin;
+window.notesSetColor = notesSetColor;
+window.notesDelete = notesDelete;
+
+
+// ══════════════════════════════════════════════════════════════
+// BUDGET MODULE
+// ══════════════════════════════════════════════════════════════
+
+let budgetState = {
+  addType: 'expense',      // 'income' | 'expense'
+  filterWallet: 'all',     // walletId or 'all'
+  filterType: 'all',       // 'all' | 'income' | 'expense'
+};
+
+const BUDGET_CATS = ['Alimentation','Transport','Logement','Loisirs','Santé','Éducation','Travail','Autre'];
+const BUDGET_CAT_ICONS = { Alimentation:'🍔', Transport:'🚗', Logement:'🏠', Loisirs:'🎮', Santé:'💊', Éducation:'📚', Travail:'💼', Autre:'📦' };
+
+function budgetFmt(amount) {
+  return new Intl.NumberFormat('fr-FR', { style:'currency', currency:'EUR', minimumFractionDigits:2 }).format(amount);
+}
+
+function budgetGetTx() {
+  return (state.budget?.transactions || []);
+}
+function budgetGetWallets() {
+  return (state.budget?.wallets || [{ id:'wallet_general', name:'Général', icon:'💼', color:'#7c3aed' }]);
+}
+
+function budgetCalcSummary(txList) {
+  const income  = txList.filter(t=>t.type==='income').reduce((s,t)=>s+Number(t.amount),0);
+  const expense = txList.filter(t=>t.type==='expense').reduce((s,t)=>s+Number(t.amount),0);
+  return { income, expense, balance: income - expense };
+}
+
+function renderBudget() {
+  const root = document.getElementById('budget-root');
+  if (!root) return;
+  if (!state.budget) state.budget = { wallets: [], transactions: [] };
+  if (!Array.isArray(state.budget.wallets)) state.budget.wallets = [];
+  if (!Array.isArray(state.budget.transactions)) state.budget.transactions = [];
+  // Ensure default wallet exists
+  if (!state.budget.wallets.find(w=>w.id==='wallet_general')) {
+    state.budget.wallets.unshift({ id:'wallet_general', name:'Général', icon:'💼', color:'#7c3aed' });
+  }
+
+  const allTx = budgetGetTx();
+  const wallets = budgetGetWallets();
+
+  // Filter transactions
+  let filtered = allTx;
+  if (budgetState.filterWallet !== 'all') {
+    filtered = filtered.filter(t => t.walletId === budgetState.filterWallet);
+  }
+  if (budgetState.filterType !== 'all') {
+    filtered = filtered.filter(t => t.type === budgetState.filterType);
+  }
+  filtered = [...filtered].sort((a,b) => (b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||''));
+
+  // Global summary (all tx)
+  const globalSummary = budgetCalcSummary(allTx);
+
+  // Per-wallet summaries
+  const walletSummaries = wallets.map(w => {
+    const wtx = allTx.filter(t => t.walletId === w.id);
+    const s = budgetCalcSummary(wtx);
+    return { ...w, ...s, txCount: wtx.length };
+  });
+
+  // Summary cards
+  const summaryCards = `
+    <div class="budget-summary-card">
+      <div class="bsc-label">Revenus</div>
+      <div class="bsc-amount" style="color:#4ade80">${budgetFmt(globalSummary.income)}</div>
+      <div class="bsc-sub">${allTx.filter(t=>t.type==='income').length} transaction(s)</div>
+    </div>
+    <div class="budget-summary-card">
+      <div class="bsc-label">Dépenses</div>
+      <div class="bsc-amount" style="color:#f87171">${budgetFmt(globalSummary.expense)}</div>
+      <div class="bsc-sub">${allTx.filter(t=>t.type==='expense').length} transaction(s)</div>
+    </div>
+    <div class="budget-summary-card">
+      <div class="bsc-label">Solde net</div>
+      <div class="bsc-amount" style="color:${globalSummary.balance>=0?'#4ade80':'#f87171'}">${budgetFmt(globalSummary.balance)}</div>
+      <div class="bsc-sub">${allTx.length} transaction(s) au total</div>
+    </div>
+    <div class="budget-summary-card">
+      <div class="bsc-label">Taux épargne</div>
+      <div class="bsc-amount" style="color:#818cf8">${globalSummary.income>0?Math.round((globalSummary.balance/globalSummary.income)*100):0}%</div>
+      <div class="budget-bar-wrap" style="margin-top:8px">
+        <div class="budget-bar-fill" style="width:${Math.max(0,Math.min(100,globalSummary.income>0?((globalSummary.balance/globalSummary.income)*100):0))}%;background:#818cf8"></div>
+      </div>
+    </div>`;
+
+  // Wallet chips
+  const walletChips = `
+    <div class="budget-wallet-chip${budgetState.filterWallet==='all'?' active':''}"
+      onclick="budgetSetWalletFilter('all')">
+      📊 Tout <span class="budget-wallet-chip-balance">${budgetFmt(globalSummary.balance)}</span>
+    </div>
+    ${walletSummaries.map(w => {
+      const active = budgetState.filterWallet === w.id;
+      return `<div class="budget-wallet-chip${active?' active':''}"
+        style="${active?`--nc:${w.color};border-color:${w.color}40;background:${w.color}15;color:${w.color}`:''}; position:relative"
+        onclick="budgetSetWalletFilter('${w.id}')">
+        ${w.icon} ${esc(w.name)}
+        <span class="budget-wallet-chip-balance">${budgetFmt(w.balance)}</span>
+      </div>`;
+    }).join('')}
+    <div class="budget-wallet-chip" onclick="budgetAddWallet()" title="Nouveau portefeuille" style="color:var(--accent)">+ Portefeuille</div>`;
+
+  // Transactions
+  const txHtml = filtered.length === 0
+    ? `<div class="budget-empty">
+        <div style="font-size:36px;margin-bottom:10px">💸</div>
+        <p>Aucune transaction${budgetState.filterWallet!=='all'||budgetState.filterType!=='all'?' pour ce filtre':''}</p>
+      </div>`
+    : filtered.map(t => {
+        const w = wallets.find(x=>x.id===t.walletId);
+        const isIncome = t.type === 'income';
+        const catIcon = BUDGET_CAT_ICONS[t.category] || '📦';
+        const dateStr = t.date ? new Date(t.date+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'}) : '';
+        const proj = t.projId ? state.projects.find(p=>p.id===t.projId) : null;
+        return `<div class="budget-tx-item">
+          <div class="budget-tx-icon" style="background:${isIncome?'rgba(34,197,94,.15)':'rgba(239,68,68,.15)'}">
+            ${catIcon}
+          </div>
+          <div class="budget-tx-info">
+            <div class="budget-tx-desc">${esc(t.desc||t.category||'Transaction')}</div>
+            <div class="budget-tx-meta">${dateStr}${w?' · '+w.icon+' '+esc(w.name):''}${proj?' · '+esc(proj.icon+' '+proj.name):''}${t.category?' · '+t.category:''}</div>
+          </div>
+          <div class="budget-tx-amount" style="color:${isIncome?'#4ade80':'#f87171'}">
+            ${isIncome?'+':'−'}${budgetFmt(Number(t.amount))}
+          </div>
+          <button class="budget-tx-del" onclick="budgetDeleteTx('${t.id}')" title="Supprimer">🗑</button>
+        </div>`;
+      }).join('');
+
+  // Project options for add form
+  const projOptions = state.projects
+    .filter(p=>!p.completed&&!p.archived)
+    .map(p=>`<option value="${p.id}">${esc(p.icon+' '+p.name)}</option>`).join('');
+
+  // Wallet options for add form
+  const walletOptions = wallets.map(w=>`<option value="${w.id}">${w.icon} ${esc(w.name)}</option>`).join('');
+
+  // Category options
+  const catOptions = BUDGET_CATS.map(c=>`<option value="${c}">${BUDGET_CAT_ICONS[c]} ${c}</option>`).join('');
+
+  // Filter chips for type
+  const typeFilters = ['all','income','expense'].map(t=>{
+    const labels={all:'Tous',income:'Revenus',expense:'Dépenses'};
+    return `<button class="budget-filter-chip${budgetState.filterType===t?' active':''}"
+      onclick="budgetSetTypeFilter('${t}')">${labels[t]}</button>`;
+  }).join('');
+
+  // Today's date for default
+  const todayStr = new Date().toISOString().slice(0,10);
+
+  root.innerHTML = `
+    <div class="budget-header">
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:900">💰 Budget & Finances</div>
+    </div>
+
+    <div class="budget-summary-cards">${summaryCards}</div>
+
+    <div class="budget-wallets-section">
+      <div class="budget-section-header">
+        <div class="budget-section-title">💼 Portefeuilles</div>
+      </div>
+      <div class="budget-wallets-row">${walletChips}</div>
+    </div>
+
+    <div class="budget-layout">
+      <!-- Left: transaction list -->
+      <div>
+        <div class="budget-section-header">
+          <div class="budget-section-title">📋 Transactions <span style="font-size:11px;font-weight:400;color:var(--text3)">(${filtered.length})</span></div>
+          <div class="budget-filters">${typeFilters}</div>
+        </div>
+        <div class="budget-tx-list">${txHtml}</div>
+      </div>
+
+      <!-- Right: add form -->
+      <div class="budget-add-form">
+        <div class="budget-add-form-title">+ Nouvelle transaction</div>
+        <div class="budget-type-toggle">
+          <button class="budget-type-btn income${budgetState.addType==='income'?' active':''}"
+            onclick="budgetSetAddType('income')">📈 Revenu</button>
+          <button class="budget-type-btn expense${budgetState.addType==='expense'?' active':''}"
+            onclick="budgetSetAddType('expense')">📉 Dépense</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Montant (€) *</label>
+          <input class="input" id="budget-inp-amount" type="number" min="0" step="0.01"
+            placeholder="0,00" style="font-size:18px;font-weight:700;font-family:var(--font-display)"
+            onkeydown="if(event.key==='Enter')budgetAddTx()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <input class="input" id="budget-inp-desc" type="text" placeholder="Ex: Courses alimentaires…"
+            onkeydown="if(event.key==='Enter')budgetAddTx()">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Catégorie</label>
+            <select class="input" id="budget-inp-cat">${catOptions}</select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input class="input" id="budget-inp-date" type="date" value="${todayStr}" style="color-scheme:dark">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Portefeuille</label>
+          <select class="input" id="budget-inp-wallet">${walletOptions}</select>
+        </div>
+        ${projOptions ? `<div class="form-group">
+          <label class="form-label">Projet associé (optionnel)</label>
+          <select class="input" id="budget-inp-proj"><option value="">— Aucun —</option>${projOptions}</select>
+        </div>` : ''}
+        <button class="btn btn-primary" onclick="budgetAddTx()" style="width:100%;font-size:13px;padding:10px">
+          ${budgetState.addType==='income'?'📈 Ajouter le revenu':'📉 Ajouter la dépense'}
+        </button>
+      </div>
+    </div>`;
+}
+
+function budgetSetAddType(t) { budgetState.addType = t; renderBudget(); }
+function budgetSetWalletFilter(id) { budgetState.filterWallet = id; renderBudget(); }
+function budgetSetTypeFilter(t) { budgetState.filterType = t; renderBudget(); }
+
+function budgetAddTx() {
+  const amountRaw = document.getElementById('budget-inp-amount')?.value || '';
+  const amount = parseFloat(amountRaw.replace(',','.'));
+  if (!amount || amount <= 0) { toast('Saisissez un montant valide', 'warning'); document.getElementById('budget-inp-amount')?.focus(); return; }
+  const desc     = (document.getElementById('budget-inp-desc')?.value || '').trim();
+  const category = document.getElementById('budget-inp-cat')?.value || 'Autre';
+  const date     = document.getElementById('budget-inp-date')?.value || new Date().toISOString().slice(0,10);
+  const walletId = document.getElementById('budget-inp-wallet')?.value || 'wallet_general';
+  const projId   = document.getElementById('budget-inp-proj')?.value || null;
+  if (!state.budget) state.budget = { wallets: [], transactions: [] };
+  if (!Array.isArray(state.budget.transactions)) state.budget.transactions = [];
+  state.budget.transactions.push({
+    id: uid(), type: budgetState.addType,
+    amount, desc, category, date,
+    walletId, projId: projId||null,
+    createdAt: new Date().toISOString(),
+  });
+  scheduleSave();
+  const sign = budgetState.addType === 'income' ? '+' : '−';
+  toast(`${budgetState.addType==='income'?'📈':'📉'} ${sign}${budgetFmt(amount)} ajouté`, 'success');
+  renderBudget();
+  setTimeout(() => document.getElementById('budget-inp-amount')?.focus(), 80);
+}
+
+function budgetDeleteTx(id) {
+  if (!state.budget?.transactions) return;
+  state.budget.transactions = state.budget.transactions.filter(t => t.id !== id);
+  scheduleSave();
+  toast('Transaction supprimée', 'warning');
+  renderBudget();
+}
+
+function budgetAddWallet() {
+  openModal(`
+    <div class="modal-header">
+      <div class="modal-title">💼 Nouveau portefeuille</div>
+      <button class="btn btn-icon" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:12px">
+      <div class="form-group">
+        <label class="form-label">Nom *</label>
+        <input class="input" id="bw-name" placeholder="Ex: Épargne, Vacances…" onkeydown="if(event.key==='Enter')budgetSaveWallet()">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Icône</label>
+          <input class="input" id="bw-icon" value="💼" style="font-size:20px;text-align:center;width:64px">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Couleur</label>
+          <input type="color" class="input" id="bw-color" value="#7c3aed" style="height:38px;padding:2px 6px;cursor:pointer">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="budgetSaveWallet()">Créer</button>
+    </div>`);
+  setTimeout(() => document.getElementById('bw-name')?.focus(), 80);
+}
+
+window.budgetSaveWallet = function() {
+  const name  = (document.getElementById('bw-name')?.value||'').trim();
+  const icon  = (document.getElementById('bw-icon')?.value||'💼').trim();
+  const color = document.getElementById('bw-color')?.value || '#7c3aed';
+  if (!name) { toast('Saisissez un nom', 'warning'); return; }
+  if (!state.budget) state.budget = { wallets: [], transactions: [] };
+  if (!Array.isArray(state.budget.wallets)) state.budget.wallets = [];
+  state.budget.wallets.push({ id: uid(), name, icon, color });
+  scheduleSave(); closeModal();
+  toast('💼 Portefeuille créé', 'success');
+  renderBudget();
+};
+
+window.renderBudget = renderBudget;
+window.budgetSetAddType = budgetSetAddType;
+window.budgetSetWalletFilter = budgetSetWalletFilter;
+window.budgetSetTypeFilter = budgetSetTypeFilter;
+window.budgetAddTx = budgetAddTx;
+window.budgetDeleteTx = budgetDeleteTx;
+window.budgetAddWallet = budgetAddWallet;
 
 init();
 </script>
