@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:54:13.529Z",
+  "lastUpdated": "2026-03-08T18:54:48.776Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -732,6 +732,12 @@
         "name": "Général",
         "icon": "💼",
         "color": "#7c3aed"
+      },
+      {
+        "id": "7f28fjda4mmi43d90",
+        "name": "Échiquier",
+        "icon": "♟️",
+        "color": "#65d6d2"
       }
     ],
     "transactions": []
