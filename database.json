@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T19:05:30.920Z",
+  "lastUpdated": "2026-03-08T19:05:38.213Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -762,7 +762,7 @@
     "transactions": [
       {
         "id": "pyhrifk1ymmi4h4q6",
-        "type": "expense",
+        "type": "income",
         "amount": 865,
         "desc": "Agent sur compte",
         "category": "Épargne",
