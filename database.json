@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:37:14.977Z",
+  "lastUpdated": "2026-03-08T18:37:32.583Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -746,6 +746,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-08T18:37:14.476Z"
+      },
+      {
+        "id": "h6r8uko5pmmi3h5pv",
+        "type": "income",
+        "amount": 200,
+        "desc": "Teste de moi",
+        "category": "Santé",
+        "date": "2026-03-08",
+        "walletId": "wallet_general",
+        "projId": "tqfqmnk9pmm3rpbav",
+        "recurring": false,
+        "createdAt": "2026-03-08T18:37:32.083Z"
       }
     ]
   },
