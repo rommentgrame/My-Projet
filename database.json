@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:15:45.735Z",
+  "lastUpdated": "2026-03-08T18:16:09.454Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -762,6 +762,17 @@
         "walletId": "wallet_general",
         "projId": null,
         "createdAt": "2026-03-08T18:15:45.232Z"
+      },
+      {
+        "id": "0q8bne2wxmmi2pnn4",
+        "type": "expense",
+        "amount": 39.99,
+        "desc": "",
+        "category": "Logement",
+        "date": "2026-03-08",
+        "walletId": "wallet_general",
+        "projId": "tjum1tqw5mm3rli06",
+        "createdAt": "2026-03-08T18:16:08.944Z"
       }
     ]
   },
