@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T19:05:38.213Z",
+  "lastUpdated": "2026-03-08T19:10:08.058Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -771,6 +771,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-08T19:05:30.414Z"
+      },
+      {
+        "id": "fzg4i2cg7mmi4n2km",
+        "type": "income",
+        "amount": 24.03,
+        "desc": "Piéce",
+        "category": "Épargne",
+        "date": "2026-03-08",
+        "walletId": "26vrm9jgwmmi4cpk0",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-08T19:10:07.558Z"
       }
     ]
   },
