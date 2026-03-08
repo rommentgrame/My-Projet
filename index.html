@@ -584,19 +584,31 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
 ══════════════════════════════════════════════ */
 .mobile-nav {
   display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
-  background: rgba(8,11,22,0.95); backdrop-filter: blur(24px);
-  border-top: 1px solid var(--border); padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  background: rgba(8,11,22,0.97); backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border);
+  padding: 6px 0 max(6px, env(safe-area-inset-bottom));
 }
-.mobile-nav-inner { display: flex; justify-content: space-around; }
+.mobile-nav-inner {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  padding: 0 4px;
+  gap: 0;
+}
+.mobile-nav-inner::-webkit-scrollbar { display: none; }
 .nav-item {
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
-  padding: 6px 12px; border: none; background: transparent; color: var(--text3);
-  cursor: pointer; font-size: 11px; font-family: var(--font); font-weight: 500;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 4px 10px; border: none; background: transparent; color: var(--text3);
+  cursor: pointer; font-size: 10px; font-family: var(--font); font-weight: 500;
   transition: color var(--transition); border-radius: var(--radius-xs);
   -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0; min-width: 54px; white-space: nowrap;
 }
 .nav-item.active { color: var(--accent); }
-.nav-item span:first-child { font-size: 20px; }
+.nav-item span:first-child { font-size: 18px; line-height: 1.2; }
 .mobile-fab {
   display: none; position: fixed; right: 18px;
   bottom: calc(var(--nav-h) + 12px + max(0px, env(safe-area-inset-bottom)));
@@ -1615,7 +1627,6 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   .main-area { padding-bottom: 90px; }
   .bl-card { padding: 10px 11px; }
   .modal { border-radius: 22px 22px 0 0; }
-  .nav-item { min-width: 52px; padding: 4px 8px; }
 }
 @media (min-width: 641px) {
   .mobile-nav { display: none !important; }
@@ -2232,8 +2243,26 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   .notes-list-col { width: 100%; }
   .notes-layout.mobile-editor .notes-list-col { display: none; }
   .notes-layout.mobile-list .notes-editor-col { display: none; }
-  .notes-editor { min-height: calc(100dvh - 260px); border-radius: var(--radius); }
+  .notes-editor { min-height: calc(100dvh - 280px); border-radius: var(--radius); }
   .notes-list-col { gap: 6px; }
+
+  /* Topbar: stack into two rows on mobile */
+  .notes-topbar { flex-wrap: wrap; gap: 6px; }
+  .notes-title-row { order: 1; width: 100%; flex-wrap: nowrap; }
+  .notes-search { min-width: 0; }
+  .notes-mobile-tabs { order: 2; flex-shrink: 0; }
+  .notes-topbar > .btn { order: 2; }
+
+  /* Toolbar: scrollable horizontally */
+  .notes-editor-toolbar { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-right: 6px; }
+  .notes-editor-toolbar::-webkit-scrollbar { display: none; }
+  .notes-tb-btn, .notes-tb-sep { flex-shrink: 0; }
+
+  /* Stats bar: wrap and smaller */
+  .notes-stats-bar { font-size: 10px; gap: 8px; padding: 6px 10px; }
+
+  /* Tag input row: scrollable */
+  .notes-tag-input-wrap { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
 }
 
 /* ══════════════════════════════════════════════
@@ -2402,6 +2431,28 @@ label.form-label { display: block; font-size: 10px; font-weight: 600; color: var
   .budget-summary-cards { grid-template-columns: 1fr 1fr; gap: 8px; }
   .bsc-amount { font-size: 16px; }
   .budget-add-panel-body { padding: 12px 14px; gap: 9px; }
+
+  /* Hide projet field in add form on mobile — accessible only via edit modal */
+  .budget-proj-field-add { display: none !important; }
+
+  /* Ctrl bar: stack search above filters */
+  .budget-ctrl-bar { flex-direction: column; align-items: stretch; gap: 6px; }
+  .budget-tx-search { min-width: 0; width: 100%; }
+  .budget-ctrl-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* Cat chart label shorter */
+  .budget-cat-row-label { width: 80px; }
+  .budget-cat-row-val { min-width: 50px; font-size: 9px; }
+
+  /* Month nav: smaller label */
+  .budget-month-label { min-width: 80px; font-size: 11px; }
+
+  /* Wallet chips: no flex-wrap on mobile, scroll only */
+  .budget-wallets-row { flex-wrap: nowrap; }
+
+  /* Section header: stack on small screen */
+  .budget-section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .budget-month-nav { align-self: flex-start; }
 }
 </style>
 </head>
@@ -7183,14 +7234,6 @@ function renderNotes() {
     `<button class="notes-tag-chip${notesState.filterTag===t?' active':''}" onclick="notesSetTagFilter('${esc(t)}')">${esc(t)}</button>`
   ).join('');
 
-  // Sort select
-  const sortSel = `<select class="notes-sort-sel" onchange="notesSetSort(this.value)">
-    <option value="updated"${notesState.sortBy==='updated'?' selected':''}>Récent</option>
-    <option value="created"${notesState.sortBy==='created'?' selected':''}>Créé</option>
-    <option value="title"${notesState.sortBy==='title'?' selected':''}>A→Z</option>
-    <option value="length"${notesState.sortBy==='length'?' selected':''}>Longueur</option>
-  </select>`;
-
   // Note cards
   const noteCards = notes.map(n => {
     const isActive = n.id === notesState.activeId;
@@ -7317,11 +7360,16 @@ function renderNotes() {
       <div class="notes-title-row">
         <input class="notes-search" placeholder="Rechercher dans les notes…" value="${esc(notesState.search)}"
           oninput="notesState.search=this.value;renderNotes()">
-        ${sortSel}
+        <select class="notes-sort-sel" onchange="notesSetSort(this.value)">
+          <option value="updated"${notesState.sortBy==='updated'?' selected':''}>Récent</option>
+          <option value="created"${notesState.sortBy==='created'?' selected':''}>Créé</option>
+          <option value="title"${notesState.sortBy==='title'?' selected':''}>A→Z</option>
+          <option value="length"${notesState.sortBy==='length'?' selected':''}>Longueur</option>
+        </select>
       </div>
       <div class="notes-mobile-tabs">
-        <button class="notes-mobile-tab${notesState.mobileTab==='list'?' active':''}" onclick="notesSetMobileTab('list')">📋 Liste</button>
-        <button class="notes-mobile-tab${notesState.mobileTab==='editor'?' active':''}" onclick="notesSetMobileTab('editor')">✏ Éditer</button>
+        <button class="notes-mobile-tab${notesState.mobileTab==='list'?' active':''}" onclick="notesSetMobileTab('list')">📋</button>
+        <button class="notes-mobile-tab${notesState.mobileTab==='editor'?' active':''}" onclick="notesSetMobileTab('editor')">✏</button>
       </div>
       <button class="btn btn-primary" onclick="notesNew()" style="flex-shrink:0;font-size:11px;padding:7px 11px">+ Note</button>
     </div>
@@ -7713,11 +7761,11 @@ function renderBudget() {
             <button class="budget-month-btn" onclick="budgetNavMonth(1)">›</button>
           </div>
         </div>
-        <!-- Controls -->
+        <!-- Controls: search + type filters -->
         <div class="budget-ctrl-bar">
-          <input class="budget-tx-search" placeholder="Rechercher…" value="${esc(budgetState.search)}"
-            oninput="budgetState.search=this.value;renderBudget()">
-          ${typeFilters}
+          <input class="budget-tx-search" id="budget-search-inp" placeholder="Rechercher une transaction…" value="${esc(budgetState.search)}"
+            oninput="budgetSearchDebounce(this.value)">
+          <div class="budget-ctrl-filters">${typeFilters}</div>
         </div>
         ${periodSub ? `<div style="margin-bottom:8px;padding:8px 12px;background:var(--glass);border-radius:8px;border:1px solid var(--border)">${periodSub}</div>` : ''}
         <div class="budget-tx-list">${txHtml}</div>
@@ -7766,7 +7814,7 @@ function renderBudget() {
               <label class="form-label">Portefeuille</label>
               <select class="input" id="budget-inp-wallet">${walletOptions}</select>
             </div>
-            ${projOptions?`<div class="form-group">
+            ${projOptions?`<div class="form-group budget-proj-field-add">
               <label class="form-label">Projet associé</label>
               <select class="input" id="budget-inp-proj"><option value="">— Aucun —</option>${projOptions}</select>
             </div>`:''}
@@ -7788,6 +7836,60 @@ function budgetSetAddType(t) { budgetState.addType = t; renderBudget(); }
 function budgetSetWalletFilter(id) { budgetState.filterWallet = id; renderBudget(); }
 function budgetSetTypeFilter(t) { budgetState.filterType = t; renderBudget(); }
 
+// Debounced search — avoids focus loss on every keystroke
+let _budgetSearchTimer = null;
+function budgetSearchDebounce(val) {
+  budgetState.search = val;
+  clearTimeout(_budgetSearchTimer);
+  _budgetSearchTimer = setTimeout(() => {
+    // Only re-render the transaction list, not the entire budget
+    budgetRenderTxOnly();
+  }, 180);
+}
+window.budgetSearchDebounce = budgetSearchDebounce;
+
+// Lightweight re-render of the tx list only (keeps form inputs intact)
+function budgetRenderTxOnly() {
+  const allTx = budgetGetTx();
+  const wl = budgetGetWallets();
+  let filtered = allTx;
+  if (budgetState.filterWallet !== 'all') filtered = filtered.filter(t=>t.walletId===budgetState.filterWallet);
+  if (budgetState.filterType   !== 'all') filtered = filtered.filter(t=>t.type===budgetState.filterType);
+  if (budgetState.filterMonth)  filtered = filtered.filter(t=>(t.date||'').startsWith(budgetState.filterMonth));
+  if (budgetState.search) {
+    const q = budgetState.search.toLowerCase();
+    filtered = filtered.filter(t=>(t.desc||'').toLowerCase().includes(q)||(t.category||'').toLowerCase().includes(q));
+  }
+  filtered = [...filtered].sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.createdAt||'').localeCompare(a.createdAt||''));
+  const txListEl = document.querySelector('.budget-tx-list');
+  if (!txListEl) { renderBudget(); return; }
+  if (filtered.length === 0) {
+    txListEl.innerHTML = `<div class="budget-empty"><div style="font-size:36px;margin-bottom:10px">💸</div><p>Aucune transaction pour ce filtre</p></div>`;
+    return;
+  }
+  txListEl.innerHTML = filtered.map(t => {
+    const w = wl.find(x=>x.id===t.walletId);
+    const isIncome = t.type==='income';
+    const catIcon = BUDGET_CAT_ICONS[t.category]||'📦';
+    const dateStr = t.date ? new Date(t.date+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'}) : '';
+    const proj = t.projId ? state.projects.find(p=>p.id===t.projId) : null;
+    const recBadge = t.recurring ? `<span style="font-size:9px;background:rgba(129,140,248,.15);color:#818cf8;border-radius:4px;padding:1px 4px">🔄</span>` : '';
+    return `<div class="budget-tx-item">
+      <div class="budget-tx-icon" style="background:${isIncome?'rgba(34,197,94,.13)':'rgba(239,68,68,.13)'};color:${isIncome?'#4ade80':'#f87171'}">${catIcon}</div>
+      <div class="budget-tx-info">
+        <div class="budget-tx-desc">${esc(t.desc||t.category||'Transaction')} ${recBadge}</div>
+        <div class="budget-tx-meta">${dateStr}${w?' · '+w.icon+' '+esc(w.name):''}${proj?' · '+esc(proj.icon+' '+proj.name):''}${t.category?' · '+esc(t.category):''}</div>
+      </div>
+      <div class="budget-tx-amount" style="color:${isIncome?'#4ade80':'#f87171'}">${isIncome?'+':'−'}${budgetFmt(Number(t.amount))}</div>
+      <div class="budget-tx-actions">
+        <button class="budget-tx-act" onclick="budgetEditTx('${t.id}')" title="Modifier">✏</button>
+        <button class="budget-tx-act del" onclick="budgetDeleteTx('${t.id}')" title="Supprimer">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+window.budgetRenderTxOnly = budgetRenderTxOnly;
+
 function budgetAddTx() {
   const amountRaw = document.getElementById('budget-inp-amount')?.value||'';
   const amount = parseFloat(amountRaw.replace(',','.'));
@@ -7796,6 +7898,7 @@ function budgetAddTx() {
   const category  = document.getElementById('budget-inp-cat')?.value||'Autre';
   const date      = document.getElementById('budget-inp-date')?.value||new Date().toISOString().slice(0,10);
   const walletId  = document.getElementById('budget-inp-wallet')?.value||'wallet_general';
+  // projet field is hidden on mobile (budget-proj-field-add), default to null
   const projId    = document.getElementById('budget-inp-proj')?.value||null;
   const recurring = document.getElementById('budget-inp-recurring')?.checked||false;
   if (!state.budget) state.budget = { wallets:[], transactions:[] };
