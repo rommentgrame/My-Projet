@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T19:10:13.616Z",
+  "lastUpdated": "2026-03-08T19:11:18.388Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -775,7 +775,7 @@
       {
         "id": "fzg4i2cg7mmi4n2km",
         "type": "income",
-        "amount": 24.03,
+        "amount": 25.03,
         "desc": "Piéce",
         "category": "Épargne",
         "date": "2026-03-08",
