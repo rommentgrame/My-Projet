@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:14:51.765Z",
+  "lastUpdated": "2026-03-08T18:15:28.360Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -740,7 +740,19 @@
         "color": "#7e0c0c"
       }
     ],
-    "transactions": []
+    "transactions": [
+      {
+        "id": "jno7iy3acmmi2orxs",
+        "type": "income",
+        "amount": 299.99,
+        "desc": "teste",
+        "category": "Travail",
+        "date": "2026-03-08",
+        "walletId": "wallet_general",
+        "projId": "ychuqcj0nmm3r66d5",
+        "createdAt": "2026-03-08T18:15:27.856Z"
+      }
+    ]
   },
   "settings": {
     "accent": "#10b981",
