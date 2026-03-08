@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:53:32.450Z",
+  "lastUpdated": "2026-03-08T18:53:35.080Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -729,11 +729,11 @@
       "id": "ne8yy0z3ommi41nyp",
       "title": "Testz",
       "content": "",
-      "color": "#7c3aed",
+      "color": "#22c55e",
       "pinned": false,
       "tags": [],
       "createdAt": "2026-03-08T18:53:28.849Z",
-      "updatedAt": "2026-03-08T18:53:31.548Z"
+      "updatedAt": "2026-03-08T18:53:34.580Z"
     }
   ],
   "budget": {
