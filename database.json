@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:53:45.890Z",
+  "lastUpdated": "2026-03-08T18:53:47.851Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -724,18 +724,7 @@
     }
   ],
   "calendarEvents": [],
-  "notes": [
-    {
-      "id": "ne8yy0z3ommi41nyp",
-      "title": "Testz",
-      "content": "",
-      "color": "#f97316",
-      "pinned": false,
-      "tags": [],
-      "createdAt": "2026-03-08T18:53:28.849Z",
-      "updatedAt": "2026-03-08T18:53:44.988Z"
-    }
-  ],
+  "notes": [],
   "budget": {
     "wallets": [
       {
