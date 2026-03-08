@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:11:46.910Z",
+  "lastUpdated": "2026-03-08T18:14:51.765Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -724,6 +724,24 @@
     }
   ],
   "calendarEvents": [],
+  "notes": [],
+  "budget": {
+    "wallets": [
+      {
+        "id": "wallet_general",
+        "name": "Général",
+        "icon": "💼",
+        "color": "#7c3aed"
+      },
+      {
+        "id": "i0e35rcakmmi2nzpc",
+        "name": "dsds",
+        "icon": "💼",
+        "color": "#7e0c0c"
+      }
+    ],
+    "transactions": []
+  },
   "settings": {
     "accent": "#10b981",
     "compact": true,
