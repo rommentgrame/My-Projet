@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:16:31.018Z",
+  "lastUpdated": "2026-03-08T18:16:32.168Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -732,7 +732,7 @@
       "color": "#22c55e",
       "pinned": false,
       "createdAt": "2026-03-08T18:16:30.512Z",
-      "updatedAt": "2026-03-08T18:16:30.512Z"
+      "updatedAt": "2026-03-08T18:16:31.216Z"
     },
     {
       "id": "1ol064l7fmmi2ptft",
@@ -741,7 +741,7 @@
       "color": "#f97316",
       "pinned": false,
       "createdAt": "2026-03-08T18:16:16.457Z",
-      "updatedAt": "2026-03-08T18:16:26.728Z"
+      "updatedAt": "2026-03-08T18:16:31.664Z"
     }
   ],
   "budget": {
