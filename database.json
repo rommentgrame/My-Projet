@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:54:48.776Z",
+  "lastUpdated": "2026-03-08T18:58:01.838Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -724,7 +724,18 @@
     }
   ],
   "calendarEvents": [],
-  "notes": [],
+  "notes": [
+    {
+      "id": "7v8crbpxmmmi47i7u",
+      "title": "",
+      "content": "",
+      "color": "#7c3aed",
+      "pinned": false,
+      "tags": [],
+      "createdAt": "2026-03-08T18:58:01.338Z",
+      "updatedAt": "2026-03-08T18:58:01.338Z"
+    }
+  ],
   "budget": {
     "wallets": [
       {
