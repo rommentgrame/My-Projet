@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:40:18.367Z",
+  "lastUpdated": "2026-03-08T18:40:20.121Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -818,6 +818,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-08T18:40:17.864Z"
+      },
+      {
+        "id": "hc4m2kohhmmi3kqzk",
+        "type": "expense",
+        "amount": 222222222222222200,
+        "desc": "",
+        "category": "Alimentation",
+        "date": "2026-03-08",
+        "walletId": "wallet_general",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-08T18:40:19.616Z"
       }
     ]
   },
