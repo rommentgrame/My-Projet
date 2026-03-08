@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:16:40.431Z",
+  "lastUpdated": "2026-03-08T18:16:42.840Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -733,15 +733,6 @@
       "pinned": false,
       "createdAt": "2026-03-08T18:16:30.512Z",
       "updatedAt": "2026-03-08T18:16:39.921Z"
-    },
-    {
-      "id": "1ol064l7fmmi2ptft",
-      "title": "Mnager",
-      "content": "J'ai bien manger\n",
-      "color": "#f97316",
-      "pinned": false,
-      "createdAt": "2026-03-08T18:16:16.457Z",
-      "updatedAt": "2026-03-08T18:16:39.376Z"
     }
   ],
   "budget": {
