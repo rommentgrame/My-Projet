@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:40:26.670Z",
+  "lastUpdated": "2026-03-08T18:40:34.686Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -734,80 +734,7 @@
         "color": "#7c3aed"
       }
     ],
-    "transactions": [
-      {
-        "id": "fm9uklkmvmmi3gs4s",
-        "type": "expense",
-        "amount": 200,
-        "desc": "Trste",
-        "category": "Alimentation",
-        "date": "2026-03-08",
-        "walletId": "wallet_general",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T18:37:14.476Z"
-      },
-      {
-        "id": "h6r8uko5pmmi3h5pv",
-        "type": "income",
-        "amount": 200,
-        "desc": "Teste de moi",
-        "category": "Santé",
-        "date": "2026-03-08",
-        "walletId": "wallet_general",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T18:37:32.083Z"
-      },
-      {
-        "id": "7l8pne9nlmmi3kl28",
-        "type": "expense",
-        "amount": 122,
-        "desc": "",
-        "category": "Alimentation",
-        "date": "2026-03-08",
-        "walletId": "wallet_general",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T18:40:11.936Z"
-      },
-      {
-        "id": "hoykmvgmmmmi3km87",
-        "type": "expense",
-        "amount": 222,
-        "desc": "",
-        "category": "Alimentation",
-        "date": "2026-03-08",
-        "walletId": "wallet_general",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T18:40:13.447Z"
-      },
-      {
-        "id": "esok9i9hxmmi3knpb",
-        "type": "expense",
-        "amount": 2222,
-        "desc": "",
-        "category": "Alimentation",
-        "date": "2026-03-08",
-        "walletId": "wallet_general",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T18:40:15.359Z"
-      },
-      {
-        "id": "wyspryjh4mmi3kods",
-        "type": "expense",
-        "amount": 222,
-        "desc": "",
-        "category": "Alimentation",
-        "date": "2026-03-08",
-        "walletId": "wallet_general",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T18:40:16.240Z"
-      }
-    ]
+    "transactions": []
   },
   "settings": {
     "accent": "#10b981",
