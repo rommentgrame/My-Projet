@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:58:41.468Z",
+  "lastUpdated": "2026-03-08T18:58:48.698Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -731,7 +731,9 @@
       "content": "The little girl descended into the cave, and the deeper she went, the louder the growls became. According to legend, the monster loved doorknobs. While searching, the girl heard a wolf howling and even barking. She passed through several very strange caves, and in one of them, she found the famous hat next to a hidden chest that contained the key to free the wolf. ",
       "color": "#7c3aed",
       "pinned": true,
-      "tags": [],
+      "tags": [
+        "Anglais"
+      ],
       "createdAt": "2026-03-08T18:58:01.338Z",
       "updatedAt": "2026-03-08T18:58:40.967Z"
     }
