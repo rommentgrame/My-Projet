@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T19:11:57.686Z",
+  "lastUpdated": "2026-03-08T19:12:21.937Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -755,7 +755,7 @@
       {
         "id": "26vrm9jgwmmi4cpk0",
         "name": "Money",
-        "icon": "M",
+        "icon": "💰",
         "color": "#680303"
       }
     ],
