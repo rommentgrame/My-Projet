@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:33:08.455Z",
+  "lastUpdated": "2026-03-08T18:33:17.551Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -732,12 +732,6 @@
         "name": "Général",
         "icon": "💼",
         "color": "#7c3aed"
-      },
-      {
-        "id": "i0e35rcakmmi2nzpc",
-        "name": "dsds",
-        "icon": "💼",
-        "color": "#7e0c0c"
       }
     ],
     "transactions": [
