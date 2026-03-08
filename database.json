@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:37:32.583Z",
+  "lastUpdated": "2026-03-08T18:37:46.010Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -755,7 +755,7 @@
         "category": "Santé",
         "date": "2026-03-08",
         "walletId": "wallet_general",
-        "projId": "tqfqmnk9pmm3rpbav",
+        "projId": null,
         "recurring": false,
         "createdAt": "2026-03-08T18:37:32.083Z"
       }
