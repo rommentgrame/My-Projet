@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-08T18:37:01.218Z",
+  "lastUpdated": "2026-03-08T18:37:14.977Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -734,7 +734,20 @@
         "color": "#7c3aed"
       }
     ],
-    "transactions": []
+    "transactions": [
+      {
+        "id": "fm9uklkmvmmi3gs4s",
+        "type": "expense",
+        "amount": 20,
+        "desc": "Trste",
+        "category": "Alimentation",
+        "date": "2026-03-08",
+        "walletId": "wallet_general",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-08T18:37:14.476Z"
+      }
+    ]
   },
   "settings": {
     "accent": "#10b981",
