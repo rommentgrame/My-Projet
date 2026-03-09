@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-09T07:57:29.029Z",
+  "lastUpdated": "2026-03-09T07:57:47.525Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -745,6 +745,14 @@
       "periodKey": "2026-W11",
       "done": false,
       "createdAt": "2026-03-09T07:57:28.527Z"
+    },
+    {
+      "id": "cy762qdoommiw2aa7",
+      "text": "Continuer ma musique",
+      "period": "week",
+      "periodKey": "2026-W11",
+      "done": false,
+      "createdAt": "2026-03-09T07:57:47.023Z"
     }
   ],
   "calendarEvents": [],
