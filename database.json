@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-11T21:20:54.240Z",
+  "lastUpdated": "2026-03-13T06:34:30.200Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -21,7 +21,7 @@
           "done": false
         },
         {
-          "status": "todo",
+          "status": "in_progress",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
@@ -45,7 +45,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-02-28T22:11:39.935Z"
+      "updatedAt": "2026-03-13T06:34:29.681Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
