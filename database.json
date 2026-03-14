@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-13T22:24:20.770Z",
+  "lastUpdated": "2026-03-14T10:28:22.439Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -10,7 +10,7 @@
       "color": "#06b6d4",
       "tasks": [
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -18,7 +18,7 @@
           "dueDate": "",
           "id": "3yhnigj2zmm6ep5yf",
           "text": "Faire une liste des choses à mettre et comment les mettre",
-          "done": false
+          "done": true
         },
         {
           "status": "in_progress",
@@ -67,7 +67,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-03-13T22:24:20.252Z"
+      "updatedAt": "2026-03-14T10:28:21.936Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
