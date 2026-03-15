@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-14T11:13:16.425Z",
+  "lastUpdated": "2026-03-15T07:31:07.202Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -21,7 +21,7 @@
           "done": true
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 1,
           "subtasks": [],
@@ -29,7 +29,7 @@
           "dueDate": "",
           "id": "8fg9ad6q4mm6vdsus",
           "text": "Commencer la première partie",
-          "done": false
+          "done": true
         },
         {
           "status": "in_progress",
@@ -67,7 +67,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-03-14T10:28:21.936Z"
+      "updatedAt": "2026-03-15T07:31:06.663Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
