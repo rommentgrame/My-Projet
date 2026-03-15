@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-15T07:32:15.071Z",
+  "lastUpdated": "2026-03-15T07:32:17.341Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -803,7 +803,7 @@
       "text": "Reprends le handball",
       "period": "week",
       "periodKey": "2026-W11",
-      "done": false,
+      "done": true,
       "createdAt": "2026-03-09T07:58:19.941Z"
     }
   ],
