@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-15T07:31:59.006Z",
+  "lastUpdated": "2026-03-15T07:32:00.364Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -57,7 +57,7 @@
           "id": "jti4l6341mmrfrvla",
           "text": "Finir tout les parties projets",
           "done": false,
-          "status": "todo",
+          "status": "in_progress",
           "priority": "medium",
           "rank": 4,
           "subtasks": [],
@@ -89,7 +89,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-03-15T07:31:58.493Z"
+      "updatedAt": "2026-03-15T07:31:59.855Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
