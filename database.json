@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-17T06:32:53.804Z",
+  "lastUpdated": "2026-03-17T06:33:05.058Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -821,6 +821,14 @@
       "periodKey": "2026-W12",
       "done": false,
       "createdAt": "2026-03-17T06:32:53.303Z"
+    },
+    {
+      "id": "mpjdop8mommu8k5yl",
+      "text": "Faire tout mes cours",
+      "period": "week",
+      "periodKey": "2026-W12",
+      "done": false,
+      "createdAt": "2026-03-17T06:33:04.558Z"
     }
   ],
   "calendarEvents": [],
