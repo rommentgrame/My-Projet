@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-17T06:32:43.865Z",
+  "lastUpdated": "2026-03-17T06:32:53.804Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -813,6 +813,14 @@
       "periodKey": "2026-W12",
       "done": false,
       "createdAt": "2026-03-17T06:32:43.357Z"
+    },
+    {
+      "id": "2qkkp6knqmmu8jx9x",
+      "text": "Faire bcp de lettres de motivation",
+      "period": "week",
+      "periodKey": "2026-W12",
+      "done": false,
+      "createdAt": "2026-03-17T06:32:53.303Z"
     }
   ],
   "calendarEvents": [],
