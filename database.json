@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-17T21:03:50.274Z",
+  "lastUpdated": "2026-03-20T15:11:27.007Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -218,6 +218,17 @@
           "id": "9ogji52grmmfh00cf",
           "text": "Teste pour créé la carte",
           "done": false
+        },
+        {
+          "id": "lhkzkadlpmmz1ecd8",
+          "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 11,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
         }
       ],
       "tags": [
@@ -235,7 +246,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-11T17:13:49.945Z"
+      "updatedAt": "2026-03-20T15:11:26.492Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
