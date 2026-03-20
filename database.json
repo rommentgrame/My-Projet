@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-20T22:32:12.871Z",
+  "lastUpdated": "2026-03-20T22:34:54.207Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -227,7 +227,7 @@
           "note": "",
           "dueDate": "",
           "id": "lhkzkadlpmmz1ecd8",
-          "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur",
+          "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur. Revoir les intensités et le tableau",
           "done": false
         }
       ],
@@ -246,7 +246,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-20T22:32:12.362Z"
+      "updatedAt": "2026-03-20T22:34:53.678Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
