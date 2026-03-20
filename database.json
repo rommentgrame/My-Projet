@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-20T15:11:27.007Z",
+  "lastUpdated": "2026-03-20T22:30:52.483Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -220,15 +220,15 @@
           "done": false
         },
         {
-          "id": "lhkzkadlpmmz1ecd8",
-          "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 11,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "lhkzkadlpmmz1ecd8",
+          "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur",
+          "done": false
         }
       ],
       "tags": [
@@ -838,7 +838,7 @@
       "text": "Faire tout mes cours",
       "period": "week",
       "periodKey": "2026-W12",
-      "done": false,
+      "done": true,
       "createdAt": "2026-03-17T06:33:04.558Z"
     },
     {
