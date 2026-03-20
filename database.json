@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-20T22:30:52.483Z",
+  "lastUpdated": "2026-03-20T22:30:57.668Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -846,7 +846,7 @@
       "text": "Avancer l'échiquier",
       "period": "week",
       "periodKey": "2026-W12",
-      "done": false,
+      "done": true,
       "createdAt": "2026-03-17T06:33:16.174Z"
     },
     {
