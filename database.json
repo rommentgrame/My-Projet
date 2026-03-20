@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-20T22:31:28.923Z",
+  "lastUpdated": "2026-03-20T22:32:12.871Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -121,7 +121,7 @@
           "done": true
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "critical",
           "rank": 3,
           "subtasks": [],
@@ -129,7 +129,7 @@
           "dueDate": "2026-03-20",
           "id": "g8d692v6emm4qwzq4",
           "text": "Faire le schéma des composants et le routage",
-          "done": false
+          "done": true
         },
         {
           "status": "done",
@@ -246,7 +246,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-03-20T15:11:26.492Z"
+      "updatedAt": "2026-03-20T22:32:12.362Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
