@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-21T22:03:54.244Z",
+  "lastUpdated": "2026-03-21T22:03:54.965Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -65,7 +65,7 @@
           "done": true
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 5,
           "subtasks": [],
@@ -73,7 +73,7 @@
           "dueDate": "",
           "id": "bl40ks4hgmmrfs7fh",
           "text": "Finir tout les parties association",
-          "done": false
+          "done": true
         }
       ],
       "tags": [],
@@ -89,7 +89,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-03-21T22:03:53.742Z"
+      "updatedAt": "2026-03-21T22:03:54.462Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
