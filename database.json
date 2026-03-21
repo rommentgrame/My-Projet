@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-21T22:03:54.965Z",
+  "lastUpdated": "2026-03-21T22:03:58.784Z",
   "projects": [
     {
       "id": "g2kraftv0mm68lc6c",
@@ -43,7 +43,7 @@
           "done": true
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "medium",
           "rank": 3,
           "subtasks": [],
@@ -51,7 +51,7 @@
           "dueDate": "",
           "id": "24m9t796vmmpf3ssv",
           "text": "Faire chaque page et retranscrire mon pdf en HTML adapté au site xeb",
-          "done": false
+          "done": true
         },
         {
           "status": "done",
@@ -89,7 +89,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-28T11:27:31.044Z",
-      "updatedAt": "2026-03-21T22:03:54.462Z"
+      "updatedAt": "2026-03-21T22:03:58.278Z"
     },
     {
       "id": "ychuqcj0nmm3r66d5",
