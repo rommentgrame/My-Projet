@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-24T17:08:35.133Z",
+  "lastUpdated": "2026-03-24T17:09:36.789Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -865,6 +865,14 @@
       "periodKey": "2026-W13",
       "done": false,
       "createdAt": "2026-03-24T17:08:34.618Z"
+    },
+    {
+      "id": "o19osqxf2mn4vdpjs",
+      "text": "Faire tout mes lettre de motivation et finir parcoursup",
+      "period": "week",
+      "periodKey": "2026-W13",
+      "done": false,
+      "createdAt": "2026-03-24T17:09:36.287Z"
     }
   ],
   "calendarEvents": [],
