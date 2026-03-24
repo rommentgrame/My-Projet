@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-22T14:47:25.238Z",
+  "lastUpdated": "2026-03-24T17:08:35.133Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -857,6 +857,14 @@
       "periodKey": "2026-W12",
       "done": false,
       "createdAt": "2026-03-17T06:33:40.753Z"
+    },
+    {
+      "id": "8dc2o02d3mn4vcdyy",
+      "text": "Voir les pièces échiquier électronique",
+      "period": "week",
+      "periodKey": "2026-W13",
+      "done": false,
+      "createdAt": "2026-03-24T17:08:34.618Z"
     }
   ],
   "calendarEvents": [],
