@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-30T20:34:46.646Z",
+  "lastUpdated": "2026-03-30T20:35:45.732Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -913,6 +913,12 @@
         "name": "Nourriture",
         "icon": "🌭",
         "color": "#ffff00"
+      },
+      {
+        "id": "1x4fp19qrmndndxhs",
+        "name": "Divers",
+        "icon": "👌",
+        "color": "#7c3aed"
       }
     ],
     "transactions": [
