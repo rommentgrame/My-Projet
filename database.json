@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-30T20:37:53.194Z",
+  "lastUpdated": "2026-03-30T20:41:49.428Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -969,6 +969,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-30T20:34:46.146Z"
+      },
+      {
+        "id": "g8ek4cjchmndnlq4e",
+        "type": "expense",
+        "amount": 19.22,
+        "desc": "Voyage Toulouse objet",
+        "category": "Loisirs",
+        "date": "2026-03-30",
+        "walletId": "1x4fp19qrmndndxhs",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-30T20:41:48.928Z"
       }
     ]
   },
