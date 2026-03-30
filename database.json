@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-30T20:34:25.450Z",
+  "lastUpdated": "2026-03-30T20:34:46.646Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -951,6 +951,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-30T20:34:24.946Z"
+      },
+      {
+        "id": "v6z4n7ubtmndncnwi",
+        "type": "expense",
+        "amount": 1.53,
+        "desc": "Fuze tea",
+        "category": "Alimentation",
+        "date": "2026-03-30",
+        "walletId": "fjk4hxn4amndnayiz",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-30T20:34:46.146Z"
       }
     ]
   },
