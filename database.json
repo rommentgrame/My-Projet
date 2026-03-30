@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-30T20:33:27.103Z",
+  "lastUpdated": "2026-03-30T20:34:25.450Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -939,6 +939,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-08T19:10:07.558Z"
+      },
+      {
+        "id": "141pxcv1nmndnc7jm",
+        "type": "expense",
+        "amount": 2.53,
+        "desc": "Pringles",
+        "category": "Alimentation",
+        "date": "2026-03-30",
+        "walletId": "fjk4hxn4amndnayiz",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-30T20:34:24.946Z"
       }
     ]
   },
