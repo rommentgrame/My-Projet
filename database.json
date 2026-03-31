@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-31T05:38:53.960Z",
+  "lastUpdated": "2026-03-31T05:39:32.746Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -981,6 +981,18 @@
         "projId": null,
         "recurring": false,
         "createdAt": "2026-03-30T20:41:48.928Z"
+      },
+      {
+        "id": "ne2ci1o7emne6t8nq",
+        "type": "income",
+        "amount": 50,
+        "desc": "Toulouse rajout",
+        "category": "Épargne",
+        "date": "2026-03-31",
+        "walletId": "eehsl0g0bmne6seqc",
+        "projId": null,
+        "recurring": false,
+        "createdAt": "2026-03-31T05:39:32.246Z"
       }
     ]
   },
