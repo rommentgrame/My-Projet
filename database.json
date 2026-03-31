@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-30T20:42:53.193Z",
+  "lastUpdated": "2026-03-31T05:38:23.181Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -895,12 +895,6 @@
         "name": "Général",
         "icon": "💼",
         "color": "#7c3aed"
-      },
-      {
-        "id": "7f28fjda4mmi43d90",
-        "name": "Échiquier",
-        "icon": "♟️",
-        "color": "#65d6d2"
       },
       {
         "id": "26vrm9jgwmmi4cpk0",
