@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-31T05:39:32.746Z",
+  "lastUpdated": "2026-03-31T18:53:16.579Z",
   "projects": [
+    {
+      "id": "vzz23w03vmnez54fp",
+      "name": "Créé agents IA",
+      "description": "",
+      "icon": "🔬",
+      "color": "#22c55e",
+      "tasks": [],
+      "tags": [],
+      "priority": "low",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-03-31T18:52:35.893Z",
+      "updatedAt": "2026-03-31T18:52:35.910Z"
+    },
     {
       "id": "ychuqcj0nmm3r66d5",
       "name": "Échiquier électronique ",
