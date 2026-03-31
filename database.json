@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-03-31T05:38:23.181Z",
+  "lastUpdated": "2026-03-31T05:38:53.960Z",
   "projects": [
     {
       "id": "ychuqcj0nmm3r66d5",
@@ -913,6 +913,12 @@
         "name": "Divers",
         "icon": "👌",
         "color": "#7c3aed"
+      },
+      {
+        "id": "eehsl0g0bmne6seqc",
+        "name": "Compte principal",
+        "icon": "1️⃣",
+        "color": "#0000ff"
       }
     ],
     "transactions": [
