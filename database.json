@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-03T13:44:22.163Z",
+  "lastUpdated": "2026-04-03T13:44:22.752Z",
   "projects": [
     {
       "id": "vzz23w03vmnez54fp",
@@ -153,7 +153,7 @@
           "done": true
         },
         {
-          "status": "in_progress",
+          "status": "done",
           "priority": "critical",
           "rank": 11,
           "subtasks": [],
@@ -161,7 +161,7 @@
           "dueDate": "2026-03-22",
           "id": "lhkzkadlpmmz1ecd8",
           "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur. Revoir les intensités et le tableau",
-          "done": false
+          "done": true
         }
       ],
       "tags": [
@@ -179,7 +179,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-04-03T13:44:21.656Z"
+      "updatedAt": "2026-04-03T13:44:22.241Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
