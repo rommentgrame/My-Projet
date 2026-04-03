@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-03T18:10:11.929Z",
+  "lastUpdated": "2026-04-03T18:11:07.177Z",
   "projects": [
     {
       "id": "vzz23w03vmnez54fp",
@@ -906,6 +906,14 @@
       "periodKey": "2026-W13",
       "done": false,
       "createdAt": "2026-03-24T17:09:36.287Z"
+    },
+    {
+      "id": "6377eo98mmnj7zbqs",
+      "text": "Finir tout la carte sauf le brassage",
+      "period": "month",
+      "periodKey": "2026-04",
+      "done": false,
+      "createdAt": "2026-04-03T18:11:06.676Z"
     }
   ],
   "calendarEvents": [],
