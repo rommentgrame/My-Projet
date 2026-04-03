@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-03T13:45:24.157Z",
+  "lastUpdated": "2026-04-03T18:10:11.929Z",
   "projects": [
     {
       "id": "vzz23w03vmnez54fp",
@@ -164,15 +164,15 @@
           "done": true
         },
         {
-          "id": "u7iilk2qomniyhm12",
-          "text": "trouver un capteur a effect hall qui peu fonctionner et mieux intégrer un usb c qui peu être compatible avec mon pc",
-          "done": false,
           "status": "todo",
           "priority": "medium",
           "rank": 12,
           "subtasks": [],
           "note": "",
-          "dueDate": ""
+          "dueDate": "",
+          "id": "u7iilk2qomniyhm12",
+          "text": "trouver un capteur a effect hall qui peu fonctionner et mieux intégrer un usb c qui peu être compatible avec mon pc",
+          "done": false
         }
       ],
       "tags": [
