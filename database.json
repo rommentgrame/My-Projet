@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-06T19:49:30.440Z",
+  "lastUpdated": "2026-04-06T19:50:02.911Z",
   "projects": [
     {
       "id": "vzz23w03vmnez54fp",
@@ -930,6 +930,14 @@
       "periodKey": "2026-W15",
       "done": false,
       "createdAt": "2026-04-06T19:49:29.935Z"
+    },
+    {
+      "id": "cf76u2d1cmnnlu3s8",
+      "text": "Faire tout mes lecon",
+      "period": "week",
+      "periodKey": "2026-W15",
+      "done": false,
+      "createdAt": "2026-04-06T19:50:02.408Z"
     }
   ],
   "calendarEvents": [],
