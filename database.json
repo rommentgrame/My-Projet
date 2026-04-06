@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-06T19:50:02.911Z",
+  "lastUpdated": "2026-04-06T19:50:09.725Z",
   "projects": [
     {
       "id": "vzz23w03vmnez54fp",
@@ -938,6 +938,14 @@
       "periodKey": "2026-W15",
       "done": false,
       "createdAt": "2026-04-06T19:50:02.408Z"
+    },
+    {
+      "id": "5ppfnbidbmnnlu917",
+      "text": "Avancer le BIA",
+      "period": "week",
+      "periodKey": "2026-W15",
+      "done": false,
+      "createdAt": "2026-04-06T19:50:09.211Z"
     }
   ],
   "calendarEvents": [],
