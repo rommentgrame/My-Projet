@@ -1,7 +1,29 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-06T20:54:09.251Z",
+  "lastUpdated": "2026-04-07T06:37:58.199Z",
   "projects": [
+    {
+      "id": "qhjr28c9amno8yx63",
+      "name": "Application Canva ",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#06b6d4",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-04-07T06:37:38.283Z",
+      "updatedAt": "2026-04-07T06:37:38.292Z"
+    },
     {
       "id": "vzz23w03vmnez54fp",
       "name": "Créé agents IA",
