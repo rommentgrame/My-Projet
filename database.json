@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-08T18:53:49.320Z",
+  "lastUpdated": "2026-04-08T18:56:02.329Z",
   "projects": [
     {
       "id": "qhjr28c9amno8yx63",
@@ -987,7 +987,18 @@
     }
   ],
   "calendarEvents": [],
-  "notes": [],
+  "notes": [
+    {
+      "id": "uyll3be5rmnqesco4",
+      "title": "",
+      "content": "",
+      "color": "#7c3aed",
+      "pinned": false,
+      "tags": [],
+      "createdAt": "2026-04-08T18:56:01.828Z",
+      "updatedAt": "2026-04-08T18:56:01.828Z"
+    }
+  ],
   "budget": {
     "wallets": [
       {
