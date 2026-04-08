@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-04-08T18:51:29.705Z",
+  "lastUpdated": "2026-04-08T18:53:49.320Z",
   "projects": [
     {
       "id": "qhjr28c9amno8yx63",
@@ -987,18 +987,7 @@
     }
   ],
   "calendarEvents": [],
-  "notes": [
-    {
-      "id": "z6glmjxz3mmoiw74j",
-      "title": "Documents ",
-      "content": "Le faire rapidement et avancer les l'être de motivation ",
-      "color": "#7c3aed",
-      "pinned": false,
-      "tags": [],
-      "createdAt": "2026-03-13T06:35:45.043Z",
-      "updatedAt": "2026-03-13T06:36:04.534Z"
-    }
-  ],
+  "notes": [],
   "budget": {
     "wallets": [
       {
