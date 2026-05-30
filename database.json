@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-05-30T17:27:23.710Z",
+  "lastUpdated": "2026-05-30T17:28:01.521Z",
   "projects": [
     {
       "id": "qhjr28c9amno8yx63",
@@ -1019,6 +1019,12 @@
         "name": "Compte principal",
         "icon": "1️⃣",
         "color": "#0000ff"
+      },
+      {
+        "id": "pznquwpg2mpsmjgn1",
+        "name": "Compte temporaire",
+        "icon": "⏱️",
+        "color": "#ffffff"
       }
     ],
     "transactions": [
