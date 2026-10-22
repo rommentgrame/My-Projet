@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:40:52.164Z",
+  "lastUpdated": "2026-10-22T17:40:58.223Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -624,7 +624,7 @@
       "text": "Réussir cette fin d'année et ce début d'études supérieures",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:45:47.208Z"
     },
     {
