@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:40:47.481Z",
+  "lastUpdated": "2026-10-22T17:40:48.177Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -576,7 +576,7 @@
       "text": "Avoir mon permis",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:45:07.120Z"
     },
     {
