@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:39:00.801Z",
+  "lastUpdated": "2026-10-22T17:38:57.323Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -12,8 +12,8 @@
         {
           "id": "1uys7fstmmvjtptqf",
           "text": "Config NAS PRV",
-          "done": false,
-          "status": "in_progress",
+          "done": true,
+          "status": "done",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -89,7 +89,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-10-22T17:36:23.842Z",
-      "updatedAt": "2026-10-22T17:39:00.282Z"
+      "updatedAt": "2026-10-22T17:38:56.817Z"
     },
     {
       "id": "qhjr28c9amno8yx63",
