@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:41:30.800Z",
+  "lastUpdated": "2026-10-22T17:41:40.118Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -552,7 +552,7 @@
       "text": "Toujours aller vers l'avant",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:44:44.776Z"
     },
     {
