@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:38:52.555Z",
+  "lastUpdated": "2026-10-22T17:39:00.801Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -13,7 +13,7 @@
           "id": "1uys7fstmmvjtptqf",
           "text": "Config NAS PRV",
           "done": false,
-          "status": "todo",
+          "status": "in_progress",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -68,7 +68,7 @@
           "id": "daj8h8lb4mvjtrg1n",
           "text": "Config RESTE",
           "done": false,
-          "status": "in_progress",
+          "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -89,7 +89,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-10-22T17:36:23.842Z",
-      "updatedAt": "2026-10-22T17:38:52.034Z"
+      "updatedAt": "2026-10-22T17:39:00.282Z"
     },
     {
       "id": "qhjr28c9amno8yx63",
