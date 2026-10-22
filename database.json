@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:41:02.183Z",
+  "lastUpdated": "2026-10-22T17:41:06.670Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -640,7 +640,7 @@
       "text": "Me respecter en amour",
       "period": "year",
       "periodKey": "2026",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-27T09:46:04.208Z"
     },
     {
