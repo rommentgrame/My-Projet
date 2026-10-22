@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:35:13.335Z",
+  "lastUpdated": "2026-10-22T17:35:21.609Z",
   "projects": [
     {
       "id": "qhjr28c9amno8yx63",
@@ -45,174 +45,6 @@
       "completed": false,
       "createdAt": "2026-03-31T18:52:35.893Z",
       "updatedAt": "2026-03-31T18:52:35.910Z"
-    },
-    {
-      "id": "ychuqcj0nmm3r66d5",
-      "name": "Échiquier électronique ",
-      "description": "",
-      "icon": "🎲",
-      "color": "#6366f1",
-      "tasks": [
-        {
-          "status": "done",
-          "priority": "medium",
-          "rank": 1,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "1exbviajkmm4qwmcb",
-          "text": "Modélisation 3D des pièce et du plateaux",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "high",
-          "rank": 2,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "9ltn65vdmmm4qwru4",
-          "text": "Créé un cahier des charge",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "critical",
-          "rank": 3,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "2026-03-20",
-          "id": "g8d692v6emm4qwzq4",
-          "text": "Faire le schéma des composants et le routage",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "high",
-          "rank": 2,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "2026-03-06",
-          "id": "zww9q4y49mm4qx57w",
-          "text": "Commencé le schéma électronique et choisir la taille de la carte",
-          "done": true
-        },
-        {
-          "status": "in_progress",
-          "priority": "low",
-          "rank": 4,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "qrqiogamemm4qxb6c",
-          "text": "Faire le codage et teste du système.",
-          "done": false
-        },
-        {
-          "status": "in_progress",
-          "priority": "low",
-          "rank": 6,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "0kiitz7llmm4qxiik",
-          "text": "Changement si besoin",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 6,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "l4fd9w2k0mm4qxmxn",
-          "text": "Créé le schéma du plateau",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 8,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "xjhv3qf16mm4qxr3n",
-          "text": "Créé le plateau",
-          "done": false
-        },
-        {
-          "status": "todo",
-          "priority": "low",
-          "rank": 9,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "vxbnp1i0rmm4qxvi4",
-          "text": "Commencer les assemblages",
-          "done": false
-        },
-        {
-          "status": "done",
-          "priority": "high",
-          "rank": 9,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "2026-03-10",
-          "id": "xiqddx4pdmmfgzsuo",
-          "text": "Calcule puissance, intensité et voltages",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "high",
-          "rank": 10,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "2026-03-21",
-          "id": "9ogji52grmmfh00cf",
-          "text": "Teste pour créé la carte",
-          "done": true
-        },
-        {
-          "status": "done",
-          "priority": "critical",
-          "rank": 11,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "2026-03-22",
-          "id": "lhkzkadlpmmz1ecd8",
-          "text": "Envoyer la reff des capteur hall au proffesseur et aussi en chosir plusieur. Revoir les intensités et le tableau",
-          "done": true
-        },
-        {
-          "status": "todo",
-          "priority": "medium",
-          "rank": 12,
-          "subtasks": [],
-          "note": "",
-          "dueDate": "",
-          "id": "u7iilk2qomniyhm12",
-          "text": "trouver un capteur a effect hall qui peu fonctionner et mieux intégrer un usb c qui peu être compatible avec mon pc",
-          "done": false
-        }
-      ],
-      "tags": [
-        "école"
-      ],
-      "priority": "high",
-      "dueDate": "2026-05-30",
-      "notes": "- [x]  Trouver une idée\n- [x]  Créé un cahier des charge\n- [ ]  Faire le schéma des composants\n- [ ]  Faire une analyse du prix\n- [ ]  Changement si besoin\n- [ ]  Commencé le schéma électronique et choisir la taille de la carte\n- [x]  Modélisation 3D des pièce\n- [ ]  Créé le schéma du plateau\n- [ ]  Créé le plateau\n- [ ]  Commencer les assemblages\n- [ ]  Faire le codage et teste du système.",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": true,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-02-26T17:44:17.849Z",
-      "updatedAt": "2026-04-03T13:45:23.654Z"
     },
     {
       "id": "96pa7j3w8mm3rqvc6",
@@ -415,7 +247,7 @@
     }
   ],
   "slots": {
-    "primary": "ychuqcj0nmm3r66d5",
+    "primary": null,
     "secondary": "qhjr28c9amno8yx63",
     "pleasure": "tjum1tqw5mm3rli06"
   },
