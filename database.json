@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:39:02.883Z",
+  "lastUpdated": "2026-10-22T17:39:56.179Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -90,28 +90,6 @@
       "completed": false,
       "createdAt": "2026-10-22T17:36:23.842Z",
       "updatedAt": "2026-10-22T17:39:02.369Z"
-    },
-    {
-      "id": "qhjr28c9amno8yx63",
-      "name": "Application Canva ",
-      "description": "",
-      "icon": "🖥️",
-      "color": "#06b6d4",
-      "tasks": [],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-04-07T06:37:38.283Z",
-      "updatedAt": "2026-04-07T06:37:38.292Z"
     },
     {
       "id": "vzz23w03vmnez54fp",
@@ -337,10 +315,33 @@
   ],
   "slots": {
     "primary": "uqeckp8vdmvjtoraa",
-    "secondary": "qhjr28c9amno8yx63",
+    "secondary": null,
     "pleasure": "tjum1tqw5mm3rli06"
   },
   "completedProjects": [
+    {
+      "id": "qhjr28c9amno8yx63",
+      "name": "Application Canva ",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#06b6d4",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-04-07T06:37:38.283Z",
+      "updatedAt": "2026-04-07T06:37:38.292Z",
+      "completedAt": "2026-10-22T17:39:55.656Z"
+    },
     {
       "id": "g2kraftv0mm68lc6c",
       "name": "Faire un document pour parcoursup. Avec mes projets et mes expériences ",
