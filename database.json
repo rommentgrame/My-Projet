@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:40:09.339Z",
+  "lastUpdated": "2026-10-22T17:40:16.700Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -923,12 +923,6 @@
         "name": "Money",
         "icon": "💰",
         "color": "#680303"
-      },
-      {
-        "id": "fjk4hxn4amndnayiz",
-        "name": "Nourriture",
-        "icon": "🌭",
-        "color": "#ffff00"
       },
       {
         "id": "1x4fp19qrmndndxhs",
