@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:38:56.704Z",
+  "lastUpdated": "2026-10-22T17:40:09.339Z",
   "projects": [
     {
       "id": "uqeckp8vdmvjtoraa",
@@ -13,7 +13,7 @@
           "id": "1uys7fstmmvjtptqf",
           "text": "Config NAS PRV",
           "done": false,
-          "status": "in_progress",
+          "status": "todo",
           "priority": "medium",
           "rank": 0,
           "subtasks": [],
@@ -89,29 +89,7 @@
       "archived": false,
       "completed": false,
       "createdAt": "2026-10-22T17:36:23.842Z",
-      "updatedAt": "2026-10-22T17:38:56.186Z"
-    },
-    {
-      "id": "qhjr28c9amno8yx63",
-      "name": "Application Canva ",
-      "description": "",
-      "icon": "🖥️",
-      "color": "#06b6d4",
-      "tasks": [],
-      "tags": [],
-      "priority": "high",
-      "dueDate": "",
-      "notes": "",
-      "links": [],
-      "estimatedHours": 0,
-      "loggedHours": 0,
-      "pomodoroCount": 0,
-      "categoryId": "cat_tech",
-      "pinned": false,
-      "archived": false,
-      "completed": false,
-      "createdAt": "2026-04-07T06:37:38.283Z",
-      "updatedAt": "2026-04-07T06:37:38.292Z"
+      "updatedAt": "2026-10-22T17:39:02.369Z"
     },
     {
       "id": "vzz23w03vmnez54fp",
@@ -337,10 +315,33 @@
   ],
   "slots": {
     "primary": "uqeckp8vdmvjtoraa",
-    "secondary": "qhjr28c9amno8yx63",
+    "secondary": null,
     "pleasure": "tjum1tqw5mm3rli06"
   },
   "completedProjects": [
+    {
+      "id": "qhjr28c9amno8yx63",
+      "name": "Application Canva ",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#06b6d4",
+      "tasks": [],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": true,
+      "createdAt": "2026-04-07T06:37:38.283Z",
+      "updatedAt": "2026-04-07T06:37:38.292Z",
+      "completedAt": "2026-10-22T17:39:55.656Z"
+    },
     {
       "id": "g2kraftv0mm68lc6c",
       "name": "Faire un document pour parcoursup. Avec mes projets et mes expériences ",
@@ -948,92 +949,7 @@
         "color": "#ffffff"
       }
     ],
-    "transactions": [
-      {
-        "id": "pyhrifk1ymmi4h4q6",
-        "type": "income",
-        "amount": 865,
-        "desc": "Agent sur compte",
-        "category": "Épargne",
-        "date": "2026-03-08",
-        "walletId": "26vrm9jgwmmi4cpk0",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T19:05:30.414Z"
-      },
-      {
-        "id": "fzg4i2cg7mmi4n2km",
-        "type": "income",
-        "amount": 25.03,
-        "desc": "Piéce",
-        "category": "Épargne",
-        "date": "2026-03-08",
-        "walletId": "26vrm9jgwmmi4cpk0",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-08T19:10:07.558Z"
-      },
-      {
-        "id": "141pxcv1nmndnc7jm",
-        "type": "expense",
-        "amount": 2.53,
-        "desc": "Pringles",
-        "category": "Alimentation",
-        "date": "2026-03-30",
-        "walletId": "fjk4hxn4amndnayiz",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-30T20:34:24.946Z"
-      },
-      {
-        "id": "v6z4n7ubtmndncnwi",
-        "type": "expense",
-        "amount": 1.53,
-        "desc": "Fuze tea",
-        "category": "Alimentation",
-        "date": "2026-03-30",
-        "walletId": "fjk4hxn4amndnayiz",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-30T20:34:46.146Z"
-      },
-      {
-        "id": "g8ek4cjchmndnlq4e",
-        "type": "expense",
-        "amount": 19.22,
-        "desc": "Voyage Toulouse objet",
-        "category": "Loisirs",
-        "date": "2026-03-30",
-        "walletId": "1x4fp19qrmndndxhs",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-30T20:41:48.928Z"
-      },
-      {
-        "id": "ne2ci1o7emne6t8nq",
-        "type": "income",
-        "amount": 50,
-        "desc": "Toulouse rajout",
-        "category": "Épargne",
-        "date": "2026-03-31",
-        "walletId": "eehsl0g0bmne6seqc",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-03-31T05:39:32.246Z"
-      },
-      {
-        "id": "g004j6r41mpsmk7wd",
-        "type": "income",
-        "amount": 5,
-        "desc": "Argent donner par parents",
-        "category": "Épargne",
-        "date": "2026-05-23",
-        "walletId": "pznquwpg2mpsmjgn1",
-        "projId": null,
-        "recurring": false,
-        "createdAt": "2026-05-30T17:28:36.349Z"
-      }
-    ]
+    "transactions": []
   },
   "settings": {
     "accent": "#0ea5e9",
