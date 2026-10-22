@@ -1,7 +1,85 @@
 {
   "version": "3.0",
-  "lastUpdated": "2026-10-22T17:35:21.609Z",
+  "lastUpdated": "2026-10-22T17:37:53.635Z",
   "projects": [
+    {
+      "id": "uqeckp8vdmvjtoraa",
+      "name": "SRV IA /IXA",
+      "description": "",
+      "icon": "🖥️",
+      "color": "#0ea5e9",
+      "tasks": [
+        {
+          "id": "1uys7fstmmvjtptqf",
+          "text": "Config NAS PRV",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        },
+        {
+          "id": "405yb2337mvjtpzi6",
+          "text": "Config NAS PBC",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        },
+        {
+          "id": "ods77ame2mvjtq3px",
+          "text": "Config APP",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        },
+        {
+          "id": "eh01lar0jmvjtqakt",
+          "text": "Config AGENT IA",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        },
+        {
+          "id": "u0qkylwcxmvjtqgjy",
+          "text": "Config Panel",
+          "done": false,
+          "status": "todo",
+          "priority": "medium",
+          "rank": 0,
+          "subtasks": [],
+          "note": "",
+          "dueDate": ""
+        }
+      ],
+      "tags": [],
+      "priority": "high",
+      "dueDate": "2026-10-30",
+      "notes": "",
+      "links": [],
+      "estimatedHours": 0,
+      "loggedHours": 0,
+      "pomodoroCount": 0,
+      "categoryId": "cat_tech",
+      "pinned": false,
+      "archived": false,
+      "completed": false,
+      "createdAt": "2026-10-22T17:36:23.842Z",
+      "updatedAt": "2026-10-22T17:36:23.842Z"
+    },
     {
       "id": "qhjr28c9amno8yx63",
       "name": "Application Canva ",
